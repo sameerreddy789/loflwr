@@ -1,0 +1,399 @@
+{
+  "access_date": "2026-10-20",
+  "route": "agent-reach/Jina Reader",
+  "records": [
+    {
+      "label": "adalora",
+      "url": "https://arxiv.org/abs/2303.10512",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "AdaLoRA: Adaptive Budget Allocation for Parameter-Efficient Fine-Tuning",
+      "publication_comments": "The 11th International Conference on Learning Representations (ICLR 2023)",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "banking77",
+      "url": "https://github.com/PolyAI-LDN/task-specific-datasets",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "distilgpt2",
+      "url": "https://huggingface.co/distilbert/distilgpt2",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "dora",
+      "url": "https://arxiv.org/abs/2402.09353",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "DoRA: Weight-Decomposed Low-Rank Adaptation",
+      "publication_comments": "ICML2024(Oral)",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "fedavg",
+      "url": "https://arxiv.org/abs/1602.05629",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+      "publication_comments": "[v4] Fixes a typo in the FedAvg pseudocode. [v3] Updates the large-scale LSTM experiments, along with other minor changes",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "fedbuff",
+      "url": "https://arxiv.org/abs/2106.06639",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Federated Learning with Buffered Asynchronous Aggregation",
+      "publication_comments": "Accepted at AISTATS 2022. Previously accepted at FL-ICML 2021",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "federatedscope-llm",
+      "url": "https://github.com/alibaba/FederatedScope",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "fedfit-plan-citation",
+      "url": "https://arxiv.org/abs/2610.01537",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "FedFit: Federated Fine-Tuning of LLMs via Vector-Bank Parameterization and Quantization",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": [
+        "http://creativecommons.org/licenses/by-sa/4.0/"
+      ]
+    },
+    {
+      "label": "fedllm-bench",
+      "url": "https://github.com/tao-shen/FedLLM-Bench",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "fedlore-plan-citation",
+      "url": "https://arxiv.org/abs/2610.01620",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "FedLore: Communication and Memory Efficient Federated Learning via Shared Gradient Low-Rank Projection",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "fednova",
+      "url": "https://arxiv.org/abs/2007.07481",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "fedprox",
+      "url": "https://arxiv.org/abs/1812.06127",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Federated Optimization in Heterogeneous Networks",
+      "publication_comments": "MLSys 2020",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "ffa-lora",
+      "url": "https://arxiv.org/abs/2403.12313",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Improving LoRA in Privacy-preserving Federated Learning",
+      "publication_comments": "published at ICLR 2024, full paper 17 pages",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "flexlora",
+      "url": "https://arxiv.org/abs/2402.11505",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Federated Fine-tuning of Large Language Models under Heterogeneous Tasks and Client Resources",
+      "publication_comments": "19 pages, 13 tables, 9 figures",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "flora",
+      "url": "https://arxiv.org/abs/2409.05976",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "FLoRA: Federated Fine-Tuning Large Language Models with Heterogeneous Low-Rank Adaptations",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "flower-grid",
+      "url": "https://flower.ai/docs/framework/ref-api/flwr.serverapp.Grid.html",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "flower-simulation",
+      "url": "https://flower.ai/docs/framework/how-to-run-simulations.html",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "flowertune",
+      "url": "https://flower.ai/docs/examples/flowertune-llm.html",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "flute",
+      "url": "https://github.com/microsoft/msrflute",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "galore",
+      "url": "https://arxiv.org/abs/2403.03507",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "GaLore: Memory-Efficient LLM Training by Gradient Low-Rank Projection",
+      "publication_comments": "ICML 2024 (Oral)",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "gemma3-270m",
+      "url": "https://huggingface.co/google/gemma-3-270m-it",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "gpt2",
+      "url": "https://huggingface.co/openai-community/gpt2",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "openai-community/gpt2 \u00b7 Hugging Face",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "hetlora",
+      "url": "https://arxiv.org/abs/2401.06432",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Heterogeneous LoRA for Federated Fine-tuning of On-Device Foundation Models",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "lfm2-350m",
+      "url": "https://huggingface.co/LiquidAI/LFM2-350M",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "lora",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "publication_comments": "Draft V2 includes better baselines, experiments on GLUE, and more on adapter latency",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "lora-fa",
+      "url": "https://arxiv.org/abs/2308.03303",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "LoRA-FA: Efficient and Effective Low Rank Representation Fine-tuning",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "mezo",
+      "url": "https://arxiv.org/abs/2305.17333",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Fine-Tuning Language Models with Just Forward Passes",
+      "publication_comments": "Accepted by NeurIPS 2023 (oral). Code available at [this https URL](https://github.com/princeton-nlp/MeZO)",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "openfedllm",
+      "url": "https://github.com/rui-ye/OpenFedLLM",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "peft",
+      "url": "https://huggingface.co/docs/peft/main/developer_guides/lora",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "prelort-plan-citation",
+      "url": "https://arxiv.org/abs/2606.15963",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "PreLort: Prefix-Nested LoRA for Federated Fine-Tuning under Rank Heterogeneity",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "q-ffl",
+      "url": "https://arxiv.org/abs/1905.10497",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Fair Resource Allocation in Federated Learning",
+      "publication_comments": "ICLR 2020",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "qlora",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "publication_comments": "Extended NeurIPS submission",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "qwen2.5-0.5b",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "scaffold",
+      "url": "https://arxiv.org/abs/1910.06378",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "SCAFFOLD: Stochastic Controlled Averaging for Federated Learning",
+      "publication_comments": "v2 contains analysis of FedAvg, non-convex rates of Scaffold, and experimental evaluation. v3 fixes typos, ICML version. v4 slightly improves rate of SCAFFOLD for general convex functions",
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "secure-aggregation",
+      "url": "https://research.google/pubs/practical-secure-aggregation-for-privacy-preserving-machine-learning/",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "smollm2-135m",
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "smollm2-360m",
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "tinyllama",
+      "url": "https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "status": "unavailable",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "label": "update-leakage",
+      "url": "https://arxiv.org/abs/1906.08935",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "Deep Leakage from Gradients",
+      "publication_comments": null,
+      "status": "page-read",
+      "license_links": []
+    },
+    {
+      "label": "vera",
+      "url": "https://arxiv.org/abs/2310.11454",
+      "access_date": "2026-10-20",
+      "review_depth": "metadata/abstract or documentation page; no reproduction",
+      "reader_http_status": 200,
+      "title": "VeRA: Vector-based Random Matrix Adaptation",
+      "publication_comments": "Accepted at ICLR 2024, website: [this https URL](https://dkopi.github.io/vera)",
+      "status": "page-read",
+      "license_links": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ]
+    }
+  ]
+}

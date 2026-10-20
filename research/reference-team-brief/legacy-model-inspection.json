@@ -1,0 +1,15 @@
+{
+  "original_path": "D:\\Hackathons\\loflwr\\IIT-B\\model.safetensors",
+  "bytes": 988097824,
+  "sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+  "inferred_model": "Qwen2.5-0.5B",
+  "stored_parameters": 494032768,
+  "dtype": "BF16",
+  "hidden_size": 896,
+  "vocabulary_size": 151936,
+  "complete_checkpoint": false,
+  "decision": "removed_by_owner",
+  "absence_verified_on": "2026-10-20",
+  "reason": "The latest approved model is SmolLM2-135M-Instruct; this standalone Qwen weights file does not include model configuration or tokenizer assets.",
+  "inspected_on": "2026-10-19"
+}

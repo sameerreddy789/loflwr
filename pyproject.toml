@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fedlora-edge"
+version = "0.1.0"
+description = "Shared-A federated adapter training with explicit influence and dropout policies"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = []
+
+[project.optional-dependencies]
+training = ["torch>=2.6,<3", "transformers>=4.53,<6", "peft>=0.17,<1", "huggingface-hub>=0.30,<2", "safetensors>=0.6,<1", "psutil>=5.9,<8"]
+flower = ["flwr[simulation]==1.40.0"]
+dashboard = ["streamlit>=1.45,<2", "plotly>=6,<7"]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[project.urls]
+Repository = "https://github.com/sameerreddy789/loflwr"
+Documentation = "https://github.com/sameerreddy789/loflwr/tree/main/research"
+
+[tool.setuptools.packages.find]
+include = ["fedlora_edge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
