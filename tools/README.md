@@ -31,4 +31,4 @@ Metadata/abstract review does not reproduce a paper, execute a repository, or ve
 
 The later training delivery needs deterministic dataset preparation, model/common-A caching, environment locks, local training smoke checks, matched experiment runners, run-report generation, and offline deployment bundles. Their contracts are described in [system-design.md](../research/system-design.md), [evaluation.md](../research/evaluation.md), and [roadmap.md](../research/roadmap.md).
 
-Place public model/data caches in ignored `assets/`, outputs in ignored `runs/`, and private node credentials in ignored `certificates/`. The old `tools/reference/` directory contains no successfully preserved legacy scripts in this delivery.
+Place public model/data caches in ignored `assets/`, outputs in ignored `runs/`, and private node credentials in ignored `certificates/`. No legacy scripts were successfully preserved during the earlier reference-folder import attempt.

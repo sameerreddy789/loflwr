@@ -28,17 +28,17 @@ Use the same local training function behind Flower ClientApp in simulation and D
 
 For each adapted layer, write the effective weight as:
 
-\[
+$$
 W_i = W_0 + s B_i A, \qquad s=\alpha/r.
-\]
+$$
 
 Here A has shape `rank × input_features` and B has shape `output_features × rank`. Initialize A once centrally using a recorded seed; initialize B to zero. Distribute the actual saved A tensors once rather than relying only on clients reproducing a random seed.
 
 With common A and scaling, averaging B gives the corresponding average effective adapter update:
 
-\[
+$$
 \left(\sum_i p_i B_i\right)A = \sum_i p_i B_i A.
-\]
+$$
 
 If clients independently train both A and B, in general `mean(B) × mean(A)` is not `mean(B × A)`. Factor-coordinate symmetries also complicate comparing independently initialized adapters. Shared frozen A removes that particular factor-aggregation mismatch. It does not prove convergence under arbitrary data, work limits, or dropout.
 
@@ -77,11 +77,11 @@ Optional FedProx adds a B-coordinate penalty `mu/2 × ||B - B_start||²` to loca
 
 Let valid replies be `S_t`, with `m = |S_t|`, and global state B_t. For each client, form its delta `u_i = B_i - B_t`. Compute one norm across every B tensor together:
 
-\[
+$$
 C_t=\operatorname{median}_{i\in S_t}\|u_i\|_2,\quad
 v_i=u_i\min\left(1,\frac{C_t}{\|u_i\|_2+\epsilon}\right),\quad
 B_{t+1}=B_t+\frac{1}{m}\sum_{i\in S_t}v_i.
-\]
+$$
 
 Use deterministic median semantics; for an even contributor count, use the mean of the two middle norms. Set and record epsilon. Log original norms, threshold, clip factors, clipped norms, zero deltas, equal coefficients, and aggregate norm. If the median is zero, the formula yields no effective update; log that outcome rather than inserting an unreported positive threshold.
 
@@ -91,9 +91,9 @@ Equal weighting means `1/m` for survivors: three valid clients receive one third
 
 ## Request and reply contract
 
-Requests carry run ID, attempt ID, current model version, global-B hash, model/adapter contract hash, common-A hash, selected client ID, work limit, and deadline. Replies echo those identifiers and report completion status, completed work, timing/memory telemetry, and the B update.
+Requests carry run ID, attempt ID, current model version, global-B hash, model/adapter contract hash, common-A hash, selected client ID, work limit, and deadline. Replies echo those identifiers and report completion status, completed work, timing/memory telemetry, and the B delta relative to that request.
 
-Reject wrong run/attempt/version, wrong base hash, incompatible contracts, missing or extra tensors, wrong shapes/dtypes, nonfinite values, duplicate client replies, and late replies. Count only replies that satisfy the successful-work rule. Clients with zero completed optimizer steps do not satisfy that rule; a finite zero delta after reported completed work has a distinct, explicitly logged outcome.
+Reject wrong run/attempt/version, wrong base hash, incompatible contracts, missing or extra tensors, wrong shapes/dtypes, nonfinite values, duplicate client replies, and late replies. Validate finite computed deltas and final aggregate as well as received tensors. Count only replies that satisfy the successful-work rule. Clients with zero completed optimizer steps do not satisfy that rule; a finite zero delta after reported completed work has a distinct, explicitly logged outcome.
 
 Transport authentication binds responses to known nodes. Timing and work telemetry are client reports, not cryptographic proof of training. Closed, trusted nodes are the selected deployment boundary.
 

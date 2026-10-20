@@ -395,5 +395,174 @@
         "http://creativecommons.org/licenses/by/4.0/"
       ]
     }
-  ]
+  ],
+  "publisher_model_checks": {
+    "access_date": "2026-10-20",
+    "route": "Hugging Face public model API",
+    "review_depth": "model-card metadata/license/access/revision; no inference or training",
+    "records": [
+      {
+        "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+        "url": "https://huggingface.co/api/models/HuggingFaceTB/SmolLM2-135M-Instruct",
+        "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+        "license": "apache-2.0",
+        "gated": false,
+        "stored_safetensors_elements": 134515008,
+        "license_name": null
+      },
+      {
+        "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "url": "https://huggingface.co/api/models/HuggingFaceTB/SmolLM2-360M-Instruct",
+        "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+        "license": "apache-2.0",
+        "gated": false,
+        "stored_safetensors_elements": 361821120,
+        "license_name": null
+      },
+      {
+        "model": "openai-community/gpt2",
+        "url": "https://huggingface.co/api/models/openai-community/gpt2",
+        "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+        "license": "mit",
+        "gated": false,
+        "stored_safetensors_elements": 137022720,
+        "license_name": null
+      },
+      {
+        "model": "distilbert/distilgpt2",
+        "url": "https://huggingface.co/api/models/distilbert/distilgpt2",
+        "revision": "2290a62682d06624634c1f46a6ad5be0f47f38aa",
+        "license": "apache-2.0",
+        "gated": false,
+        "stored_safetensors_elements": 88204032,
+        "license_name": null
+      },
+      {
+        "model": "google/gemma-3-270m-it",
+        "url": "https://huggingface.co/api/models/google/gemma-3-270m-it",
+        "revision": "ac82b4e820549b854eebf28ce6dedaf9fdfa17b3",
+        "license": "gemma",
+        "gated": "manual",
+        "stored_safetensors_elements": 268098176,
+        "license_name": null
+      },
+      {
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B-Instruct",
+        "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+        "license": "apache-2.0",
+        "gated": false,
+        "stored_safetensors_elements": 494032768,
+        "license_name": null
+      },
+      {
+        "model": "LiquidAI/LFM2-350M",
+        "url": "https://huggingface.co/api/models/LiquidAI/LFM2-350M",
+        "revision": "f37d3f5c8c5484bc01dad379a595cf4c68c4e70e",
+        "license": "other",
+        "gated": false,
+        "stored_safetensors_elements": 354483968,
+        "license_name": "lfm1.0"
+      },
+      {
+        "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        "url": "https://huggingface.co/api/models/TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        "revision": "fe8a4ea1ffedaf415f4da2f062534de366a451e6",
+        "license": "apache-2.0",
+        "gated": false,
+        "stored_safetensors_elements": 1100048384,
+        "license_name": null
+      }
+    ]
+  },
+  "supplemental_page_checks": [
+    {
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
+      "route": "agent-reach/Jina Reader standalone before batch",
+      "status": "page-read",
+      "review_depth": "model card and license section"
+    },
+    {
+      "url": "https://flower.ai/docs/framework/how-to-run-simulations.html",
+      "route": "agent-reach/Jina Reader standalone before batch",
+      "status": "page-read",
+      "review_depth": "simulation documentation"
+    },
+    {
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/config.json",
+      "route": "publisher immutable file HTTP",
+      "status": "file-read",
+      "observations": {
+        "hidden_size": 576,
+        "layers": 30,
+        "attention_heads": 9,
+        "kv_heads": 3,
+        "vocabulary_size": 49152,
+        "pad_token_id": 2,
+        "eos_token_id": 2
+      }
+    },
+    {
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer_config.json",
+      "route": "publisher immutable file HTTP",
+      "status": "file-read",
+      "observations": {
+        "pad_token": "<|im_end|>",
+        "eos_token": "<|im_end|>",
+        "assistant_generation_mask_block": false
+      }
+    },
+    {
+      "url": "https://github.com/PolyAI-LDN/task-specific-datasets",
+      "route": "agent-reach/GitHub CLI README and LICENSE",
+      "status": "files-read",
+      "license": "CC-BY-4.0",
+      "repository_revision_inspected": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+      "readme_counts": {
+        "train": 10003,
+        "test": 3080,
+        "intents": 77
+      }
+    },
+    {
+      "url": "https://github.com/rui-ye/FedLLM-Bench",
+      "route": "agent-reach/GitHub CLI search, metadata, LICENSE",
+      "status": "metadata-and-license-read",
+      "detected_spdx": "NOASSERTION",
+      "overall_license_from_file": "CC-BY-NC-4.0",
+      "subdataset_terms": "additional licenses apply"
+    }
+  ],
+  "github_repository_checks": {
+    "access_date": "2026-10-20",
+    "route": "agent-reach/GitHub CLI public repository metadata",
+    "review_depth": "existence/license/archive state, not source-code execution",
+    "records": [
+      {
+        "repository": "alibaba/FederatedScope",
+        "license": "Apache-2.0",
+        "archived": false
+      },
+      {
+        "repository": "rui-ye/OpenFedLLM",
+        "license": "Apache-2.0",
+        "archived": false
+      },
+      {
+        "repository": "microsoft/msrflute",
+        "license": "MIT",
+        "archived": true
+      },
+      {
+        "repository": "flwrlabs/flower",
+        "license": "Apache-2.0",
+        "archived": false
+      },
+      {
+        "repository": "huggingface/peft",
+        "license": "Apache-2.0",
+        "archived": false
+      }
+    ]
+  }
 }
