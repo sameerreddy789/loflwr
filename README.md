@@ -2,9 +2,11 @@
 
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
-The project will specialize a small banking-support model using data held by separate participants. Each client trains a small adapter and shares its update. The server exposes each contributor's aggregation coefficient and continues an attempt when enough valid replies arrive before its deadline.
+The project will specialize a small language model for banking intent routing using data held by separate participants. Each client trains a small adapter and shares its update. The server exposes each contributor's aggregation coefficient and continues an attempt when enough valid replies arrive before its deadline.
 
 **Current delivery: research dossier, project workflows, and initial Python tensor-state scaffolding.** Local language-model training, Flower applications, experiment results, the dashboard, and three-laptop deployment still need implementation and verification. This repository does not yet demonstrate convergence or a live dropout recovery.
+
+**2 November planning update:** the builder is working solo toward a working-demo checkpoint in one week. Start with the [seven-day prototype plan](research/seven-day-prototype.md), [research and ideation synthesis](research/ideation.md), and [uploaded abstract alignment review](research/abstract-alignment.md). The original full experiment program remains documented; the first checkpoint targets a smaller, explicitly preliminary comparison.
 
 ## Selected design
 
@@ -29,6 +31,9 @@ The design follows [FFA-LoRA](https://arxiv.org/abs/2403.12313). Federated LoRA 
 | Document | What it answers |
 | --- | --- |
 | [Research overview](research/README.md) | Why this design and what the hackathon must demonstrate |
+| [Ideation and research synthesis](research/ideation.md) | How the problem becomes testable hypotheses and justified design decisions |
+| [Solo seven-day plan](research/seven-day-prototype.md) | Working-demo priorities, daily gates, minimum comparisons, and cut criteria |
+| [Abstract alignment](research/abstract-alignment.md) | What changed from the uploaded proposal and which commitments remain |
 | [Landscape](research/landscape.md) | Which models, PEFT methods, optimizers, and existing systems fit the constraints |
 | [System design](research/system-design.md) | How shared-A aggregation, local training, identity, and recovery work |
 | [Evaluation](research/evaluation.md) | Exact domains, splits, baselines, metrics, and acceptance checks |

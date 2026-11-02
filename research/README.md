@@ -1,6 +1,8 @@
 # FedLoRA-Edge research dossier
 
-**Research and design delivery, 20 October 2026.** This dossier records the approved implementation target and primary-source review. It contains no completed training results.
+**Initial delivery: 20 October 2026. Research/planning update: 2 November 2026.** This dossier records the selected implementation target and primary-source review. It contains no completed training results. The new checkpoint constraint is one solo builder with a working demo due in one week.
+
+Start with the [seven-day prototype plan](seven-day-prototype.md). It stages a preliminary comparison before the full evaluation program. The [ideation synthesis](ideation.md) explains the reasoning, and [abstract alignment](abstract-alignment.md) records changes from the newly reviewed GPT-2/WikiText-2/capped-weight proposal. The selected SmolLM2/BANKING77/shared-A design remains active.
 
 ## Recommendation
 
@@ -14,6 +16,9 @@ The deployment target is three laptops with CPU clients having at least 8 GB RAM
 
 | File | Purpose | Reader |
 | --- | --- | --- |
+| [ideation.md](ideation.md) | Explanation of problem discovery, hypotheses, alternatives, and evidence gates | Solo builder and reviewers |
+| [seven-day-prototype.md](seven-day-prototype.md) | Working-demo guide with a staged pilot and realistic cut criteria | Solo implementer |
+| [abstract-alignment.md](abstract-alignment.md) | Uploaded proposal review, design changes, and supplied competition criteria | Builder and checkpoint reviewers |
 | [landscape.md](landscape.md) | Explanation and comparisons of existing approaches | Team selecting methods and judges assessing novelty |
 | [system-design.md](system-design.md) | Reference contract for training, aggregation, and failure handling | Implementers and reviewers |
 | [evaluation.md](evaluation.md) | Reference protocol for reproducible comparisons | Experiment owners and result reviewers |

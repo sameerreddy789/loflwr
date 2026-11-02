@@ -2,6 +2,8 @@
 
 This document fixes the benchmark before training. All model-performance and deployment acceptance checks below are pending. The existing tensor-state tests are not substitutes for these experiments.
 
+**2 November checkpoint addendum:** [seven-day-prototype.md](seven-day-prototype.md) stages a seed-42 pilot for the solo working-demo deadline. It retains the selected manifests and methods, includes the uploaded abstract's centralized reference, and does not mark the full twenty-attempt/three-seed matrix complete. Any shorter pilot horizon must be fixed before comparison/test evaluation and reported explicitly.
+
 ## Task and fixed domains
 
 Use queries and labels from the original BANKING77 dataset. Train a causal language model to complete the intent name. At inference, score the 20 permitted completions using the fixed rule in [system-design.md](system-design.md), select one, and map it to a team-authored response.
@@ -46,12 +48,13 @@ Equal-budget runs use 8 optimizer steps per client per attempt. Initial heteroge
 | Configuration | Purpose |
 | --- | --- |
 | Frozen base | Establish initial 20-intent task quality under the same scoring rule |
+| Centralized B-only reference | Same public training union, initialization, scoring, and declared processed work; preserve the uploaded abstract's promised comparison |
 | Shared-A, sample-weighted FedAvg | Naive influence baseline; coefficients use manifest training sizes |
 | Shared-A, equal averaging | Isolate the coefficient-policy change |
 | Shared-A, equal weights and median clipping | Main proposed system |
 | Main system with B-coordinate FedProx | Optional local-drift ablation |
 
-All adapter baselines share A. Training both factors in only one baseline would confound factor aggregation with weighting and clipping. Full-model fine-tuning, centralized upper bounds, and encoder classifiers may be later contextual references, but are not substitutes for these controlled comparisons.
+All adapter baselines share A. Training both factors in only one baseline would confound factor aggregation with weighting and clipping. The centralized reference uses the minibatch replay and optimizer reset contract in [abstract-alignment.md](abstract-alignment.md); it is not a guaranteed upper bound. A TF-IDF or encoder classifier is separate task-efficiency context, not a substitute for the promised fine-tuning reference or the controlled federated comparisons.
 
 For FedProx, tune mu using validation only from `1e-4`, `1e-3`, and `1e-2`. Keep the B-start reference detached and fixed. Account for that penalty consistently in logged losses; report task loss separately from penalized training objective.
 
@@ -64,7 +67,9 @@ Run the sample-weighted baseline and main system for 20 **attempts** each, with 
 3. 90% data imbalance, heterogeneous budgets.
 4. The same imbalance and budgets, with scripted mid-training dropout and rejoining.
 
-This is 24 principal runs and 480 scheduled attempts before optional ablations. A skipped attempt still consumes its attempt number and wall time; it must not appear as a completed training round.
+This is 24 principal runs and 480 scheduled attempts. That count excludes the additional plain-equal control required for claims separating weighting from clipping, the centralized reference, the omission study, and optional FedProx ablations. Plain equal is required for mechanism attribution; FedProx is optional. A skipped attempt still consumes its attempt number and wall time; it must not appear as a completed training round.
+
+Interpret this matrix carefully: balanced/imbalanced conditions use 800/400 total unique training queries; equal/heterogeneous work totals 40/32 optimizer steps per attempt; the largest dataset is also the fastest-budget client and owns card-payment intents. Matched strategy comparisons within a condition remain informative. Differences across conditions do not isolate data quantity, data skew, local work, and domain identity. Plain equal versus sample weighting is identical on balanced equal-size manifests, so that cell isolates clipping only when comparing with the main method.
 
 For a reproducible initial dropout schedule, disconnect client 1 on attempts 4, 8, and 12 after two completed optimizer steps. It rejoins on the next attempt after fresh synchronization. Store the exact schedule and trigger in run configuration. Run an actual process/network interruption as well as a deterministic application-level simulation; a Python exception alone does not validate the networked demonstration.
 
@@ -75,6 +80,8 @@ Use validation for monitoring and optional hyperparameters. Evaluate the final c
 Compare otherwise matched main-system runs with and without weak client 4, using the 90%/heterogeneous condition without scripted dropout to isolate its marginal contribution. Keep the other clients' samples, budgets, random streams, attempt count, and quorum rule fixed. Report verification-domain accuracy, overall macro F1, worst-domain accuracy, and wall time.
 
 Give paired seed differences and uncertainty. A positive effect is an empirical requirement to support the claim that weak clients contribute usefully. If the effect is negligible or unfavorable, report it and investigate the budget/task choice; the existence of a nonzero update is not proof of benefit.
+
+This estimates the total effect of including client 4 in the specified protocol. Omission changes available examples, survivor count, coefficients, and median clipping. It does not isolate slow hardware as the source of any benefit. A single-seed checkpoint omission run is preliminary and does not replace paired multi-seed confirmation.
 
 ## Metrics and result records
 

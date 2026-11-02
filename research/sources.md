@@ -1,6 +1,6 @@
 # Sources, review depth, and licenses
 
-Access date for this delivery: **20 October 2026, Asia/Calcutta**. This register separates verified page identity, published claims, engineering reasoning, and pending reproduction.
+Initial access date: **20 October 2026, Asia/Calcutta**. The separately dated **2 November 2026** addendum below records the checkpoint research and abstract review; it does not imply every older source was re-reviewed. This register separates verified page identity, published claims, engineering reasoning, and pending reproduction.
 
 ## Review method and limits
 
@@ -98,3 +98,31 @@ The project does not implement differential privacy or secure aggregation and do
 ## Before incorporating third-party code or publishing results
 
 Inspect the exact implementation/license and pin its commit. Record CPU/CUDA package locks after smoke tests. Cite BANKING77 and retain its attribution when distributing derived data. Review gated/custom/noncommercial model and benchmark terms separately. Attach configuration, seed, manifest, checkpoint, hardware, and run identity to our own measurements.
+
+## Checkpoint research addendum — 2 November 2026
+
+This was a targeted primary-source and design review for one builder with a working-demo deadline in one week. Sources were accessed through the agent-reach skill's Jina Reader route and GitHub CLI/API. The `agent-reach` and `mcporter` executables were unavailable, so no backend doctor, Exa search, or tool update check completed. No social discussion was used as evidence of demand, no customer interviews were conducted, and no model experiment was run.
+
+| Source | Review depth/status | Supports and limits |
+| --- | --- | --- |
+| [Design Council: Framework for Innovation](https://www.designcouncil.org.uk/resources/framework-for-innovation/) | Full framework page read | Discover, Define, Develop, Deliver and iteration; applying this process here is our planning decision, not customer validation |
+| [Towards Federated Learning at Scale: System Design](https://arxiv.org/abs/1902.01046) | Abstract and metadata read; full system paper not audited | Participation/orchestration as real system concerns; no claim of reproducing its deployment scale |
+| [Advances and Open Problems in Federated Learning](https://arxiv.org/abs/1912.04977) | Abstract and publication metadata; page identifies Foundations and Trends | Broad FL constraints and open problems; no full survey/proof review in this pass |
+| [Efficient Intent Detection with Dual Sentence Encoders](https://arxiv.org/abs/2003.04807), [full HTML](https://arxiv.org/html/2003.04807v1) | Abstract plus dataset, methods, experiments, discussion and conclusion text read; numerical table extraction incomplete | BANKING77 task design and efficient encoder-based classification; no table scores quoted or results reproduced |
+| [Original BANKING77 repository](https://github.com/PolyAI-LDN/task-specific-datasets) | README, repository/directory metadata, and raw training CSV counts inspected | Raw selected-label availability; not normalized/deduplicated manifest feasibility. Dataset license remains CC BY 4.0 as checked in October |
+| [PolyAI model repository](https://github.com/PolyAI-LDN/polyai-models) | Current README read | States that ConveRT models were withdrawn; do not plan around those released assets without new access/license verification |
+| [SmolLM2-135M-Instruct card](https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct) | Model summary, use, benchmarks, limitations and Apache 2.0 card license reviewed | Selected model identity and English focus; publisher benchmarks do not predict our task accuracy or memory |
+| [all-MiniLM-L6-v2 card](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Full model-card text reviewed | 384-dimensional sentence representations and attention-aware pooling; optional reference only, exact revision/license adoption check and local experiment pending |
+| [Calibrate Before Use](https://arxiv.org/abs/2102.09690) | Abstract and publication metadata; ICML 2021 identified | Answer-prior/prompt sensitivity and calibration as research context; not a validated fix for this fine-tuned model |
+| [Surface Form Competition](https://arxiv.org/abs/2104.08315) | Abstract and version history read; venue not separately checked | Distinguishes string probabilities from answer concepts; no scorer implementation or reproduction |
+| [FedNova](https://arxiv.org/abs/2007.07481) and [FedProx](https://arxiv.org/abs/1812.06127) | Abstracts/metadata rechecked; FedProx page identifies MLSys 2020 | Unequal local work and local drift matter; theorem conditions are not inherited by the AdamW/B-only/clipped system |
+| [Flower Grid 1.40 reference](https://flower.ai/docs/framework/1.40/en/ref-api/flwr.serverapp.Grid.html) | Versioned API methods and descriptions read | `create_message` TTL governs round-trip message validity; `send_and_receive(timeout=...)` bounds reply collection, does not alter TTL, and may return fewer replies. Installed-runtime behavior and cleanup still need testing |
+| [Current Flower Grid reference](https://flower.ai/docs/framework/ref-api/flwr.serverapp.Grid.html) | API descriptions and version navigation inspected | Unversioned page currently displays 1.42.x; version-specific documentation is necessary. A guessed GitHub `v1.40.0` tag returned 404; this does not imply the PyPI release is unavailable |
+
+The raw dataset inspection observed repository HEAD `57ec275d8078af65b7731c2a98be812d844a6d6b`, training CSV blob `98e2543cf482d0dca7bfb175ebe35d98efad95be`, and CSV size 839,073 bytes. Raw counts for the rich-client labels were 159 (`pending_card_payment`), 153 (`declined_card_payment`), 168 (`card_payment_not_recognised`), and 175 (`transaction_charged_twice`). Two smaller selected labels had 102 (`unable_to_verify_identity`) and 104 (`verify_my_identity`) rows. This checks raw capacity only; normalized duplicates, conflicts, held-out exclusions and immutable manifests remain implementation work. A Git blob identifier is not the planned manifest SHA-256.
+
+PyPI metadata checks found the proposed Flower 1.40.0, Transformers 4.57.1, PEFT 0.17.1 and Torch 2.8.0 versions available. Availability is not a compatible environment. The proposed complete CPU/CUDA locks do not exist. Hardware/WSL observations in [seven-day-prototype.md](seven-day-prototype.md) are host observations, not training measurements.
+
+The uploaded four-page PDF and the competition rules supplied in conversation are user-provided sources. The PDF's size/hash, exact commitments and review limits are recorded in [abstract-alignment.md](abstract-alignment.md). It does not establish actual submission or acceptance. No current official Techfest competition page was independently verified, and Round 1 weights must not be presented as confirmed finals weights. The portal questions in that review are drafts; nothing was submitted or emailed.
+
+The clipping/renormalization counterexample, capped-weight feasibility condition, shared-A linearity discussion, step totals, and candidate-score counts are algebra/arithmetic. The pilot selection, centralized replay schedule, solo priorities and stop/go gates are engineering decisions. Their scientific and resource outcomes remain unmeasured. The existing October `source-review.json` is preserved as historical metadata and does not purport to contain these November reviews.

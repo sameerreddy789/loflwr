@@ -1,12 +1,12 @@
 # Implementation and demonstration roadmap
 
-This is the approved delivery order for roughly one week or more of implementation. Dates below are work stages rather than claims that the stages have already been completed. See [implementation-status.md](implementation-status.md).
+**2 November update:** use [the solo seven-day plan](seven-day-prototype.md) for the immediate working-demo checkpoint. The earlier allocation assumed broader implementation capacity and unmeasured experiment runtime. The stages below preserve the full delivery program; they are not a promise to finish all experiments and physical deployment in one solo week. See [implementation-status.md](implementation-status.md).
 
 ## Research delivery
 
 Publish the root README, six-part dossier, project skills, initial state scaffolding, and meaningful dependency-free checks. Link primary sources and record their review depth. Verify the GitHub commit and repository navigation. Exclude model weights, datasets, credentials, and local caches.
 
-## Days 1–2: one-client learning and reproducibility
+## Stage 1: one-client learning and reproducibility
 
 Prepare isolated Python 3.11+ CPU and CUDA environments. Flower 1.40.0 is the selected starting framework version; package availability is not proof of compatibility. Freeze complete environments after smoke tests, not before discovering which stack actually works.
 
@@ -16,7 +16,7 @@ Complete a real CPU and GPU smoke test. Check trainable names/count, frozen hash
 
 **Gate:** actual B learning works within the laptop memory budget. If memory or task quality fails, first adjust sequence length/work limits or reconsider the validated small-model choice using validation evidence; document changes before freezing principal experiments.
 
-## Days 3–4: five-client federation and failures
+## Stage 2: five-client federation and failures
 
 Implement Flower ClientApp and ServerApp around the shared training code. Add versioned request/reply contracts, sample-weighted/equal/clipped strategies, explicit deadlines, quorums, validation, and atomic checkpoints.
 
@@ -24,15 +24,15 @@ Use WSL2 for Ray simulation and start with one GPU training worker. Account for 
 
 **Gate:** all clients start from the same committed B; only compatible successful replies count; enough survivors commit within the bounded attempt; a rejoining node receives current state. A toy aggregation test alone does not pass this gate.
 
-## Days 5–6: measured comparisons and deployment
+## Stage 3: measured comparisons and deployment
 
-Run the principal 20-attempt experiments with seeds 42/43/44 and matched manifests, budgets, and schedules. Add the equal-weight ablation and weak-client omission study. Tune optional B-coordinate FedProx only on validation. Publish unfavorable as well as favorable results.
+Begin with the checkpoint pilot and matched centralized B-only reference described in [seven-day-prototype.md](seven-day-prototype.md). Then complete the retained principal 20-attempt experiments with seeds 42/43/44 and matched manifests, budgets, and schedules when calibrated runtime permits. Include the equal-weight ablation and weak-client omission study. Tune optional B-coordinate FedProx only on validation. Publish unfavorable as well as favorable results.
 
 Prepare three separate laptops using Flower Deployment Runtime. The host provides SuperLink, evaluation, a client, and a dashboard. The other two laptops contribute CPU clients. Use a dedicated hotspot/LAN, TLS, authenticated known nodes, locally cached assets, and a tested offline wheel/environment bundle.
 
 **Gate:** real client training and communication work over the local network. Measure server/evaluation memory separately from client memory. Record actual transport bytes and timing rather than replacing them with raw tensor estimates.
 
-## Day 7: offline rehearsal and judging
+## Stage 4: offline rehearsal and judging
 
 Disconnect internet and perform a fresh start. Demonstrate a real client disappearing mid-training, survivors meeting quorum, and the returning client synchronizing fresh state. Rehearse recovery if the quorum is missed.
 

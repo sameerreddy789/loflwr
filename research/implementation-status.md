@@ -1,10 +1,11 @@
 # Implementation status
 
-Last updated: **20 October 2026**. This describes repository delivery, not planned features as if they already existed.
+Last updated: **2 November 2026**. This describes repository delivery, not planned features as if they already existed. This update adds research/planning documentation only; no language-model training or Flower implementation was performed.
 
 ## Included in this delivery
 
 - Root README and the research overview, landscape, system design, evaluation, roadmap, and source register.
+- Research/ideation synthesis, solo seven-day checkpoint plan, and review of all four pages of the uploaded abstract, with explicit design changes and centralized-comparison commitment.
 - Four project-specific skills for frozen-A training, federated rounds, BANKING77 experiments, and laptop deployment.
 - `fedlora_edge/state.py`: initial dependency-free tensor representation, canonical FP32 state handling, schema/hash/size/norm helpers, finite checks, and subtraction.
 - Standard-library tensor-state contract tests and documentation/source-review utilities.
@@ -32,6 +33,8 @@ The source register distinguishes reviewed primary-page metadata/abstracts, fram
 Tensor-state checks establish only their local mathematical/serialization invariants. No training loss curves, BANKING77 scores, measured communication traffic, peak training RAM/VRAM, convergence results, or weak-client benefits are available in this delivery.
 
 ## Next implementation gates
+
+Use [seven-day-prototype.md](seven-day-prototype.md) for the immediate checkpoint. The full program below remains outstanding; a seed-42 pilot does not complete the multi-seed experiment requirement.
 
 1. Actual one-client CPU/GPU learning with frozen base/A and correct intent/EOS masking.
 2. Frozen BANKING77 manifests and tested dependency environments.
