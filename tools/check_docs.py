@@ -18,7 +18,8 @@ def main() -> int:
         if not (ROOT / name).is_file():
             errors.append(f"Missing required document: {name}")
     documents = []
-    for folder in (ROOT, ROOT / "research", ROOT / "skills", ROOT / "tools"):
+    for folder in (ROOT, ROOT / "research", ROOT / "skills", ROOT / "tools",
+                   ROOT / "docs", ROOT / "configurations", ROOT / "requirements"):
         documents.extend(folder.glob("*.md") if folder == ROOT else folder.rglob("*.md"))
     for path in sorted(set(documents)):
         text = path.read_text(encoding="utf-8-sig")

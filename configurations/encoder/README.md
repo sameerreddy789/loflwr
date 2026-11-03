@@ -27,7 +27,16 @@ The selected 95.5% development head first appeared at attempt 500 in a longer
 chosen development horizon. This distinction is recorded in the
 [full results](../../research/results/encoder-v2/README.md).
 
-After all model/configuration choices are final, the confirmation utility has
+**Evaluation status, 3 November 2026:** the default dataset's 300 confirmation
+queries have already been scored. The locked Flower model achieved 94%
+(282/300); see the [published confirmation](../../research/results/encoder-v2/confirmation-result.json).
+They are now evaluation evidence, not an untouched test for future model
+selection. Creating a new output directory does not make those queries unseen.
+Further selection needs a new independently held-out dataset and manifest as
+described in the [future plan](../../docs/future-plans.md).
+
+For a properly held-out evaluation, after all model/configuration choices are
+final, the confirmation utility has
 two separate steps. The first locks the completed checkpoint, source files,
 manifest metadata and reason for selection without loading confirmation queries:
 

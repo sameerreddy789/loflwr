@@ -30,6 +30,58 @@ The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recove
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
+## Test statistics and measured results
+
+Verified on **3 November 2026** using the [tested environments](requirements/README.md).
+The [handoff record](research/results/encoder-v2/handoff-verification.json)
+contains the run/checkpoint identities and hashes of the original check logs.
+
+| Verification | Observed result | Scope |
+| --- | --- | --- |
+| Full automated suite, Ubuntu WSL2 | **157 passed, 0 failed, 0 skipped** in 19.297 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, and evaluation locks |
+| Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the 157 tests, not 7 additional unique tests |
+| Locked artifact integrity | **24/24 file hashes matched** | Model/tokenizer assets, selected checkpoint, sources, and evaluation configuration |
+| Live CPU query check | Passed; a fresh pending-card-payment query returned `pending_card_payment` | Functional inference check, not an accuracy benchmark |
+| Actual five-client Flower training | **500/500 attempts committed** with all five contributors | `encoder-flower-balanced-v2`, selected version 500 |
+| Trained-model dropout and recovery | **3/3 attempts committed**; 5 → 4 → 5 accepted clients | One laptop; a client process was killed during attempt 2 and rejoined with fresh state in attempt 3 |
+
+Timings are observations from this laptop, not controlled performance comparisons.
+The full suite includes the dashboard tests. Missing optional dependencies can
+produce skips elsewhere; a smaller passing suite does not reproduce this result.
+
+| Model-quality measure | Result | Evaluation boundary |
+| --- | --- | --- |
+| Independent confirmation top-1 accuracy | **94.0% — 282/300 correct** | All 300 queries; checkpoint and scoring frozen before access |
+| Confirmation macro F1 / worst-domain accuracy | **0.93914 / 88.33%** | Transfers was the weakest domain |
+| Validation accuracy | **95.5% — 191/200 correct** | Reused development set that guided model selection |
+| Strictest frozen clarification policy | **98.65% — 220/223 answered correctly** | **74.33% coverage**; 77/300 queries declined |
+
+See [all confirmation results](research/results/encoder-v2/confirmation-result.json)
+and the [complete experiment report](research/results/encoder-v2/README.md),
+including negative adapter results and matched imbalance/omission comparisons.
+Passing software tests is separate from predicting banking intents correctly.
+
+## Future plans
+
+These milestones are planned work, not completed results. Their order prioritizes
+the weak-device/federation challenge alongside task quality.
+
+| Priority | Next milestone | Completion evidence |
+| --- | --- | --- |
+| 1 | Rehearse the prepared demo and record a fallback | Fresh offline launch, live queries, clearly labeled event replay, and a reproducible launch checklist |
+| 2 | Prepare encoder features independently on each client | Local query-to-feature preparation using the same pinned encoder; the server receives only model updates |
+| 3 | Test three physical laptops | Measured CPU/RAM budgets, authenticated TLS, bounded dropout/rejoin, and fresh startup without internet |
+| 4 | Complete matched experiments across seeds 42/43/44 | Equal/sample/clipped aggregation under heterogeneous budgets, imbalance, dropout, and paired weak-client omission; report variability and unfavorable outcomes |
+| 5 | Improve accuracy with new development data and a new independent test | Train-only improvements selected on validation; freeze the next model and policies before scoring new held-out queries |
+| 6 | Profile efficiency and evaluate later extensions | End-to-end memory, traffic and latency measurements; separate evidence before claiming benefits from adapters, secure aggregation, or differential privacy |
+
+The [detailed future plan](docs/future-plans.md) gives dependencies and acceptance
+criteria. The current 300-query confirmation set is now evaluation evidence;
+it cannot serve as an untouched test for the next model-selection cycle.
+**99–100% remains an unachieved target, not a promised milestone.**
+
+## Accuracy research and original results
+
 The [99% feasibility investigation](research/accuracy-99-feasibility.md) reports
 **95.5% validation accuracy** from a separate centralized MPNet reference using
 2,760 training queries. None of its twelve fixed reference checks reached 99%
@@ -129,6 +181,13 @@ Use [the frozen-study guide](docs/study-runner.md) to freeze a pilot or full mat
 | `requirements/` | Tested environment pins and installation notes |
 | `research/` | Design rationale, evaluation contract, implementation status, and evidence |
 | `skills/` | Four project workflows preserving training and deployment invariants |
+
+The delivered implementation is in [encoder training](fedlora_edge/encoder_head.py),
+[Flower applications](fedlora_edge/encoder_flower.py),
+[local inference](fedlora_edge/encoder_inference.py), and the
+[query dashboard](fedlora_edge/encoder_dashboard.py). Start experiments with the
+[reproduction configurations](configurations/encoder/README.md). The original
+[frozen-A LoRA trainer](fedlora_edge/training.py) remains available separately.
 
 The [research overview](research/README.md), [system design](research/system-design.md), and [evaluation contract](research/evaluation.md) explain the decisions and full acceptance criteria. The [solo seven-day plan](research/seven-day-prototype.md) and [abstract alignment](research/abstract-alignment.md) preserve the checkpoint scope and proposal changes.
 
