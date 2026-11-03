@@ -1,5 +1,12 @@
 # FedLoRA-Edge
 
+**Accuracy recovery update, 3 November:** the new frozen-MPNet/federated-head
+variant reached **92.5% validation accuracy** through actual five-client Flower
+training. A centralized reference reached 95.5%; neither score is a fresh test
+result or a 99% claim. Local process dropout and rejoining also passed. See the
+[encoder results and evidence](research/results/encoder-v1/README.md). The
+original SmolLM2/LoRA benchmark below remains available as a separate experiment.
+
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
 Each client specializes a small language model on its local banking-intent data. The server combines validated B-only adapter updates, shows each contributor's coefficient, and commits only when enough valid replies arrive before the deadline.

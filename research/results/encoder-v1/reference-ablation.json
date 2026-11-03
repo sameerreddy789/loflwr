@@ -1,0 +1,2254 @@
+{
+  "status": "completed",
+  "plan": {
+    "format_version": 1,
+    "run_id": "encoder-reference-ablation-v1",
+    "kind": "centralized_frozen_mpnet_reference_ablation",
+    "created_utc": "2026-11-03T08:24:53.415990+00:00",
+    "split": "validation",
+    "training_examples": 2760,
+    "validation_examples": 200,
+    "dataset_dir": "D:\\Hackathons\\loflwr\\assets\\encoder-bank20-v1",
+    "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+    "manifest_file_sha256": "fae1e84940caee8028fae8aa96cd5d945938e80a736bc25ac521c441cb0103e3",
+    "feature_dim": 768,
+    "labels": [
+      "card_arrival",
+      "card_delivery_estimate",
+      "activate_my_card",
+      "card_about_to_expire",
+      "pending_card_payment",
+      "declined_card_payment",
+      "card_payment_not_recognised",
+      "transaction_charged_twice",
+      "pending_transfer",
+      "transfer_not_received_by_recipient",
+      "transfer_fee_charged",
+      "cancel_transfer",
+      "pending_cash_withdrawal",
+      "declined_cash_withdrawal",
+      "wrong_amount_of_cash_received",
+      "cash_withdrawal_not_recognised",
+      "edit_personal_details",
+      "verify_my_identity",
+      "unable_to_verify_identity",
+      "why_verify_identity"
+    ],
+    "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+    "encoder": {
+      "model_id": "sentence-transformers/all-mpnet-base-v2",
+      "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+      "license": "apache-2.0",
+      "files_sha256": {
+        "1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+        "config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+        "model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+        "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+        "README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+        "sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+        "special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+        "tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+        "tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+        "vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada"
+      },
+      "pooling": "attention_mask_mean_then_l2_normalize",
+      "max_length": 384,
+      "batch_size": 8,
+      "device": "cpu",
+      "threads": 1
+    },
+    "source_reference_run": "accuracy-feasibility-20261103",
+    "source_reference_config_hash": "a32b8b5423abc9507f8569aa46c02e5d09ef9322cda31bf8a4d4ada60bbd9a1d",
+    "source_manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+    "source_cache_sha256": "5e51de6d27fb601548ffdd4251e507781e122285542c10e2be2b171e8720e614",
+    "split_identities": {
+      "0": {
+        "file": "clients/client_0.npz",
+        "sha256": "8886b48a8716cd9004bd54db999af012f5dc58374ea73458d066b4c0f6d24edb",
+        "records_hash": "6db655c7dfa60fd97367de72c3f74b48ef86214ef2855a81c2c8e31504a32fc7",
+        "count": 513,
+        "source_ids_hash": "5aeb0b44e019c68cd09b2279e8ec6c6ce9f0b678f486baa6346304da3175f2a9",
+        "label_counts": {
+          "card_arrival": 143,
+          "card_delivery_estimate": 102,
+          "activate_my_card": 149,
+          "card_about_to_expire": 119
+        }
+      },
+      "1": {
+        "file": "clients/client_1.npz",
+        "sha256": "6441f2c12d0589deb53edf03b2eb05fd04ea35763f02c1ac3bbd7101603dd4ff",
+        "records_hash": "5854475e041283af01f4944d83106ee5b5e7f05c1cd35c29fefded6158416bb1",
+        "count": 615,
+        "source_ids_hash": "4c2d3e4f654d21d5d4f828c4dfb3169eb354bbcb3d0e228f7385638cc19a6a11",
+        "label_counts": {
+          "card_payment_not_recognised": 158,
+          "pending_card_payment": 149,
+          "declined_card_payment": 143,
+          "transaction_charged_twice": 165
+        }
+      },
+      "2": {
+        "file": "clients/client_2.npz",
+        "sha256": "299c580ea7cbe569372a37c4d10c72ae5014cbce54a4196ea83f677263d702f0",
+        "records_hash": "24a01990a113ffd6afda07f98fd75192a47732afbbb01581fe00e4f071bb8bba",
+        "count": 608,
+        "source_ids_hash": "9652d9b4d43dd6cfaa49d35b32ace64c9d0f19ef32c0d3f98095540f934661cc",
+        "label_counts": {
+          "cancel_transfer": 147,
+          "transfer_not_received_by_recipient": 161,
+          "pending_transfer": 138,
+          "transfer_fee_charged": 162
+        }
+      },
+      "3": {
+        "file": "clients/client_3.npz",
+        "sha256": "4df217147af14faa6b29b69eb55705a88d45af32af877aa36fc638d71eba9e14",
+        "records_hash": "9fefdc7aac4cfa9762abe5ba8c94a72aa94b308c4b2234b4b79373674723f9a5",
+        "count": 616,
+        "source_ids_hash": "ece0edcbc3c9f0530a03bc258f7df914a3f61e8950271de1f3d087f61fc632f8",
+        "label_counts": {
+          "pending_cash_withdrawal": 133,
+          "wrong_amount_of_cash_received": 170,
+          "declined_cash_withdrawal": 163,
+          "cash_withdrawal_not_recognised": 150
+        }
+      },
+      "4": {
+        "file": "clients/client_4.npz",
+        "sha256": "5f2219155a4ef95b0008fa8204677c24a1017f92bebc8ddf61643d5fb50069af",
+        "records_hash": "d3e22f124d16b627642ac0a7deff3bc93e2cd84a419baa5c067bbf957524bf2b",
+        "count": 408,
+        "source_ids_hash": "b335b752c8ba743be0a78c04dfc0a0702cb49470df23c6a0205ead0a131ff1eb",
+        "label_counts": {
+          "edit_personal_details": 111,
+          "why_verify_identity": 111,
+          "unable_to_verify_identity": 92,
+          "verify_my_identity": 94
+        }
+      },
+      "validation": {
+        "file": "validation.npz",
+        "sha256": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92",
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "count": 200,
+        "source_ids_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+        "label_counts": {
+          "card_arrival": 10,
+          "card_delivery_estimate": 10,
+          "activate_my_card": 10,
+          "card_about_to_expire": 10,
+          "pending_card_payment": 10,
+          "declined_card_payment": 10,
+          "card_payment_not_recognised": 10,
+          "transaction_charged_twice": 10,
+          "pending_transfer": 10,
+          "transfer_not_received_by_recipient": 10,
+          "transfer_fee_charged": 10,
+          "cancel_transfer": 10,
+          "pending_cash_withdrawal": 10,
+          "declined_cash_withdrawal": 10,
+          "wrong_amount_of_cash_received": 10,
+          "cash_withdrawal_not_recognised": 10,
+          "edit_personal_details": 10,
+          "verify_my_identity": 10,
+          "unable_to_verify_identity": 10,
+          "why_verify_identity": 10
+        }
+      }
+    },
+    "training_source_ids_hash": "c4db25eed6b79e634a44af01bcdeef3d6186791cd6d4927bf5ee5376c68d120e",
+    "source_git_revision": "8abff5ea9fb36f59d4e0c3eaae1a0126753857d3",
+    "source_files_sha256": {
+      "tools/encoder_reference_ablation.py": "b2db875697dfda284402c1a1f28f61440950e22c20847c33c7d76e84e9f8e43a",
+      "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+      "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+      "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+      "pyproject.toml": "18f9deaaf683ab7eb6b47360bc18cba88291a7c7eac49e4ccbbc097f99874423"
+    },
+    "methods": [
+      {
+        "method_id": "logistic_c0.1",
+        "estimator": "LogisticRegression",
+        "parameters": {
+          "C": 0.1,
+          "class_weight": "balanced",
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": 0.0,
+          "max_iter": 5000,
+          "n_jobs": null,
+          "penalty": "deprecated",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        }
+      },
+      {
+        "method_id": "logistic_c1",
+        "estimator": "LogisticRegression",
+        "parameters": {
+          "C": 1.0,
+          "class_weight": "balanced",
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": 0.0,
+          "max_iter": 5000,
+          "n_jobs": null,
+          "penalty": "deprecated",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        }
+      },
+      {
+        "method_id": "logistic_c10",
+        "estimator": "LogisticRegression",
+        "parameters": {
+          "C": 10.0,
+          "class_weight": "balanced",
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": 0.0,
+          "max_iter": 5000,
+          "n_jobs": null,
+          "penalty": "deprecated",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        }
+      },
+      {
+        "method_id": "logistic_c100",
+        "estimator": "LogisticRegression",
+        "parameters": {
+          "C": 100.0,
+          "class_weight": "balanced",
+          "dual": false,
+          "fit_intercept": true,
+          "intercept_scaling": 1,
+          "l1_ratio": 0.0,
+          "max_iter": 5000,
+          "n_jobs": null,
+          "penalty": "deprecated",
+          "random_state": 42,
+          "solver": "lbfgs",
+          "tol": 0.0001,
+          "verbose": 0,
+          "warm_start": false
+        }
+      },
+      {
+        "method_id": "svc_rbf_c1",
+        "estimator": "SVC",
+        "parameters": {
+          "C": 1.0,
+          "break_ties": false,
+          "cache_size": 200,
+          "class_weight": null,
+          "coef0": 0.0,
+          "decision_function_shape": "ovr",
+          "degree": 3,
+          "gamma": "scale",
+          "kernel": "rbf",
+          "max_iter": -1,
+          "probability": false,
+          "random_state": 42,
+          "shrinking": true,
+          "tol": 0.001,
+          "verbose": false
+        }
+      },
+      {
+        "method_id": "svc_rbf_c10",
+        "estimator": "SVC",
+        "parameters": {
+          "C": 10.0,
+          "break_ties": false,
+          "cache_size": 200,
+          "class_weight": null,
+          "coef0": 0.0,
+          "decision_function_shape": "ovr",
+          "degree": 3,
+          "gamma": "scale",
+          "kernel": "rbf",
+          "max_iter": -1,
+          "probability": false,
+          "random_state": 42,
+          "shrinking": true,
+          "tol": 0.001,
+          "verbose": false
+        }
+      },
+      {
+        "method_id": "svc_rbf_c100",
+        "estimator": "SVC",
+        "parameters": {
+          "C": 100.0,
+          "break_ties": false,
+          "cache_size": 200,
+          "class_weight": null,
+          "coef0": 0.0,
+          "decision_function_shape": "ovr",
+          "degree": 3,
+          "gamma": "scale",
+          "kernel": "rbf",
+          "max_iter": -1,
+          "probability": false,
+          "random_state": 42,
+          "shrinking": true,
+          "tol": 0.001,
+          "verbose": false
+        }
+      },
+      {
+        "method_id": "mlp_128_early_stop",
+        "estimator": "MLPClassifier",
+        "parameters": {
+          "activation": "relu",
+          "alpha": 0.0001,
+          "batch_size": 128,
+          "beta_1": 0.9,
+          "beta_2": 0.999,
+          "early_stopping": true,
+          "epsilon": 1e-08,
+          "hidden_layer_sizes": [
+            128
+          ],
+          "learning_rate": "constant",
+          "learning_rate_init": 0.001,
+          "max_fun": 15000,
+          "max_iter": 500,
+          "momentum": 0.9,
+          "n_iter_no_change": 15,
+          "nesterovs_momentum": true,
+          "power_t": 0.5,
+          "random_state": 42,
+          "shuffle": true,
+          "solver": "adam",
+          "tol": 0.0001,
+          "validation_fraction": 0.1,
+          "verbose": false,
+          "warm_start": false
+        }
+      }
+    ],
+    "method_count": 8,
+    "cpu_threads": 1,
+    "runtime": {
+      "python": "3.11.15 (main, May 10 2026, 19:31:25) [MSC v.1944 64 bit (AMD64)]",
+      "python_executable": "C:\\Users\\samee\\.venvs\\loflwr-cpu\\Scripts\\python.exe",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "machine": "AMD64",
+      "packages": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "scikit-learn": "1.9.1",
+        "threadpoolctl": "3.7.0"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "threadpools": [
+        {
+          "user_api": "blas",
+          "internal_api": "openblas",
+          "num_threads": 1,
+          "prefix": "libscipy_openblas",
+          "filepath": "C:\\Users\\samee\\.venvs\\loflwr-cpu\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+          "version": "0.3.31.188.0",
+          "threading_layer": "pthreads",
+          "architecture": "Haswell"
+        },
+        {
+          "user_api": "openmp",
+          "internal_api": "openmp",
+          "num_threads": 1,
+          "prefix": "vcomp",
+          "filepath": "C:\\Users\\samee\\.venvs\\loflwr-cpu\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+          "version": null
+        },
+        {
+          "user_api": "blas",
+          "internal_api": "openblas",
+          "num_threads": 1,
+          "prefix": "libscipy_openblas",
+          "filepath": "C:\\Users\\samee\\.venvs\\loflwr-cpu\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+          "version": "0.3.30",
+          "threading_layer": "pthreads",
+          "architecture": "Haswell"
+        }
+      ]
+    },
+    "scoring_rule": "Twenty-class predict(); shared project accuracy/macro-F1/domain metrics.",
+    "selection_rule": "No automatic selection; score all eight fixed configurations once and retain all outcomes.",
+    "mlp_stopping_rule": "Sklearn stratified 10% internal split from the 2,760 training rows only; seed 42. The 200 development rows are never passed to fit().",
+    "data_access": "Only manifest.json, clients/client_0..4.npz, and validation.npz. No test or confirmation records are opened.",
+    "interpretation": "Centralized public-data task references on reused development validation, not independent confirmation, federated training, or LoRA. SVC support-vector dependence is not transferable to federation by claim.",
+    "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568"
+  },
+  "wall_seconds": 9.025643999999375,
+  "method_count": 8,
+  "plan_file_sha256": "f1056a9c7556e552483777a8b557835d9ef18482351fb4de34f7039ed7c76212",
+  "source_unchanged_during_run": true,
+  "input_files_unchanged_during_run": true,
+  "test_or_confirmation_scored": false,
+  "run_directory": "runs/encoder-reference-ablation-v1",
+  "source_sha256": "85e9445326282629697c82421b5efca95543b71109eb461bf37c893b2e06a6b1",
+  "methods": [
+    {
+      "method_id": "logistic_c0.1",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:53.566461+00:00",
+      "status": "completed",
+      "fit_seconds": 0.19559380000100646,
+      "predict_seconds": 0.000851800001328229,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.885,
+        "macro_f1": 0.8847999090767298,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.8571428571428571,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "card_delivery_estimate": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transaction_charged_twice": {
+            "f1": 0.9090909090909091,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.6956521739130435,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.5882352941176471,
+            "support": 10,
+            "accuracy": 0.5
+          },
+          "transfer_fee_charged": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "cancel_transfer": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.8235294117647058,
+            "support": 10,
+            "accuracy": 0.7
+          },
+          "why_verify_identity": {
+            "f1": 0.75,
+            "support": 10,
+            "accuracy": 0.9
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.925,
+          "Card payments": 0.95,
+          "Transfers": 0.775,
+          "Cash withdrawals": 0.925,
+          "Account verification": 0.85
+        },
+        "worst_domain_accuracy": 0.775,
+        "domain_gap": 0.17499999999999993,
+        "cross_entropy": 1.2223498821258545
+      },
+      "fit_iterations": [
+        14
+      ],
+      "warnings": [],
+      "finished_utc": "2026-11-03T08:24:53.772212+00:00"
+    },
+    {
+      "method_id": "logistic_c1",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:53.776731+00:00",
+      "status": "completed",
+      "fit_seconds": 0.2940940000007686,
+      "predict_seconds": 0.0006570000005012844,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.94,
+        "macro_f1": 0.9402825244930508,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.8571428571428571,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transfer_fee_charged": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "why_verify_identity": {
+            "f1": 0.8181818181818182,
+            "support": 10,
+            "accuracy": 0.9
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.975,
+          "Card payments": 0.975,
+          "Transfers": 0.9,
+          "Cash withdrawals": 0.95,
+          "Account verification": 0.9
+        },
+        "worst_domain_accuracy": 0.9,
+        "domain_gap": 0.07499999999999996,
+        "cross_entropy": 0.39770931005477905
+      },
+      "fit_iterations": [
+        26
+      ],
+      "warnings": [],
+      "finished_utc": "2026-11-03T08:24:54.078507+00:00"
+    },
+    {
+      "method_id": "logistic_c10",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:54.081512+00:00",
+      "status": "completed",
+      "fit_seconds": 0.4913830000004964,
+      "predict_seconds": 0.000495099999170634,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.955,
+        "macro_f1": 0.9550402521455151,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "card_payment_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transfer_fee_charged": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "why_verify_identity": {
+            "f1": 0.8181818181818182,
+            "support": 10,
+            "accuracy": 0.9
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Transfers": 0.975,
+          "Cash withdrawals": 0.975,
+          "Account verification": 0.9
+        },
+        "worst_domain_accuracy": 0.9,
+        "domain_gap": 0.07499999999999996,
+        "cross_entropy": 0.19062425196170807
+      },
+      "fit_iterations": [
+        50
+      ],
+      "warnings": [],
+      "finished_utc": "2026-11-03T08:24:54.579024+00:00"
+    },
+    {
+      "method_id": "logistic_c100",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:54.581577+00:00",
+      "status": "completed",
+      "fit_seconds": 0.5263034999989031,
+      "predict_seconds": 0.0010961999996652594,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.955,
+        "macro_f1": 0.9552567023619654,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9090909090909091,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "card_payment_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transfer_fee_charged": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "why_verify_identity": {
+            "f1": 0.8181818181818182,
+            "support": 10,
+            "accuracy": 0.9
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Transfers": 0.975,
+          "Cash withdrawals": 0.975,
+          "Account verification": 0.9
+        },
+        "worst_domain_accuracy": 0.9,
+        "domain_gap": 0.07499999999999996,
+        "cross_entropy": 0.18703636527061462
+      },
+      "fit_iterations": [
+        56
+      ],
+      "warnings": [],
+      "finished_utc": "2026-11-03T08:24:55.117380+00:00"
+    },
+    {
+      "method_id": "svc_rbf_c1",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:55.121402+00:00",
+      "status": "completed",
+      "fit_seconds": 0.7286304000008386,
+      "predict_seconds": 0.21402990000024147,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.945,
+        "macro_f1": 0.9449392420445051,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.9090909090909091,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transfer_fee_charged": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.8421052631578947,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "why_verify_identity": {
+            "f1": 0.8181818181818182,
+            "support": 10,
+            "accuracy": 0.9
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Transfers": 0.95,
+          "Cash withdrawals": 0.95,
+          "Account verification": 0.9
+        },
+        "worst_domain_accuracy": 0.9,
+        "domain_gap": 0.07499999999999996,
+        "cross_entropy": null
+      },
+      "probability_note": "SVC probability=False; no probability calibration or comparable log loss is claimed.",
+      "fit_iterations": [
+        175,
+        117,
+        111,
+        122,
+        128,
+        119,
+        116,
+        109,
+        175,
+        125,
+        128,
+        114,
+        135,
+        119,
+        125,
+        100,
+        91,
+        113,
+        97,
+        97,
+        116,
+        107,
+        111,
+        110,
+        102,
+        87,
+        136,
+        98,
+        124,
+        108,
+        107,
+        108,
+        103,
+        103,
+        77,
+        98,
+        101,
+        101,
+        87,
+        97,
+        74,
+        96,
+        77,
+        87,
+        83,
+        97,
+        80,
+        92,
+        83,
+        86,
+        86,
+        73,
+        83,
+        74,
+        90,
+        115,
+        107,
+        98,
+        95,
+        107,
+        89,
+        116,
+        93,
+        90,
+        91,
+        110,
+        100,
+        69,
+        92,
+        85,
+        107,
+        132,
+        115,
+        160,
+        146,
+        93,
+        107,
+        139,
+        135,
+        117,
+        106,
+        94,
+        80,
+        88,
+        99,
+        135,
+        136,
+        104,
+        133,
+        108,
+        118,
+        112,
+        189,
+        122,
+        124,
+        98,
+        87,
+        112,
+        106,
+        201,
+        119,
+        156,
+        147,
+        145,
+        136,
+        158,
+        140,
+        218,
+        118,
+        100,
+        114,
+        125,
+        95,
+        143,
+        149,
+        136,
+        113,
+        112,
+        132,
+        162,
+        117,
+        87,
+        110,
+        120,
+        245,
+        122,
+        145,
+        155,
+        116,
+        91,
+        140,
+        101,
+        87,
+        97,
+        90,
+        141,
+        180,
+        153,
+        143,
+        151,
+        154,
+        114,
+        94,
+        109,
+        107,
+        136,
+        132,
+        117,
+        154,
+        139,
+        109,
+        77,
+        99,
+        108,
+        136,
+        133,
+        116,
+        150,
+        134,
+        101,
+        127,
+        116,
+        150,
+        145,
+        159,
+        94,
+        81,
+        100,
+        87,
+        170,
+        162,
+        104,
+        90,
+        104,
+        101,
+        153,
+        111,
+        83,
+        100,
+        95,
+        116,
+        104,
+        119,
+        134,
+        107,
+        116,
+        124,
+        126,
+        118,
+        129
+      ],
+      "support_vectors_per_class": [
+        96,
+        65,
+        41,
+        47,
+        68,
+        80,
+        97,
+        81,
+        92,
+        116,
+        66,
+        71,
+        76,
+        90,
+        90,
+        102,
+        51,
+        52,
+        60,
+        65
+      ],
+      "support_vector_count": 1506,
+      "warnings": [
+        {
+          "category": "FutureWarning",
+          "message": "The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`"
+        }
+      ],
+      "finished_utc": "2026-11-03T08:24:56.067182+00:00"
+    },
+    {
+      "method_id": "svc_rbf_c10",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:56.072742+00:00",
+      "status": "completed",
+      "fit_seconds": 0.7132517000009102,
+      "predict_seconds": 0.16458740000052785,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.945,
+        "macro_f1": 0.9451086048454471,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transfer_fee_charged": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.8,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "why_verify_identity": {
+            "f1": 0.7619047619047619,
+            "support": 10,
+            "accuracy": 0.8
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Transfers": 0.975,
+          "Cash withdrawals": 0.95,
+          "Account verification": 0.875
+        },
+        "worst_domain_accuracy": 0.875,
+        "domain_gap": 0.09999999999999998,
+        "cross_entropy": null
+      },
+      "probability_note": "SVC probability=False; no probability calibration or comparable log loss is claimed.",
+      "fit_iterations": [
+        293,
+        119,
+        120,
+        146,
+        140,
+        143,
+        119,
+        107,
+        179,
+        121,
+        128,
+        118,
+        148,
+        114,
+        134,
+        102,
+        96,
+        119,
+        107,
+        98,
+        119,
+        107,
+        113,
+        116,
+        110,
+        95,
+        144,
+        97,
+        118,
+        98,
+        113,
+        113,
+        92,
+        104,
+        86,
+        94,
+        110,
+        116,
+        88,
+        103,
+        100,
+        102,
+        76,
+        94,
+        80,
+        103,
+        81,
+        107,
+        88,
+        92,
+        93,
+        75,
+        93,
+        86,
+        93,
+        115,
+        108,
+        94,
+        91,
+        121,
+        95,
+        117,
+        99,
+        103,
+        94,
+        108,
+        108,
+        66,
+        95,
+        83,
+        141,
+        134,
+        114,
+        226,
+        173,
+        99,
+        120,
+        165,
+        129,
+        118,
+        124,
+        94,
+        77,
+        89,
+        89,
+        152,
+        133,
+        97,
+        141,
+        119,
+        121,
+        112,
+        220,
+        149,
+        136,
+        105,
+        84,
+        115,
+        105,
+        228,
+        139,
+        184,
+        170,
+        165,
+        143,
+        156,
+        143,
+        274,
+        116,
+        98,
+        127,
+        130,
+        101,
+        164,
+        157,
+        141,
+        134,
+        115,
+        132,
+        165,
+        114,
+        99,
+        114,
+        120,
+        460,
+        144,
+        156,
+        194,
+        119,
+        126,
+        150,
+        92,
+        83,
+        95,
+        92,
+        165,
+        189,
+        185,
+        153,
+        169,
+        160,
+        115,
+        92,
+        129,
+        107,
+        151,
+        133,
+        116,
+        147,
+        147,
+        100,
+        84,
+        96,
+        109,
+        135,
+        145,
+        133,
+        162,
+        135,
+        99,
+        114,
+        105,
+        200,
+        157,
+        188,
+        93,
+        82,
+        95,
+        101,
+        226,
+        186,
+        103,
+        89,
+        126,
+        102,
+        194,
+        105,
+        89,
+        110,
+        92,
+        117,
+        117,
+        131,
+        135,
+        120,
+        109,
+        112,
+        210,
+        202,
+        204
+      ],
+      "support_vectors_per_class": [
+        92,
+        59,
+        37,
+        46,
+        71,
+        81,
+        94,
+        79,
+        85,
+        115,
+        59,
+        73,
+        72,
+        84,
+        87,
+        101,
+        51,
+        54,
+        56,
+        60
+      ],
+      "support_vector_count": 1456,
+      "warnings": [
+        {
+          "category": "FutureWarning",
+          "message": "The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`"
+        }
+      ],
+      "finished_utc": "2026-11-03T08:24:56.955056+00:00"
+    },
+    {
+      "method_id": "svc_rbf_c100",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:56.959581+00:00",
+      "status": "completed",
+      "fit_seconds": 0.6653403000000253,
+      "predict_seconds": 0.20963339999980235,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.94,
+        "macro_f1": 0.9402798663324982,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_about_to_expire": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transfer_fee_charged": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.7619047619047619,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "why_verify_identity": {
+            "f1": 0.7619047619047619,
+            "support": 10,
+            "accuracy": 0.8
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Transfers": 0.975,
+          "Cash withdrawals": 0.95,
+          "Account verification": 0.85
+        },
+        "worst_domain_accuracy": 0.85,
+        "domain_gap": 0.125,
+        "cross_entropy": null
+      },
+      "probability_note": "SVC probability=False; no probability calibration or comparable log loss is claimed.",
+      "fit_iterations": [
+        325,
+        119,
+        120,
+        146,
+        140,
+        143,
+        119,
+        107,
+        179,
+        121,
+        128,
+        118,
+        148,
+        114,
+        134,
+        102,
+        96,
+        119,
+        107,
+        98,
+        119,
+        107,
+        113,
+        116,
+        110,
+        95,
+        144,
+        97,
+        118,
+        98,
+        113,
+        113,
+        92,
+        104,
+        86,
+        94,
+        110,
+        116,
+        88,
+        103,
+        100,
+        102,
+        76,
+        94,
+        80,
+        103,
+        81,
+        107,
+        88,
+        92,
+        93,
+        75,
+        93,
+        86,
+        93,
+        115,
+        108,
+        94,
+        91,
+        121,
+        95,
+        117,
+        99,
+        103,
+        94,
+        108,
+        108,
+        66,
+        95,
+        83,
+        141,
+        134,
+        114,
+        221,
+        178,
+        99,
+        120,
+        165,
+        129,
+        118,
+        124,
+        94,
+        77,
+        89,
+        89,
+        152,
+        133,
+        97,
+        141,
+        119,
+        121,
+        112,
+        226,
+        149,
+        136,
+        105,
+        84,
+        115,
+        105,
+        228,
+        139,
+        184,
+        170,
+        165,
+        143,
+        156,
+        143,
+        274,
+        116,
+        98,
+        127,
+        130,
+        101,
+        164,
+        157,
+        141,
+        134,
+        115,
+        132,
+        165,
+        114,
+        99,
+        114,
+        120,
+        481,
+        144,
+        156,
+        194,
+        119,
+        126,
+        150,
+        92,
+        83,
+        95,
+        92,
+        165,
+        189,
+        185,
+        153,
+        169,
+        160,
+        115,
+        92,
+        129,
+        107,
+        151,
+        133,
+        116,
+        147,
+        147,
+        100,
+        84,
+        96,
+        109,
+        135,
+        145,
+        133,
+        162,
+        135,
+        99,
+        114,
+        105,
+        200,
+        157,
+        188,
+        93,
+        82,
+        95,
+        101,
+        226,
+        186,
+        103,
+        89,
+        126,
+        102,
+        194,
+        105,
+        89,
+        110,
+        92,
+        117,
+        117,
+        131,
+        135,
+        120,
+        109,
+        112,
+        217,
+        202,
+        204
+      ],
+      "support_vectors_per_class": [
+        91,
+        55,
+        37,
+        46,
+        72,
+        81,
+        94,
+        79,
+        84,
+        114,
+        59,
+        73,
+        72,
+        84,
+        87,
+        101,
+        51,
+        54,
+        56,
+        60
+      ],
+      "support_vector_count": 1450,
+      "warnings": [
+        {
+          "category": "FutureWarning",
+          "message": "The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`"
+        }
+      ],
+      "finished_utc": "2026-11-03T08:24:57.837578+00:00"
+    },
+    {
+      "method_id": "mlp_128_early_stop",
+      "config_hash": "bd04352d5e3594bc59eb5ca0afff4b9b6b874923c7841003ee5d05ae93733568",
+      "split": "validation",
+      "started_utc": "2026-11-03T08:24:57.842110+00:00",
+      "status": "completed",
+      "fit_seconds": 4.720529300000635,
+      "predict_seconds": 0.0023291999987122836,
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.955,
+        "macro_f1": 0.9550994911521228,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "card_delivery_estimate": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "activate_my_card": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "card_about_to_expire": {
+            "f1": 0.9523809523809523,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_card_payment": {
+            "f1": 0.9090909090909091,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_card_payment": {
+            "f1": 0.8888888888888888,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "card_payment_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transaction_charged_twice": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_transfer": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "transfer_fee_charged": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cancel_transfer": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "edit_personal_details": {
+            "f1": 1.0,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "verify_my_identity": {
+            "f1": 0.9,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.9473684210526315,
+            "support": 10,
+            "accuracy": 0.9
+          },
+          "why_verify_identity": {
+            "f1": 0.8571428571428571,
+            "support": 10,
+            "accuracy": 0.9
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.95,
+          "Card payments": 0.95,
+          "Transfers": 0.975,
+          "Cash withdrawals": 0.975,
+          "Account verification": 0.925
+        },
+        "worst_domain_accuracy": 0.925,
+        "domain_gap": 0.04999999999999993,
+        "cross_entropy": 0.16571366786956787
+      },
+      "fit_iterations": 66,
+      "internal_training_holdout_accuracy_history": [
+        0.5905797101449275,
+        0.7717391304347826,
+        0.8840579710144928,
+        0.9094202898550725,
+        0.9130434782608695,
+        0.9239130434782609,
+        0.9239130434782609,
+        0.927536231884058,
+        0.9347826086956522,
+        0.9347826086956522,
+        0.9384057971014492,
+        0.9420289855072463,
+        0.9456521739130435,
+        0.9420289855072463,
+        0.9456521739130435,
+        0.9420289855072463,
+        0.9456521739130435,
+        0.9456521739130435,
+        0.9565217391304348,
+        0.9492753623188406,
+        0.9492753623188406,
+        0.9528985507246377,
+        0.9528985507246377,
+        0.9528985507246377,
+        0.9528985507246377,
+        0.9528985507246377,
+        0.9601449275362319,
+        0.9601449275362319,
+        0.9601449275362319,
+        0.9565217391304348,
+        0.9565217391304348,
+        0.9601449275362319,
+        0.9601449275362319,
+        0.9565217391304348,
+        0.9601449275362319,
+        0.9565217391304348,
+        0.9601449275362319,
+        0.9565217391304348,
+        0.9601449275362319,
+        0.9565217391304348,
+        0.9637681159420289,
+        0.9601449275362319,
+        0.9601449275362319,
+        0.9637681159420289,
+        0.9637681159420289,
+        0.9601449275362319,
+        0.9637681159420289,
+        0.9637681159420289,
+        0.9637681159420289,
+        0.9710144927536232,
+        0.967391304347826,
+        0.967391304347826,
+        0.9637681159420289,
+        0.967391304347826,
+        0.9710144927536232,
+        0.9637681159420289,
+        0.9637681159420289,
+        0.967391304347826,
+        0.967391304347826,
+        0.967391304347826,
+        0.967391304347826,
+        0.967391304347826,
+        0.9637681159420289,
+        0.9710144927536232,
+        0.967391304347826,
+        0.9710144927536232
+      ],
+      "internal_training_holdout_best_accuracy": 0.9710144927536232,
+      "training_loss_history": [
+        2.8302871119389326,
+        2.2914922846498973,
+        1.6415411702306135,
+        1.0894800526326454,
+        0.7344303085391914,
+        0.5361002461812467,
+        0.4208575463856387,
+        0.3489465571517196,
+        0.30081012302568816,
+        0.2647378443424991,
+        0.2396011179242283,
+        0.21819019214678287,
+        0.20112627163842306,
+        0.1878736342403628,
+        0.1762524999475542,
+        0.16500230664163035,
+        0.15681797503318037,
+        0.14839597695616558,
+        0.1424124895306469,
+        0.13488659067171513,
+        0.1278944417519943,
+        0.1224674740975482,
+        0.11786009739408436,
+        0.1125230441140114,
+        0.1083497697480434,
+        0.10458382767486377,
+        0.10024854658944897,
+        0.09718379492220298,
+        0.0926006977407041,
+        0.08911329685390845,
+        0.08601594810662687,
+        0.08308676313349132,
+        0.07999060145196621,
+        0.07659483704114615,
+        0.07391525191655575,
+        0.07161889393983195,
+        0.07047430840021897,
+        0.06880590066737269,
+        0.0649169289472384,
+        0.062494898725193586,
+        0.06069652912338885,
+        0.05792285603007909,
+        0.05615912829819343,
+        0.055557823869596804,
+        0.052633957071184116,
+        0.0516212544512366,
+        0.049518087080258275,
+        0.048799342068421264,
+        0.04646949510930679,
+        0.04589256970367875,
+        0.04415595137973415,
+        0.043370560606419035,
+        0.041233500604138044,
+        0.04044267793446423,
+        0.038979450845028366,
+        0.038598980033311865,
+        0.03752774921196761,
+        0.03604449532534806,
+        0.035601656123724276,
+        0.03481810536803905,
+        0.03382095196279382,
+        0.032652574781571214,
+        0.03145475801106471,
+        0.030630564422869513,
+        0.029753478915978338,
+        0.029074851282193982
+      ],
+      "warnings": [],
+      "finished_utc": "2026-11-03T08:25:02.575143+00:00"
+    }
+  ],
+  "supporting_files_sha256": {
+    "plan.json": "f1056a9c7556e552483777a8b557835d9ef18482351fb4de34f7039ed7c76212"
+  }
+}

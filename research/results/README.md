@@ -1,5 +1,9 @@
 # Measured results
 
+The [encoder recovery report](encoder-v1/README.md) records the newer 92.5%
+validation result from actual five-client Flower head training, centralized
+references, local process recovery, and the adapter trial with no accuracy gain.
+
 Updated 3 November 2026. These measurements come from actual local runs on one
 laptop. JSON exports retain run/configuration/model/data identities and hashes
 of original evidence. Model weights, data queries and private node keys remain

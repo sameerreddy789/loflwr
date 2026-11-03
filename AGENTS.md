@@ -1,7 +1,15 @@
 # Working on FedLoRA-Edge
 
-The selected target is SmolLM2-135M-Instruct, twenty BANKING77 intents, shared
+The original benchmark is SmolLM2-135M-Instruct, twenty BANKING77 intents, shared
 frozen A, B-only updates, and equal survivor weights with median norm clipping.
+On 3 November the user authorized implementing accuracy-focused architecture
+variants. The active development adds frozen MPNet plus a federated classifier
+head, followed by shared-A MPNet LoRA B plus a classifier head. Preserve original
+benchmark results and identities; do not mix these variants or call head-only
+training LoRA. See `research/accuracy-recovery-plan.md` and measured run identities.
+The 300-query confirmation split in `assets/encoder-bank20-v1/confirmation.json`
+is unscored at preparation; do not evaluate it until model/configuration selection
+is explicitly frozen. Validation remains the reused 200-query development split.
 `research/reference-team-brief/` preserves an earlier Qwen/77-intent/capped-weight
 proposal. Do not treat it as the active specification.
 

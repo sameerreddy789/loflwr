@@ -1,0 +1,1870 @@
+[
+  {
+    "plan": {
+      "run_id": "encoder-adapter-smoke-cpu-20261103",
+      "kind": "encoder_b_plus_head_optimization_smoke",
+      "created_utc": "2026-11-03T08:22:52.791649+00:00",
+      "device": "cpu",
+      "config": {
+        "adapter_lr": 0.0002,
+        "head_lr": 0.01,
+        "microbatch_size": 2,
+        "gradient_accumulation": 1,
+        "max_length": 384,
+        "gradient_clip": 1.0,
+        "weight_decay": 0.0,
+        "cpu_threads": 1,
+        "eval_batch_size": 2,
+        "activation_checkpointing": false
+      },
+      "steps": 2,
+      "identity": {
+        "schema_version": 1,
+        "variant": "mpnet-frozen-a-b-plus-head-v1",
+        "model_id": "sentence-transformers/all-mpnet-base-v2",
+        "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "files_sha256": {
+          "1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+          "README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+          "config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+          "model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+          "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+          "sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+          "special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+          "tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+          "tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+          "vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada"
+        },
+        "asset_hash": "949e5f7ab1ebac4b8b23a21fa7748fc2f0bdbdc7694213ba700a6e4cd71ed5f4",
+        "initialization_seed": 42,
+        "adapter_settings": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "target_modules": [
+            "q",
+            "v"
+          ],
+          "scaling": 2.0
+        },
+        "pooling": "attention_mask_mean_then_l2_normalize",
+        "scoring_rule": "twenty_way_linear_head_argmax",
+        "intents": [
+          "card_arrival",
+          "card_delivery_estimate",
+          "activate_my_card",
+          "card_about_to_expire",
+          "pending_card_payment",
+          "declined_card_payment",
+          "card_payment_not_recognised",
+          "transaction_charged_twice",
+          "pending_transfer",
+          "transfer_not_received_by_recipient",
+          "transfer_fee_charged",
+          "cancel_transfer",
+          "pending_cash_withdrawal",
+          "declined_cash_withdrawal",
+          "wrong_amount_of_cash_received",
+          "cash_withdrawal_not_recognised",
+          "edit_personal_details",
+          "verify_my_identity",
+          "unable_to_verify_identity",
+          "why_verify_identity"
+        ],
+        "common_a_hash": "96c9c2e0a9aa1b2ec132849023f5e0655aaf7bb99107a7e4d14608376ef74b54",
+        "a_schema": {
+          "encoder.base_model.model.encoder.layer.0.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.0.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          }
+        },
+        "state_schema": {
+          "encoder.base_model.model.encoder.layer.0.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.0.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "head.bias": {
+            "shape": [
+              20
+            ],
+            "dtype": "float32"
+          },
+          "head.weight": {
+            "shape": [
+              20,
+              768
+            ],
+            "dtype": "float32"
+          }
+        },
+        "b_schema": {
+          "encoder.base_model.model.encoder.layer.0.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.0.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "head.bias": {
+            "shape": [
+              20
+            ],
+            "dtype": "float32"
+          },
+          "head.weight": {
+            "shape": [
+              20,
+              768
+            ],
+            "dtype": "float32"
+          }
+        },
+        "b_parameters": 147456,
+        "head_parameters": 15380,
+        "trainable_parameters": 162836,
+        "wire_dtype": "float32",
+        "initial_state_hash": "c042a2e4ef0beb32fdc9b517264fd509c3496dcbc820ff812685bd1268865523",
+        "raw_update_bytes": 651344,
+        "contract_hash": "07992e2227f0073ada9983aa2f33022090360dcb692ed42ac9ebc6105a817aef"
+      },
+      "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+      "environment": {
+        "torch": "2.8.0+cpu",
+        "transformers": "4.57.1",
+        "peft": "0.17.1",
+        "safetensors": "0.8.0",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2"
+      },
+      "source_files_sha256": {
+        "tools/smoke_encoder_adapter.py": "7ea369bd77a680079200b17497a5822e72db15c9d89f79fe149b2915f7290437",
+        "fedlora_edge/encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752"
+      },
+      "config_hash": "6f3e07caca388817b5aaaf1d5a44d76fcf9b2fc4bd53b2eca186090ddc20df42"
+    },
+    "checks": {
+      "base_unchanged": true,
+      "a_unchanged": true,
+      "b_changed": true,
+      "head_changed": true,
+      "nonzero_b_gradient": true,
+      "all_steps_completed": true
+    },
+    "passed": true,
+    "frozen_before": {
+      "base_hash": "946bfbb749b61cd2432d5ddc12c26bd5b37bf82b1c5c23c780ad28b6a07d3bc1",
+      "common_a_hash": "96c9c2e0a9aa1b2ec132849023f5e0655aaf7bb99107a7e4d14608376ef74b54"
+    },
+    "frozen_after": {
+      "base_hash": "946bfbb749b61cd2432d5ddc12c26bd5b37bf82b1c5c23c780ad28b6a07d3bc1",
+      "common_a_hash": "96c9c2e0a9aa1b2ec132849023f5e0655aaf7bb99107a7e4d14608376ef74b54"
+    },
+    "initial_state_hash": "c042a2e4ef0beb32fdc9b517264fd509c3496dcbc820ff812685bd1268865523",
+    "final_state_hash": "6382ffaf42bf9fc97375dcbbb94d11346797c46b24593d1cfa891090d661e248",
+    "training": {
+      "status": "completed",
+      "state_hash": "6382ffaf42bf9fc97375dcbbb94d11346797c46b24593d1cfa891090d661e248",
+      "telemetry": {
+        "optimizer_steps": 2,
+        "requested_optimizer_steps": 2,
+        "examples_processed": 4,
+        "tokens_processed": 63,
+        "microbatches": 2,
+        "manifest_examples": 4,
+        "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+        "seed": 42,
+        "truncated_manifest_queries": 0,
+        "task_loss": 2.8307158946990967,
+        "gradient_norms_before_clip": [
+          1.3331069946289062,
+          1.3055135011672974
+        ],
+        "nonzero_b_gradient": true,
+        "local_train_seconds": 0.85096970000086,
+        "device": "cpu",
+        "precision": "float32",
+        "config": {
+          "adapter_lr": 0.0002,
+          "head_lr": 0.01,
+          "microbatch_size": 2,
+          "gradient_accumulation": 1,
+          "max_length": 384,
+          "gradient_clip": 1.0,
+          "weight_decay": 0.0,
+          "cpu_threads": 1,
+          "eval_batch_size": 2,
+          "activation_checkpointing": false
+        },
+        "optimizer_reset": true,
+        "raw_update_bytes": 651344,
+        "peak_rss_bytes": 1093087232,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    },
+    "training_batch_before": {
+      "count": 4,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "per_intent": {
+        "card_arrival": {
+          "f1": 0.0,
+          "support": 4,
+          "accuracy": 0.0
+        },
+        "card_delivery_estimate": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "activate_my_card": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_about_to_expire": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_payment_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transaction_charged_twice": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_not_received_by_recipient": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_fee_charged": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cancel_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "wrong_amount_of_cash_received": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cash_withdrawal_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "edit_personal_details": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "verify_my_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "unable_to_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "why_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        }
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.0
+      },
+      "worst_domain_accuracy": 0.0,
+      "domain_gap": 0.0,
+      "task_loss": 3.008655071258545,
+      "state_hash": "c042a2e4ef0beb32fdc9b517264fd509c3496dcbc820ff812685bd1268865523",
+      "contract_hash": "07992e2227f0073ada9983aa2f33022090360dcb692ed42ac9ebc6105a817aef",
+      "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+      "truncated_queries": 0
+    },
+    "training_batch_after": {
+      "count": 4,
+      "accuracy": 1.0,
+      "macro_f1": 0.05,
+      "per_intent": {
+        "card_arrival": {
+          "f1": 1.0,
+          "support": 4,
+          "accuracy": 1.0
+        },
+        "card_delivery_estimate": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "activate_my_card": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_about_to_expire": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_payment_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transaction_charged_twice": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_not_received_by_recipient": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_fee_charged": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cancel_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "wrong_amount_of_cash_received": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cash_withdrawal_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "edit_personal_details": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "verify_my_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "unable_to_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "why_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        }
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 1.0
+      },
+      "worst_domain_accuracy": 1.0,
+      "domain_gap": 0.0,
+      "task_loss": 2.2745394706726074,
+      "state_hash": "6382ffaf42bf9fc97375dcbbb94d11346797c46b24593d1cfa891090d661e248",
+      "contract_hash": "07992e2227f0073ada9983aa2f33022090360dcb692ed42ac9ebc6105a817aef",
+      "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+      "truncated_queries": 0
+    },
+    "total_seconds": 21.34398770000007,
+    "interpretation": "Original-training tiny-batch optimization smoke, not held-out accuracy or a federated experiment.",
+    "run_directory": "runs/encoder-adapter-smoke-cpu-20261103",
+    "source_sha256": "91a3f28e55a58d1568dcaeebc610859f9429ac24630e852e58742644be3a5451",
+    "supporting_files_sha256": {
+      "plan.json": "d1f34342e6eab1e2e93076a1a655add1ab83459334c1777ee918b975250c1f72"
+    }
+  },
+  {
+    "plan": {
+      "run_id": "encoder-adapter-smoke-gpu-r2-20261103",
+      "kind": "encoder_b_plus_head_optimization_smoke",
+      "created_utc": "2026-11-03T08:01:59.073896+00:00",
+      "device": "cuda",
+      "config": {
+        "adapter_lr": 0.0002,
+        "head_lr": 0.01,
+        "microbatch_size": 2,
+        "gradient_accumulation": 1,
+        "max_length": 384,
+        "gradient_clip": 1.0,
+        "weight_decay": 0.0,
+        "cpu_threads": 1,
+        "eval_batch_size": 2,
+        "activation_checkpointing": false
+      },
+      "steps": 2,
+      "identity": {
+        "schema_version": 1,
+        "variant": "mpnet-frozen-a-b-plus-head-v1",
+        "model_id": "sentence-transformers/all-mpnet-base-v2",
+        "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "files_sha256": {
+          "1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+          "README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+          "config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+          "model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+          "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+          "sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+          "special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+          "tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+          "tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+          "vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada"
+        },
+        "asset_hash": "949e5f7ab1ebac4b8b23a21fa7748fc2f0bdbdc7694213ba700a6e4cd71ed5f4",
+        "initialization_seed": 42,
+        "adapter_settings": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "target_modules": [
+            "q",
+            "v"
+          ],
+          "scaling": 2.0
+        },
+        "pooling": "attention_mask_mean_then_l2_normalize",
+        "scoring_rule": "twenty_way_linear_head_argmax",
+        "intents": [
+          "card_arrival",
+          "card_delivery_estimate",
+          "activate_my_card",
+          "card_about_to_expire",
+          "pending_card_payment",
+          "declined_card_payment",
+          "card_payment_not_recognised",
+          "transaction_charged_twice",
+          "pending_transfer",
+          "transfer_not_received_by_recipient",
+          "transfer_fee_charged",
+          "cancel_transfer",
+          "pending_cash_withdrawal",
+          "declined_cash_withdrawal",
+          "wrong_amount_of_cash_received",
+          "cash_withdrawal_not_recognised",
+          "edit_personal_details",
+          "verify_my_identity",
+          "unable_to_verify_identity",
+          "why_verify_identity"
+        ],
+        "common_a_hash": "96c9c2e0a9aa1b2ec132849023f5e0655aaf7bb99107a7e4d14608376ef74b54",
+        "a_schema": {
+          "encoder.base_model.model.encoder.layer.0.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.0.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.q.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.v.lora_A.default.weight": {
+            "shape": [
+              8,
+              768
+            ],
+            "dtype": "float32"
+          }
+        },
+        "state_schema": {
+          "encoder.base_model.model.encoder.layer.0.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.0.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "head.bias": {
+            "shape": [
+              20
+            ],
+            "dtype": "float32"
+          },
+          "head.weight": {
+            "shape": [
+              20,
+              768
+            ],
+            "dtype": "float32"
+          }
+        },
+        "b_schema": {
+          "encoder.base_model.model.encoder.layer.0.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.0.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.1.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.10.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.11.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.2.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.3.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.4.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.5.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.6.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.7.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.8.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.q.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "encoder.base_model.model.encoder.layer.9.attention.attn.v.lora_B.default.weight": {
+            "shape": [
+              768,
+              8
+            ],
+            "dtype": "float32"
+          },
+          "head.bias": {
+            "shape": [
+              20
+            ],
+            "dtype": "float32"
+          },
+          "head.weight": {
+            "shape": [
+              20,
+              768
+            ],
+            "dtype": "float32"
+          }
+        },
+        "b_parameters": 147456,
+        "head_parameters": 15380,
+        "trainable_parameters": 162836,
+        "wire_dtype": "float32",
+        "initial_state_hash": "c042a2e4ef0beb32fdc9b517264fd509c3496dcbc820ff812685bd1268865523",
+        "raw_update_bytes": 651344,
+        "contract_hash": "07992e2227f0073ada9983aa2f33022090360dcb692ed42ac9ebc6105a817aef"
+      },
+      "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+      "environment": {
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "peft": "0.17.1",
+        "safetensors": "0.8.0",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2"
+      },
+      "source_files_sha256": {
+        "tools/smoke_encoder_adapter.py": "7ea369bd77a680079200b17497a5822e72db15c9d89f79fe149b2915f7290437",
+        "fedlora_edge/encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752"
+      },
+      "config_hash": "b250c5765fcf5574103708e23cef4a034b4d1081ee476e735f1f3c6f6ae8ff8e"
+    },
+    "checks": {
+      "base_unchanged": true,
+      "a_unchanged": true,
+      "b_changed": true,
+      "head_changed": true,
+      "nonzero_b_gradient": true,
+      "all_steps_completed": true
+    },
+    "passed": true,
+    "frozen_before": {
+      "base_hash": "946bfbb749b61cd2432d5ddc12c26bd5b37bf82b1c5c23c780ad28b6a07d3bc1",
+      "common_a_hash": "96c9c2e0a9aa1b2ec132849023f5e0655aaf7bb99107a7e4d14608376ef74b54"
+    },
+    "frozen_after": {
+      "base_hash": "946bfbb749b61cd2432d5ddc12c26bd5b37bf82b1c5c23c780ad28b6a07d3bc1",
+      "common_a_hash": "96c9c2e0a9aa1b2ec132849023f5e0655aaf7bb99107a7e4d14608376ef74b54"
+    },
+    "initial_state_hash": "c042a2e4ef0beb32fdc9b517264fd509c3496dcbc820ff812685bd1268865523",
+    "final_state_hash": "e68e6ee91a5afe29d1819cbb47b67fa1bc1389d2b8db655370d99d2b86cf1d0e",
+    "training": {
+      "status": "completed",
+      "state_hash": "e68e6ee91a5afe29d1819cbb47b67fa1bc1389d2b8db655370d99d2b86cf1d0e",
+      "telemetry": {
+        "optimizer_steps": 2,
+        "requested_optimizer_steps": 2,
+        "examples_processed": 4,
+        "tokens_processed": 63,
+        "microbatches": 2,
+        "manifest_examples": 4,
+        "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+        "seed": 42,
+        "truncated_manifest_queries": 0,
+        "task_loss": 2.8385233879089355,
+        "gradient_norms_before_clip": [
+          1.3327478170394897,
+          1.3034571409225464
+        ],
+        "nonzero_b_gradient": true,
+        "local_train_seconds": 0.7331206309999985,
+        "device": "cuda",
+        "precision": "float32",
+        "config": {
+          "adapter_lr": 0.0002,
+          "head_lr": 0.01,
+          "microbatch_size": 2,
+          "gradient_accumulation": 1,
+          "max_length": 384,
+          "gradient_clip": 1.0,
+          "weight_decay": 0.0,
+          "cpu_threads": 1,
+          "eval_batch_size": 2,
+          "activation_checkpointing": false
+        },
+        "optimizer_reset": true,
+        "raw_update_bytes": 651344,
+        "peak_rss_bytes": 1516077056,
+        "rss_sampling_interval_seconds": 0.02,
+        "peak_gpu_allocated_bytes": 525424128,
+        "peak_gpu_reserved_bytes": 580911104
+      }
+    },
+    "training_batch_before": {
+      "count": 4,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "per_intent": {
+        "card_arrival": {
+          "f1": 0.0,
+          "support": 4,
+          "accuracy": 0.0
+        },
+        "card_delivery_estimate": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "activate_my_card": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_about_to_expire": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_payment_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transaction_charged_twice": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_not_received_by_recipient": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_fee_charged": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cancel_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "wrong_amount_of_cash_received": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cash_withdrawal_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "edit_personal_details": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "verify_my_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "unable_to_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "why_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        }
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.0
+      },
+      "worst_domain_accuracy": 0.0,
+      "domain_gap": 0.0,
+      "task_loss": 3.008655071258545,
+      "state_hash": "c042a2e4ef0beb32fdc9b517264fd509c3496dcbc820ff812685bd1268865523",
+      "contract_hash": "07992e2227f0073ada9983aa2f33022090360dcb692ed42ac9ebc6105a817aef",
+      "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+      "truncated_queries": 0
+    },
+    "training_batch_after": {
+      "count": 4,
+      "accuracy": 1.0,
+      "macro_f1": 0.05,
+      "per_intent": {
+        "card_arrival": {
+          "f1": 1.0,
+          "support": 4,
+          "accuracy": 1.0
+        },
+        "card_delivery_estimate": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "activate_my_card": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_about_to_expire": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_card_payment": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "card_payment_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transaction_charged_twice": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_not_received_by_recipient": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "transfer_fee_charged": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cancel_transfer": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "pending_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "declined_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "wrong_amount_of_cash_received": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "cash_withdrawal_not_recognised": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "edit_personal_details": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "verify_my_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "unable_to_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        },
+        "why_verify_identity": {
+          "f1": 0.0,
+          "support": 0,
+          "accuracy": null
+        }
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 1.0
+      },
+      "worst_domain_accuracy": 1.0,
+      "domain_gap": 0.0,
+      "task_loss": 2.2683284282684326,
+      "state_hash": "e68e6ee91a5afe29d1819cbb47b67fa1bc1389d2b8db655370d99d2b86cf1d0e",
+      "contract_hash": "07992e2227f0073ada9983aa2f33022090360dcb692ed42ac9ebc6105a817aef",
+      "records_hash": "3c6657d3121290fe8e8ead5bfb6c032f41395407e8a9b9290d7509783879aa52",
+      "truncated_queries": 0
+    },
+    "total_seconds": 27.610772753,
+    "interpretation": "Original-training tiny-batch optimization smoke, not held-out accuracy or a federated experiment.",
+    "run_directory": "runs/encoder-adapter-smoke-gpu-r2-20261103",
+    "source_sha256": "8bc7631b310eb38fe06bca8e20ad2a2d8124d1f0d2e5556816490d6ca20ee6a1",
+    "supporting_files_sha256": {
+      "plan.json": "c9f007c41f10ef85248b1b1ddd5aba9f12b65364e051581363b5ff414298be52"
+    }
+  }
+]
