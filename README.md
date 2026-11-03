@@ -4,9 +4,15 @@ Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficie
 
 Each client specializes a small language model on its local banking-intent data. The server combines validated B-only adapter updates, shows each contributor's coefficient, and commits only when enough valid replies arrive before the deadline.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 101 tests. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 106 tests. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
+
+The [accuracy investigation](research/accuracy-diagnosis.md) reports a validation
+scoring diagnostic: the same version-9 model scores 34.5% with the original rule
+and 64.5% with content-free centering. These are exploratory partial-checkpoint
+results; the frozen comparison retains its original rule. A separate TF-IDF
+reference scores 41.5% with imbalanced data and 87% with balanced data.
 
 ## Open the prepared demo
 

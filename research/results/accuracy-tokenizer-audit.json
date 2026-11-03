@@ -1,0 +1,305 @@
+{
+  "source_file": {
+    "file": "runs/accuracy-tokenizer-audit-20261103/result.json",
+    "sha256": "22d50fe8fe0e175ba3e2c00f25948332ee0e981dc1567dab0248e15722945497",
+    "bytes": 10865
+  },
+  "measurements": {
+    "kind": "cpu_tokenizer_data_and_saved_validation_audit",
+    "created_utc": "2026-11-03T03:07:59.079294+00:00",
+    "run_id": "pilot-r2-20261103-sample",
+    "study_plan_sha256": "82a05841701de0e477555e67031c65734a8d791c0434eb1f9b4bc13062137b7a",
+    "configuration": {
+      "attempts": 20,
+      "budgets": {
+        "0": 2,
+        "1": 16,
+        "2": 8,
+        "3": 4,
+        "4": 2
+      },
+      "strategy": "sample",
+      "training_config": {
+        "learning_rate": 0.0002,
+        "weight_decay": 0.0,
+        "microbatch_size": 1,
+        "gradient_accumulation": 4,
+        "max_length": 128,
+        "gradient_clip": 1.0,
+        "proximal_mu": 0.0,
+        "activation_checkpointing": false,
+        "cpu_threads": 4,
+        "eval_batch_size": 20
+      },
+      "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc"
+    },
+    "source_files_sha256": {
+      "runs/accuracy-tokenizer-audit-20261103/audit.py": "753cbba037095e208bdae330949fed6902b3aa0d75038aedad466b4d7220c1c5",
+      "runs/pilot-r2-20261103/study.json": "70672e71e372450681803ad4e14861a6cec2333e9fff98b8cb773daad9f4b477",
+      "runs/pilot-r2-20261103/configs/sample.json": "b56714b7a2129b207b9b0a08423d3556f57a827a8a883e19864c1c5dc182c096",
+      "assets/banking77/source/train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+      "assets/banking77/manifests/validation.json": "564fdc408ddb0a8aaa3acfc73a3486371f67eff0d81797f646e0a04a5395b305",
+      "assets/banking77/manifests/imbalanced/client_0.json": "30ea7749ad87cea359e5d0630b902c4065e97830b7d27b62e3494548519c1580",
+      "assets/banking77/manifests/imbalanced/client_1.json": "e20d5e0479f5687c79e2737f80ddec7140127078efad8d9430cbe1a65b1a67a7",
+      "assets/banking77/manifests/imbalanced/client_2.json": "ff7c1122c4d49f8ca0ee075b1685afeb41f25330522475d742ccb797a95fd8b0",
+      "assets/banking77/manifests/imbalanced/client_3.json": "d0d3d976b7baade681162d298875a3db09576bf81c6816eff14eaea9b1b2db01",
+      "assets/banking77/manifests/imbalanced/client_4.json": "9e033f9561d9e0ce2d3f8b4ac43e56b75dddfd5c4f377b05022e486e094602f9",
+      "assets/model/tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "assets/model/tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+      "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+      "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c"
+    },
+    "training_and_data_match_frozen_sources": true,
+    "training_source_matches_pinned_checksum": true,
+    "tokenizer": {
+      "eos_token_id": 2,
+      "pad_token_id": 2,
+      "completion_tokens_including_eos": {
+        "card_arrival": 5,
+        "card_delivery_estimate": 6,
+        "activate_my_card": 6,
+        "card_about_to_expire": 9,
+        "pending_card_payment": 6,
+        "declined_card_payment": 7,
+        "card_payment_not_recognised": 9,
+        "transaction_charged_twice": 7,
+        "pending_transfer": 4,
+        "transfer_not_received_by_recipient": 11,
+        "transfer_fee_charged": 6,
+        "cancel_transfer": 4,
+        "pending_cash_withdrawal": 7,
+        "declined_cash_withdrawal": 8,
+        "wrong_amount_of_cash_received": 10,
+        "cash_withdrawal_not_recognised": 10,
+        "edit_personal_details": 6,
+        "verify_my_identity": 6,
+        "unable_to_verify_identity": 9,
+        "why_verify_identity": 6
+      },
+      "prompt_budget": 117,
+      "all_prompt_label_boundaries_equal": true,
+      "native_chat_template_matches_through_eos": true,
+      "native_template_difference": "One terminal newline after EOS; intentionally outside scored completion.",
+      "prompt_lists_allowed_labels": false
+    },
+    "manifests": [
+      {
+        "path": "assets/banking77/manifests/validation.json",
+        "rows": 200,
+        "counts_per_intent": {
+          "card_arrival": 10,
+          "card_delivery_estimate": 10,
+          "activate_my_card": 10,
+          "card_about_to_expire": 10,
+          "pending_card_payment": 10,
+          "declined_card_payment": 10,
+          "card_payment_not_recognised": 10,
+          "transaction_charged_twice": 10,
+          "pending_transfer": 10,
+          "transfer_not_received_by_recipient": 10,
+          "transfer_fee_charged": 10,
+          "cancel_transfer": 10,
+          "pending_cash_withdrawal": 10,
+          "declined_cash_withdrawal": 10,
+          "wrong_amount_of_cash_received": 10,
+          "cash_withdrawal_not_recognised": 10,
+          "edit_personal_details": 10,
+          "verify_my_identity": 10,
+          "unable_to_verify_identity": 10,
+          "why_verify_identity": 10
+        },
+        "truncated_queries": 1
+      },
+      {
+        "path": "assets/banking77/manifests/imbalanced/client_0.json",
+        "rows": 10,
+        "counts_per_intent": {
+          "card_arrival": 3,
+          "card_delivery_estimate": 3,
+          "activate_my_card": 2,
+          "card_about_to_expire": 2
+        },
+        "truncated_queries": 0
+      },
+      {
+        "path": "assets/banking77/manifests/imbalanced/client_1.json",
+        "rows": 360,
+        "counts_per_intent": {
+          "pending_card_payment": 90,
+          "declined_card_payment": 90,
+          "card_payment_not_recognised": 90,
+          "transaction_charged_twice": 90
+        },
+        "truncated_queries": 0
+      },
+      {
+        "path": "assets/banking77/manifests/imbalanced/client_2.json",
+        "rows": 10,
+        "counts_per_intent": {
+          "pending_transfer": 3,
+          "transfer_not_received_by_recipient": 3,
+          "transfer_fee_charged": 2,
+          "cancel_transfer": 2
+        },
+        "truncated_queries": 0
+      },
+      {
+        "path": "assets/banking77/manifests/imbalanced/client_3.json",
+        "rows": 10,
+        "counts_per_intent": {
+          "pending_cash_withdrawal": 3,
+          "declined_cash_withdrawal": 3,
+          "wrong_amount_of_cash_received": 2,
+          "cash_withdrawal_not_recognised": 2
+        },
+        "truncated_queries": 0
+      },
+      {
+        "path": "assets/banking77/manifests/imbalanced/client_4.json",
+        "rows": 10,
+        "counts_per_intent": {
+          "edit_personal_details": 3,
+          "verify_my_identity": 3,
+          "unable_to_verify_identity": 2,
+          "why_verify_identity": 2
+        },
+        "truncated_queries": 0
+      }
+    ],
+    "normalized_train_validation_overlaps": 0,
+    "source_mapping_errors": 0,
+    "ownership_errors": 0,
+    "supervision_errors": 0,
+    "saved_validation_prefix": {
+      "path": "runs/pilot-r2-20261103/runs/sample/evaluations.jsonl",
+      "last_version": 7,
+      "sha256": "2a8748bd3e5686f9a824d199a84d9e2f54a2a0b8ac370c52cdc30343bd9697cb",
+      "bytes": 298611
+    },
+    "validation_snapshots": [
+      {
+        "attempt_id": 0,
+        "version": 0,
+        "accuracy": 0.315,
+        "macro_f1": 0.24472235825713592,
+        "task_loss": 5.108942884794423,
+        "b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+        "prediction_counts": {
+          "card_arrival": 22,
+          "card_delivery_estimate": 1,
+          "activate_my_card": 7,
+          "card_about_to_expire": 2,
+          "pending_card_payment": 15,
+          "declined_card_payment": 0,
+          "card_payment_not_recognised": 2,
+          "transaction_charged_twice": 0,
+          "pending_transfer": 33,
+          "transfer_not_received_by_recipient": 0,
+          "transfer_fee_charged": 1,
+          "cancel_transfer": 69,
+          "pending_cash_withdrawal": 5,
+          "declined_cash_withdrawal": 0,
+          "wrong_amount_of_cash_received": 0,
+          "cash_withdrawal_not_recognised": 0,
+          "edit_personal_details": 10,
+          "verify_my_identity": 32,
+          "unable_to_verify_identity": 1,
+          "why_verify_identity": 0
+        },
+        "completion_length_vs_prediction_count_pearson_r": -0.6442617833838719
+      },
+      {
+        "attempt_id": 7,
+        "version": 7,
+        "accuracy": 0.375,
+        "macro_f1": 0.3430910245141744,
+        "task_loss": 2.3251947767297985,
+        "b_hash": "8e2883facc47589e4f5dc2dc1e520d5ba8405ab225a25abb58925640ac9fb855",
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+        "prediction_counts": {
+          "card_arrival": 12,
+          "card_delivery_estimate": 0,
+          "activate_my_card": 6,
+          "card_about_to_expire": 1,
+          "pending_card_payment": 62,
+          "declined_card_payment": 4,
+          "card_payment_not_recognised": 2,
+          "transaction_charged_twice": 6,
+          "pending_transfer": 52,
+          "transfer_not_received_by_recipient": 0,
+          "transfer_fee_charged": 5,
+          "cancel_transfer": 11,
+          "pending_cash_withdrawal": 5,
+          "declined_cash_withdrawal": 3,
+          "wrong_amount_of_cash_received": 0,
+          "cash_withdrawal_not_recognised": 0,
+          "edit_personal_details": 3,
+          "verify_my_identity": 24,
+          "unable_to_verify_identity": 4,
+          "why_verify_identity": 0
+        },
+        "completion_length_vs_prediction_count_pearson_r": -0.48649779789966324
+      }
+    ],
+    "rounds_through_attempt_7": {
+      "count": 7,
+      "all_committed": true,
+      "sample_coefficients": {
+        "0": 0.025,
+        "1": 0.9,
+        "2": 0.025,
+        "3": 0.025,
+        "4": 0.025
+      },
+      "accepted_work": {
+        "0": {
+          "optimizer_steps": 14,
+          "examples_processed": 56,
+          "all_nonzero_b_gradient": true
+        },
+        "1": {
+          "optimizer_steps": 112,
+          "examples_processed": 448,
+          "all_nonzero_b_gradient": true
+        },
+        "2": {
+          "optimizer_steps": 56,
+          "examples_processed": 224,
+          "all_nonzero_b_gradient": true
+        },
+        "3": {
+          "optimizer_steps": 28,
+          "examples_processed": 112,
+          "all_nonzero_b_gradient": true
+        },
+        "4": {
+          "optimizer_steps": 14,
+          "examples_processed": 56,
+          "all_nonzero_b_gradient": true
+        }
+      }
+    },
+    "cpu_regression_checks": {
+      "test_training.py": {
+        "tests": 18,
+        "skipped": 0,
+        "passed": true
+      },
+      "test_data.py": {
+        "tests": 8,
+        "skipped": 0,
+        "passed": true
+      }
+    },
+    "limits": [
+      "No model loaded, optimized, or scored by this audit; saved validation results only.",
+      "Final-test manifest, queries, and result files were not opened or evaluated.",
+      "Length/prediction correlation is descriptive evidence, not a causal ablation.",
+      "No actual implementation defect explaining low accuracy was demonstrated."
+    ]
+  },
+  "publication_note": "Compact audit; no dataset query text, model weights, or final-test results."
+}

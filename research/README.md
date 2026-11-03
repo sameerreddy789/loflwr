@@ -4,6 +4,13 @@
 
 Start with the [seven-day prototype plan](seven-day-prototype.md). It stages a preliminary comparison before the full evaluation program. The [ideation synthesis](ideation.md) explains the reasoning, and [abstract alignment](abstract-alignment.md) records changes from the newly reviewed GPT-2/WikiText-2/capped-weight proposal. The selected SmolLM2/BANKING77/shared-A design remains active.
 
+The [accuracy diagnosis](accuracy-diagnosis.md) combines partial federated
+run and code audits with primary-source research. A copied version-9 checkpoint
+scores 34.5% under the original rule and 64.5% with content-free centering on
+validation. The separate TF-IDF comparison scores 41.5% versus 87% across
+imbalanced/balanced data. These are exploratory results from distinct methods
+and data regimes, not final federated comparisons.
+
 ## Recommendation
 
 Build a small English banking-support system that trains across ordinary laptops, shares only adapter updates, exposes survivor aggregation coefficients, and recovers when a participant disappears during training. Use SmolLM2-135M-Instruct, Flower's ClientApp/ServerApp architecture, and a shared frozen-A adapter with B-only updates.
@@ -25,6 +32,10 @@ The deployment target is three laptops with CPU clients having at least 8 GB RAM
 | [roadmap.md](roadmap.md) | Build and rehearsal guide with concrete gates | Team planning the implementation week |
 | [sources.md](sources.md) | Source register, review depth, licenses, unresolved citations | Anyone verifying claims or reusing code/data |
 | [implementation-status.md](implementation-status.md) | Delivery status and outstanding evidence | Contributors and judges |
+| [accuracy-diagnosis.md](accuracy-diagnosis.md) | Current accuracy findings and ordered validation experiments | Builder and reviewers |
+| [accuracy-code-audit.md](accuracy-code-audit.md) | Training, tokenization and scoring correctness checks | Implementers |
+| [accuracy-run-audit.md](accuracy-run-audit.md) | Partial seed-42 quality, work, influence and data coverage | Experiment reviewers |
+| [accuracy-literature.md](accuracy-literature.md) | Primary-source explanation of likely limitations and candidate improvements | Method selection |
 
 ## Corrections to the original proposal
 

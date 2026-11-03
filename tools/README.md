@@ -62,6 +62,19 @@ These probes do not train a language model. Neither proves physical multi-laptop
 
 [classifier_reference.py](classifier_reference.py) provides a centralized TF-IDF/logistic-regression context baseline and requires scikit-learn. It does not exercise federated adapters. Use validation during calibration and keep its run identity and configuration with any published measurement.
 
+[diagnose_scores.py](diagnose_scores.py) snapshots one checkpoint and compares
+three predeclared scoring rules on the frozen 200-query validation manifest:
+sum including EOS, mean including EOS, and a sum centered by the same model's
+score on `N/A`. It keeps all outcomes, reports paired corrections and harms,
+and never modifies the training or deployed scoring contract. Full model
+scoring needs the prepared training environment and an idle compute worker;
+the transform unit tests alone are not a model experiment. See the
+[accuracy investigation](../research/accuracy-diagnosis.md) for usage and limits.
+
+[plot_accuracy_diagnosis.py](plot_accuracy_diagnosis.py) regenerates the PNG/SVG
+accuracy figure and its provenance record from committed measurement exports.
+Use the prepared reporting environment; no model, dataset or live run is read.
+
 [calibrate_persistent_worker.py](calibrate_persistent_worker.py) checks real-model cold/warm delta equivalence, interleaved client state reset, optimizer-process termination/replacement, and deadline cleanup. It uses isolated subprocesses rather than a complete Flower round. Choose a new `--run-id` when repeating it; the default identifies the original local calibration. The [deployment guide](../docs/deployment.md) separates localhost runtime checks from an untested manual LAN setup.
 
 ## Repository checks

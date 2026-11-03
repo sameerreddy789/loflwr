@@ -1,0 +1,12 @@
+{
+  "sources_sha256": {
+    "accuracy-attempt-7-audit.json": "c39079fda8306e676c7a94d43445005230f88ae42223e9a1ee32183f5cdb90de",
+    "tfidf-validation.json": "3c33d89cffb9a7fc4ef29adce5078fb51e4010b99e59258a9f865ef2f2ff1343",
+    "tfidf-balanced-validation.json": "6c4c14537c621fa7e76dc9f2d1ee004348bd579e6da0fb5e03f019fcd07caf8f",
+    "accuracy-scoring-base.json": "d0a958c0e5b3617bd244e9e4efbdcba96ca6dc1b4472d4bb3a79d9b059c3c229",
+    "accuracy-scoring-sample-v9.json": "d1c358e82b8e39eec128c64cda79e7ec04ada550aad3cb5f4bec447d9e73b358"
+  },
+  "generator_sha256": "15fbb4b6ac67478a9628e0c59d82fc2482bd8223ab672ffc1816d5f22bf93c89",
+  "matplotlib_version": "3.10.7",
+  "scope": "Fixed partial validation snapshots; separate data regimes and methods."
+}

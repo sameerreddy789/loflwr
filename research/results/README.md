@@ -92,7 +92,27 @@ it is task-efficiency context rather than a federated-LoRA comparison. No
 hyperparameters were chosen on this validation result. It reminds us that a
 language model is not automatically the best solution for a bounded intent task.
 
+The same fixed classifier on the balanced 800-example manifest measured **87%
+validation accuracy**, macro F1 **0.868288**, and worst-domain accuracy **77.5%**.
+Run `tfidf-balanced-validation-20261103` uses the same held-out queries and
+settings; [its exported configuration](tfidf-balanced-validation.json) records
+the changed training hash. This changes both data quantity and class coverage,
+so it does not isolate balancing or prove a federated-method benefit. The
+[accuracy investigation](../accuracy-diagnosis.md) connects this measurement
+to the partial federated run and outstanding diagnostics.
+
 ## Interpreting the next experiments
+
+Two complete validation scoring diagnostics used cached model assets and
+checkpoint copies, with no additional training. The frozen base scored
+31.5% / 21% / 42% under original sum / mean-token / content-free-centered sum.
+The sample-weighted version-9 checkpoint scored 34.5% / 39.5% / 64.5% under
+the same rules. Centering corrected 65 and harmed five original version-9
+predictions; worst-domain accuracy rose from 7.5% to 45%. All 200 validation
+queries were scored. See [base evidence](accuracy-scoring-base.json),
+[version-9 evidence](accuracy-scoring-sample-v9.json), and the
+[interpretation](../accuracy-diagnosis.md). These are exploratory validation
+results, not changes to the active benchmark or final-test scores.
 
 The first frozen study, `pilot-20261103`, was interrupted after its first
 sample-weighted attempt. Two clients encountered `FileNotFoundError` while a

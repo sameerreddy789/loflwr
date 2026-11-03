@@ -1,0 +1,848 @@
+{
+  "source_file": {
+    "file": "runs/accuracy-audit/facts-through-attempt-7.json",
+    "sha256": "8a78f1b5123583af84b9ff81f97a81dbbcfea6ea8115faf515429a56ff3d91ff",
+    "bytes": 27018
+  },
+  "measurements": {
+    "captured_utc": "2026-11-03T03:05:51.531595+00:00",
+    "validation_boundary_attempt": 7,
+    "runs": {
+      "pilot-r2-20261103": {
+        "plan_sha256": "82a05841701de0e477555e67031c65734a8d791c0434eb1f9b4bc13062137b7a",
+        "sample_config_sha256": "464ea6cd3364e1f5e8c67c6683779730a47d2889603fb0a81e09b8a3942c7fd5",
+        "config": {
+          "run_id": "pilot-r2-20261103-sample",
+          "condition": "imbalanced-heterogeneous",
+          "scenario": "imbalanced",
+          "seed": 42,
+          "budgets": {
+            "0": 2,
+            "1": 16,
+            "2": 8,
+            "3": 4,
+            "4": 2
+          },
+          "attempts": 20,
+          "deadline_seconds": 300.0,
+          "training_config": {
+            "learning_rate": 0.0002,
+            "weight_decay": 0.0,
+            "microbatch_size": 1,
+            "gradient_accumulation": 4,
+            "max_length": 128,
+            "gradient_clip": 1.0,
+            "proximal_mu": 0.0,
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20
+          },
+          "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+          "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2"
+        },
+        "observed_checkpoint": {
+          "attempt_id": 8,
+          "version": 8,
+          "config_hash": "01cf4faea5f733adb116a6bc7eb900b77e0b9484dcdbfbfd18d398a083861c8f",
+          "b_hash": "89c23e28e707861fe37309191035bcec26c64468829b1840b1493770d1232477"
+        },
+        "evaluations": [
+          {
+            "attempt_id": 0,
+            "version": 0,
+            "timestamp": 1793674051.132317,
+            "count": 200,
+            "accuracy": 0.315,
+            "macro_f1": 0.24472235825713592,
+            "task_loss": 5.108942884794423,
+            "per_domain_accuracy": {
+              "Account verification": 0.45,
+              "Card lifecycle": 0.375,
+              "Card payments": 0.225,
+              "Cash withdrawals": 0.05,
+              "Transfers": 0.475
+            },
+            "worst_domain_accuracy": 0.05,
+            "domain_gap": 0.425,
+            "b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2"
+          },
+          {
+            "attempt_id": 1,
+            "version": 1,
+            "timestamp": 1793674176.6005864,
+            "count": 200,
+            "accuracy": 0.33,
+            "macro_f1": 0.2561591006600205,
+            "task_loss": 4.387378707402189,
+            "per_domain_accuracy": {
+              "Account verification": 0.4,
+              "Card lifecycle": 0.4,
+              "Card payments": 0.3,
+              "Cash withdrawals": 0.05,
+              "Transfers": 0.5
+            },
+            "worst_domain_accuracy": 0.05,
+            "domain_gap": 0.45,
+            "b_hash": "9dbc113cb864fa9aa0a5e9deaf8acb41b81e61bdafad3cb9b1bfa9d6ead84ebf"
+          },
+          {
+            "attempt_id": 2,
+            "version": 2,
+            "timestamp": 1793674311.068338,
+            "count": 200,
+            "accuracy": 0.34,
+            "macro_f1": 0.27017218076041605,
+            "task_loss": 3.82131670025033,
+            "per_domain_accuracy": {
+              "Account verification": 0.35,
+              "Card lifecycle": 0.425,
+              "Card payments": 0.325,
+              "Cash withdrawals": 0.075,
+              "Transfers": 0.525
+            },
+            "worst_domain_accuracy": 0.075,
+            "domain_gap": 0.45,
+            "b_hash": "28d18165f2c0345be7a690ba52e183dc52b6b2e5f62a2024b74346cf574c2962"
+          },
+          {
+            "attempt_id": 3,
+            "version": 3,
+            "timestamp": 1793674443.1053045,
+            "count": 200,
+            "accuracy": 0.365,
+            "macro_f1": 0.29700871558178193,
+            "task_loss": 3.3079928122775657,
+            "per_domain_accuracy": {
+              "Account verification": 0.35,
+              "Card lifecycle": 0.45,
+              "Card payments": 0.4,
+              "Cash withdrawals": 0.1,
+              "Transfers": 0.525
+            },
+            "worst_domain_accuracy": 0.1,
+            "domain_gap": 0.42500000000000004,
+            "b_hash": "9694849b8367be1da1d2f4248e8401472b8ea99644a76679b5a382d4badd6de7"
+          },
+          {
+            "attempt_id": 4,
+            "version": 4,
+            "timestamp": 1793674576.4281871,
+            "count": 200,
+            "accuracy": 0.37,
+            "macro_f1": 0.3007186277774513,
+            "task_loss": 2.885684148358627,
+            "per_domain_accuracy": {
+              "Account verification": 0.35,
+              "Card lifecycle": 0.45,
+              "Card payments": 0.425,
+              "Cash withdrawals": 0.1,
+              "Transfers": 0.525
+            },
+            "worst_domain_accuracy": 0.1,
+            "domain_gap": 0.42500000000000004,
+            "b_hash": "a70f0da9cb4959ab35ecc2df53b6df01aec4b5fee3b85125c63a1564b9d0355b"
+          },
+          {
+            "attempt_id": 5,
+            "version": 5,
+            "timestamp": 1793674738.1102047,
+            "count": 200,
+            "accuracy": 0.38,
+            "macro_f1": 0.3231553857236578,
+            "task_loss": 2.6363473673941384,
+            "per_domain_accuracy": {
+              "Account verification": 0.35,
+              "Card lifecycle": 0.4,
+              "Card payments": 0.475,
+              "Cash withdrawals": 0.075,
+              "Transfers": 0.6
+            },
+            "worst_domain_accuracy": 0.075,
+            "domain_gap": 0.525,
+            "b_hash": "d3d5635d74162acc76c96cfec4bc18b4d70bd6244442718058d4ff06a094469d"
+          },
+          {
+            "attempt_id": 6,
+            "version": 6,
+            "timestamp": 1793674888.6816542,
+            "count": 200,
+            "accuracy": 0.37,
+            "macro_f1": 0.3299011518129165,
+            "task_loss": 2.4527420917027434,
+            "per_domain_accuracy": {
+              "Account verification": 0.375,
+              "Card lifecycle": 0.3,
+              "Card payments": 0.5,
+              "Cash withdrawals": 0.075,
+              "Transfers": 0.6
+            },
+            "worst_domain_accuracy": 0.075,
+            "domain_gap": 0.525,
+            "b_hash": "63b3c5c6dab593391fbfc75b15179f70dd171607de5cb34f299aacb8cf8fcff2"
+          },
+          {
+            "attempt_id": 7,
+            "version": 7,
+            "timestamp": 1793675054.5428839,
+            "count": 200,
+            "accuracy": 0.375,
+            "macro_f1": 0.3430910245141744,
+            "task_loss": 2.3251947767297985,
+            "per_domain_accuracy": {
+              "Account verification": 0.425,
+              "Card lifecycle": 0.25,
+              "Card payments": 0.525,
+              "Cash withdrawals": 0.075,
+              "Transfers": 0.6
+            },
+            "worst_domain_accuracy": 0.075,
+            "domain_gap": 0.525,
+            "b_hash": "8e2883facc47589e4f5dc2dc1e520d5ba8405ab225a25abb58925640ac9fb855"
+          }
+        ],
+        "clients": [
+          {
+            "client": "0",
+            "manifest_examples": 10,
+            "accepted_replies": 7,
+            "optimizer_steps": 14,
+            "examples_processed": 56,
+            "passes": 5.6,
+            "reconstructed_unique_indices": 10,
+            "tokens": 2419,
+            "supervised_tokens": 346,
+            "training_seconds": 22.568372056000044,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              1.2519075870513916,
+              3.385758638381958
+            ]
+          },
+          {
+            "client": "1",
+            "manifest_examples": 360,
+            "accepted_replies": 7,
+            "optimizer_steps": 112,
+            "examples_processed": 448,
+            "passes": 1.2444444444444445,
+            "reconstructed_unique_indices": 273,
+            "tokens": 23927,
+            "supervised_tokens": 3255,
+            "training_seconds": 168.4797195079999,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              0.7667604088783264,
+              4.102921962738037
+            ]
+          },
+          {
+            "client": "2",
+            "manifest_examples": 10,
+            "accepted_replies": 7,
+            "optimizer_steps": 56,
+            "examples_processed": 224,
+            "passes": 22.4,
+            "reconstructed_unique_indices": 10,
+            "tokens": 13830,
+            "supervised_tokens": 1455,
+            "training_seconds": 86.42524661900012,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              1.3443405628204346,
+              4.92968225479126
+            ]
+          },
+          {
+            "client": "3",
+            "manifest_examples": 10,
+            "accepted_replies": 7,
+            "optimizer_steps": 28,
+            "examples_processed": 112,
+            "passes": 11.2,
+            "reconstructed_unique_indices": 10,
+            "tokens": 7567,
+            "supervised_tokens": 964,
+            "training_seconds": 40.55072473999968,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              0.9391437768936157,
+              2.7271807193756104
+            ]
+          },
+          {
+            "client": "4",
+            "manifest_examples": 10,
+            "accepted_replies": 7,
+            "optimizer_steps": 14,
+            "examples_processed": 56,
+            "passes": 5.6,
+            "reconstructed_unique_indices": 10,
+            "tokens": 2528,
+            "supervised_tokens": 366,
+            "training_seconds": 19.79885390300001,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              1.3679417371749878,
+              2.613015651702881
+            ]
+          }
+        ],
+        "rounds": [
+          {
+            "attempt": 1,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.14571130722420525,
+              "1": 0.9145085922082671,
+              "2": 0.510734521348422,
+              "3": 0.26801745259423193,
+              "4": 0.14999090929761283
+            },
+            "weighted_norms": {
+              "0": 0.0036427826806051315,
+              "1": 0.8230577329874403,
+              "2": 0.012768363033710551,
+              "3": 0.006700436314855798,
+              "4": 0.003749772732440321
+            },
+            "majority_weighted_norm_share": 0.9683953976927943,
+            "aggregate_norm": 0.8390128587288034,
+            "sum_weighted_norms": 0.8499190877490522,
+            "counterfactual_median_threshold": 0.26801745259423193,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.2930726456563477,
+              "2": 0.5247686251677244,
+              "3": 0.999999999996269,
+              "4": 1
+            },
+            "collection_seconds": 74.80027507899996
+          },
+          {
+            "attempt": 2,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.14642180971018365,
+              "1": 0.8973631791347644,
+              "2": 0.500968574776332,
+              "3": 0.263985045010573,
+              "4": 0.15004748306831547
+            },
+            "weighted_norms": {
+              "0": 0.0036605452427545915,
+              "1": 0.8076268612212879,
+              "2": 0.012524214369408301,
+              "3": 0.006599626125264326,
+              "4": 0.003751187076707887
+            },
+            "majority_weighted_norm_share": 0.9681889620876787,
+            "aggregate_norm": 0.8217722357548568,
+            "sum_weighted_norms": 0.834162434035423,
+            "counterfactual_median_threshold": 0.263985045010573,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.29417860142736485,
+              "2": 0.5269493103991757,
+              "3": 0.999999999996212,
+              "4": 1
+            },
+            "collection_seconds": 62.96557163399996
+          },
+          {
+            "attempt": 3,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.1460121407886471,
+              "1": 0.8747253008585029,
+              "2": 0.5024321694953401,
+              "3": 0.2574918032471776,
+              "4": 0.14676685798624686
+            },
+            "weighted_norms": {
+              "0": 0.003650303519716178,
+              "1": 0.7872527707726525,
+              "2": 0.012560804237383504,
+              "3": 0.00643729508117944,
+              "4": 0.003669171449656172
+            },
+            "majority_weighted_norm_share": 0.9676517532285726,
+            "aggregate_norm": 0.7995317750492816,
+            "sum_weighted_norms": 0.8135703450605878,
+            "counterfactual_median_threshold": 0.2574918032471776,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.29436876124900785,
+              "2": 0.5124906781054617,
+              "3": 0.9999999999961164,
+              "4": 1
+            },
+            "collection_seconds": 62.04358769700002
+          },
+          {
+            "attempt": 4,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.14503797260642615,
+              "1": 0.8402053691611372,
+              "2": 0.49738706403285804,
+              "3": 0.26103171119663077,
+              "4": 0.1477338472452453
+            },
+            "weighted_norms": {
+              "0": 0.003625949315160654,
+              "1": 0.7561848322450235,
+              "2": 0.012434676600821452,
+              "3": 0.00652579277991577,
+              "4": 0.003693346181131133
+            },
+            "majority_weighted_norm_share": 0.9664141164038764,
+            "aggregate_norm": 0.7685045835701821,
+            "sum_weighted_norms": 0.7824645971220525,
+            "counterfactual_median_threshold": 0.26103171119663077,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.31067608084548987,
+              "2": 0.5248059912930544,
+              "3": 0.9999999999961692,
+              "4": 1
+            },
+            "collection_seconds": 59.479093292000016
+          },
+          {
+            "attempt": 5,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.14402467548272338,
+              "1": 0.7734621492518327,
+              "2": 0.46050261091622624,
+              "3": 0.257329139356071,
+              "4": 0.14365438897644844
+            },
+            "weighted_norms": {
+              "0": 0.003600616887068085,
+              "1": 0.6961159343266494,
+              "2": 0.011512565272905657,
+              "3": 0.0064332284839017755,
+              "4": 0.0035913597244112113
+            },
+            "majority_weighted_norm_share": 0.9651471178523526,
+            "aggregate_norm": 0.704135378659417,
+            "sum_weighted_norms": 0.7212537046949361,
+            "counterfactual_median_threshold": 0.257329139356071,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.3326977792056818,
+              "2": 0.5588006088467651,
+              "3": 0.999999999996114,
+              "4": 1
+            },
+            "collection_seconds": 60.88697389699996
+          },
+          {
+            "attempt": 6,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.13793952620988748,
+              "1": 0.7598380368144648,
+              "2": 0.46758371818360783,
+              "3": 0.24508696896128657,
+              "4": 0.14326763754617747
+            },
+            "weighted_norms": {
+              "0": 0.003448488155247187,
+              "1": 0.6838542331330184,
+              "2": 0.011689592954590197,
+              "3": 0.006127174224032164,
+              "4": 0.003581690938654437
+            },
+            "majority_weighted_norm_share": 0.9649401651999993,
+            "aggregate_norm": 0.6909373282268735,
+            "sum_weighted_norms": 0.7087011794055424,
+            "counterfactual_median_threshold": 0.24508696896128657,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.32255159269002043,
+              "2": 0.5241563369931611,
+              "3": 0.9999999999959198,
+              "4": 1
+            },
+            "collection_seconds": 62.07607140999994
+          },
+          {
+            "attempt": 7,
+            "accepted": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "coefficients": {
+              "0": 0.025,
+              "1": 0.9,
+              "2": 0.025,
+              "3": 0.025,
+              "4": 0.025
+            },
+            "norms": {
+              "0": 0.14053565993531034,
+              "1": 0.7480473709935587,
+              "2": 0.4432449037664801,
+              "3": 0.25853614988437656,
+              "4": 0.13982884125588324
+            },
+            "weighted_norms": {
+              "0": 0.0035133914983827585,
+              "1": 0.6732426338942028,
+              "2": 0.011081122594162003,
+              "3": 0.006463403747109415,
+              "4": 0.0034957210313970814
+            },
+            "majority_weighted_norm_share": 0.9648125966999663,
+            "aggregate_norm": 0.6783466938977595,
+            "sum_weighted_norms": 0.6977962727652541,
+            "counterfactual_median_threshold": 0.25853614988437656,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "1": 0.3456146761676904,
+              "2": 0.5832805920313545,
+              "3": 0.9999999999961322,
+              "4": 1
+            },
+            "collection_seconds": 60.367255470000146
+          }
+        ],
+        "source_snapshot": {
+          "evaluations.jsonl": {
+            "bytes": 298611,
+            "sha256": "2a8748bd3e5686f9a824d199a84d9e2f54a2a0b8ac370c52cdc30343bd9697cb"
+          },
+          "events.jsonl": {
+            "bytes": 497255,
+            "sha256": "3cf4e2922b867673496baa403e0036ee59f8e92a07ef906b31a92ffa13a03426"
+          },
+          "round_results.json": {
+            "bytes": 72323,
+            "sha256": "067eeb07b529d1ab607a28d1899d8e8f9bdab0322bff4edd762352d4312d6d41"
+          },
+          "checkpoint.json": {
+            "bytes": 3997347,
+            "sha256": "794a3271a01bec1fbc16b3f1c06ff1576facd7d7e23c5aaa13f708031c813061"
+          }
+        },
+        "total_steps": 224,
+        "total_examples": 896,
+        "request_bytes": 26332196,
+        "received_reply_bytes": 26395720,
+        "raw_accepted_delta_bytes": 25804800,
+        "training_seconds": 337.82291682599976,
+        "collection_seconds": 442.618828479
+      },
+      "pilot-20261103": {
+        "plan_sha256": "ccf4796944df552b8342189146de3fbbe02e55bc5647e53b1aae55160b8c112d",
+        "sample_config_sha256": "b1def9fc438977cac84aca841fe1a9cdb3c853552d8abe21ddfe8ba05c3c9bef",
+        "config": {
+          "run_id": "pilot-20261103-sample",
+          "condition": "imbalanced-heterogeneous",
+          "scenario": "imbalanced",
+          "seed": 42,
+          "budgets": {
+            "0": 2,
+            "1": 16,
+            "2": 8,
+            "3": 4,
+            "4": 2
+          },
+          "attempts": 20,
+          "deadline_seconds": 300.0,
+          "training_config": {
+            "learning_rate": 0.0002,
+            "weight_decay": 0.0,
+            "microbatch_size": 1,
+            "gradient_accumulation": 4,
+            "max_length": 128,
+            "gradient_clip": 1.0,
+            "proximal_mu": 0.0,
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20
+          },
+          "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+          "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2"
+        },
+        "observed_checkpoint": {
+          "attempt_id": 2,
+          "version": 1,
+          "config_hash": "010f793ef3b1b6ab42555bbc6830c98562ac9f2abb0dba819830545899e9a3f0",
+          "b_hash": "496cb57b7770a16d8c0a205b89b7d9391b3b8613a7e36d849365e0c8660dd677"
+        },
+        "evaluations": [
+          {
+            "attempt_id": 0,
+            "version": 0,
+            "timestamp": 1793673333.700029,
+            "count": 200,
+            "accuracy": 0.315,
+            "macro_f1": 0.24472235825713592,
+            "task_loss": 5.108942884794423,
+            "per_domain_accuracy": {
+              "Account verification": 0.45,
+              "Card lifecycle": 0.375,
+              "Card payments": 0.225,
+              "Cash withdrawals": 0.05,
+              "Transfers": 0.475
+            },
+            "worst_domain_accuracy": 0.05,
+            "domain_gap": 0.425,
+            "b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2"
+          },
+          {
+            "attempt_id": 1,
+            "version": 1,
+            "timestamp": 1793673464.8522317,
+            "count": 200,
+            "accuracy": 0.31,
+            "macro_f1": 0.23633815821926252,
+            "task_loss": 4.861977879430206,
+            "per_domain_accuracy": {
+              "Account verification": 0.4,
+              "Card lifecycle": 0.35,
+              "Card payments": 0.25,
+              "Cash withdrawals": 0.05,
+              "Transfers": 0.5
+            },
+            "worst_domain_accuracy": 0.05,
+            "domain_gap": 0.45,
+            "b_hash": "496cb57b7770a16d8c0a205b89b7d9391b3b8613a7e36d849365e0c8660dd677"
+          }
+        ],
+        "clients": [
+          {
+            "client": "0",
+            "manifest_examples": 10,
+            "accepted_replies": 1,
+            "optimizer_steps": 2,
+            "examples_processed": 8,
+            "passes": 0.8,
+            "reconstructed_unique_indices": 8,
+            "tokens": 344,
+            "supervised_tokens": 49,
+            "training_seconds": 6.389224579999961,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              3.000225305557251,
+              3.058072566986084
+            ]
+          },
+          {
+            "client": "1",
+            "manifest_examples": 360,
+            "accepted_replies": 0,
+            "optimizer_steps": 0,
+            "examples_processed": 0,
+            "passes": 0.0,
+            "reconstructed_unique_indices": 0,
+            "tokens": 0,
+            "supervised_tokens": 0,
+            "training_seconds": 0,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              null,
+              null
+            ]
+          },
+          {
+            "client": "2",
+            "manifest_examples": 10,
+            "accepted_replies": 1,
+            "optimizer_steps": 8,
+            "examples_processed": 32,
+            "passes": 3.2,
+            "reconstructed_unique_indices": 10,
+            "tokens": 1971,
+            "supervised_tokens": 210,
+            "training_seconds": 16.772384811999984,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              2.2193446159362793,
+              4.92968225479126
+            ]
+          },
+          {
+            "client": "3",
+            "manifest_examples": 10,
+            "accepted_replies": 1,
+            "optimizer_steps": 4,
+            "examples_processed": 16,
+            "passes": 1.6,
+            "reconstructed_unique_indices": 10,
+            "tokens": 1083,
+            "supervised_tokens": 140,
+            "training_seconds": 6.907360112000049,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              1.7862331867218018,
+              2.7271807193756104
+            ]
+          },
+          {
+            "client": "4",
+            "manifest_examples": 10,
+            "accepted_replies": 0,
+            "optimizer_steps": 0,
+            "examples_processed": 0,
+            "passes": 0.0,
+            "reconstructed_unique_indices": 0,
+            "tokens": 0,
+            "supervised_tokens": 0,
+            "training_seconds": 0,
+            "truncated_examples": 0,
+            "gradient_norm_range": [
+              null,
+              null
+            ]
+          }
+        ],
+        "rounds": [
+          {
+            "attempt": 1,
+            "accepted": [
+              "0",
+              "2",
+              "3"
+            ],
+            "coefficients": {
+              "0": 0.3333333333333333,
+              "2": 0.3333333333333333,
+              "3": 0.3333333333333333
+            },
+            "norms": {
+              "0": 0.14571130722420525,
+              "2": 0.510734521348422,
+              "3": 0.26801745259423193
+            },
+            "weighted_norms": {
+              "0": 0.04857043574140175,
+              "2": 0.170244840449474,
+              "3": 0.08933915086474398
+            },
+            "majority_weighted_norm_share": 0.0,
+            "aggregate_norm": 0.25962789803510566,
+            "sum_weighted_norms": 0.3081544270556197,
+            "counterfactual_median_threshold": 0.26801745259423193,
+            "counterfactual_clip_factors": {
+              "0": 1,
+              "2": 0.5247686251677244,
+              "3": 0.999999999996269
+            },
+            "collection_seconds": 80.51498105299999
+          }
+        ],
+        "source_snapshot": {
+          "evaluations.jsonl": {
+            "bytes": 74261,
+            "sha256": "83074cd1f73befe858f58a73decdfcd1325b14d1c1cb8a4e4e58d0c962f98100"
+          },
+          "events.jsonl": {
+            "bytes": 113046,
+            "sha256": "dda285e88e3fd52bd8cd42ee7e96670c0316610859a304bdd89acf3284ecfcb7"
+          },
+          "round_results.json": {
+            "bytes": 11912,
+            "sha256": "f67988e908f7ecdcdb6e710ed50d1c9088e76a5849e576ed94b51d5d0b061b4d"
+          },
+          "checkpoint.json": {
+            "bytes": 4192088,
+            "sha256": "2c441cb4801b47bc3d476a83705f0c7d111784708ea3e038c2790943e22f05a5"
+          }
+        },
+        "total_steps": 14,
+        "total_examples": 56,
+        "request_bytes": 3761722,
+        "received_reply_bytes": 2268692,
+        "raw_accepted_delta_bytes": 2211840,
+        "training_seconds": 30.068969503999995,
+        "collection_seconds": 80.51498105299999
+      }
+    }
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}
