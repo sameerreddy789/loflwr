@@ -12,6 +12,12 @@ three minority examples per intent, **99% is not an evidence-supported promise**
 It remains possible in principle on a finite sample, but these experiments do
 not establish an intrinsic ceiling or show that a future model will reach it.
 
+The [accuracy recovery plan](accuracy-recovery-plan.md) turns these findings
+into a separate proposed encoder/classifier experiment, including local-data
+ownership, an adapter-learning variant, and explicit decision gates. The
+original seven-configuration pilot and final-checkpoint scoring diagnostics are
+now complete; the full multi-seed program is not.
+
 ## Define the target before optimizing
 
 | Claim | What it actually requires |
@@ -77,6 +83,31 @@ validation trajectory lacks that point; the separately identified diagnostic
 scores the saved version-9 snapshot. Do not silently insert it into the original
 trajectory. Recorded sample phase time omits the killed invocation, so those
 phase totals do not support a full wall-time comparison with an uninterrupted run.
+
+The [complete pilot report](results/pilot-r2-20261103/README.md) also includes
+weak-client omission: 34.8% test accuracy without client 4, compared with 34.4%
+with it. Verification-domain accuracy is 32% in both. This single-seed result
+does not establish a useful marginal contribution from that client.
+
+### Scoring correction on the completed checkpoints
+
+The same three diagnostic rules were applied to final version-20 checkpoints,
+without further training or final-test scoring:
+
+| Final checkpoint | Original sum | Per-token mean | Content-free centered sum |
+| --- | ---: | ---: | ---: |
+| Sample weighting | 22.5% | 18.5% | 52% |
+| Equal weighting | 34.5% | 49% | 63% |
+| Equal plus clipping | 32.5% | 43.5% | 58.5% |
+
+All are accuracies on the same 200 validation queries. Original-score accuracies
+and B hashes match the corresponding recorded version-20 evaluations. Centering
+corrected/harmed 65/6 sample predictions, 67/10 equal predictions and 71/19 clipped
+predictions. It is helpful but insufficient for a high-accuracy claim. The
+version-9 sample result must not be reported as the final trained model's score.
+Evidence: [sample](results/accuracy-scoring-sample-final.json),
+[equal](results/accuracy-scoring-equal-final.json),
+[clipped](results/accuracy-scoring-main-final.json).
 
 ### Stronger task-reference check
 
@@ -276,7 +307,7 @@ intent semantics, but does not establish a numerical label-noise ceiling.
 
 | Priority | Proposed action | Why it is justified | Required evidence before claiming a gain |
 | --- | --- | --- | --- |
-| 1 | Finish the same scoring diagnostic on completed checkpoints | The version-9 correction already produced a 30-point validation gain | Same fixed rules on completed baseline/main models; all outcomes retained |
+| 1 — completed | Repeat the same scoring diagnostic on completed checkpoints | Centering raises final-checkpoint validation accuracy to 52%/63%/58.5% for sample/equal/clipped | All three rules and paired harms retained; no active-scorer or final-test change |
 | 2 | Train/evaluate the already planned balanced-data scenario | Forty unique queries per intent provide much better coverage than two or three | Matched federated strategies and weak-client work, separate from the stress scenario |
 | 3 | Use more eligible training examples in a separately identified experiment | The original training pool supports 92–170 per selected intent | New manifest hashes; held-out separation; each client keeps its assigned data |
 | 4 | Compare sentence representations and a discriminative classifier | The objective directly separates classes instead of predicting label strings | The fixed MPNet reference first, then a separately specified federated design if warranted |
@@ -316,8 +347,8 @@ the objective, influence and generalization rather than only lengthening trainin
    rather than making 99% the sole definition of a successful federation system.
 
 The immediate recommendation is to keep the original federation study as
-engineering evidence, validate the measured scoring correction on its completed
-checkpoints, and prioritize the balanced-data experiment. If classification
+engineering evidence, retain the completed scoring correction results, and
+prioritize the balanced-data experiment. If classification
 quality is the main objective, the sentence-encoder results justify a separately
 specified encoder/classifier or discriminative fine-tuning prototype. A clean,
 independently reviewed confirmation set is needed before a 99% claim. Do not

@@ -18,6 +18,12 @@ test gives 24.6% for sample weighting, 35.4% for equal weighting, and 34.4% for
 equal weighting plus clipping. The [scoring investigation](research/accuracy-diagnosis.md)
 also records a separate validation correction from 34.5% to 64.5% at version 9.
 
+All seven configurations in the [seed-42 pilot](research/results/pilot-r2-20261103/README.md)
+have now completed. The same scoring correction on final sample/equal/clipped
+checkpoints reaches 52%/63%/58.5% validation accuracy. The
+[accuracy recovery plan](research/accuracy-recovery-plan.md) proposes a separately
+measured encoder/classifier variant; the deployed B-only contract remains unchanged.
+
 ## Open the prepared demo
 
 From PowerShell on the current laptop:

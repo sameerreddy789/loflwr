@@ -20,6 +20,13 @@ finds 99% top-2 recall; this is not classification accuracy. The review also
 records completed original-scoring federated
 comparisons and suspected annotation issues, keeping these scopes distinct.
 
+The [accuracy recovery plan](accuracy-recovery-plan.md) specifies the next
+encoder/classifier experiments and internal quality gates. Final-checkpoint
+scoring corrections reach 52%/63%/58.5% validation for sample/equal/clipped;
+the [seven-configuration pilot](results/pilot-r2-20261103/README.md) is complete,
+including an unfavorable/null weak-client omission comparison. Neither is a
+completed high-accuracy federated model or the full multi-seed study.
+
 ## Recommendation
 
 Build a small English banking-support system that trains across ordinary laptops, shares only adapter updates, exposes survivor aggregation coefficients, and recovers when a participant disappears during training. Use SmolLM2-135M-Instruct, Flower's ClientApp/ServerApp architecture, and a shared frozen-A adapter with B-only updates.

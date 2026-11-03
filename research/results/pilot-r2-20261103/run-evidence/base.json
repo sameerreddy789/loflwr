@@ -1,0 +1,555 @@
+{
+  "report_format_version": 1,
+  "generated_utc": "2026-11-03T07:37:56.833608+00:00",
+  "run_id": "pilot-r2-20261103-base",
+  "run_directory": "runs/pilot-r2-20261103/runs/base",
+  "evidence_label": "Model evaluation recorded",
+  "config_sha256": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e",
+  "configuration": {
+    "run_id": "pilot-r2-20261103-base",
+    "run_dir": "runs/pilot-r2-20261103/runs/base",
+    "asset_dir": "assets/model",
+    "adapter_dir": "assets/adapter",
+    "client_manifests": {
+      "0": [
+        "assets/banking77/manifests/imbalanced/client_0.json"
+      ],
+      "1": [
+        "assets/banking77/manifests/imbalanced/client_1.json"
+      ],
+      "2": [
+        "assets/banking77/manifests/imbalanced/client_2.json"
+      ],
+      "3": [
+        "assets/banking77/manifests/imbalanced/client_3.json"
+      ],
+      "4": [
+        "assets/banking77/manifests/imbalanced/client_4.json"
+      ]
+    },
+    "budgets": {
+      "0": 2,
+      "1": 16,
+      "2": 8,
+      "3": 4,
+      "4": 2
+    },
+    "attempts": 0,
+    "quorum": 3,
+    "strategy": "frozen_base",
+    "seed": 42,
+    "deadline_seconds": 300.0,
+    "device": "cuda",
+    "training_config": {
+      "learning_rate": 0.0002,
+      "weight_decay": 0.0,
+      "microbatch_size": 1,
+      "gradient_accumulation": 4,
+      "max_length": 128,
+      "gradient_clip": 1.0,
+      "proximal_mu": 0.0,
+      "activation_checkpointing": false,
+      "cpu_threads": 4,
+      "eval_batch_size": 20
+    },
+    "worker_cpus": 2,
+    "runtime": "local_reference_one_laptop",
+    "persistent_worker": false,
+    "process_interruptions": [],
+    "omitted_clients": [],
+    "resume": false,
+    "scenario": "imbalanced",
+    "condition": "imbalanced-heterogeneous",
+    "kind": "frozen_base",
+    "study_scope": "SEED42_PILOT",
+    "study_id": "pilot-r2-20261103",
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    },
+    "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+    "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+    "validation_manifest": "assets/banking77/manifests/validation.json",
+    "test_manifest": "assets/banking77/manifests/test.json",
+    "evaluate_every": 1,
+    "evaluation_device": "cuda",
+    "evaluate_initial": true,
+    "evaluate_final_test": true,
+    "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+  },
+  "checkpoint": {
+    "run_id": "pilot-r2-20261103-base",
+    "attempt_id": 0,
+    "version": 0,
+    "b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+    "config_hash": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e",
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    }
+  },
+  "attempts": [],
+  "accepted_reply_work": {
+    "optimizer_steps": null,
+    "optimizer_steps_coverage": {
+      "measured_replies": 0,
+      "accepted_replies": 0
+    },
+    "processed_examples": null,
+    "processed_examples_coverage": {
+      "measured_replies": 0,
+      "accepted_replies": 0
+    },
+    "processed_tokens": null,
+    "processed_tokens_coverage": {
+      "measured_replies": 0,
+      "accepted_replies": 0
+    },
+    "reported_training_seconds": null,
+    "reported_training_seconds_coverage": {
+      "measured_replies": 0,
+      "accepted_replies": 0
+    },
+    "raw_delta_bytes": null,
+    "raw_delta_bytes_coverage": {
+      "measured_replies": 0,
+      "accepted_replies": 0
+    },
+    "serialized_reply_bytes": null,
+    "serialized_reply_bytes_coverage": {
+      "measured_replies": 0,
+      "accepted_replies": 0
+    },
+    "serialized_reply_bytes_scope": "Accepted replies only (legacy event stream)",
+    "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+    "serialized_request_bytes": null,
+    "serialized_request_bytes_coverage": {
+      "measured_dispatches": 0,
+      "recorded_dispatches": 0
+    }
+  },
+  "evaluations": [
+    {
+      "source": "events.jsonl:3",
+      "split": "validation",
+      "attempt_id": 0,
+      "version": 0,
+      "timestamp": "2026-11-03T02:42:13.828762+00:00",
+      "metrics": {
+        "count": 200,
+        "accuracy": 0.315,
+        "macro_f1": 0.24472235825713592,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.3125,
+            "support": 10,
+            "accuracy": 0.5
+          },
+          "card_delivery_estimate": {
+            "f1": 0.18181818181818182,
+            "support": 10,
+            "accuracy": 0.1
+          },
+          "activate_my_card": {
+            "f1": 0.8235294117647058,
+            "support": 10,
+            "accuracy": 0.7
+          },
+          "card_about_to_expire": {
+            "f1": 0.3333333333333333,
+            "support": 10,
+            "accuracy": 0.2
+          },
+          "pending_card_payment": {
+            "f1": 0.56,
+            "support": 10,
+            "accuracy": 0.7
+          },
+          "declined_card_payment": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.3333333333333333,
+            "support": 10,
+            "accuracy": 0.2
+          },
+          "transaction_charged_twice": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "pending_transfer": {
+            "f1": 0.37209302325581395,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "transfer_fee_charged": {
+            "f1": 0.18181818181818182,
+            "support": 10,
+            "accuracy": 0.1
+          },
+          "cancel_transfer": {
+            "f1": 0.25316455696202533,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.26666666666666666,
+            "support": 10,
+            "accuracy": 0.2
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "edit_personal_details": {
+            "f1": 0.8,
+            "support": 10,
+            "accuracy": 0.8
+          },
+          "verify_my_identity": {
+            "f1": 0.47619047619047616,
+            "support": 10,
+            "accuracy": 1.0
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          },
+          "why_verify_identity": {
+            "f1": 0.0,
+            "support": 10,
+            "accuracy": 0.0
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.375,
+          "Card payments": 0.225,
+          "Transfers": 0.475,
+          "Cash withdrawals": 0.05,
+          "Account verification": 0.45
+        },
+        "worst_domain_accuracy": 0.05,
+        "domain_gap": 0.425,
+        "task_loss": 5.108942884794423,
+        "supervised_tokens": 1420,
+        "evaluation_seconds": 45.398471279999995,
+        "scoring_rule": "sum_completion_logprob_including_eos",
+        "truncated_queries": 1,
+        "b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "peak_rss_bytes": 1772412928,
+        "rss_sampling_interval_seconds": 0.02,
+        "peak_gpu_allocated_bytes": 1140814336,
+        "peak_gpu_reserved_bytes": 3701473280
+      },
+      "also_recorded_in": [
+        "evaluations.jsonl"
+      ]
+    },
+    {
+      "source": "events.jsonl:6",
+      "split": "test",
+      "attempt_id": 0,
+      "version": 0,
+      "timestamp": "2026-11-03T02:46:15.720594+00:00",
+      "metrics": {
+        "count": 500,
+        "accuracy": 0.32,
+        "macro_f1": 0.2663286004230277,
+        "per_intent": {
+          "card_arrival": {
+            "f1": 0.35135135135135137,
+            "support": 25,
+            "accuracy": 0.52
+          },
+          "card_delivery_estimate": {
+            "f1": 0.07142857142857142,
+            "support": 25,
+            "accuracy": 0.04
+          },
+          "activate_my_card": {
+            "f1": 0.8888888888888888,
+            "support": 25,
+            "accuracy": 0.8
+          },
+          "card_about_to_expire": {
+            "f1": 0.14814814814814814,
+            "support": 25,
+            "accuracy": 0.08
+          },
+          "pending_card_payment": {
+            "f1": 0.43636363636363634,
+            "support": 25,
+            "accuracy": 0.48
+          },
+          "declined_card_payment": {
+            "f1": 0.14814814814814814,
+            "support": 25,
+            "accuracy": 0.08
+          },
+          "card_payment_not_recognised": {
+            "f1": 0.14814814814814814,
+            "support": 25,
+            "accuracy": 0.08
+          },
+          "transaction_charged_twice": {
+            "f1": 0.0,
+            "support": 25,
+            "accuracy": 0.0
+          },
+          "pending_transfer": {
+            "f1": 0.3007518796992481,
+            "support": 25,
+            "accuracy": 0.8
+          },
+          "transfer_not_received_by_recipient": {
+            "f1": 0.0,
+            "support": 25,
+            "accuracy": 0.0
+          },
+          "transfer_fee_charged": {
+            "f1": 0.48484848484848486,
+            "support": 25,
+            "accuracy": 0.32
+          },
+          "cancel_transfer": {
+            "f1": 0.24598930481283424,
+            "support": 25,
+            "accuracy": 0.92
+          },
+          "pending_cash_withdrawal": {
+            "f1": 0.4117647058823529,
+            "support": 25,
+            "accuracy": 0.28
+          },
+          "declined_cash_withdrawal": {
+            "f1": 0.14814814814814814,
+            "support": 25,
+            "accuracy": 0.08
+          },
+          "wrong_amount_of_cash_received": {
+            "f1": 0.14814814814814814,
+            "support": 25,
+            "accuracy": 0.08
+          },
+          "cash_withdrawal_not_recognised": {
+            "f1": 0.0,
+            "support": 25,
+            "accuracy": 0.0
+          },
+          "edit_personal_details": {
+            "f1": 0.75,
+            "support": 25,
+            "accuracy": 0.84
+          },
+          "verify_my_identity": {
+            "f1": 0.5111111111111111,
+            "support": 25,
+            "accuracy": 0.92
+          },
+          "unable_to_verify_identity": {
+            "f1": 0.13333333333333333,
+            "support": 25,
+            "accuracy": 0.08
+          },
+          "why_verify_identity": {
+            "f1": 0.0,
+            "support": 25,
+            "accuracy": 0.0
+          }
+        },
+        "per_domain_accuracy": {
+          "Card lifecycle": 0.36,
+          "Card payments": 0.16,
+          "Transfers": 0.51,
+          "Cash withdrawals": 0.11,
+          "Account verification": 0.46
+        },
+        "worst_domain_accuracy": 0.11,
+        "domain_gap": 0.4,
+        "task_loss": 5.056676651323345,
+        "supervised_tokens": 3550,
+        "evaluation_seconds": 115.31789025700002,
+        "scoring_rule": "sum_completion_logprob_including_eos",
+        "truncated_queries": 0,
+        "b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+        "records_hash": "71c34b8220577102b3e3dbd4ea8d5c57c566a57d2bed775e156aa73a67c7dfe4",
+        "peak_rss_bytes": 1781518336,
+        "rss_sampling_interval_seconds": 0.02,
+        "peak_gpu_allocated_bytes": 1101487616,
+        "peak_gpu_reserved_bytes": 3934257152
+      },
+      "also_recorded_in": [
+        "evaluations.jsonl",
+        "test_metrics.json"
+      ]
+    }
+  ],
+  "round_details": [],
+  "source_files": [
+    {
+      "file": "config.json",
+      "bytes": 25055,
+      "sha256": "72da4f8f34c90b651e70c010b9b96db8fff87a45f9081afa37a10742508f4d1f",
+      "modified_utc": "2026-11-03T02:41:09.015105+00:00"
+    },
+    {
+      "file": "events.jsonl",
+      "bytes": 126013,
+      "sha256": "4ff97fc5c4dd6d16dfc3e19f49864ee613ef49330cd6e18c52bfd1a712363fa9",
+      "modified_utc": "2026-11-03T02:46:15.385182+00:00"
+    },
+    {
+      "file": "evaluations.jsonl",
+      "bytes": 125006,
+      "sha256": "997454e1ac156bddd2588fd5a171a0cffd7f1f519e612c354a816f3cdd61a84b",
+      "modified_utc": "2026-11-03T02:46:15.376660+00:00"
+    },
+    {
+      "file": "checkpoint.json",
+      "bytes": 759356,
+      "sha256": "eeaf0e25fe175a28e78819fe853bd59a304389b37ceeb2b08fbe212013fd5585",
+      "modified_utc": "2026-11-03T02:41:26.888432+00:00"
+    },
+    {
+      "file": "final_results.json",
+      "bytes": 23083,
+      "sha256": "d5b4b10bb06ee1a21d32131fee4b8f25fb99b07f230f436e2652e1d1812af3a5",
+      "modified_utc": "2026-11-03T02:42:13.931936+00:00"
+    },
+    {
+      "file": "test_metrics.json",
+      "bytes": 115910,
+      "sha256": "761824b9b020db3e32d2465d338af4be3f447af5373c48550a42147045e1fad5",
+      "modified_utc": "2026-11-03T02:46:15.364040+00:00"
+    }
+  ],
+  "read_warnings": [],
+  "interpretation": [
+    "Recorded measurements only; missing fields remain null.",
+    "A protocol check is not a language-model experiment.",
+    "This report does not establish matched comparisons, superiority, or physical deployment."
+  ],
+  "recorded_config_hash": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e",
+  "completion": {
+    "run_id": "pilot-r2-20261103-base",
+    "kind": "frozen_base",
+    "attempts": 0,
+    "committed_versions": 0,
+    "config_hash": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e"
+  },
+  "recovery_events": [],
+  "publication_note": "Derived compact measurements. Tensor payloads, predictions and dataset queries are omitted; workspace paths normalized. Source/config hashes identify original local files, not this transformed report. Inspect limitations alongside results."
+}

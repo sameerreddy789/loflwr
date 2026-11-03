@@ -22,8 +22,10 @@ The seed-42 pilot has completed frozen-base, centralized B-only, sample-weighted
 equal-weighted, equal-plus-clipping and scripted-dropout runs. Final-test accuracy
 is respectively 32%, 40.6%, 24.6%, 35.4%, 34.4% and 33.4%. The dropout run committed
 all twenty attempts, rejecting the killed client's work on attempts 4/8/12 and
-accepting fresh rejoining on 5/9/13. The weak-client omission run and full
-multi-seed program remain incomplete. See the [results register](results/README.md)
+accepting fresh rejoining on 5/9/13. The completed omission run scores 34.8%
+test accuracy with unchanged 32% verification-domain accuracy, so weak-client
+benefit is not demonstrated in this seed. All seven pilot configurations are
+complete; the full multi-seed program remains incomplete. See the [results register](results/README.md)
 for work, identities and limitations.
 
 A separate [accuracy feasibility study](accuracy-99-feasibility.md) reaches
@@ -51,7 +53,7 @@ These are execution checks. A small smoke loss change or a single post-round acc
 
 | Gate | Evidence still required |
 | --- | --- |
-| Frozen comparative study | Finish the pilot's omission run, then the declared multi-seed/data/work matrix. Six pilot configurations have completed with final-test results after their fixed horizons; successful execution does not establish high task accuracy. |
+| Frozen comparative study | All seven pilot configurations completed their fixed horizons and final tests. The declared multi-seed/data/work matrix remains outstanding; successful execution does not establish high task accuracy. |
 | Useful weak-client participation | Matched omission runs and paired seed differences, including negligible or unfavorable effects. Nonzero updates alone do not prove utility. |
 | Actual interruption and recovery | Real Ray rehearsal passed process kill, below-quorum B retention, and all-five-client fresh rejoining. [TLS rehearsal](results/tls-node-recovery.json) also passed full SuperNode process-tree termination, two-survivor commit, and fresh rejoin. These are same-host tests. The 60-second Ray deadline missed cold/queued work, so the frozen comparative pilot declares 300 seconds. |
 | Fresh offline startup | Fresh CPU inference and fresh three-node local TLS deployment passed inside a loopback-only network namespace. The deployment committed with two accepted updates; one client missed its deadline. See [offline deployment evidence](results/offline-deployment.json). Physical-laptop deployment remains untested. |

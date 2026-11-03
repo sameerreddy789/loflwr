@@ -1,0 +1,1859 @@
+{
+  "format_version": 1,
+  "label": "DECLARED MATRIX COMPLETE · 7/7 runs · single seed 42 · SEED42_PILOT",
+  "note": "Completed seven-configuration seed-42 imbalanced pilot. The full balanced/imbalanced multi-seed program is not complete. Sample weighting resumed after an interrupted invocation whose time was not fully recorded; its phase total is incomplete and must not be used for end-to-end runtime comparisons.",
+  "generated_utc": "2026-11-03T07:37:59.238528+00:00",
+  "study_file": {
+    "file": "runs/pilot-r2-20261103/study.json",
+    "sha256": "70672e71e372450681803ad4e14861a6cec2333e9fff98b8cb773daad9f4b477",
+    "bytes": 36076
+  },
+  "status_file": {
+    "file": "runs/pilot-r2-20261103/status.json",
+    "sha256": "a96ac8515ef5112e3774e653396f3fff35cae1fa809f321e638824c7364db881",
+    "bytes": 9966
+  },
+  "recorded_plan": {
+    "format_version": 1,
+    "study_id": "pilot-r2-20261103",
+    "created_utc": "2026-11-03T02:40:55.165027+00:00",
+    "mode": "pilot",
+    "scope": "SEED42_PILOT",
+    "declared_attempts": 20,
+    "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count.",
+    "primary_metric": "macro_f1",
+    "final_test_access": "Only after the declared horizon for each run; no checkpoint selection by test results.",
+    "comparison_limit": "Compare actual completed work and recorded failures; nominal budgets do not prove matched processed work.",
+    "training_config": {
+      "learning_rate": 0.0002,
+      "weight_decay": 0.0,
+      "microbatch_size": 1,
+      "gradient_accumulation": 4,
+      "max_length": 128,
+      "gradient_clip": 1.0,
+      "proximal_mu": 0.0,
+      "activation_checkpointing": false,
+      "cpu_threads": 4,
+      "eval_batch_size": 20
+    },
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    },
+    "initial_b_file": "assets/adapter/initial_b.json",
+    "initial_b_file_sha256": "84f106ba4dcde316a7ed323bfed586c90a78b7eed21b668ef52e886d92e53fa8",
+    "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+    "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+    "manifest_files_sha256": {
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/balanced/client_0.json": "a369c41ee3d1f704671000c54250cba3eefe95a873f99bbed5048ba352f56946",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/balanced/client_1.json": "dfd9646eef69330ed0283db2a2ba9e931a3db540254f5fbf1849626d555cc3e0",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/balanced/client_2.json": "a1edd32072cd633507b43763ca044cb885173985be81b5812a48f974b541131b",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/balanced/client_3.json": "b57d3bf96dfed573d638f91001718f00b4471af98d1acc6f55a839fbb863c0a9",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/balanced/client_4.json": "fb993afec651075050ecd16ad4e92ce57415ac1f2d353675d59d8db8daee59c2",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/imbalanced/client_0.json": "30ea7749ad87cea359e5d0630b902c4065e97830b7d27b62e3494548519c1580",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/imbalanced/client_1.json": "e20d5e0479f5687c79e2737f80ddec7140127078efad8d9430cbe1a65b1a67a7",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/imbalanced/client_2.json": "ff7c1122c4d49f8ca0ee075b1685afeb41f25330522475d742ccb797a95fd8b0",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/imbalanced/client_3.json": "d0d3d976b7baade681162d298875a3db09576bf81c6816eff14eaea9b1b2db01",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/imbalanced/client_4.json": "9e033f9561d9e0ce2d3f8b4ac43e56b75dddfd5c4f377b05022e486e094602f9",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/index.json": "4b2d42a4fc388d48c0adcaa61175cb872ee616ca003b463569bb821b0caf9909",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/test.json": "5ec478eb7b3783f205560bff180d3a6ec3442cd39873f222b6d3c5b9dab7eaf0",
+      "/mnt/d/Hackathons/loflwr/assets/banking77/manifests/validation.json": "564fdc408ddb0a8aaa3acfc73a3486371f67eff0d81797f646e0a04a5395b305"
+    },
+    "source_files_sha256": {
+      "fedlora_edge/__init__.py": "e211703a2c1b775d459e75b20a07dc575b618152d1925609c147557f17430252",
+      "fedlora_edge/aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+      "fedlora_edge/checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+      "fedlora_edge/client_job.py": "ceaeba157b08f9c3ed5f47dcaab7f75aeacf83cad27ebef50df181234df6bd6f",
+      "fedlora_edge/dashboard.py": "d687a6df0d80654be5bf222f6bfffe29bddaa33db73fbbc1bc400bfeac2557ba",
+      "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+      "fedlora_edge/federation.py": "f977994193f1991ac67e1437fe5c39cc808ac1a6539445794abd580ecef2d8c7",
+      "fedlora_edge/flower_app.py": "f2b7c99d16170d2e596de3567631b8c9d4dc381e5e6fde828c8deab9cda56aca",
+      "fedlora_edge/persistent_worker.py": "361608719728b0d0bca390a42aa1ecbf96def357fc3526dbc938e864a2cbc54e",
+      "fedlora_edge/protocol.py": "82e63641c5d5f0eac9a0c2c9c01442e2c2bfd8cd2456745f10a98478dfa64a1b",
+      "fedlora_edge/responses.py": "73b270fd34cb97edd61f3480e8f70eef7651c46d67e272aa2092ff303f42b144",
+      "fedlora_edge/results.py": "ee1bd07be6bd0920e3f72b1d4bb17d72504add7af6a1c9007e0d72049ff5a99d",
+      "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+      "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+      "tools/run_study.py": "8b1afb433744c0dce8cad31c3b462a8e920fd66985473611be5e105075751149",
+      "pyproject.toml": "18f9deaaf683ab7eb6b47360bc18cba88291a7c7eac49e4ccbbc097f99874423"
+    },
+    "environment": {
+      "python": "3.11.15 (main, May  8 2026, 18:33:10) [Clang 22.1.3 ]",
+      "executable": "/home/sameer/.venvs/loflwr/bin/python",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "machine": "x86_64",
+      "processor": "x86_64",
+      "logical_cpus": 12,
+      "packages": {
+        "Jinja2": "3.1.6",
+        "Mako": "1.4.3",
+        "MarkupSafe": "3.0.4",
+        "PyYAML": "6.0.3",
+        "Pygments": "2.21.0",
+        "SQLAlchemy": "2.1.6",
+        "accelerate": "1.15.0",
+        "alembic": "1.20.1",
+        "altair": "6.3.0",
+        "annotated-doc": "0.0.5",
+        "annotated-types": "0.8.0",
+        "anyio": "4.16.0",
+        "attrs": "26.1.0",
+        "certifi": "2026.10.23",
+        "cffi": "2.1.1",
+        "charset-normalizer": "3.5.2",
+        "click": "8.5.0",
+        "cloudpickle": "3.1.2",
+        "cryptography": "50.0.2",
+        "fastapi": "0.138.2",
+        "fedlora-edge": "0.1.0",
+        "filelock": "4.2.7",
+        "flwr": "1.40.0",
+        "fsspec": "2026.9.0",
+        "greenlet": "3.5.6",
+        "grpcio": "1.85.1",
+        "grpcio-health-checking": "1.81.1",
+        "h11": "0.16.0",
+        "hf-xet": "1.8.0",
+        "httpcore": "1.0.9",
+        "httptools": "0.9.0",
+        "httpx": "0.28.1",
+        "huggingface-hub": "0.36.0",
+        "idna": "3.20",
+        "iterators": "0.0.2",
+        "itsdangerous": "2.2.0",
+        "joblib": "1.6.0",
+        "jsonschema": "4.26.0",
+        "jsonschema-specifications": "2025.9.1",
+        "markdown-it-py": "4.2.0",
+        "mdurl": "0.1.2",
+        "mpmath": "1.3.0",
+        "msgpack": "1.2.4",
+        "narwhals": "2.28.0",
+        "networkx": "3.6.1",
+        "numpy": "2.4.6",
+        "nvidia-cublas-cu12": "12.6.4.1",
+        "nvidia-cuda-cupti-cu12": "12.6.80",
+        "nvidia-cuda-nvrtc-cu12": "12.6.77",
+        "nvidia-cuda-runtime-cu12": "12.6.77",
+        "nvidia-cudnn-cu12": "9.10.2.21",
+        "nvidia-cufft-cu12": "11.3.0.4",
+        "nvidia-cufile-cu12": "1.11.1.6",
+        "nvidia-curand-cu12": "10.3.7.77",
+        "nvidia-cusolver-cu12": "11.7.1.2",
+        "nvidia-cusparse-cu12": "12.5.4.2",
+        "nvidia-cusparselt-cu12": "0.7.1",
+        "nvidia-nccl-cu12": "2.27.3",
+        "nvidia-nvjitlink-cu12": "12.6.85",
+        "nvidia-nvtx-cu12": "12.6.77",
+        "packaging": "25.0",
+        "pandas": "3.1.0",
+        "pathspec": "1.1.1",
+        "peft": "0.17.1",
+        "pillow": "13.0.0",
+        "plotly": "6.9.0",
+        "prompt_toolkit": "3.0.53",
+        "protobuf": "6.33.6",
+        "psutil": "7.2.2",
+        "pyarrow": "26.0.0",
+        "pycparser": "3.12",
+        "pycryptodome": "3.24.1",
+        "pydantic": "2.14.2",
+        "pydantic_core": "2.50.2",
+        "pydeck": "0.9.3",
+        "python-dateutil": "4.0.0",
+        "python-dotenv": "1.2.4",
+        "python-multipart": "0.0.33",
+        "ray": "2.55.1",
+        "referencing": "0.37.0",
+        "regex": "2026.9.29",
+        "requests": "2.34.2",
+        "rich": "14.3.4",
+        "rpds-py": "2026.9.1",
+        "safetensors": "0.8.0",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.17.1",
+        "setuptools": "84.2.1",
+        "shellingham": "1.5.4",
+        "starlette": "1.3.1",
+        "streamlit": "1.66.1",
+        "sympy": "1.14.0",
+        "threadpoolctl": "3.7.0",
+        "tokenizers": "0.22.2",
+        "tomli": "2.5.0",
+        "tomli_w": "1.2.0",
+        "torch": "2.8.0+cu126",
+        "tqdm": "4.70.1",
+        "transformers": "4.57.1",
+        "triton": "3.4.0",
+        "typer": "0.20.1",
+        "typing-inspection": "0.4.4",
+        "typing_extensions": "4.16.0",
+        "tzdata": "2026.6",
+        "urllib3": "2.8.0",
+        "uv": "0.12.24",
+        "uvicorn": "0.49.0",
+        "uvloop": "0.23.0",
+        "watchdog": "6.0.0",
+        "watchfiles": "1.3.0",
+        "wcwidth": "0.9.4",
+        "websockets": "17.4"
+      }
+    },
+    "initial_selection": [
+      "base",
+      "sample",
+      "main"
+    ],
+    "runs": [
+      {
+        "key": "base",
+        "kind": "frozen_base",
+        "strategy": "frozen_base",
+        "condition": "imbalanced-heterogeneous",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": false,
+        "omission": false,
+        "run_id": "pilot-r2-20261103-base",
+        "config_path": "runs/pilot-r2-20261103/configs/base.json",
+        "config_sha256": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e",
+        "run_dir": "runs/pilot-r2-20261103/runs/base",
+        "attempts": 0
+      },
+      {
+        "key": "centralized",
+        "kind": "centralized",
+        "strategy": "centralized",
+        "condition": "imbalanced-heterogeneous",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": false,
+        "omission": false,
+        "run_id": "pilot-r2-20261103-centralized",
+        "config_path": "runs/pilot-r2-20261103/configs/centralized.json",
+        "config_sha256": "25e1bc87bde259de3d12f611972badd03cfa030e3710821c260f2c5d7141d84b",
+        "run_dir": "runs/pilot-r2-20261103/runs/centralized",
+        "attempts": 20
+      },
+      {
+        "key": "sample",
+        "kind": "federated",
+        "strategy": "sample",
+        "condition": "imbalanced-heterogeneous",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": false,
+        "omission": false,
+        "run_id": "pilot-r2-20261103-sample",
+        "config_path": "runs/pilot-r2-20261103/configs/sample.json",
+        "config_sha256": "464ea6cd3364e1f5e8c67c6683779730a47d2889603fb0a81e09b8a3942c7fd5",
+        "run_dir": "runs/pilot-r2-20261103/runs/sample",
+        "attempts": 20
+      },
+      {
+        "key": "equal",
+        "kind": "federated",
+        "strategy": "equal",
+        "condition": "imbalanced-heterogeneous",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": false,
+        "omission": false,
+        "run_id": "pilot-r2-20261103-equal",
+        "config_path": "runs/pilot-r2-20261103/configs/equal.json",
+        "config_sha256": "891947e4f6a68e4978dacf195be1a294e79ebfb34f5772fa93d42e143060486f",
+        "run_dir": "runs/pilot-r2-20261103/runs/equal",
+        "attempts": 20
+      },
+      {
+        "key": "main",
+        "kind": "federated",
+        "strategy": "equal_clipped",
+        "condition": "imbalanced-heterogeneous",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": false,
+        "omission": false,
+        "run_id": "pilot-r2-20261103-main",
+        "config_path": "runs/pilot-r2-20261103/configs/main.json",
+        "config_sha256": "8c51c25a082e9fd4cb8bca653d899f7e10013b12bd0e73fa8a2be9165c67dd85",
+        "run_dir": "runs/pilot-r2-20261103/runs/main",
+        "attempts": 20
+      },
+      {
+        "key": "dropout",
+        "kind": "federated",
+        "strategy": "equal_clipped",
+        "condition": "imbalanced-dropout",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": true,
+        "omission": false,
+        "run_id": "pilot-r2-20261103-dropout",
+        "config_path": "runs/pilot-r2-20261103/configs/dropout.json",
+        "config_sha256": "146885f6ea3a2dd28f82a8d3f3a3d71371170892a0df10bf509753549632b3b4",
+        "run_dir": "runs/pilot-r2-20261103/runs/dropout",
+        "attempts": 20
+      },
+      {
+        "key": "omit4",
+        "kind": "federated",
+        "strategy": "equal_clipped",
+        "condition": "imbalanced-heterogeneous",
+        "seed": 42,
+        "scenario": "imbalanced",
+        "budgets": [
+          2,
+          16,
+          8,
+          4,
+          2
+        ],
+        "dropout": false,
+        "omission": true,
+        "run_id": "pilot-r2-20261103-omit4",
+        "config_path": "runs/pilot-r2-20261103/configs/omit4.json",
+        "config_sha256": "f5a7805a16cdd494794453128c0ba62aaeb6663a63a12e746545cedf687db449",
+        "run_dir": "runs/pilot-r2-20261103/runs/omit4",
+        "attempts": 20
+      }
+    ],
+    "plan_sha256": "82a05841701de0e477555e67031c65734a8d791c0434eb1f9b4bc13062137b7a"
+  },
+  "current_source_mismatches": [],
+  "runs": [
+    {
+      "key": "base",
+      "run_id": "pilot-r2-20261103-base",
+      "kind": "frozen_base",
+      "strategy": "frozen_base",
+      "condition": "imbalanced-heterogeneous",
+      "seed": 42,
+      "attempts": 0,
+      "config_sha256": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 0,
+      "version": 0,
+      "checkpoint_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+      "recorded_config_hash": "6867fcd26c922ad7c537a0c37e82342185f8c6be8305414417307b0ed28d930e",
+      "test_count": 500,
+      "accuracy": 0.32,
+      "macro_f1": 0.2663286004230277,
+      "worst_domain_accuracy": 0.11,
+      "domain_gap": 0.4,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-base",
+        "attempt_id": 0,
+        "version": 0,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T02:46:15.672055+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.36,
+        "Card payments": 0.16,
+        "Transfers": 0.51,
+        "Cash withdrawals": 0.11,
+        "Account verification": 0.46
+      },
+      "optimizer_steps": null,
+      "processed_examples": null,
+      "processed_tokens": null,
+      "reported_training_seconds": null,
+      "serialized_request_bytes": null,
+      "serialized_reply_bytes": null,
+      "phase_wall_seconds": 200.24121789300003,
+      "work_coverage": {
+        "optimizer_steps": null,
+        "optimizer_steps_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 0
+        },
+        "processed_examples": null,
+        "processed_examples_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 0
+        },
+        "processed_tokens": null,
+        "processed_tokens_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 0
+        },
+        "reported_training_seconds": null,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 0
+        },
+        "raw_delta_bytes": null,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 0
+        },
+        "serialized_reply_bytes": null,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 0
+        },
+        "serialized_reply_bytes_scope": "Accepted replies only (legacy event stream)",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": null,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 0,
+          "recorded_dispatches": 0
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-base",
+        "run_dir": "runs/pilot-r2-20261103/runs/base",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 0,
+        "quorum": 3,
+        "strategy": "frozen_base",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "local_reference_one_laptop",
+        "persistent_worker": false,
+        "process_interruptions": [],
+        "omitted_clients": [],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-heterogeneous",
+        "kind": "frozen_base",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/base.json",
+        "sha256": "72da4f8f34c90b651e70c010b9b96db8fff87a45f9081afa37a10742508f4d1f",
+        "bytes": 25055
+      }
+    },
+    {
+      "key": "centralized",
+      "run_id": "pilot-r2-20261103-centralized",
+      "kind": "centralized",
+      "strategy": "centralized",
+      "condition": "imbalanced-heterogeneous",
+      "seed": 42,
+      "attempts": 20,
+      "config_sha256": "25e1bc87bde259de3d12f611972badd03cfa030e3710821c260f2c5d7141d84b",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 20,
+      "version": 20,
+      "checkpoint_b_hash": "2acb579c900333c7dc68833c214f683a01f14ba41974190e51d2bf8b300c0d15",
+      "recorded_config_hash": "25e1bc87bde259de3d12f611972badd03cfa030e3710821c260f2c5d7141d84b",
+      "test_count": 500,
+      "accuracy": 0.406,
+      "macro_f1": 0.3415570118415129,
+      "worst_domain_accuracy": 0.23,
+      "domain_gap": 0.48,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-centralized",
+        "attempt_id": 20,
+        "version": 20,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T06:17:22.003167+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.23,
+        "Card payments": 0.62,
+        "Transfers": 0.71,
+        "Cash withdrawals": 0.23,
+        "Account verification": 0.24
+      },
+      "optimizer_steps": 640.0,
+      "processed_examples": 2560.0,
+      "processed_tokens": 143089.0,
+      "reported_training_seconds": 494.6728169909993,
+      "serialized_request_bytes": null,
+      "serialized_reply_bytes": null,
+      "phase_wall_seconds": 1248.9469692889998,
+      "work_coverage": {
+        "optimizer_steps": 640.0,
+        "optimizer_steps_coverage": {
+          "measured_replies": 20,
+          "accepted_replies": 20
+        },
+        "processed_examples": 2560.0,
+        "processed_examples_coverage": {
+          "measured_replies": 20,
+          "accepted_replies": 20
+        },
+        "processed_tokens": 143089.0,
+        "processed_tokens_coverage": {
+          "measured_replies": 20,
+          "accepted_replies": 20
+        },
+        "reported_training_seconds": 494.6728169909993,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 20,
+          "accepted_replies": 20
+        },
+        "raw_delta_bytes": null,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 20
+        },
+        "serialized_reply_bytes": null,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 0,
+          "accepted_replies": 20
+        },
+        "serialized_reply_bytes_scope": "Accepted replies only (legacy event stream)",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": null,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 0,
+          "recorded_dispatches": 0
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-centralized",
+        "run_dir": "runs/pilot-r2-20261103/runs/centralized",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 20,
+        "quorum": 3,
+        "strategy": "centralized",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "local_reference_one_laptop",
+        "persistent_worker": false,
+        "process_interruptions": [],
+        "omitted_clients": [],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-heterogeneous",
+        "kind": "centralized",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/centralized.json",
+        "sha256": "595b13821e8c22df222e302bba29c6fe84cb6471e3b2a26952b0cacb1faaf24b",
+        "bytes": 25070
+      }
+    },
+    {
+      "key": "sample",
+      "run_id": "pilot-r2-20261103-sample",
+      "kind": "federated",
+      "strategy": "sample",
+      "condition": "imbalanced-heterogeneous",
+      "seed": 42,
+      "attempts": 20,
+      "config_sha256": "464ea6cd3364e1f5e8c67c6683779730a47d2889603fb0a81e09b8a3942c7fd5",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 20,
+      "version": 20,
+      "checkpoint_b_hash": "5ee187db9f6a86d2f28cd694db4d24a3d6dbae9699422b6fed6d920ba472e0c6",
+      "recorded_config_hash": "01cf4faea5f733adb116a6bc7eb900b77e0b9484dcdbfbfd18d398a083861c8f",
+      "test_count": 500,
+      "accuracy": 0.246,
+      "macro_f1": 0.20742429040003668,
+      "worst_domain_accuracy": 0.02,
+      "domain_gap": 0.69,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-sample",
+        "attempt_id": 20,
+        "version": 20,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T05:22:16.896881+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.03,
+        "Card payments": 0.71,
+        "Transfers": 0.37,
+        "Cash withdrawals": 0.02,
+        "Account verification": 0.1
+      },
+      "optimizer_steps": 640.0,
+      "processed_examples": 2560.0,
+      "processed_tokens": 143089.0,
+      "reported_training_seconds": 688.5803792950003,
+      "serialized_request_bytes": 75235002.0,
+      "serialized_reply_bytes": 75416487.0,
+      "phase_wall_seconds": 1100.295067863,
+      "work_coverage": {
+        "optimizer_steps": 640.0,
+        "optimizer_steps_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "processed_examples": 2560.0,
+        "processed_examples_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "processed_tokens": 143089.0,
+        "processed_tokens_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "reported_training_seconds": 688.5803792950003,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "raw_delta_bytes": 73728000.0,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "serialized_reply_bytes": 75416487.0,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 100,
+          "received_replies": 100
+        },
+        "serialized_reply_bytes_scope": "All received replies",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": 75235002.0,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 20,
+          "recorded_dispatches": 20
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-sample",
+        "run_dir": "runs/pilot-r2-20261103/runs/sample",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 20,
+        "quorum": 3,
+        "strategy": "sample",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "flower_ray_one_gpu_worker",
+        "persistent_worker": true,
+        "process_interruptions": [],
+        "omitted_clients": [],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-heterogeneous",
+        "kind": "federated",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/sample.json",
+        "sha256": "b56714b7a2129b207b9b0a08423d3556f57a827a8a883e19864c1c5dc182c096",
+        "bytes": 25051
+      }
+    },
+    {
+      "key": "equal",
+      "run_id": "pilot-r2-20261103-equal",
+      "kind": "federated",
+      "strategy": "equal",
+      "condition": "imbalanced-heterogeneous",
+      "seed": 42,
+      "attempts": 20,
+      "config_sha256": "891947e4f6a68e4978dacf195be1a294e79ebfb34f5772fa93d42e143060486f",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 20,
+      "version": 20,
+      "checkpoint_b_hash": "7c99239a2499297d29a941299a39d6158d4d8b3dc1f2381bc5af369a283c46f6",
+      "recorded_config_hash": "ff92cb2f34d1c96821588a4d66f8299091656c9d3998497555c75e1f03b20b61",
+      "test_count": 500,
+      "accuracy": 0.354,
+      "macro_f1": 0.32526310934246677,
+      "worst_domain_accuracy": 0.14,
+      "domain_gap": 0.4,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-equal",
+        "attempt_id": 20,
+        "version": 20,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T06:44:05.296047+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.3,
+        "Card payments": 0.43,
+        "Transfers": 0.54,
+        "Cash withdrawals": 0.14,
+        "Account verification": 0.36
+      },
+      "optimizer_steps": 640.0,
+      "processed_examples": 2560.0,
+      "processed_tokens": 143089.0,
+      "reported_training_seconds": 562.9690560270019,
+      "serialized_request_bytes": 75234820.0,
+      "serialized_reply_bytes": 75416477.0,
+      "phase_wall_seconds": 1514.7863033819995,
+      "work_coverage": {
+        "optimizer_steps": 640.0,
+        "optimizer_steps_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "processed_examples": 2560.0,
+        "processed_examples_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "processed_tokens": 143089.0,
+        "processed_tokens_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "reported_training_seconds": 562.9690560270019,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "raw_delta_bytes": 73728000.0,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "serialized_reply_bytes": 75416477.0,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 100,
+          "received_replies": 100
+        },
+        "serialized_reply_bytes_scope": "All received replies",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": 75234820.0,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 20,
+          "recorded_dispatches": 20
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-equal",
+        "run_dir": "runs/pilot-r2-20261103/runs/equal",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 20,
+        "quorum": 3,
+        "strategy": "equal",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "flower_ray_one_gpu_worker",
+        "persistent_worker": true,
+        "process_interruptions": [],
+        "omitted_clients": [],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-heterogeneous",
+        "kind": "federated",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/equal.json",
+        "sha256": "c551eca098e02762800a3c37ac62cca1028256f892d50e93d1f03f4ceeba8eea",
+        "bytes": 25048
+      }
+    },
+    {
+      "key": "main",
+      "run_id": "pilot-r2-20261103-main",
+      "kind": "federated",
+      "strategy": "equal_clipped",
+      "condition": "imbalanced-heterogeneous",
+      "seed": 42,
+      "attempts": 20,
+      "config_sha256": "8c51c25a082e9fd4cb8bca653d899f7e10013b12bd0e73fa8a2be9165c67dd85",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 20,
+      "version": 20,
+      "checkpoint_b_hash": "03a608a7fc3ca68adb78da263534e46eb720b9c1cc14978da89d19a9ad0f088d",
+      "recorded_config_hash": "35dc2e94fae23c79e570c944b76784b55f73dd06869159270fc0d011ed6a2b17",
+      "test_count": 500,
+      "accuracy": 0.344,
+      "macro_f1": 0.29831866080737085,
+      "worst_domain_accuracy": 0.14,
+      "domain_gap": 0.38,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-main",
+        "attempt_id": 20,
+        "version": 20,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T05:55:06.690676+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.44,
+        "Card payments": 0.3,
+        "Transfers": 0.52,
+        "Cash withdrawals": 0.14,
+        "Account verification": 0.32
+      },
+      "optimizer_steps": 640.0,
+      "processed_examples": 2560.0,
+      "processed_tokens": 143089.0,
+      "reported_training_seconds": 430.585071318,
+      "serialized_request_bytes": 75234705.0,
+      "serialized_reply_bytes": 75416003.0,
+      "phase_wall_seconds": 1814.653719363,
+      "work_coverage": {
+        "optimizer_steps": 640.0,
+        "optimizer_steps_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "processed_examples": 2560.0,
+        "processed_examples_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "processed_tokens": 143089.0,
+        "processed_tokens_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "reported_training_seconds": 430.585071318,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "raw_delta_bytes": 73728000.0,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 100,
+          "accepted_replies": 100
+        },
+        "serialized_reply_bytes": 75416003.0,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 100,
+          "received_replies": 100
+        },
+        "serialized_reply_bytes_scope": "All received replies",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": 75234705.0,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 20,
+          "recorded_dispatches": 20
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-main",
+        "run_dir": "runs/pilot-r2-20261103/runs/main",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 20,
+        "quorum": 3,
+        "strategy": "equal_clipped",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "flower_ray_one_gpu_worker",
+        "persistent_worker": true,
+        "process_interruptions": [],
+        "omitted_clients": [],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-heterogeneous",
+        "kind": "federated",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/main.json",
+        "sha256": "e2e460dbf49cb7f4bffdbb239583c7febe9d745316a211c31318f09f40908394",
+        "bytes": 25054
+      }
+    },
+    {
+      "key": "dropout",
+      "run_id": "pilot-r2-20261103-dropout",
+      "kind": "federated",
+      "strategy": "equal_clipped",
+      "condition": "imbalanced-dropout",
+      "seed": 42,
+      "attempts": 20,
+      "config_sha256": "146885f6ea3a2dd28f82a8d3f3a3d71371170892a0df10bf509753549632b3b4",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 20,
+      "version": 20,
+      "checkpoint_b_hash": "b6b63b400b99cc40539b32186b96737228f3bfb7a96dc3ca9939e34c2e05f010",
+      "recorded_config_hash": "95505f8e5e18d65871cb34423b4d73720e3186b9a6bf510eddcb6f7a10454243",
+      "test_count": 500,
+      "accuracy": 0.334,
+      "macro_f1": 0.2845923056112444,
+      "worst_domain_accuracy": 0.14,
+      "domain_gap": 0.37,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-dropout",
+        "attempt_id": 20,
+        "version": 20,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T07:12:02.567049+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.44,
+        "Card payments": 0.27,
+        "Transfers": 0.51,
+        "Cash withdrawals": 0.14,
+        "Account verification": 0.31
+      },
+      "optimizer_steps": 592.0,
+      "processed_examples": 2368.0,
+      "processed_tokens": 132853.0,
+      "reported_training_seconds": 559.9049477429971,
+      "serialized_request_bytes": 75235105.0,
+      "serialized_reply_bytes": 73157859.0,
+      "phase_wall_seconds": 1561.0233907849997,
+      "work_coverage": {
+        "optimizer_steps": 592.0,
+        "optimizer_steps_coverage": {
+          "measured_replies": 97,
+          "accepted_replies": 97
+        },
+        "processed_examples": 2368.0,
+        "processed_examples_coverage": {
+          "measured_replies": 97,
+          "accepted_replies": 97
+        },
+        "processed_tokens": 132853.0,
+        "processed_tokens_coverage": {
+          "measured_replies": 97,
+          "accepted_replies": 97
+        },
+        "reported_training_seconds": 559.9049477429971,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 97,
+          "accepted_replies": 97
+        },
+        "raw_delta_bytes": 71516160.0,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 97,
+          "accepted_replies": 97
+        },
+        "serialized_reply_bytes": 73157859.0,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 100,
+          "received_replies": 100
+        },
+        "serialized_reply_bytes_scope": "All received replies",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": 75235105.0,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 20,
+          "recorded_dispatches": 20
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-dropout",
+        "run_dir": "runs/pilot-r2-20261103/runs/dropout",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 20,
+        "quorum": 3,
+        "strategy": "equal_clipped",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "flower_ray_one_gpu_worker",
+        "persistent_worker": true,
+        "process_interruptions": [
+          {
+            "attempt_id": 4,
+            "client_id": "1",
+            "after_steps": 2
+          },
+          {
+            "attempt_id": 8,
+            "client_id": "1",
+            "after_steps": 2
+          },
+          {
+            "attempt_id": 12,
+            "client_id": "1",
+            "after_steps": 2
+          }
+        ],
+        "omitted_clients": [],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-dropout",
+        "kind": "federated",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/dropout.json",
+        "sha256": "3bdffbf7021fbdd1b5556945ead78a718e1184c23027b4f197c7927586458ea7",
+        "bytes": 25306
+      }
+    },
+    {
+      "key": "omit4",
+      "run_id": "pilot-r2-20261103-omit4",
+      "kind": "federated",
+      "strategy": "equal_clipped",
+      "condition": "imbalanced-heterogeneous",
+      "seed": 42,
+      "attempts": 20,
+      "config_sha256": "f5a7805a16cdd494794453128c0ba62aaeb6663a63a12e746545cedf687db449",
+      "status": "completed",
+      "recorded_status": "completed",
+      "attempts_recorded": 20,
+      "version": 20,
+      "checkpoint_b_hash": "af92270552f2a5355f58dc2c4dd3f279dea50c327c326c732645e7254da92a5e",
+      "recorded_config_hash": "c0870b8da9d35d026e814cc29b8c26ca1d997395d32412c8540ed314497542ee",
+      "test_count": 500,
+      "accuracy": 0.348,
+      "macro_f1": 0.3151268464316948,
+      "worst_domain_accuracy": 0.15,
+      "domain_gap": 0.4,
+      "test_identity": {
+        "run_id": "pilot-r2-20261103-omit4",
+        "attempt_id": 20,
+        "version": 20,
+        "manifest_hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+        "timestamp": "2026-11-03T07:35:39.348422+00:00"
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.37,
+        "Card payments": 0.35,
+        "Transfers": 0.55,
+        "Cash withdrawals": 0.15,
+        "Account verification": 0.32
+      },
+      "optimizer_steps": 600.0,
+      "processed_examples": 2400.0,
+      "processed_tokens": 135858.0,
+      "reported_training_seconds": 459.9110142949994,
+      "serialized_request_bytes": 60187872.0,
+      "serialized_reply_bytes": 60335027.0,
+      "phase_wall_seconds": 1312.798451785,
+      "work_coverage": {
+        "optimizer_steps": 600.0,
+        "optimizer_steps_coverage": {
+          "measured_replies": 80,
+          "accepted_replies": 80
+        },
+        "processed_examples": 2400.0,
+        "processed_examples_coverage": {
+          "measured_replies": 80,
+          "accepted_replies": 80
+        },
+        "processed_tokens": 135858.0,
+        "processed_tokens_coverage": {
+          "measured_replies": 80,
+          "accepted_replies": 80
+        },
+        "reported_training_seconds": 459.9110142949994,
+        "reported_training_seconds_coverage": {
+          "measured_replies": 80,
+          "accepted_replies": 80
+        },
+        "raw_delta_bytes": 58982400.0,
+        "raw_delta_bytes_coverage": {
+          "measured_replies": 80,
+          "accepted_replies": 80
+        },
+        "serialized_reply_bytes": 60335027.0,
+        "serialized_reply_bytes_coverage": {
+          "measured_replies": 80,
+          "received_replies": 80
+        },
+        "serialized_reply_bytes_scope": "All received replies",
+        "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+        "serialized_request_bytes": 60187872.0,
+        "serialized_request_bytes_coverage": {
+          "measured_dispatches": 20,
+          "recorded_dispatches": 20
+        }
+      },
+      "warnings": [],
+      "configuration": {
+        "run_id": "pilot-r2-20261103-omit4",
+        "run_dir": "runs/pilot-r2-20261103/runs/omit4",
+        "asset_dir": "assets/model",
+        "adapter_dir": "assets/adapter",
+        "client_manifests": {
+          "0": [
+            "assets/banking77/manifests/imbalanced/client_0.json"
+          ],
+          "1": [
+            "assets/banking77/manifests/imbalanced/client_1.json"
+          ],
+          "2": [
+            "assets/banking77/manifests/imbalanced/client_2.json"
+          ],
+          "3": [
+            "assets/banking77/manifests/imbalanced/client_3.json"
+          ],
+          "4": [
+            "assets/banking77/manifests/imbalanced/client_4.json"
+          ]
+        },
+        "budgets": {
+          "0": 2,
+          "1": 16,
+          "2": 8,
+          "3": 4,
+          "4": 2
+        },
+        "attempts": 20,
+        "quorum": 3,
+        "strategy": "equal_clipped",
+        "seed": 42,
+        "deadline_seconds": 300.0,
+        "device": "cuda",
+        "training_config": {
+          "learning_rate": 0.0002,
+          "weight_decay": 0.0,
+          "microbatch_size": 1,
+          "gradient_accumulation": 4,
+          "max_length": 128,
+          "gradient_clip": 1.0,
+          "proximal_mu": 0.0,
+          "activation_checkpointing": false,
+          "cpu_threads": 4,
+          "eval_batch_size": 20
+        },
+        "worker_cpus": 2,
+        "runtime": "flower_ray_one_gpu_worker",
+        "persistent_worker": true,
+        "process_interruptions": [],
+        "omitted_clients": [
+          "4"
+        ],
+        "resume": false,
+        "scenario": "imbalanced",
+        "condition": "imbalanced-heterogeneous",
+        "kind": "federated",
+        "study_scope": "SEED42_PILOT",
+        "study_id": "pilot-r2-20261103",
+        "identity": {
+          "adapter_settings": {
+            "alpha": 16,
+            "dropout": 0.05,
+            "rank": 8,
+            "scaling": 2.0,
+            "target_modules": [
+              "q_proj",
+              "v_proj"
+            ]
+          },
+          "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+          "b_parameters": 184320,
+          "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+          "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+          "eos_token_id": 2,
+          "initialization_seed": 42,
+          "intents": [
+            "card_arrival",
+            "card_delivery_estimate",
+            "activate_my_card",
+            "card_about_to_expire",
+            "pending_card_payment",
+            "declined_card_payment",
+            "card_payment_not_recognised",
+            "transaction_charged_twice",
+            "pending_transfer",
+            "transfer_not_received_by_recipient",
+            "transfer_fee_charged",
+            "cancel_transfer",
+            "pending_cash_withdrawal",
+            "declined_cash_withdrawal",
+            "wrong_amount_of_cash_received",
+            "cash_withdrawal_not_recognised",
+            "edit_personal_details",
+            "verify_my_identity",
+            "unable_to_verify_identity",
+            "why_verify_identity"
+          ],
+          "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+          "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+          "pad_token_id": 2,
+          "schema_version": 1,
+          "scoring_rule": "sum_completion_logprob_including_eos",
+          "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+          "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+          "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+          "wire_dtype": "float32"
+        },
+        "initial_b_hash": "1f8c5306739b608bf948b536d550af04b62b348c54712e163627dc125f2298e2",
+        "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "validation_manifest": "assets/banking77/manifests/validation.json",
+        "test_manifest": "assets/banking77/manifests/test.json",
+        "evaluate_every": 1,
+        "evaluation_device": "cuda",
+        "evaluate_initial": true,
+        "evaluate_final_test": true,
+        "selection_rule": "Final committed B after the declared attempt horizon; skipped attempts count."
+      },
+      "configuration_file": {
+        "file": "runs/pilot-r2-20261103/configs/omit4.json",
+        "sha256": "a9e5ac24785b42d620bb29c6307f46035aefb3c9111a69b3c79fb9d9db9ba2ba",
+        "bytes": 25067
+      }
+    }
+  ]
+}

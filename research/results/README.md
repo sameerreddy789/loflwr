@@ -130,8 +130,8 @@ The original seed-42 twenty-attempt test measurements are now available for
 [frozen base](pilot-base-complete.json). Test accuracies are respectively
 24.6%, 35.4%, 34.4%, 40.6%, and 32%. These do not show that clipping improves
 quality over plain equal weighting, or that the current generative configuration
-is a high-accuracy classifier. Omission completion and the full multi-seed
-matrix remain separate gates. The resumed sample run lacks complete phase-time
+is a high-accuracy classifier. The full multi-seed matrix remains incomplete.
+The resumed sample run lacks complete phase-time
 history for its killed invocation; do not compare its phase total as full runtime.
 
 The completed [scripted-dropout run](pilot-dropout-complete.json),
@@ -148,6 +148,32 @@ seconds against the declared 300-second limit; full round times also include
 aggregation and evaluation. The one-point test decrease versus the main run
 supports continuation/recovery in this seed, not a general robustness or
 high-accuracy claim. This was one-laptop simulation.
+
+The [complete seven-configuration pilot](pilot-r2-20261103/README.md) includes
+the client-4 omission run: **34.8%** test accuracy without it versus **34.4%**
+with it, and **32% verification-domain accuracy in both**. This is a
+null/unfavorable single-seed result for the weak-client utility claim. It does
+not show that inclusion can never help; changing membership also changes
+aggregation weights and clipping. The report preserves all configurations,
+work counts, domain scores, loss curves and final-test macro F1.
+
+### Final-checkpoint scoring diagnostics
+
+Three additional validation-only diagnostics used final version-20 checkpoint
+copies and the same fixed sum/mean/centered rules. All 200 validation queries
+were scored. Original-score accuracies and B hashes match the frozen study's
+recorded final validation evaluations.
+
+| Checkpoint | Original sum | Per-token mean | Content-free centered | Corrected/harmed by centering |
+| --- | ---: | ---: | ---: | ---: |
+| [Sample weighting](accuracy-scoring-sample-final.json) | 22.5% | 18.5% | 52% | 65 / 6 |
+| [Equal weighting](accuracy-scoring-equal-final.json) | 34.5% | 49% | 63% | 67 / 10 |
+| [Equal plus clipping](accuracy-scoring-main-final.json) | 32.5% | 43.5% | 58.5% | 71 / 19 |
+
+The correction helps, but these are exploratory reused-validation results,
+not new final-test evaluations or an active scoring-contract change. They
+support the [next architecture experiment](../accuracy-recovery-plan.md),
+without establishing a 99% result.
 
 Two complete validation scoring diagnostics used cached model assets and
 checkpoint copies, with no additional training. The frozen base scored

@@ -1,0 +1,8 @@
+key,status,Account verification,Card lifecycle,Card payments,Cash withdrawals,Transfers
+base,completed,0.46,0.36,0.16,0.11,0.51
+centralized,completed,0.24,0.23,0.62,0.23,0.71
+sample,completed,0.1,0.03,0.71,0.02,0.37
+equal,completed,0.36,0.3,0.43,0.14,0.54
+main,completed,0.32,0.44,0.3,0.14,0.52
+dropout,completed,0.31,0.44,0.27,0.14,0.51
+omit4,completed,0.32,0.37,0.35,0.15,0.55
