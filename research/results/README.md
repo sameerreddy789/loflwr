@@ -35,6 +35,51 @@ measurement. The optimized scorer reported 3.70 GB reserved and releases unused
 cache between evaluation and training. Each reported peak is process-local,
 not the whole laptop's simultaneous total.
 
+## Actual interruption, retention and rejoining
+
+Run `ray-recovery-calibration-20261103` used five real logical clients, two
+optimizer steps each, quorum three and a 60-second collection deadline. The
+deadline was deliberately tested against cold and replacement-worker overhead.
+See [the recorded run](ray-recovery.json).
+
+| Attempt | Accepted clients | Outcome | Collection time |
+| --- | --- | --- | --- |
+| 1 | 0, 1, 2, 3 | Committed version 1; client 4 missed the deadline | 58.53 s |
+| 2 | 0 | Client 1's process was killed after one optimizer step; quorum missed, version 1 retained | 58.16 s |
+| 3 | 0, 1, 2, 3, 4 | All accepted after synchronization; committed version 2 | 54.82 s |
+
+The attempt-1 and attempt-2 B hash is identical:
+`0db7113fc4aa53bc0b896442065b53a30ef3126d4de16dd9d954dab43091101a`.
+Returning clients synchronized that state before attempt 3. This verifies actual
+process interruption, bounded collection, below-quorum retention, and fresh
+rejoining. It also shows that 60 seconds is too tight for this cold single-worker
+queue. The matched pilot therefore declares 300 seconds for every strategy.
+
+The [offline-start check](offline-start.json) started a fresh CPU process in a
+Linux network namespace with only loopback and no IPv4 routes. An external
+connection failed with `Network is unreachable` before the model was imported.
+Cached model/checkpoint loading and one query completed in 18.01 s. This proves
+fresh offline inference on the prepared laptop; it does not establish an offline
+multi-laptop deployment.
+
+Run `tls-node-recovery-r2-20261103` exercised the Deployment Runtime with three
+actual SuperNode process trees, TLS and registered node keys on this laptop.
+Budgets were `[1,2,1]`, quorum two, and the collection deadline 120 seconds.
+All three clients contributed in attempt 1 (88.54 s). In attempt 2 the middle
+SuperNode and its children were terminated after one completed optimizer step;
+the other two clients committed version 2 (78.11 s) with coefficient 0.5 each.
+The restarted node synchronized version 2 and all three contributed in attempt
+3 (86.52 s), committing version 3. See [TLS recovery evidence](tls-node-recovery.json).
+This is a same-host network/process test, not a three-laptop measurement.
+
+The [fresh offline Deployment Runtime check](offline-deployment.json) then started
+three authenticated local nodes inside a loopback-only namespace. It committed
+one B update round with two accepted contributors in 112.70 seconds; the third
+client missed the 120-second collection deadline. Total fresh-start execution
+was 142.18 seconds. [Round details](offline-tls.json) retain that missed work.
+This demonstrates offline bootstrap and quorum-based training on the prepared
+machine; it does not demonstrate all-client completion within a live deadline.
+
 ## Cheap classification reference
 
 A fixed centralized TF-IDF/logistic-regression reference trained on the same

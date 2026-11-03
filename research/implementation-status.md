@@ -16,7 +16,7 @@ Last updated: **3 November 2026**. This is the prototype handoff status. Detaile
 | Study launcher | Pilot/full plans, immutable configuration/asset/source identities, sequential execution, bounded process lifetime, resume, and explicit incomplete states are implemented and unit tested. A shorter horizon is calibration and cannot access final test. |
 | Dashboard and reports | Saved events, work/traffic, coefficients/clipping, quality, replay, evidence downloads, and checkpoint-backed CPU queries are implemented. The Windows launcher uses offline model settings and binds localhost. Reader and Streamlit fixture checks exist. |
 
-The tests now cover more than the original dependency-free tensor scaffold. Optional integration tests need their corresponding packages. The WSL2 environment passed the then-current 91-test suite before the subsequent worker optimization; the final delivery check should record the current test count and any skips. Unit tests and runtime probes are distinct from language-model experiments.
+The full WSL2 environment passed **98 tests with no skips** on 3 November 2026. This includes interrupted-attempt recovery and stable dashboard run selection. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
 
 ## Traceable local checks
 
@@ -39,8 +39,8 @@ These are execution checks. A small smoke loss change or a single post-round acc
 | --- | --- |
 | Frozen comparative study | Completed declared runs with frozen-base/centralized references, sample/equal/clipped comparisons, exact actual work, and final-test access only after the full horizon. The full multi-seed program remains separate from a seed-42 pilot. |
 | Useful weak-client participation | Matched omission runs and paired seed differences, including negligible or unfavorable effects. Nonzero updates alone do not prove utility. |
-| Actual interruption and recovery | Saved evidence of a process/network interruption during training, bounded collection, commit or below-quorum retention, and fresh current-B synchronization on return. Unit tests alone do not satisfy this gate. |
-| Integrated persistent-worker recovery | Worker-level equivalence, interruption, and deadline checks passed. A full Flower run must still establish survivor commit/skip decisions and current-state synchronization after interruption; an isolated subprocess calibration does not establish network recovery. |
+| Actual interruption and recovery | Real Ray rehearsal passed process kill, below-quorum B retention, and all-five-client fresh rejoining. [TLS rehearsal](results/tls-node-recovery.json) also passed full SuperNode process-tree termination, two-survivor commit, and fresh rejoin. These are same-host tests. The 60-second Ray deadline missed cold/queued work, so the frozen comparative pilot declares 300 seconds. |
+| Fresh offline startup | Fresh CPU inference and fresh three-node local TLS deployment passed inside a loopback-only network namespace. The deployment committed with two accepted updates; one client missed its deadline. See [offline deployment evidence](results/offline-deployment.json). Physical-laptop deployment remains untested. |
 | Three physical laptops | Measured CPU budgets and whole-process memory, LAN/TLS/known-node setup, real device loss/rejoin, and a fresh start with internet disconnected. Logical clients on one laptop do not satisfy this gate. |
 | Morning hands-on demo | Inspect the real run, score fresh queries, exercise replay, and perform the unplugged-internet restart checklist in [the morning guide](../docs/morning-demo.md). |
 

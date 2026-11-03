@@ -141,10 +141,31 @@ class RoundCoordinator:
                 self.events.emit("checkpoint_result_recovered", attempt_id=self.attempt_id,
                                  version=self.version, status=metadata["status"])
             elif metadata.get("status") == "attempt_in_progress":
+                # The attempt ID was durably consumed before requests were sent.
+                # Close that attempt without replaying work or inferring replies
+                # and timings that were only held in the interrupted process.
+                recovered = {
+                    "run_id": self.run_id, "attempt_id": self.attempt_id,
+                    "version_before": self.version, "version_after": self.version,
+                    "status": "skipped", "reason": "server_restart_before_commit",
+                    "selected": metadata.get("selected", []), "accepted": [],
+                    "absent": [], "rejected": [], "clients": {},
+                    "reply_state_recovered": False,
+                    "quorum": self.quorum, "aggregation": None,
+                    "checkpoint_hash": loaded["b_hash"],
+                }
+                # Save the decision first so another crash can recover the result
+                # index through the same path as an ordinary committed/skipped row.
+                self._save(recovered)
+                self.results.append(recovered)
+                atomic_json(result_path, self.results)
                 self.events.emit("unfinished_attempt_recovered", attempt_id=self.attempt_id,
                                  version=self.version, status="skipped",
                                  reason="server_restart_before_commit",
                                  selected=metadata.get("selected", []))
+                self.events.emit("round_result", version=self.version,
+                                 **{key: value for key, value in recovered.items()
+                                    if key != "run_id"})
         elif self.store.path.exists():
             raise FileExistsError("Run already has a checkpoint; choose resume or a fresh run directory")
         else:

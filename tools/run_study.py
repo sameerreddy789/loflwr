@@ -201,7 +201,7 @@ def freeze_plan(args: argparse.Namespace) -> dict[str, Any]:
             "attempts": horizon, "quorum": 3, "strategy": spec["strategy"], "seed": spec["seed"],
             "deadline_seconds": args.deadline_seconds, "device": args.device,
             "training_config": training, "worker_cpus": args.worker_cpus,
-            "runtime": "flower_ray_single_worker_one_laptop" if spec["kind"] == "federated" else "local_reference_one_laptop",
+            "runtime": "flower_ray_one_gpu_worker" if spec["kind"] == "federated" else "local_reference_one_laptop",
             "persistent_worker": spec["kind"] == "federated",
             "process_interruptions": [{"attempt_id": attempt, "client_id": "1", "after_steps": 2}
                                       for attempt in (4, 8, 12) if attempt <= horizon] if spec["dropout"] else [],

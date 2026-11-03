@@ -1,0 +1,28 @@
+{
+  "source_file": {
+    "file": "runs/offline-deployment-20261103.json",
+    "sha256": "876df9340aabce206624a4b5121922e4da09649c53594e7f97a5d7b0d6323468",
+    "bytes": 572
+  },
+  "measurements": {
+    "run_id": "offline-deployment-20261103",
+    "kind": "fresh_offline_deployment_check",
+    "passed": true,
+    "interfaces": [
+      "lo"
+    ],
+    "ipv4_routes": [],
+    "external_connection_error": {
+      "type": "OSError",
+      "errno": 101,
+      "message": "[Errno 101] Network is unreachable"
+    },
+    "execution_started_after_isolation": true,
+    "seconds": 142.17885577900006,
+    "training_run_id": "offline-tls-20261103",
+    "attempts": 1,
+    "committed_versions": 1,
+    "scope": "Fresh TLS/authenticated local Flower deployment in a loopback-only namespace; one physical laptop."
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

@@ -69,6 +69,10 @@ def export_run(path: Path) -> dict[str, Any]:
     report["checkpoint"] = {key: run.checkpoint[key] for key in (
         "run_id", "attempt_id", "version", "b_hash", "config_hash", "identity",
     ) if key in run.checkpoint}
+    report["recovery_events"] = [event for event in run.events if any(
+        marker in str(event.get("event", ""))
+        for marker in ("interrupt", "rejoin", "restarted", "recovered", "deadline")
+    )]
     report["publication_note"] = (
         "Derived compact measurements. Tensor payloads, predictions and dataset queries "
         "are omitted; workspace paths normalized. Source/config hashes identify original "

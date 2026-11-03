@@ -1,0 +1,971 @@
+{
+  "report_format_version": 1,
+  "generated_utc": "2026-11-03T02:03:13.141544+00:00",
+  "run_id": "tls-node-recovery-r2-20261103",
+  "run_directory": "runs/tls-node-recovery-r2-20261103",
+  "evidence_label": "Training telemetry only",
+  "config_sha256": "9e08722997d1ae089c703b8654d96ce2f45bbdbe1a87014593a73d24c91cbdc4",
+  "configuration": {
+    "clients": {
+      "0": 320,
+      "1": 320,
+      "2": 160
+    },
+    "deadline_seconds": 120.0,
+    "epsilon": 1e-12,
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    },
+    "manifest_hashes": {
+      "0": "bbd12909aed513edfaaf10aa69f3df4f905707d732eef8525d770486ba27a413",
+      "1": "a1f1d6744ae3a40e8786d275c752ad180f326403ea8327b78a3437e041b39f24",
+      "2": "2725107fe091ddc334e8a212f2d3b9401530bd2dd12f99d05063a2c7d570da4f"
+    },
+    "quorum": 2,
+    "run_id": "tls-node-recovery-r2-20261103",
+    "runtime": {
+      "adapter_dir": "assets/adapter",
+      "asset_dir": "assets/model",
+      "attempts": 3,
+      "between_attempt_seconds": 20,
+      "budgets": {
+        "0": 1,
+        "1": 2,
+        "2": 1
+      },
+      "client_manifests": {
+        "0": [
+          "assets/banking77/manifests/balanced/client_0.json",
+          "assets/banking77/manifests/balanced/client_1.json"
+        ],
+        "1": [
+          "assets/banking77/manifests/balanced/client_2.json",
+          "assets/banking77/manifests/balanced/client_3.json"
+        ],
+        "2": [
+          "assets/banking77/manifests/balanced/client_4.json"
+        ]
+      },
+      "deadline_seconds": 120.0,
+      "device": "cuda",
+      "node_interruptions": [
+        {
+          "after_steps": 1,
+          "attempt_id": 2,
+          "client_id": "1",
+          "rejoin_after_seconds": 2
+        }
+      ],
+      "omitted_clients": [],
+      "overall_timeout_seconds": 900,
+      "persistent_worker": false,
+      "process_interruptions": [],
+      "purpose": "One-computer TLS three-node runtime, actual mid-budget SuperNode process-tree interruption and fresh rejoin; not physical three-laptop evidence",
+      "quorum": 2,
+      "rediscover_each_attempt": true,
+      "run_dir": "runs/tls-node-recovery-r2-20261103",
+      "run_id": "tls-node-recovery-r2-20261103",
+      "runtime": "same_host_flower_deployment_tls_authenticated",
+      "scenario": "balanced",
+      "seed": 42,
+      "serial_training": true,
+      "startup_timeout_seconds": 120,
+      "strategy": "equal_clipped",
+      "training_config": {
+        "eval_batch_size": 20
+      },
+      "transport_security": {
+        "authenticated_registered_nodes": true,
+        "bind_address": "127.0.0.1:19592",
+        "ca_sha256": "2163ba8940aed1af710be81f28db675aa1925cbdecf63df80430a1a8fa7c4d4e",
+        "nodes": {
+          "0": {
+            "node_id": 1002883774070278286,
+            "public_key_sha256": "e76c3340abbdfd8d727774d28fe4c3fdc2400101da5a658f537e74886c83af50"
+          },
+          "1": {
+            "node_id": 1025906213093512395,
+            "public_key_sha256": "07effd4317b59a3d535dc0fe2a88b3f66abacfff0283c7e5ef4f8389e7fc5775"
+          },
+          "2": {
+            "node_id": 7816290850278523231,
+            "public_key_sha256": "47b0ad9c325b170a3a0aaa6d69684d4db314fb21d05e0dfa98433d2c08798609"
+          }
+        },
+        "tls": true
+      },
+      "transport_state_backend": ":flwr-in-memory:"
+    },
+    "seed": 42,
+    "strategy": "equal_clipped"
+  },
+  "checkpoint": {
+    "run_id": "tls-node-recovery-r2-20261103",
+    "attempt_id": 3,
+    "version": 3,
+    "b_hash": "a848536cc9c49583f5d86ba958b69a8c48a97128614284d44f495ee8159224a1",
+    "config_hash": "9e08722997d1ae089c703b8654d96ce2f45bbdbe1a87014593a73d24c91cbdc4",
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    }
+  },
+  "attempts": [
+    {
+      "Attempt": 1,
+      "Status": "Committed",
+      "Version before": 0,
+      "Version after": 1,
+      "Accepted": 3,
+      "Selected": 3,
+      "Collection seconds": 88.54276034199995,
+      "Checkpoint hash": "321a0a72729f09b8aadd868417366579fd23d3f44034fea17cbe5e613a88ac1e"
+    },
+    {
+      "Attempt": 2,
+      "Status": "Committed",
+      "Version before": 1,
+      "Version after": 2,
+      "Accepted": 2,
+      "Selected": 3,
+      "Collection seconds": 78.11499637899999,
+      "Checkpoint hash": "2f299be82a74271f9c9ad3a96069a072c79544651122afa9b4922f7549e42584"
+    },
+    {
+      "Attempt": 3,
+      "Status": "Committed",
+      "Version before": 2,
+      "Version after": 3,
+      "Accepted": 3,
+      "Selected": 3,
+      "Collection seconds": 86.52213738700004,
+      "Checkpoint hash": "a848536cc9c49583f5d86ba958b69a8c48a97128614284d44f495ee8159224a1"
+    }
+  ],
+  "accepted_reply_work": {
+    "optimizer_steps": 10.0,
+    "optimizer_steps_coverage": {
+      "measured_replies": 8,
+      "accepted_replies": 8
+    },
+    "processed_examples": 40.0,
+    "processed_examples_coverage": {
+      "measured_replies": 8,
+      "accepted_replies": 8
+    },
+    "processed_tokens": 1927.0,
+    "processed_tokens_coverage": {
+      "measured_replies": 8,
+      "accepted_replies": 8
+    },
+    "reported_training_seconds": 25.203521012000124,
+    "reported_training_seconds_coverage": {
+      "measured_replies": 8,
+      "accepted_replies": 8
+    },
+    "raw_delta_bytes": 5898240.0,
+    "raw_delta_bytes_coverage": {
+      "measured_replies": 8,
+      "accepted_replies": 8
+    },
+    "serialized_reply_bytes": 6031835.0,
+    "serialized_reply_bytes_coverage": {
+      "measured_replies": 9,
+      "received_replies": 9
+    },
+    "serialized_reply_bytes_scope": "All received replies",
+    "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+    "serialized_request_bytes": 6771249.0,
+    "serialized_request_bytes_coverage": {
+      "measured_dispatches": 3,
+      "recorded_dispatches": 3
+    }
+  },
+  "evaluations": [],
+  "round_details": [
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2"
+      ],
+      "aggregation": {
+        "aggregate_norm": 0.06167815487787362,
+        "clip_factors": {
+          "0": 1.0,
+          "1": 0.5791436320825161,
+          "2": 0.9999999999883475
+        },
+        "clip_threshold": 0.08581899616187216,
+        "clipped_norms": {
+          "0": 0.08578657435108994,
+          "1": 0.08581899616129302,
+          "2": 0.08581899616087216
+        },
+        "clipping_fraction": 0.6666666666666666,
+        "coefficients": {
+          "0": 0.3333333333333333,
+          "1": 0.3333333333333333,
+          "2": 0.3333333333333333
+        },
+        "declared_sample_sizes": {
+          "0": 320,
+          "1": 320,
+          "2": 160
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.08578657435108994,
+          "1": 0.1481825775286528,
+          "2": 0.08581899616187216
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "aggregation_seconds": 0.4450897540000369,
+      "attempt_id": 1,
+      "checkpoint_hash": "321a0a72729f09b8aadd868417366579fd23d3f44034fea17cbe5e613a88ac1e",
+      "clients": {
+        "0": {
+          "attempt_id": 1,
+          "client_id": "0",
+          "client_processing_seconds": 80.43389604000004,
+          "client_seed": 984182580,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 54.871030356999995,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            2.287118434906006
+          ],
+          "job_pid": 1311,
+          "job_process_seconds": 23.881949995000014,
+          "local_train_seconds": 3.0618303789999572,
+          "manifest_examples": 320,
+          "microbatches": 4,
+          "model_load_seconds": 16.88599014800002,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 704563200,
+          "peak_gpu_reserved_bytes": 746586112,
+          "peak_rss_bytes": 1785483264,
+          "penalized_objective_loss": 5.275902025161251,
+          "precision": "float32",
+          "queue_wait_seconds": 5.180851459503174,
+          "records_hash": "a1008d7356f7aa27fb6f4d283f16427c2ea7cf2fab87ae36f06fdd984abb96f9",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 31,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.275902025161251,
+          "tokens_processed": 201,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        },
+        "1": {
+          "attempt_id": 1,
+          "client_id": "1",
+          "client_processing_seconds": 56.04129097500004,
+          "client_seed": 114255239,
+          "completed_optimizer_steps": 2,
+          "compute_queue_seconds": 30.218280024000023,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            2.5533387660980225,
+            2.6038103103637695
+          ],
+          "job_pid": 1111,
+          "job_process_seconds": 25.058357269,
+          "local_train_seconds": 3.7311144239999976,
+          "manifest_examples": 320,
+          "microbatches": 8,
+          "model_load_seconds": 17.592581604999964,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 734098432,
+          "peak_gpu_reserved_bytes": 771751936,
+          "peak_rss_bytes": 1778413568,
+          "penalized_objective_loss": 4.883774193850431,
+          "precision": "float32",
+          "queue_wait_seconds": 4.195624113082886,
+          "records_hash": "ed79be30e0cc98721fd1bc8bf6ec1f96ed5b0c7057984397013a23e47fb70696",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 66,
+          "supervision_truncated_examples": 0,
+          "task_loss": 4.883774193850431,
+          "tokens_processed": 417,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 1,
+          "worker_reused": false
+        },
+        "2": {
+          "attempt_id": 1,
+          "client_id": "2",
+          "client_processing_seconds": 31.336280306999925,
+          "client_seed": 1802542905,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 0.006256860000007691,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            3.0196170806884766
+          ],
+          "job_pid": 836,
+          "job_process_seconds": 30.59049519700011,
+          "local_train_seconds": 3.421736712999973,
+          "manifest_examples": 160,
+          "microbatches": 4,
+          "model_load_seconds": 23.480136858000037,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 708899840,
+          "peak_gpu_reserved_bytes": 725614592,
+          "peak_rss_bytes": 1782136832,
+          "penalized_objective_loss": 6.95542848110199,
+          "precision": "float32",
+          "queue_wait_seconds": 3.317453145980835,
+          "records_hash": "5f69cccb246eb5dfd3322492eda9aed9bfbe03c824294f103e21cbaaf566c080",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 24,
+          "supervision_truncated_examples": 0,
+          "task_loss": 6.95542848110199,
+          "tokens_processed": 190,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        }
+      },
+      "collection_seconds": 88.54276034199995,
+      "event": "round_result",
+      "quorum": 2,
+      "raw_b_bytes": 737280,
+      "rejected": [],
+      "run_id": "tls-node-recovery-r2-20261103",
+      "selected": [
+        "0",
+        "1",
+        "2"
+      ],
+      "serialized_reply_bytes": 2261825,
+      "status": "committed",
+      "timestamp": 1793671070.98231,
+      "version": 1,
+      "version_after": 1,
+      "version_before": 0
+    },
+    {
+      "absent": [
+        "1"
+      ],
+      "accepted": [
+        "0",
+        "2"
+      ],
+      "aggregation": {
+        "aggregate_norm": 0.07108293592654663,
+        "clip_factors": {
+          "0": 1.0,
+          "2": 0.9998960400845881
+        },
+        "clip_threshold": 0.08578469504537677,
+        "clipped_norms": {
+          "0": 0.08577577594950767,
+          "2": 0.08578469504437686
+        },
+        "clipping_fraction": 0.5,
+        "coefficients": {
+          "0": 0.5,
+          "2": 0.5
+        },
+        "declared_sample_sizes": {
+          "0": 320,
+          "2": 160
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.08577577594950767,
+          "2": 0.08579361414124587
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "aggregation_seconds": 0.3628364700000475,
+      "attempt_id": 2,
+      "checkpoint_hash": "2f299be82a74271f9c9ad3a96069a072c79544651122afa9b4922f7549e42584",
+      "clients": {
+        "0": {
+          "attempt_id": 2,
+          "client_id": "0",
+          "client_processing_seconds": 68.17252725800006,
+          "client_seed": 2133306725,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 44.754979738999964,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            3.333106517791748
+          ],
+          "job_pid": 2166,
+          "job_process_seconds": 22.401494530000036,
+          "local_train_seconds": 2.4823146590000533,
+          "manifest_examples": 320,
+          "microbatches": 4,
+          "model_load_seconds": 16.18784318400003,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 701804544,
+          "peak_gpu_reserved_bytes": 721420288,
+          "peak_rss_bytes": 1786236928,
+          "penalized_objective_loss": 5.270985527038574,
+          "precision": "float32",
+          "queue_wait_seconds": 7.387807369232178,
+          "records_hash": "a1008d7356f7aa27fb6f4d283f16427c2ea7cf2fab87ae36f06fdd984abb96f9",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 25,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.270985527038574,
+          "tokens_processed": 183,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        },
+        "2": {
+          "attempt_id": 2,
+          "client_id": "2",
+          "client_processing_seconds": 23.282085724000012,
+          "client_seed": 1367789417,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 0.008046892000038497,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            2.298814535140991
+          ],
+          "job_pid": 1773,
+          "job_process_seconds": 22.250866550999945,
+          "local_train_seconds": 2.409026691000008,
+          "manifest_examples": 160,
+          "microbatches": 4,
+          "model_load_seconds": 16.21809277300008,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 699120640,
+          "peak_gpu_reserved_bytes": 719323136,
+          "peak_rss_bytes": 1783668736,
+          "penalized_objective_loss": 4.527922129631042,
+          "precision": "float32",
+          "queue_wait_seconds": 5.867032527923584,
+          "records_hash": "5f69cccb246eb5dfd3322492eda9aed9bfbe03c824294f103e21cbaaf566c080",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 30,
+          "supervision_truncated_examples": 0,
+          "task_loss": 4.527922129631042,
+          "tokens_processed": 180,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        }
+      },
+      "collection_seconds": 78.11499637899999,
+      "event": "round_result",
+      "quorum": 2,
+      "raw_b_bytes": 737280,
+      "rejected": [
+        {
+          "client_id": "unknown",
+          "reason": "flower_error:5:Error: Node Unavailable — The destination node failed to report a heartbeat within 2 × its expected interval."
+        }
+      ],
+      "run_id": "tls-node-recovery-r2-20261103",
+      "selected": [
+        "0",
+        "1",
+        "2"
+      ],
+      "serialized_reply_bytes": 1508182,
+      "status": "committed",
+      "timestamp": 1793671172.768652,
+      "version": 2,
+      "version_after": 2,
+      "version_before": 1
+    },
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2"
+      ],
+      "aggregation": {
+        "aggregate_norm": 0.06182809443935372,
+        "clip_factors": {
+          "0": 1.0,
+          "1": 0.5814134247961684,
+          "2": 0.9999999999883447
+        },
+        "clip_threshold": 0.08579795889866085,
+        "clipped_norms": {
+          "0": 0.08578799957297834,
+          "1": 0.08579795889807944,
+          "2": 0.08579795889766084
+        },
+        "clipping_fraction": 0.6666666666666666,
+        "coefficients": {
+          "0": 0.3333333333333333,
+          "1": 0.3333333333333333,
+          "2": 0.3333333333333333
+        },
+        "declared_sample_sizes": {
+          "0": 320,
+          "1": 320,
+          "2": 160
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.08578799957297834,
+          "1": 0.14756790132281247,
+          "2": 0.08579795889866085
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "aggregation_seconds": 0.4279084929999044,
+      "attempt_id": 3,
+      "checkpoint_hash": "a848536cc9c49583f5d86ba958b69a8c48a97128614284d44f495ee8159224a1",
+      "clients": {
+        "0": {
+          "attempt_id": 3,
+          "client_id": "0",
+          "client_processing_seconds": 44.95888104799997,
+          "client_seed": 697905288,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 21.449537038000017,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            2.65484356880188
+          ],
+          "job_pid": 2830,
+          "job_process_seconds": 22.401024696000036,
+          "local_train_seconds": 2.4728032420000545,
+          "manifest_examples": 320,
+          "microbatches": 4,
+          "model_load_seconds": 15.805669350000016,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 716388864,
+          "peak_gpu_reserved_bytes": 763363328,
+          "peak_rss_bytes": 1786200064,
+          "penalized_objective_loss": 5.2482766188108005,
+          "precision": "float32",
+          "queue_wait_seconds": 5.8262035846710205,
+          "records_hash": "a1008d7356f7aa27fb6f4d283f16427c2ea7cf2fab87ae36f06fdd984abb96f9",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 26,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.2482766188108005,
+          "tokens_processed": 196,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        },
+        "1": {
+          "attempt_id": 3,
+          "client_id": "1",
+          "client_processing_seconds": 76.63790981599993,
+          "client_seed": 127211458,
+          "completed_optimizer_steps": 2,
+          "compute_queue_seconds": 44.66189456899997,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            2.9143993854522705,
+            2.534710168838501
+          ],
+          "job_pid": 3026,
+          "job_process_seconds": 30.91475058100002,
+          "local_train_seconds": 5.085158578000119,
+          "manifest_examples": 320,
+          "microbatches": 8,
+          "model_load_seconds": 21.903502852000088,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 709904896,
+          "peak_gpu_reserved_bytes": 727711744,
+          "peak_rss_bytes": 1780670464,
+          "penalized_objective_loss": 4.381734876309411,
+          "precision": "float32",
+          "queue_wait_seconds": 5.869931697845459,
+          "records_hash": "ed79be30e0cc98721fd1bc8bf6ec1f96ed5b0c7057984397013a23e47fb70696",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 59,
+          "supervision_truncated_examples": 0,
+          "task_loss": 4.381734876309411,
+          "tokens_processed": 383,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 1,
+          "worker_reused": false
+        },
+        "2": {
+          "attempt_id": 3,
+          "client_id": "2",
+          "client_processing_seconds": 23.470035134,
+          "client_seed": 2036039179,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 0.00771993000000748,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            2.5750675201416016
+          ],
+          "job_pid": 2625,
+          "job_process_seconds": 22.387250987000016,
+          "local_train_seconds": 2.5395363259999613,
+          "manifest_examples": 160,
+          "microbatches": 4,
+          "model_load_seconds": 16.17683835199989,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 693651456,
+          "peak_gpu_reserved_bytes": 721420288,
+          "peak_rss_bytes": 1783713792,
+          "penalized_objective_loss": 5.388204945458306,
+          "precision": "float32",
+          "queue_wait_seconds": 3.9560790061950684,
+          "records_hash": "5f69cccb246eb5dfd3322492eda9aed9bfbe03c824294f103e21cbaaf566c080",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 27,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.388204945458306,
+          "tokens_processed": 177,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        }
+      },
+      "collection_seconds": 86.52213738700004,
+      "event": "round_result",
+      "quorum": 2,
+      "raw_b_bytes": 737280,
+      "rejected": [],
+      "run_id": "tls-node-recovery-r2-20261103",
+      "selected": [
+        "0",
+        "1",
+        "2"
+      ],
+      "serialized_reply_bytes": 2261828,
+      "status": "committed",
+      "timestamp": 1793671312.2138407,
+      "version": 3,
+      "version_after": 3,
+      "version_before": 2
+    }
+  ],
+  "source_files": [
+    {
+      "file": "config.json",
+      "bytes": 17080,
+      "sha256": "f1b4442917702d0c73ffcda4b16f21e71d6edcce29b7e5d84531464fbe598e5d",
+      "modified_utc": "2026-11-03T01:56:18.324965+00:00"
+    },
+    {
+      "file": "events.jsonl",
+      "bytes": 39081,
+      "sha256": "51fad82224c1e39c987a041cdbe687edf4b3f3fe53759792e8616633db22b3e2",
+      "modified_utc": "2026-11-03T02:02:12.239110+00:00"
+    },
+    {
+      "file": "round_results.json",
+      "bytes": 13629,
+      "sha256": "a2861fa9b1008cb040fd29e53740b12fb483c5137de3f737f875edd192d6bae3",
+      "modified_utc": "2026-11-03T02:01:52.134993+00:00"
+    },
+    {
+      "file": "checkpoint.json",
+      "bytes": 4233398,
+      "sha256": "8c13c2cfcaf80f1ee0e218f14c7e3560df55846caf52594a74b3e78e0de051b1",
+      "modified_utc": "2026-11-03T02:01:52.110950+00:00"
+    },
+    {
+      "file": "final_results.json",
+      "bytes": 28610,
+      "sha256": "398d1015ab8b965fd9d3b89cd05631f560825e757ae254c237356f01706e497e",
+      "modified_utc": "2026-11-03T02:02:12.226228+00:00"
+    }
+  ],
+  "read_warnings": [],
+  "interpretation": [
+    "Recorded measurements only; missing fields remain null.",
+    "A protocol check is not a language-model experiment.",
+    "This report does not establish matched comparisons, superiority, or physical deployment."
+  ],
+  "recorded_config_hash": "9e08722997d1ae089c703b8654d96ce2f45bbdbe1a87014593a73d24c91cbdc4",
+  "completion": {
+    "run_id": "tls-node-recovery-r2-20261103",
+    "runtime": "same_host_flower_deployment_tls_authenticated",
+    "attempts": 3,
+    "committed_versions": 3,
+    "config_hash": "9e08722997d1ae089c703b8654d96ce2f45bbdbe1a87014593a73d24c91cbdc4",
+    "total_wall_seconds": 316.94853355700013
+  },
+  "recovery_events": [
+    {
+      "attempt_id": 2,
+      "client_id": "1",
+      "event": "supernode_process_interrupted",
+      "mechanism": "OS termination of SuperNode and descendant processes",
+      "observed_progress": {
+        "optimizer_steps": 1,
+        "pid": 1962,
+        "status": "training",
+        "telemetry": {
+          "examples_processed": 4,
+          "local_train_seconds": 1.972344580999902,
+          "microbatches": 4,
+          "optimizer_steps": 1,
+          "tokens_processed": 208
+        },
+        "timestamp": 1793671141.7707338
+      },
+      "pid": 541,
+      "run_id": "tls-node-recovery-r2-20261103",
+      "timestamp": 1793671145.8860295
+    },
+    {
+      "after_attempt_id": 2,
+      "authenticated_node_id": 1025906213093512395,
+      "client_id": "1",
+      "event": "supernode_process_restarted",
+      "pid": 2179,
+      "run_id": "tls-node-recovery-r2-20261103",
+      "timestamp": 1793671147.9216955
+    },
+    {
+      "attempt_id": 3,
+      "client_id": "1",
+      "event": "client_rejoined",
+      "run_id": "tls-node-recovery-r2-20261103",
+      "synchronized_b_hash": "2f299be82a74271f9c9ad3a96069a072c79544651122afa9b4922f7549e42584",
+      "timestamp": 1793671311.1784563,
+      "version": 2
+    }
+  ],
+  "publication_note": "Derived compact measurements. Tensor payloads, predictions and dataset queries are omitted; workspace paths normalized. Source/config hashes identify original local files, not this transformed report. Inspect limitations alongside results."
+}

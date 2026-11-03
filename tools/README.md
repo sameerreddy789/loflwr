@@ -1,5 +1,9 @@
 # Project utilities
 
+`check_offline_start.py` verifies a fresh cached-model query or local TLS
+deployment inside a Linux network namespace containing only loopback. It refuses
+ordinary host networking. See the [measured offline check](../research/results/offline-start.json).
+
 Run these commands from the repository root with the appropriate Python environment. The [prepared-laptop guide](../docs/morning-demo.md) gives exact Windows/WSL paths; [requirements](../requirements/README.md) documents tested dependencies. Store assets in ignored `assets/`, outputs in ignored `runs/`, and private node credentials in ignored `certificates/`.
 
 ## Demo and evidence

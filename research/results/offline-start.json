@@ -1,0 +1,30 @@
+{
+  "source_file": {
+    "file": "runs/offline-start-20261103.json",
+    "sha256": "921ba0de59acafdcfe75d5ef3f2ce888e602cd146c3fa3d82ca8d93f4ce42085",
+    "bytes": 740
+  },
+  "measurements": {
+    "run_id": "offline-start-20261103",
+    "kind": "fresh_offline_inference_check",
+    "passed": true,
+    "process_id": 923,
+    "interfaces": [
+      "lo"
+    ],
+    "ipv4_routes": [],
+    "external_connection_error": {
+      "type": "OSError",
+      "errno": 101,
+      "message": "[Errno 101] Network is unreachable"
+    },
+    "model_loaded_after_isolation": true,
+    "b_hash": "cebc97b2d3ef98d3f99d85972b1463f97bb7c67a7e4266774c42f091c75d63a2",
+    "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+    "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "intent": "activate_my_card",
+    "seconds": 18.011042554999904,
+    "scope": "Fresh CPU inference, Linux network namespace. No physical LAN or deployment claim."
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

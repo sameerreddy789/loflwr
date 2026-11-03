@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import socket
+import shutil
 import subprocess
 import sys
 import time
@@ -189,6 +190,18 @@ def deploy_local(config: dict, *, project_dir: str, port: int, certificate_dir: 
     run_dir = Path(config["run_dir"])
     runtime_dir = run_dir / "flower_runtime"
     runtime_dir.mkdir(parents=True, exist_ok=True)
+    # Flower collects every path before applying .gitignore. Stage just the
+    # application sources so a local environment/model cache is never traversed
+    # or accidentally bundled during a rehearsal.
+    bundle_dir = runtime_dir / "app"
+    bundle_dir.mkdir(exist_ok=True)
+    source_root = Path(project_dir)
+    for name in ("pyproject.toml", "README.md", "LICENSE"):
+        shutil.copy2(source_root / name, bundle_dir / name)
+    package_dir = bundle_dir / "fedlora_edge"
+    package_dir.mkdir(exist_ok=True)
+    for source in (source_root / "fedlora_edge").glob("*.py"):
+        shutil.copy2(source, package_dir / source.name)
     cert_dir = Path(certificate_dir or f"certificates/{config['run_id']}").resolve()
     certs = generate_certificates(cert_dir, sorted(config["client_manifests"]))
     flower_home = runtime_dir / "home"
@@ -268,7 +281,7 @@ def deploy_local(config: dict, *, project_dir: str, port: int, certificate_dir: 
         atomic_json(run_dir / "runtime.json", config)
         override_path = runtime_dir / "run-overrides.toml"
         override_path.write_text(f'config-path = {json.dumps(str(run_dir / "runtime.json"))}\n')
-        process = start([_binary("flwr"), "run", project_dir, "rehearsal", "--run-config",
+        process = start([_binary("flwr"), "run", str(bundle_dir), "rehearsal", "--run-config",
                          str(override_path), "--stream"], "run.log")
         evaluation_allowance = float(config.get("evaluation_timeout_seconds", 600)) if config.get("validation_manifest") else 0
         overall_timeout = float(config.get("overall_timeout_seconds",

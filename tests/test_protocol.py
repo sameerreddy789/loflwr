@@ -148,10 +148,60 @@ class ProtocolTests(unittest.TestCase):
             validate_request(request, BASE, IDENTITY, now=110)
 
     def test_resume_consumes_unfinished_attempt_and_never_reuses_it(self):
+        # Even a received reply was not a durable round decision before the crash.
+        self.receive()
         restored = self.new_coordinator(resume=True)
         self.assertEqual((restored.attempt_id, restored.version), (1, 0))
+        self.assertEqual(restored.state, BASE)
+        record = restored.results[0]
+        self.assertEqual(record["attempt_id"], 1)
+        self.assertEqual(record["status"], "skipped")
+        self.assertEqual(record["reason"], "server_restart_before_commit")
+        self.assertEqual((record["version_before"], record["version_after"]), (0, 0))
+        self.assertEqual(record["checkpoint_hash"], hash_state(BASE))
+        self.assertFalse(record["reply_state_recovered"])
+        self.assertEqual(record["accepted"], [])
+        self.assertNotIn("collection_seconds", record)
+        self.assertNotIn("serialized_reply_bytes", record)
+        saved = CheckpointStore(self.directory.name).load()
+        self.assertEqual(saved["metadata"], record)
+        self.assertEqual(saved["state"], BASE)
+        index = json.loads((Path(self.directory.name) / "round_results.json").read_text())
+        self.assertEqual(index, [record])
+        events = [json.loads(line) for line in
+                  (Path(self.directory.name) / "events.jsonl").read_text().splitlines()]
+        decisions = [event for event in events if event["event"] == "round_result"]
+        self.assertEqual([event["attempt_id"] for event in decisions], [1])
+        self.assertEqual(decisions[0]["reason"], "server_restart_before_commit")
+        restored = self.new_coordinator(resume=True)
+        self.assertEqual(restored.results, [record])
         requests = restored.begin({"0": 2}, now=200)
         self.assertEqual(requests["0"].attempt_id, 2)
+
+    def test_resumed_study_has_every_attempt_required_by_final_test_gate(self):
+        restored = self.new_coordinator(resume=True)
+        for attempt in range(2, 21):
+            restored.begin({"0": 2}, now=attempt * 100)
+            restored.finish(now=attempt * 100 + 10)
+        saved = CheckpointStore(self.directory.name).load()
+        results = json.loads((Path(self.directory.name) / "round_results.json").read_text())
+        # These are the horizon and contiguous-result requirements of the study's
+        # final-test gate; recovered skips count without adding model versions.
+        self.assertEqual(saved["attempt_id"], 20)
+        self.assertEqual([row["attempt_id"] for row in results], list(range(1, 21)))
+        self.assertEqual(saved["version"], 0)
+        self.assertEqual(saved["state"], BASE)
+
+    def test_resume_recovers_skipped_decision_if_result_index_write_was_interrupted(self):
+        with patch("fedlora_edge.protocol.atomic_json", side_effect=OSError("interrupted")):
+            with self.assertRaises(OSError):
+                self.new_coordinator(resume=True)
+        restored = self.new_coordinator(resume=True)
+        self.assertEqual(len(restored.results), 1)
+        self.assertEqual(restored.results[0]["attempt_id"], 1)
+        self.assertEqual(restored.results[0]["status"], "skipped")
+        self.assertEqual(restored.results[0]["reason"], "server_restart_before_commit")
+        self.assertEqual((restored.attempt_id, restored.version), (1, 0))
 
     def test_resume_rejects_changed_contract(self):
         with self.assertRaises(ValueError):

@@ -13,7 +13,7 @@ Set-Location D:\Hackathons\loflwr
 
 Keep that terminal open; use Ctrl+C there when finished. The launcher finds the Windows CPU environment at `C:\Users\samee\.venvs\loflwr-cpu\Scripts\python.exe`, sets offline model flags, and serves only on localhost. Use `-Port 8511` if another application already owns port 8510. Do not start a second dashboard merely because the existing page needs **Refresh files**.
 
-In **Recorded run**, select `flower-gpu-smoke-20261102` for the completed initial check, or inspect a later identified run from the [results register](../research/results/README.md). For the initial check:
+In **Recorded run**, select `ray-recovery-calibration-20261103` to inspect actual interruption and rejoining, or a completed comparative run from the [results register](../research/results/README.md). `flower-gpu-smoke-20261102` preserves the initial all-five-client check. For that initial check:
 
 1. **Overview:** confirm run ID, one attempt, one commit, and saved model version 1.
 2. **Attempts & clients:** confirm all five clients were accepted, each completed two optimizer steps, and each coefficient is 0.2. Inspect the norm/clipping details and recorded traffic.
@@ -28,7 +28,7 @@ Stay in **Latest saved state**, open **Ask a query**, and choose the run's saved
 
 > I made a transfer yesterday and it still says pending.
 
-Press **Score query**. The first request loads the model on CPU; subsequent requests can reuse it. Check that the result shows a permitted intent and the authored response, and inspect the candidate scores. Try another request about a different domain without treating a few examples as an accuracy test.
+Press **Score query**, or Ctrl+Enter inside the query field. The first request loads the model on CPU; the verified browser check took 22.24 seconds including model load. Subsequent requests can reuse it. Check that the result shows a permitted intent and the authored response, and inspect the candidate scores. Try another request about a different domain without treating a few examples as an accuracy test.
 
 The router always chooses one of twenty labels, including for unrelated text. Scores are summed completion log probabilities, including EOS, rather than calibrated confidence. Responses are demonstration content. The app has no bank account access and performs no banking actions.
 

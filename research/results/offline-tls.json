@@ -1,0 +1,484 @@
+{
+  "report_format_version": 1,
+  "generated_utc": "2026-11-03T02:31:14.435083+00:00",
+  "run_id": "offline-tls-20261103",
+  "run_directory": "runs/offline-tls-20261103",
+  "evidence_label": "Training telemetry only",
+  "config_sha256": "2225747f83f2489a6885a099245182520bbb8396f93c7026c09e7fc504acc3e1",
+  "configuration": {
+    "clients": {
+      "0": 320,
+      "1": 320,
+      "2": 160
+    },
+    "deadline_seconds": 120.0,
+    "epsilon": 1e-12,
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    },
+    "manifest_hashes": {
+      "0": "bbd12909aed513edfaaf10aa69f3df4f905707d732eef8525d770486ba27a413",
+      "1": "a1f1d6744ae3a40e8786d275c752ad180f326403ea8327b78a3437e041b39f24",
+      "2": "2725107fe091ddc334e8a212f2d3b9401530bd2dd12f99d05063a2c7d570da4f"
+    },
+    "quorum": 2,
+    "run_id": "offline-tls-20261103",
+    "runtime": {
+      "adapter_dir": "assets/adapter",
+      "asset_dir": "assets/model",
+      "attempts": 1,
+      "between_attempt_seconds": 0,
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "client_manifests": {
+        "0": [
+          "assets/banking77/manifests/balanced/client_0.json",
+          "assets/banking77/manifests/balanced/client_1.json"
+        ],
+        "1": [
+          "assets/banking77/manifests/balanced/client_2.json",
+          "assets/banking77/manifests/balanced/client_3.json"
+        ],
+        "2": [
+          "assets/banking77/manifests/balanced/client_4.json"
+        ]
+      },
+      "deadline_seconds": 120.0,
+      "device": "cuda",
+      "node_interruptions": [],
+      "omitted_clients": [],
+      "overall_timeout_seconds": 300,
+      "persistent_worker": false,
+      "process_interruptions": [],
+      "purpose": "One-computer TLS three-node runtime, actual mid-budget SuperNode process-tree interruption and fresh rejoin; not physical three-laptop evidence",
+      "quorum": 2,
+      "rediscover_each_attempt": true,
+      "run_dir": "runs/offline-tls-20261103",
+      "run_id": "offline-tls-20261103",
+      "runtime": "same_host_flower_deployment_tls_authenticated",
+      "scenario": "balanced",
+      "seed": 42,
+      "serial_training": true,
+      "startup_timeout_seconds": 120,
+      "strategy": "equal_clipped",
+      "training_config": {
+        "eval_batch_size": 20
+      },
+      "transport_security": {
+        "authenticated_registered_nodes": true,
+        "bind_address": "127.0.0.1:19692",
+        "ca_sha256": "27d9300f69805a2002b3aa8fa051e4e35f72f785dffdf6c747f6948de6297c9b",
+        "nodes": {
+          "0": {
+            "node_id": 11992850676512801395,
+            "public_key_sha256": "8fe9203d29ea999d7316e52f3cd056e599e07e8b9b471562b0d70d7a116b8e35"
+          },
+          "1": {
+            "node_id": 11042355966791476688,
+            "public_key_sha256": "c901a2d78a549c27930bd18871c1c2faa0b4c5837482431f6a41b7ff03323ee4"
+          },
+          "2": {
+            "node_id": 2608612502637874685,
+            "public_key_sha256": "4c9e2accc1e5b8af9e439f6efb569fedc5ae8d727d65880ec45badef71b3a73a"
+          }
+        },
+        "tls": true
+      },
+      "transport_state_backend": ":flwr-in-memory:"
+    },
+    "seed": 42,
+    "strategy": "equal_clipped"
+  },
+  "checkpoint": {
+    "run_id": "offline-tls-20261103",
+    "attempt_id": 1,
+    "version": 1,
+    "b_hash": "9a3b269ba7e8094a513baf0fba29dd944f9ac50b6d98866a8bd9eeb673e41a2b",
+    "config_hash": "2225747f83f2489a6885a099245182520bbb8396f93c7026c09e7fc504acc3e1",
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    }
+  },
+  "attempts": [
+    {
+      "Attempt": 1,
+      "Status": "Committed",
+      "Version before": 0,
+      "Version after": 1,
+      "Accepted": 2,
+      "Selected": 3,
+      "Collection seconds": 112.70448209300002,
+      "Checkpoint hash": "9a3b269ba7e8094a513baf0fba29dd944f9ac50b6d98866a8bd9eeb673e41a2b"
+    }
+  ],
+  "accepted_reply_work": {
+    "optimizer_steps": 2.0,
+    "optimizer_steps_coverage": {
+      "measured_replies": 2,
+      "accepted_replies": 2
+    },
+    "processed_examples": 8.0,
+    "processed_examples_coverage": {
+      "measured_replies": 2,
+      "accepted_replies": 2
+    },
+    "processed_tokens": 411.0,
+    "processed_tokens_coverage": {
+      "measured_replies": 2,
+      "accepted_replies": 2
+    },
+    "reported_training_seconds": 8.715796423000256,
+    "reported_training_seconds_coverage": {
+      "measured_replies": 2,
+      "accepted_replies": 2
+    },
+    "raw_delta_bytes": 1474560.0,
+    "raw_delta_bytes_coverage": {
+      "measured_replies": 2,
+      "accepted_replies": 2
+    },
+    "serialized_reply_bytes": 1508251.0,
+    "serialized_reply_bytes_coverage": {
+      "measured_replies": 3,
+      "received_replies": 3
+    },
+    "serialized_reply_bytes_scope": "All received replies",
+    "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+    "serialized_request_bytes": 2257058.0,
+    "serialized_request_bytes_coverage": {
+      "measured_dispatches": 1,
+      "recorded_dispatches": 1
+    }
+  },
+  "evaluations": [],
+  "round_details": [
+    {
+      "absent": [
+        "2"
+      ],
+      "accepted": [
+        "0",
+        "1"
+      ],
+      "aggregation": {
+        "aggregate_norm": 0.07023595803386838,
+        "clip_factors": {
+          "0": 0.9999208207547646,
+          "1": 1.0
+        },
+        "clip_threshold": 0.08577978183588142,
+        "clipped_norms": {
+          "0": 0.0857797818348815,
+          "1": 0.08577298932067291
+        },
+        "clipping_fraction": 0.5,
+        "coefficients": {
+          "0": 0.5,
+          "1": 0.5
+        },
+        "declared_sample_sizes": {
+          "0": 320,
+          "1": 320
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.08578657435108994,
+          "1": 0.08577298932067291
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "aggregation_seconds": 0.5269192069999917,
+      "attempt_id": 1,
+      "checkpoint_hash": "9a3b269ba7e8094a513baf0fba29dd944f9ac50b6d98866a8bd9eeb673e41a2b",
+      "clients": {
+        "0": {
+          "attempt_id": 1,
+          "client_id": "0",
+          "client_processing_seconds": 34.116444296000054,
+          "client_seed": 984182580,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 0.007502008999836107,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            2.287118434906006
+          ],
+          "job_pid": 844,
+          "job_process_seconds": 33.25608867300002,
+          "local_train_seconds": 3.974276757000098,
+          "manifest_examples": 320,
+          "microbatches": 4,
+          "model_load_seconds": 23.608678859000065,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 704563200,
+          "peak_gpu_reserved_bytes": 746586112,
+          "peak_rss_bytes": 1782157312,
+          "penalized_objective_loss": 5.275902025161251,
+          "precision": "float32",
+          "queue_wait_seconds": 3.789726734161377,
+          "records_hash": "a1008d7356f7aa27fb6f4d283f16427c2ea7cf2fab87ae36f06fdd984abb96f9",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 31,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.275902025161251,
+          "tokens_processed": 201,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0,
+          "worker_reused": false
+        },
+        "1": {
+          "attempt_id": 1,
+          "client_id": "1",
+          "client_processing_seconds": 73.45720121500017,
+          "client_seed": 114255239,
+          "completed_optimizer_steps": 1,
+          "compute_queue_seconds": 31.536619818999952,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 320,
+          "device": "cuda",
+          "examples_processed": 4,
+          "gradient_norms_before_clip": [
+            2.5533387660980225
+          ],
+          "job_pid": 1099,
+          "job_process_seconds": 41.02435283500017,
+          "local_train_seconds": 4.741519666000158,
+          "manifest_examples": 320,
+          "microbatches": 4,
+          "model_load_seconds": 31.24302647200011,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 1,
+          "peak_gpu_allocated_bytes": 734098432,
+          "peak_gpu_reserved_bytes": 771751936,
+          "peak_rss_bytes": 1785241600,
+          "penalized_objective_loss": 4.990902990102768,
+          "precision": "float32",
+          "queue_wait_seconds": 6.086030006408691,
+          "records_hash": "ed79be30e0cc98721fd1bc8bf6ec1f96ed5b0c7057984397013a23e47fb70696",
+          "requested_optimizer_steps": 1,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 32,
+          "supervision_truncated_examples": 0,
+          "task_loss": 4.990902990102768,
+          "tokens_processed": 210,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 1,
+          "worker_reused": false
+        }
+      },
+      "collection_seconds": 112.70448209300002,
+      "event": "round_result",
+      "quorum": 2,
+      "raw_b_bytes": 737280,
+      "rejected": [
+        {
+          "client_id": "unknown",
+          "reason": "flower_error:3:Error: Message Unavailable - The requested message could not be found in the database. It may have expired due to its TTL, been deleted because the destination SuperNode was removed from the federation, or never existed."
+        }
+      ],
+      "run_id": "offline-tls-20261103",
+      "selected": [
+        "0",
+        "1",
+        "2"
+      ],
+      "serialized_reply_bytes": 1508251,
+      "status": "committed",
+      "timestamp": 1793671503.673419,
+      "version": 1,
+      "version_after": 1,
+      "version_before": 0
+    }
+  ],
+  "source_files": [
+    {
+      "file": "config.json",
+      "bytes": 16983,
+      "sha256": "f9af0b6295b61d0f4f4b30535244226c4cf0c691799c21a923a6624bd52497d7",
+      "modified_utc": "2026-11-03T02:03:02.399420+00:00"
+    },
+    {
+      "file": "events.jsonl",
+      "bytes": 11663,
+      "sha256": "118b1b14fa19cea631b9d7f6d1128fc7f8a5d6ec7d02e9738cb71c8f10f23a39",
+      "modified_utc": "2026-11-03T02:05:02.815722+00:00"
+    },
+    {
+      "file": "round_results.json",
+      "bytes": 3765,
+      "sha256": "2914fecf6b1bebc523f5ed81f522550a7aca145378a0960941a617c4bc14e242",
+      "modified_utc": "2026-11-03T02:05:02.754122+00:00"
+    },
+    {
+      "file": "checkpoint.json",
+      "bytes": 4276318,
+      "sha256": "195e6abc8d4a4fe2c9773e722cd533573c19c4d4328a39aa749ac1e2a21ba2e9",
+      "modified_utc": "2026-11-03T02:05:02.730036+00:00"
+    },
+    {
+      "file": "final_results.json",
+      "bytes": 18728,
+      "sha256": "028ad85a8ae78968fd557a6121e72b290d8427a98778d2618f0edba1b3dee7d3",
+      "modified_utc": "2026-11-03T02:05:02.804196+00:00"
+    }
+  ],
+  "read_warnings": [],
+  "interpretation": [
+    "Recorded measurements only; missing fields remain null.",
+    "A protocol check is not a language-model experiment.",
+    "This report does not establish matched comparisons, superiority, or physical deployment."
+  ],
+  "recorded_config_hash": "2225747f83f2489a6885a099245182520bbb8396f93c7026c09e7fc504acc3e1",
+  "completion": {
+    "run_id": "offline-tls-20261103",
+    "runtime": "same_host_flower_deployment_tls_authenticated",
+    "attempts": 1,
+    "committed_versions": 1,
+    "config_hash": "2225747f83f2489a6885a099245182520bbb8396f93c7026c09e7fc504acc3e1",
+    "total_wall_seconds": 114.40070292399992
+  },
+  "recovery_events": [
+    {
+      "attempt_id": 1,
+      "client_id": "2",
+      "event": "client_process_deadline",
+      "observed_progress": {
+        "optimizer_steps": 0,
+        "pid": 1446,
+        "status": "training",
+        "timestamp": 1793671502.303496
+      },
+      "pid": 1446,
+      "returncode": -15,
+      "run_id": "offline-tls-20261103",
+      "timestamp": 1793671503.6696303,
+      "version": 0
+    }
+  ],
+  "publication_note": "Derived compact measurements. Tensor payloads, predictions and dataset queries are omitted; workspace paths normalized. Source/config hashes identify original local files, not this transformed report. Inspect limitations alongside results."
+}
