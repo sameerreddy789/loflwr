@@ -35,7 +35,7 @@ and fresh three-client startup in a loopback-only network namespace.
 To open the upgraded query demo on the prepared laptop:
 
 ```powershell
-.\tools\start_encoder_demo.ps1 -PolicyFile research/results/encoder-v2/final-policy.json
+.\tools\start_encoder_demo.ps1
 ```
 
 Open <http://127.0.0.1:8511>. The [encoder demo guide](docs/encoder-demo.md)
@@ -45,11 +45,18 @@ spoken presentation, exact demo sequence, and answers to likely judge questions.
 The [updated presentation figure](research/results/remaining-work-v1/comparison.png)
 visualizes the three-seed imbalance/omission comparisons and separate scope test.
 
+The [six-slide PowerPoint and recorded backup](presentation/README.md) are ready.
+The sidebar now has **Live banking query**, **Recorded recovery**, **Experiment
+comparisons**, and **Custom run**. Live mode enables the fixed clarification rule
+by default. The [fresh-query kit](docs/fresh-query-collection.md) creates empty
+blinded collection packets and checks readiness; human submissions and physical
+multi-laptop testing remain pending.
+
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 203 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 225 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -58,8 +65,10 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **3 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest verification](research/results/remaining-work-v1/verification.json)
-records 203 passing tests plus the original, CLINC and scope evaluation locks.
+The [latest delivery verification](research/results/demo-delivery-v1/verification.json)
+records 225 passing tests plus unchanged original, CLINC and scope evaluation locks.
+The [previous runtime verification](research/results/remaining-work-v1/verification.json)
+preserves the 203-test baseline.
 It covers local ownership, portable configuration, rejoin readiness, bounded
 startup retries, orphan-process cleanup and cancellation. The prior
 [representation verification](research/results/encoder-representation/verification.json)
@@ -67,7 +76,7 @@ records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **203 passed, 0 failed, 0 skipped** in 35.609 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, local preparation, deployment lifecycle and evaluation locks |
+| Full automated suite, Ubuntu WSL2 | **225 passed, 0 failed, 0 skipped** in 30.891 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards/presets, blinded collection, local preparation, deployment lifecycle and evaluation locks |
 | Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the full suite, not 7 additional unique tests |
 | Locked artifact integrity | **24/24 original, 36/36 external, 40/40 scope file hashes matched** | Overlapping locks, not 100 unique files; assets, checkpoints, sources and evaluation configurations |
 | Live CPU query check | Passed; a fresh pending-card-payment query returned `pending_card_payment` | Functional inference check, not an accuracy benchmark |
@@ -114,7 +123,7 @@ the weak-device/federation challenge alongside task quality.
 
 | Priority | Next milestone | Completion evidence |
 | --- | --- | --- |
-| 1 | Rehearse the prepared demo and record a fallback | Fresh offline launch, live queries, clearly labeled event replay, and a reproducible launch checklist |
+| 1 | Rehearse the prepared deck, preset dashboard and recorded fallback with the presenter | Human three-minute rehearsal, fresh launch, live queries, clearly labeled event replay, and launch recovery |
 | 2 | Test three physical laptops | Measured CPU/RAM budgets, authenticated TLS, bounded dropout/rejoin, and fresh startup without internet; only one laptop is available now |
 | 3 | Confirm the combined classifier/scope policy on fresh supported queries | Independent coverage and accuracy; the new negative-only result alone does not justify deploying it |
 | 4 | Improve accuracy with new development data and a new independent test | Train-only improvements selected on validation; freeze the next model and policies before scoring fresh held-out queries |
@@ -235,7 +244,8 @@ Use [the frozen-study guide](docs/study-runner.md) to freeze a pilot or full mat
 | `fedlora_edge/` | Data preparation, training, aggregation, protocol, Flower runtime, reports, and dashboard |
 | `tests/` | Unit tests and optional dependency integration checks |
 | `tools/` | Demo launcher, study runner, reports, and runtime/source checks |
-| `docs/` | Practical demo, dashboard, and study instructions |
+| `docs/` | Practical demo, dashboard, collection, and study instructions |
+| `presentation/` | Six editable slides, evidence sources, and recorded backup demo |
 | `requirements/` | Tested environment pins and installation notes |
 | `research/` | Design rationale, evaluation contract, implementation status, and evidence |
 | `skills/` | Four project workflows preserving training and deployment invariants |

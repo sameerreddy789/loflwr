@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-03",
+  "delivery_id": "demo-delivery-v1",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests",
+    "environment": "Ubuntu WSL2 /home/sameer/.venvs/loflwr/bin/python",
+    "passed": 225,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 30.891,
+    "log": "runs/demo-delivery-tests.log",
+    "log_sha256": "27693a6e041765bf0e776dc9896c0917b4835d4b5b4cc0d1bec44b9f6f935876"
+  },
+  "frozen_integrity": {
+    "original_confirmation_files_matched": 24,
+    "original_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "external_clinc_files_matched": 36,
+    "external_lock": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+    "scope_files_matched": 40,
+    "scope_lock": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa"
+  },
+  "source_hashes": {
+    ".gitattributes": "7a690e9bb2da0f125b4db1c40e3e667b3a7d698c5895b0fcf31aaa964fce738c",
+    "README.md": "ef858550b6f2e9407070e543544cb7ccc43667d7f65485744fb592bf2097d72f",
+    "docs/encoder-demo.md": "ca38aa217de05ad2d9209c143fdd0037d465da9c957aac7d329285386b785d22",
+    "docs/future-plans.md": "6f236d9f095885b3c51b6520e0220237433e3ca91e6dc48776ffa00aa649c950",
+    "docs/judging-presentation.md": "5cb25f08d4ed1d3fe3c6531b689adf7301e8b7af43411ca7bfc0e73caf630dd6",
+    "docs/remaining-work-plan.md": "a8a2c872f498e049befaf5761811d379820b6f65b29c279981acd7e009b5f88a",
+    "docs/fresh-query-collection.md": "868c9eac1fb7e47c271e847cccc569e72cc76e62e6539c6ed988973af0d52ed4",
+    "fedlora_edge/encoder_dashboard.py": "7754627d822466420ea9d89f32e60c81cf18fb8245efa56aa8eb439d2cfdf429",
+    "fedlora_edge/demo_presets.py": "da17caf8a0515986c67a4ced0b307cb2c2f93efb33f2d99cd4dc52f56414ef42",
+    "tests/test_demo_presets.py": "7592afe47b10cc14e4629ea036894f9fa234754d3558d174a0505354501a7354",
+    "tests/test_fresh_query_collection.py": "8ab56f782a8d93438a83c063fa28a23dd6be8a7f8a6c04392c33d1552e2e23b4",
+    "tools/README.md": "244cb729dc3fb2c27d81de625de2ae4a95ca2bb335735e85a5989526db04c835",
+    "tools/build_judging_deck.mjs": "cf25bd78914a9ad5d6d12269e509a2d0df7c2985454da62f8d19dab7a98d9348",
+    "tools/fresh_query_collection.py": "27f8ae3573abacc1cd9bc2e7d681e525535566d2225c12c29b535e71d78defc0",
+    "presentation/README.md": "8dbfd23dbb95e9fe7dfc61611fb3b7e22a440eda3d0feb498ca4556d85bdc947",
+    "research/results/README.md": "bd22939b2290becc596f9c85eae9c6635c3e9fca329ca4ff953a0b3e498fa734",
+    "research/results/demo-delivery-v1/README.md": "9b00c87d3b25799d6a524e736362299cd0b040a54b1eb94b8ae0121d455e8ced"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:8511/",
+    "desktop": [
+      1440,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "live_query": "My card payment is still pending.",
+    "predicted_intent": "pending_card_payment",
+    "scope": "Functional check, not new accuracy evidence",
+    "views_checked": [
+      "live query",
+      "five-client recovery attempts 1\u20135",
+      "experiment comparisons"
+    ],
+    "three_client_view": "Streamlit fixture navigation check",
+    "mechanical_detector_findings": 0,
+    "final_visual_review": "All controls readable; tables can scroll horizontally on mobile; final horizontal chart verified after server restart"
+  },
+  "slides": {
+    "count": 6,
+    "native_charts": 3,
+    "review": "All six rendered slides reviewed; native chart/workbook, package, geometry and import checks passed",
+    "pptx_sha256": "73f4d71a76272e381b1a137e7582f8488f572eb008f14f6406365fe2920d5ddb",
+    "manifest_sha256": "ae988acf5191185275ec7ada509045aab63ef907095cfcefc02488f9a06cc90e",
+    "validation_receipt": "runs/presentation-build/2026-11-03T18-19-53-857Z/validation.json",
+    "validation_receipt_sha256": "e02370baed3ac2f28868619424e0c7a43ccab0abb057982d38afb823a626962a",
+    "render_sha256": {
+      "1": "206f2f5a9e10df8bbf31a24d5142a5130370dbc3661962f10be3510e17635d46",
+      "2": "071e3d63cdb5b47f502242ba741af6e4cb4425449742807cff9eb9c16bdd48cf",
+      "3": "7589e2a910fa3736f96026fea8b46bab7da0f35448b391756ffc688bd7f51647",
+      "4": "e335d95969e690a14710d853287579c2e55c89ec9f8010c84bb0e4420dbd5866",
+      "5": "c196ad86683165601ea22402a74bbdfab75d9fe0ae45c73c536ac08a01e57161",
+      "6": "f2388c855a6cba9d63baf910302b48faaeff7b859452e2a6ddc618d51c93bbf6"
+    },
+    "final_render_pixel_differences_from_reviewed": [
+      0,
+      0,
+      26,
+      0,
+      0,
+      0
+    ]
+  },
+  "recording": {
+    "path": "presentation/demo-backup.webm",
+    "sha256": "54f93677bde24da37101ef36c4a3c08cd2d6a666dc67080971d079fadb00c60c",
+    "source_path": "runs/demo-backup-take3.webm",
+    "source_sha256": "54f93677bde24da37101ef36c4a3c08cd2d6a666dc67080971d079fadb00c60c",
+    "duration_seconds": 416.3,
+    "bytes": 3733138,
+    "edited": false,
+    "narration": false,
+    "full_decode_passed": true,
+    "limits": "Untrimmed UI walkthrough with idle time; live inference and labeled recorded training evidence, not a new training run"
+  },
+  "fresh_collection": {
+    "tool": "tools/fresh_query_collection.py",
+    "pack": "runs/fresh-bank20-v1",
+    "submitted_queries": 0,
+    "ready_check_exit": 2,
+    "evaluation_ready": false,
+    "inference_performed": false
+  },
+  "pending": [
+    "Human presenter rehearsal",
+    "Fresh independent human queries and evaluation lock",
+    "Three physical laptops"
+  ]
+}

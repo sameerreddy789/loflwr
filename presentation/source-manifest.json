@@ -1,0 +1,134 @@
+{
+  "deck": "fedlora-edge-demo.pptx",
+  "generated_utc": "2026-11-03T18:20:13.695Z",
+  "slide_count": 6,
+  "generator": "tools/build_judging_deck.mjs",
+  "generator_sha256": "cf25bd78914a9ad5d6d12269e509a2d0df7c2985454da62f8d19dab7a98d9348",
+  "package_version": "2.8.106",
+  "palette_source": "research/results/remaining-work-v1/comparison.png",
+  "source_sha256": {
+    "docs/judging-presentation.md": "5cb25f08d4ed1d3fe3c6531b689adf7301e8b7af43411ca7bfc0e73caf630dd6",
+    "research/results/encoder-v2/confirmation-result.json": "88ba8fcb102349794b2b76282f25fb59ae11df0f19854a6ebde4501703e880e3",
+    "research/results/encoder-v2/confirmation-plan.json": "92a12a0532b6880c13ce1364b4a96abe10b2215c203d737cb8a49d6e7a5e7fc3",
+    "research/results/encoder-v2/final-policy.json": "ff691c58f0333245017c9d87effd6f2667e0fbd5b57abf120fbc5c35231e033e",
+    "research/results/encoder-v2/flower-head.json": "09db95da73da53091470679612af1b68c00aba69bb478eeccd1e74074ee64004",
+    "research/results/encoder-v2/README.md": "abccd8a54b836f6e7bc1a04f318fee8004cb8d02158b878c2fe4d6ca94a893c8",
+    "research/results/pilot-r2-20261103/README.md": "792a852987edda6a273e2f20595956f407c85df7b7b0daedc2e0df6c877fa73e",
+    "research/results/encoder-matrix-v1/README.md": "7126cf841963674f3109f45a49df54e643f16adf54c557cb16161c0f044d90f5",
+    "research/results/encoder-matrix-v1/summary.json": "50b7210bd0cc508a37ec1653e8e4d948f4c54256c31d4720fa3507244201b993",
+    "research/results/remaining-work-v1/README.md": "5ae757f0ac22f5ded7311be29b20a4b1d23479e0629a278f39db78abf8ac7321",
+    "research/results/remaining-work-v1/five-recovery.json": "d485084affc621019b6cedd078cf26736cbcc7e28ead88963c7db6f88e4561bd",
+    "research/results/remaining-work-v1/offline.json": "eb8749b434cb15d3864e2ca475a3e2600a515547e82340ad981c58ba1b511aea",
+    "research/results/remaining-work-v1/comparison.png": "208b10e1087fb8a312b801156a26dd019ac9ccd261a9fcd280d20062bf77c00e",
+    "research/results/remaining-work-v1/comparison-provenance.json": "75afb6c9f174ad76fd5da2f34ab1a6d39fec4b1bcad34ab303952a25cf633ade"
+  },
+  "identities": {
+    "confirmation_run": "encoder-flower-balanced-v2",
+    "confirmation_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "confirmation_head": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+    "pre_confirmation_commit": "7413e6b",
+    "matrix_plan": "feaa99c55fc908fe7b3236477ad0066fc70141c7624486b49d5caeddce78bd77",
+    "recovery_run": "encoder-isolated-five-v8",
+    "recovery_config": "fc1f6554cf041831064d10c010958363c1765d989bf23e7d6c865881f66072ac"
+  },
+  "chart_values": {
+    "imbalance_means": [
+      0.625,
+      0.765,
+      0.7816666666666667
+    ],
+    "imbalance_sample_sd": [
+      0,
+      0,
+      0.0028867513459481316
+    ],
+    "included": [
+      0.955,
+      0.955,
+      0.955
+    ],
+    "omitted": [
+      0.775,
+      0.775,
+      0.775
+    ],
+    "recovery_accepted": [
+      5,
+      4,
+      5,
+      2,
+      5
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "timing": "0:00–0:25 (25 seconds)",
+      "sources": [
+        "docs/judging-presentation.md",
+        "research/results/remaining-work-v1/README.md"
+      ],
+      "identity": ""
+    },
+    {
+      "slide": 2,
+      "timing": "0:25–0:55 (30 seconds)",
+      "sources": [
+        "docs/judging-presentation.md",
+        "research/results/pilot-r2-20261103/README.md",
+        "research/results/encoder-v2/flower-head.json",
+        "research/results/remaining-work-v1/README.md"
+      ],
+      "identity": "Confirmed model run encoder-flower-balanced-v2; kind frozen_mpnet_linear_head; selected version 500. The original and head-only scores are not a matched architecture comparison."
+    },
+    {
+      "slide": 3,
+      "timing": "0:55–1:25 (30 seconds)",
+      "sources": [
+        "research/results/encoder-v2/confirmation-result.json",
+        "research/results/encoder-v2/confirmation-plan.json",
+        "research/results/encoder-v2/final-policy.json",
+        "research/results/encoder-v2/flower-head.json"
+      ],
+      "identity": "Run encoder-flower-balanced-v2, selected version 500; config 8c0c26475a2e8952edc99028b8e330af87f21d4943e50d78429cb51c9d7d6504; head d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312; confirmation lock 81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681; pre-scoring commit 7413e6b. Scored 3 November 2026. No retuning on this scored confirmation set."
+    },
+    {
+      "slide": 4,
+      "timing": "1:25–2:00 (35 seconds)",
+      "sources": [
+        "research/results/encoder-matrix-v1/summary.json",
+        "research/results/encoder-matrix-v1/README.md",
+        "research/results/remaining-work-v1/comparison.png",
+        "research/results/remaining-work-v1/comparison-provenance.json"
+      ],
+      "identity": "Study encoder-matrix-v1; plan feaa99c55fc908fe7b3236477ad0066fc70141c7624486b49d5caeddce78bd77; 33/33 cells; seeds 42/43/44; all endpoint values from groups.*.final.accuracy. Sample and equal SD 0 pp; clipped SD 0.28867513 pp. Three-seed development variability does not establish general significance. Methods share initial tensors, data, optimizer, budgets and client random streams."
+    },
+    {
+      "slide": 5,
+      "timing": "2:00–2:35 (35 seconds)",
+      "sources": [
+        "research/results/remaining-work-v1/five-recovery.json",
+        "research/results/remaining-work-v1/README.md"
+      ],
+      "identity": "Run encoder-isolated-five-v8; config fc1f6554cf041831064d10c010958363c1765d989bf23e7d6c865881f66072ac; initial head d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312; committed versions 0,1,2,3,3,4; quorum 3; collection deadline 60 seconds. These later checkpoints do not replace the confirmed query model."
+    },
+    {
+      "slide": 6,
+      "timing": "2:35–3:00 (25 seconds, including a brief live query)",
+      "sources": [
+        "docs/judging-presentation.md",
+        "research/results/remaining-work-v1/README.md",
+        "research/results/remaining-work-v1/offline.json",
+        "research/results/encoder-v2/final-policy.json"
+      ],
+      "identity": "Live selected model: runs/encoder-flower-balanced-v2, version 500, research/results/encoder-v2/final-policy.json. Offline startup evidence is separate: encoder-isolated-offline-three-v1. Experimental scope detection is not deployed and fresh supported-query coverage remains untested."
+    }
+  ],
+  "limitations": [
+    "33 matrix cells use sequential in-memory aggregation, not Flower runtime.",
+    "Development results use reused validation.",
+    "Recovery and offline gates used one physical laptop.",
+    "The frozen-MPNet head is a separately identified architecture variant, not LoRA.",
+    "No new evaluation, threshold tuning or model update occurs during deck generation."
+  ]
+}

@@ -1,125 +1,56 @@
 # Three-minute judging presentation
 
-Use this as a spoken cue guide for the current one-laptop prototype. Three
-minutes is a rehearsal default; confirm the actual presentation allowance.
-Lead with the working federation system and its measured task quality.
+Use the [six-slide offline deck](../presentation/fedlora-edge-demo.pptx), with
+speaker notes and editable evidence charts. Three minutes is a rehearsal default;
+confirm the actual allowance. The selected model is frozen MPNet plus a federated
+classifier head; head-only training is distinct from the original LoRA experiment.
 
-## Prepare the two demo views
-
-From PowerShell on the prepared laptop:
+## Prepare
 
 ```powershell
 Set-Location D:\Hackathons\loflwr
-.\tools\start_encoder_demo.ps1 -PolicyFile research/results/encoder-v2/final-policy.json
+.\tools\start_encoder_demo.ps1
 ```
 
-Open two browser tabs at <http://127.0.0.1:8511>. Keep the launcher running.
+Open <http://127.0.0.1:8511>. **Live banking query** is the default, with the
+fixed clarification rule enabled. Confirm version 500 and independent accuracy
+94.0% (282/300). Warm one query before judging: this is preparation, not evaluation.
+The sidebar now also offers **Recorded recovery** and **Experiment comparisons**;
+no run paths need editing. **Custom run** is for technical inspection.
 
-1. **Tab A — selected model:** leave **Completed run directory** as
-   `runs/encoder-flower-balanced-v2` and **Margin policy file (optional)** as
-   `research/results/encoder-v2/final-policy.json`. Confirm the page identifies
-   selected version **500** and independent confirmation **94.0% (282/300)**.
-   Submit one practice query to warm model loading, then leave **Ask a query**
-   visible. This is preparation, not a new accuracy evaluation.
-2. **Tab B — recorded recovery:** first clear **Margin policy file (optional)**,
-   then set **Completed run directory** to
-   `runs/encoder-flower-trained-recovery-v2` and press Enter. Open
-   **Training evidence**, scroll to **Recorded client participation**, and set
-   **Attempt to inspect** to **1**. This run starts from the trained model;
-   selected version 0 here means its warm-start checkpoint.
-3. Have the [results report](../research/results/encoder-v2/README.md) ready for
-   comparison questions. The saved curves and process events are recorded;
-   questions entered into Tab A run live local inference.
-4. Keep the [updated presentation figure](../research/results/remaining-work-v1/comparison.png)
-   ready. Its first two panels show the new three-seed study at fixed attempt
-   500, with 400-query imbalance and 2,760-query omission-control conditions
-   separated. The last panel is the separate locked unsupported-query test.
-   The [full matrix report](../research/results/encoder-matrix-v1/README.md)
-   explains the conditions. Tab B deliberately uses the earlier completed
-   replay; the newer five-attempt TLS recovery checks have their own report.
+Keep the [recorded backup demo](../presentation/demo-backup.webm) locally.
+It shows actual query inference followed by clearly labeled completed evidence.
+It is an untrimmed 6:56 recording with idle time and no narration; scrub to the
+needed event and use this script. It is separate from the three-minute pitch. The complete TLS rehearsals take 236 seconds
+for three clients and 303 seconds for five, so neither fits this whole pitch.
+The 60-second collection bound excludes startup and rejoin readiness.
 
-Rehearse once with internet disconnected. A clean clone needs the documented
-assets and environments; this launcher assumes the laptop is already prepared.
-If the page cannot run during judging, show the saved report and identify it as
-recorded evidence. Do not describe a screenshot or replay as a live training run.
+Rehearse with internet disconnected on the already prepared machine. A clean
+clone needs the documented dependencies and ignored model/checkpoint assets.
 
-The newer complete five-attempt TLS rehearsals take **236 seconds for three
-clients and 303 seconds for five clients**. They do not fit inside this entire
-three-minute pitch. Use the labeled replay above, or rehearse one live
-dropout/rejoin segment with the actual presentation allowance. The 60-second
-training collection deadline is separate from startup and rejoin readiness.
+## Slide sequence and spoken cues
 
-## Spoken script and actions
+| Time | Show | Say |
+| --- | --- | --- |
+| 0:00–0:25 | Slide 1: problem | Can machines with unequal budgets train one useful model without a data-rich client controlling aggregation or a disappearing client stopping the run? Five logical clients each own a banking domain. |
+| 0:25–0:55 | Slide 2: architecture | The original frozen-A SmolLM2 LoRA experiment performed poorly. A separately measured frozen-MPNet/head variant improves task quality. Clients share head updates, starting from one version; the server checks identity, deadline and quorum before committing. Local preparation is now tested in isolated processes. |
+| 0:55–1:25 | Slide 3: confirmation | The head has 15,380 trainable parameters, or 61,520 raw FP32 bytes per direction. The locked model got 282/300 correct: 94%. The clarification rule got 220/223 answered queries correct, 98.65%, at 74.33% coverage. We have not reached 99–100%. |
+| 1:25–2:00 | Slide 4: matched comparisons | Under 90% data imbalance, final validation accuracy averaged 62.5% sample-weighted, 76.5% equal and 78.17% clipped across three seeds. Including the one-step verification client gave an 18-point benefit in every seed because it owns four unique intents. These are reused-validation numerical federation studies. |
+| 2:00–2:35 | Slide 5: recovery | A real same-laptop TLS run accepted 5, 4, 5, 2, 5 clients. Four survivors commit at 25% each; two miss quorum three and preserve version 3. Returning clients synchronize current state. These are recorded process events, not five physical laptops. |
+| 2:35–3:00 | Slide 6, then Live banking query | Enter “My card payment is still pending.” and classify. Explain the predicted intent and authored response, or honestly show clarification if returned. Finish with the next evidence gates: three physical laptops and independent fresh queries before another accuracy claim. |
 
-### 0:00–0:25 — The problem
+## If judges want to inspect the system
 
-**Show Tab A.**
+Choose **Recorded recovery**, leave **Five clients** selected, and click attempts
+2, 3, 4 and 5. Point to weights, the unchanged version/hash after missed quorum,
+and fresh-state return. Choose **Three clients** to inspect quorum two. Every
+view says this is a recorded one-laptop experiment. The source is
+`encoder-isolated-five-v8` or `encoder-isolated-three-v6`.
 
-“FedLoRA-Edge asks a practical question: can machines with unequal training
-budgets contribute to one useful model, without a data-rich participant
-controlling the aggregation or a disappearing client stopping the run?
-
-I built a banking-intent prototype with five logical clients. Each covers a
-different domain. It predicts one of twenty intents and displays an authored
-support response.”
-
-### 0:25–0:55 — The design
-
-“The original experiment trains frozen-A LoRA adapters on SmolLM2. Its accuracy
-was weak, so I also implemented a separate frozen-MPNet encoder with a federated
-classifier head. That head has 15,380 trainable parameters: 61,520 raw bytes per
-direction.
-
-Clients train from the same version. The server checks replies, waits only to
-a deadline, and commits when a valid-update quorum is met. Equal survivor
-weights make each participant’s aggregation coefficient visible.”
-
-### 0:55–1:30 — Useful prediction with an independent score
-
-**In Tab A, enter “My card payment is still pending.” and click
-Classify query. Show the returned intent and response, or the clarification
-message if one appears.**
-
-“This question is being classified locally now. The model completed 500 actual
-Flower training attempts with all five clients. It reached 95.5% on validation.
-I then locked the model and scoring rules before opening a separate confirmation
-set: it got 282 of 300 correct, or 94%.
-
-The optional clarification rule trades coverage for fewer wrong answers. Its
-measured result is 98.65% among answered queries at 74.33% coverage. Overall
-accuracy remains 94%.”
-
-### 1:30–2:10 — Failure and recovery
-
-**Switch to Tab B. Move Attempt to inspect from 1 to 2, then to 3.**
-
-“These are recorded events from a real process-interruption test on this laptop.
-Attempt one has five contributors. During attempt two, one client’s optimizer
-process was killed. Four survivors committed, each with weight 0.25. In attempt
-three, the returning client synchronized fresh state and all five contributed
-again. Validation stayed at 95.5% throughout.
-
-The recovery test starts from the trained checkpoint. It demonstrates bounded
-recovery, not training this model from scratch in three rounds.”
-
-### 2:10–2:40 — Why the federation matters
-
-"In all three matched seeds, removing the one-step verification client reduced
-validation accuracy from 95.5% to 77.5%. It supplies the only training examples
-for four intents, so its contribution matters despite its smaller work budget.
-
-In the separate 400-query imbalance study, final accuracy averaged 62.5% with
-sample weighting, 76.5% with equal weighting, and 78.17% with clipping. Most
-of the improvement came from changing the weighting. These are development
-comparisons; the independent twenty-intent score remains 94%."
-
-### 2:40–3:00 — Contribution and next evidence
-
-"My contribution is measured, reproducible federation using established methods.
-Local feature preparation now passes in isolated processes, and all 33 repeated
-study runs are complete. The clients still share one laptop. Next are three
-physical laptops and new accuracy improvements evaluated on fresh independent
-queries."
+Choose **Experiment comparisons** to inspect the 33 completed runs, the
+three-seed table and the weak-client omission result. The separate scope-detector
+finding is collapsed and marked experimental. It is not deployed into the live
+query classifier. Select **Live banking query** to return to the confirmed model.
 
 ## Short answers for judges
 
@@ -138,7 +69,7 @@ queries."
 | Are these five physical devices? | No. They are five logical clients on one laptop. The process kill and rejoin are real; the three-laptop experiment remains to be run. |
 | Is this private or secure against malicious clients? | Local preparation and TLS are exercised, and training replies carry head updates. Model updates and metadata can still leak information. Differential privacy, secure aggregation and malicious-client robustness are not established. |
 | How cheap is the system? | The selected head transmits 61,520 raw FP32 bytes per direction, before transport overhead. That is not total memory or end-to-end traffic. The frozen encoder still costs storage, RAM and feature-computation time. |
-| Do 203 tests mean 100% model accuracy? | No. The 203 software checks passed with zero skips in the prepared environment. They test behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
+| Do 225 tests mean 100% model accuracy? | No. The 225 software checks passed with zero skips in the prepared environment. They test behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
 | Can it reject unsupported banking requests? | The fixed margin alone falsely accepted 311/2,279 new unsupported BANKING77 queries. Adding a separately trained, pre-locked scope detector reduced this to 57/2,279. The detector is experimental: fresh supported-query coverage is untested, so this is not 97.5% overall accuracy or a replacement for the confirmed demo. |
 | How will you improve accuracy now? | Use training-only data and validation to test a small, declared next experiment, preserving adverse results. Freeze the next model and any clarification policy before scoring a new independently held-out set. The current 300 queries are now evaluation evidence; 99–100% is a target, not a promise. |
 | Did the subsequent larger-model experiment solve the accuracy problem? | No. Four transformer-layer adaptation configurations peaked at 96% reused-validation accuracy. The twelve-layer ten-epoch run finished at 94.5% and has a much larger trainable state. These centralized diagnostics did not replace the confirmed Flower model. |

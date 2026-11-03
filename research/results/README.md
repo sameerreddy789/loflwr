@@ -1,5 +1,10 @@
 # Measured results
 
+The [demo delivery record](demo-delivery-v1/README.md) adds 225 passing software
+checks, unchanged evaluation locks, dashboard preset verification, a six-slide
+deck, a recorded fallback and the empty fresh-query collection handoff.
+It adds no new model accuracy result or physical-laptop measurement.
+
 The [completed encoder matrix](encoder-matrix-v1/README.md) adds **33 runs across
 three seeds**, including an 18-point paired benefit from the one-step verification
 client. The [local preparation report](encoder-local-v1/README.md) verifies

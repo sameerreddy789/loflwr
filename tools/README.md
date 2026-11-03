@@ -141,6 +141,15 @@ The unit suite covers tensor state, aggregation, protocol/checkpoint contracts, 
 
 [check_docs.py](check_docs.py) checks required dossier files, local file links in its configured root/research/skills/tools folders, and the four project skills' names/descriptions. It does not check external URLs, anchors, rendering, or every file under `docs/`; review new guide links separately.
 
+## Presentation and fresh collection
+
+- [build_judging_deck.mjs](build_judging_deck.mjs) creates the six editable slides
+  from published evidence. The [deck guide](../presentation/README.md) documents
+  the bundled runtime, source hashes and backup recording.
+- [fresh_query_collection.py](fresh_query_collection.py) creates empty blinded
+  collection packets and checks readiness for a future evaluation lock. It has
+  no inference/scoring command. Follow the [collection guide](../docs/fresh-query-collection.md).
+
 ## Source review
 
 [review_sources.py](review_sources.py) uses the agent-reach Jina Reader route to collect primary-page titles, paper comments, access dates, and errors. Raw reader responses are temporary files outside the repository. [Committed metadata](../research/source-review.json) records the checks used for the dossier.

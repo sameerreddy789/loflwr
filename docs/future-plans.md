@@ -30,6 +30,10 @@ The [remaining-work checklist](remaining-work-plan.md) records the current
 runtime gates. Keep the selected head, original confirmation, CLINC test and
 new scope-test locks unchanged. Use fresh run IDs for further experiments.
 
+The [preset dashboard](encoder-demo.md), [six-slide deck and backup recording](../presentation/README.md),
+and [blinded collection kit](fresh-query-collection.md) are implemented. The empty
+pack deliberately reports zero submissions and cannot authorize scoring.
+
 ## 1. Rehearse with the actual presenter
 
 Follow the [judging script](judging-presentation.md) and [encoder demo guide](encoder-demo.md).
@@ -60,7 +64,8 @@ establish physical reachability or performance on a weaker machine.
 
 ## 3. Confirm future accuracy and scope changes
 
-Use the [fresh evaluation protocol](fresh-evaluation.md). The 300-query
+Use the [fresh evaluation protocol](fresh-evaluation.md) and the executable
+[collection kit](fresh-query-collection.md). The 300-query
 confirmation, original final test, CLINC set and 2,279-query scope test have all
 been scored. They are evidence, not new model-selection resources.
 

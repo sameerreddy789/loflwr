@@ -77,13 +77,31 @@ def main():
     st.markdown(STYLE, unsafe_allow_html=True)
     st.title("Banking support, learned across clients")
     st.write("Try the shared intent classifier, then inspect the training evidence behind it.")
+    from fedlora_edge.demo_presets import VIEWS, render_comparisons, render_recovery
+    preset_run = ROOT / "runs/encoder-flower-balanced-v2"
+    default_view = 0 if Path(args.run_dir).resolve() == preset_run.resolve() else 3
     with st.sidebar:
-        st.header("Experiment")
-        run_dir = st.text_input("Completed run directory", args.run_dir)
-        model_dir = st.text_input("Cached MPNet directory", args.model_dir)
-        policy_file = st.text_input("Margin policy file (optional)", args.policy_file)
-        st.button("Reload evidence")
+        st.header("Demo views")
+        view = st.radio("Choose a demo view", VIEWS, index=default_view)
         st.caption("Inference runs locally. The selected model uses a frozen encoder and a trained classifier head.")
+        if view == "Custom run":
+            run_dir = st.text_input("Completed run directory", args.run_dir)
+            model_dir = st.text_input("Cached MPNet directory", args.model_dir)
+            policy_file = st.text_input("Margin policy file (optional)", args.policy_file)
+            st.button("Reload evidence")
+        elif view == "Live banking query":
+            run_dir, model_dir = str(preset_run), args.model_dir
+            clarify = st.checkbox("Ask for clarification on uncertain queries", value=True)
+            policy_file = str(ROOT / "research/results/encoder-v2/final-policy.json") if clarify else ""
+            st.caption("This preset uses the confirmed model and its fixed clarification threshold.")
+            with st.expander("Model files"):
+                model_dir = st.text_input("Cached MPNet directory", model_dir)
+    if view in ("Recorded recovery", "Experiment comparisons"):
+        try:
+            (render_recovery if view == "Recorded recovery" else render_comparisons)(st)
+        except (ValueError, KeyError, OSError, json.JSONDecodeError) as exc:
+            st.error(f"Cannot open the recorded evidence: {exc}")
+        return
     try:
         evidence, saved = load_evidence(run_dir)
         confirmation = confirmation_for(saved)
@@ -101,9 +119,15 @@ def main():
             st.error(f"Cannot use margin policy: {exc}")
             return
     st.caption(f"{run_id} · selected version {saved['version']} · recorded training, live query inference")
+    if view == "Live banking query":
+        st.caption("Live inference on your question. Opening this page does not start training.")
     if confirmation:
         st.write(f"**Independent confirmation: {confirmation['metrics']['accuracy']:.1%} accuracy** "
                  f"({confirmation['correct']}/{confirmation['metrics']['count']}).")
+        if margin_threshold is not None:
+            point = next(p for p in confirmation["selective_results"] if p["threshold"] == margin_threshold)
+            st.caption(f"Fixed clarification rule: {point['confirmation_accuracy_on_answered']:.2%} accuracy on answered queries "
+                       f"at {point['confirmation_coverage']:.2%} coverage in that confirmation set.")
     query_tab, evidence_tab, scope_tab = st.tabs(["Ask a query", "Training evidence", "Supported intents"])
     with query_tab:
         st.subheader("What do you need help with?")
@@ -182,7 +206,11 @@ def main():
         st.write("Each head update contains 15,380 FP32 parameters: 61,520 raw bytes per direction. Transport adds overhead.")
         with st.expander("Model identity and limits"):
             st.code(f"Run: {run_id}\nHead: {saved['b_hash']}\nConfig: {saved['config_hash']}")
-            st.write("Five logical clients share this laptop. Frozen features were prepared centrally from public data before partitioning. Head training is distinct from the separate LoRA experiments.")
+            if run_id == "encoder-flower-balanced-v2":
+                st.write("This confirmed run used five logical clients and centrally prepared public features. Later local preparation passed separately in isolated processes. Head training is distinct from the original LoRA experiments.")
+            else:
+                for limit in evidence.get("limits", ["See this run's source report for its data preparation and deployment scope."]):
+                    st.write(limit)
     with scope_tab:
         for domain, intents in DOMAINS.values():
             st.subheader(domain)

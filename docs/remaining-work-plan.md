@@ -48,6 +48,15 @@ be limited to validation and metadata even though the host also operates its
 own client. Production private-data ownership, hostile clients, and physical
 machine isolation are not established by the public-benchmark provisioner.
 
+## Prepared presentation and collection handoff
+
+The dashboard now has live query, recorded recovery, experiment comparison and
+custom-run presets. The [six-slide deck and recorded fallback](../presentation/README.md)
+are ready. The [collection kit](fresh-query-collection.md) creates empty blinded
+packets and checks provenance, duplicate overlap and independent adjudication.
+Its 400-query human gate remains unmet; no fresh queries or new accuracy result
+are implied by having software ready.
+
 ## Complete the human rehearsal and evaluation
 
 Use the [prepared demo](encoder-demo.md) and [presentation guide](judging-presentation.md)
