@@ -4,15 +4,19 @@ Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficie
 
 Each client specializes a small language model on its local banking-intent data. The server combines validated B-only adapter updates, shows each contributor's coefficient, and commits only when enough valid replies arrive before the deadline.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 106 tests. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 115 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
-The [accuracy investigation](research/accuracy-diagnosis.md) reports a validation
-scoring diagnostic: the same version-9 model scores 34.5% with the original rule
-and 64.5% with content-free centering. These are exploratory partial-checkpoint
-results; the frozen comparison retains its original rule. A separate TF-IDF
-reference scores 41.5% with imbalanced data and 87% with balanced data.
+The [99% feasibility investigation](research/accuracy-99-feasibility.md) reports
+**95.5% validation accuracy** from a separate centralized MPNet reference using
+2,760 training queries. None of its twelve fixed reference checks reached 99%
+top-1 accuracy. A post-hoc check reached 99% **top-2 candidate recall**, meaning
+the correct label is among two suggestions; no reranker has achieved 99% accuracy.
+This is not the federated model's score: the completed seed-42 original-scoring
+test gives 24.6% for sample weighting, 35.4% for equal weighting, and 34.4% for
+equal weighting plus clipping. The [scoring investigation](research/accuracy-diagnosis.md)
+also records a separate validation correction from 34.5% to 64.5% at version 9.
 
 ## Open the prepared demo
 

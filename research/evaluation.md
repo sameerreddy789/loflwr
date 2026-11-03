@@ -1,6 +1,6 @@
 # Reproducible evaluation plan
 
-This document fixes the benchmark before training. All model-performance and deployment acceptance checks below are pending. The existing tensor-state tests are not substitutes for these experiments.
+This document records the benchmark fixed before training. The [results register](results/README.md) and [implementation status](implementation-status.md) track completed model and deployment checks and remaining gates. The full multi-seed matrix is not complete; tensor-state tests are not substitutes for these experiments.
 
 **2 November checkpoint addendum:** [seven-day-prototype.md](seven-day-prototype.md) stages a seed-42 pilot for the solo working-demo deadline. It retains the selected manifests and methods, includes the uploaded abstract's centralized reference, and does not mark the full twenty-attempt/three-seed matrix complete. Any shorter pilot horizon must be fixed before comparison/test evaluation and reported explicitly.
 

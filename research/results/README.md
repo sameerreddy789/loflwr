@@ -103,6 +103,52 @@ to the partial federated run and outstanding diagnostics.
 
 ## Interpreting the next experiments
 
+The [99% feasibility reference](accuracy-feasibility-references.json) completed
+twelve fixed method/scenario combinations on all 200 validation queries.
+With 2,760 eligible training queries, MPNet nearest-example retrieval achieved
+95.5% accuracy, macro F1 0.9553 and worst-domain accuracy 92.5%. The strongest
+reference on the original imbalance scored 78%; on balanced data it scored 93%.
+No reference reached 99% top-1 accuracy. [The comparison figure](accuracy-feasibility.png)
+shows all twelve outcomes; [its provenance](accuracy-feasibility-figure-provenance.json)
+records input and generator hashes. These are centralized classifiers with a frozen
+sentence encoder or TF-IDF, not federated LoRA. The
+[review](../accuracy-99-feasibility.md) includes all twelve results, source
+checks, apparent annotation issues and uncertainty limits.
+
+The [post-hoc distinct-label candidate diagnostic](accuracy-candidate-recall.json)
+reproduces **191/200 top-1**, **198/200 top-2 recall**, and **200/200 top-3 recall**
+from the same expanded-training MPNet cache. Recall above rank one means the
+correct answer is among the candidates, not that a classifier selects it.
+No reranker was implemented. All figures reuse validation; none is a new final
+test or federated-model result.
+
+The original seed-42 twenty-attempt test measurements are now available for
+[sample weighting](pilot-sample-complete.json),
+[plain equal weighting](pilot-equal-complete.json),
+[equal plus clipping](pilot-main-complete.json),
+[centralized B-only training](pilot-centralized-complete.json), and the
+[frozen base](pilot-base-complete.json). Test accuracies are respectively
+24.6%, 35.4%, 34.4%, 40.6%, and 32%. These do not show that clipping improves
+quality over plain equal weighting, or that the current generative configuration
+is a high-accuracy classifier. Omission completion and the full multi-seed
+matrix remain separate gates. The resumed sample run lacks complete phase-time
+history for its killed invocation; do not compare its phase total as full runtime.
+
+The completed [scripted-dropout run](pilot-dropout-complete.json),
+`pilot-r2-20261103-dropout`, committed all 20 attempts and scored **33.4% final-test
+accuracy (167/500)**, macro F1 **0.28459**, and worst-domain accuracy **14%**.
+Client 1 was killed after two completed optimizer steps on attempts 4, 8 and 12;
+its unsuccessful replies were rejected. Each of the four survivors received
+0.25 weight. On attempts 5, 9 and 13 the rejoining client synchronized the
+preceding committed B, and all five contributed with 0.20 weight.
+Participation was 20/17/20/20/20 accepted contributions across clients 0–4.
+Accepted work totaled 592 optimizer steps, 2,368 examples and 132,853 tokens;
+these counts exclude the discarded partial jobs. Collection took 31.38–59.07
+seconds against the declared 300-second limit; full round times also include
+aggregation and evaluation. The one-point test decrease versus the main run
+supports continuation/recovery in this seed, not a general robustness or
+high-accuracy claim. This was one-laptop simulation.
+
 Two complete validation scoring diagnostics used cached model assets and
 checkpoint copies, with no additional training. The frozen base scored
 31.5% / 21% / 42% under original sum / mean-token / content-free-centered sum.

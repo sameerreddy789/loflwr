@@ -1,0 +1,41 @@
+{
+  "source_file": {
+    "file": "runs/accuracy-candidate-recall-reproduced-20261103.json",
+    "sha256": "b52bfc5295b9250375e8896e2bd3d6e9ccb8568b620aa726e0ca82960865a993",
+    "bytes": 1658
+  },
+  "measurements": {
+    "run_id": "accuracy-candidate-recall-reproduced-20261103",
+    "created_utc": "2026-11-03T07:08:15.014365+00:00",
+    "reference_run": "accuracy-feasibility-20261103",
+    "reference_config_hash": "a32b8b5423abc9507f8569aa46c02e5d09ef9322cda31bf8a4d4ada60bbd9a1d",
+    "kind": "posthoc_validation_distinct_label_candidate_recall",
+    "split": "validation",
+    "scenario": "all_eligible_training",
+    "candidate_label_count": 20,
+    "training_count": 2760,
+    "validation_records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+    "source_files_sha256": {
+      "summary.json": "c54646cc180cb4e8e98530de48fc1cc4723005c8810ea5e6eabc5a5d3edf56c1",
+      "expanded_training_manifest.json": "82fa68d4ea658f07c42508fd164cbe5c6fe3661201efa2a781c4bd6381c6989d",
+      "embedding_ids.json": "6f50301d7760cedce0a8d8a590454d0083cf2b1b0177348b10f16a8e881c296f",
+      "reference_embeddings.npy": "5e51de6d27fb601548ffdd4251e507781e122285542c10e2be2b171e8720e614",
+      "validation.json": "564fdc408ddb0a8aaa3acfc73a3486371f67eff0d81797f646e0a04a5395b305",
+      "candidate_recall.py": "46249aa9a07b1c99fdc2496c242e3fe0592708fe9e02dfb7342d0e7edd003ff4"
+    },
+    "rule": "Maximum cosine similarity to any training example for each of twenty distinct labels; ties use INTENTS order.",
+    "interpretation": "Recall@2/3 is not top-1 accuracy. A restricted reranker cannot exceed candidate recall on these queries, and no reranker is implemented. Validation-only post-hoc diagnostic.",
+    "count": 200,
+    "correct_within_top_k": {
+      "1": 191,
+      "2": 198,
+      "3": 200
+    },
+    "recall": {
+      "1": 0.955,
+      "2": 0.99,
+      "3": 1.0
+    }
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

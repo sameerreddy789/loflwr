@@ -11,6 +11,15 @@ validation. The separate TF-IDF comparison scores 41.5% versus 87% across
 imbalanced/balanced data. These are exploratory results from distinct methods
 and data regimes, not final federated comparisons.
 
+The follow-up [99% feasibility review](accuracy-99-feasibility.md) distinguishes
+benchmark accuracy from selective precision, verifies published numerical
+comparisons, and reports twelve completed reference checks. The best achieves
+95.5% validation accuracy with frozen MPNet and 2,760 eligible training examples;
+none reaches 99% top-1 accuracy. A reproduced post-hoc candidate diagnostic
+finds 99% top-2 recall; this is not classification accuracy. The review also
+records completed original-scoring federated
+comparisons and suspected annotation issues, keeping these scopes distinct.
+
 ## Recommendation
 
 Build a small English banking-support system that trains across ordinary laptops, shares only adapter updates, exposes survivor aggregation coefficients, and recovers when a participant disappears during training. Use SmolLM2-135M-Instruct, Flower's ClientApp/ServerApp architecture, and a shared frozen-A adapter with B-only updates.
@@ -36,6 +45,7 @@ The deployment target is three laptops with CPU clients having at least 8 GB RAM
 | [accuracy-code-audit.md](accuracy-code-audit.md) | Training, tokenization and scoring correctness checks | Implementers |
 | [accuracy-run-audit.md](accuracy-run-audit.md) | Partial seed-42 quality, work, influence and data coverage | Experiment reviewers |
 | [accuracy-literature.md](accuracy-literature.md) | Primary-source explanation of likely limitations and candidate improvements | Method selection |
+| [accuracy-99-feasibility.md](accuracy-99-feasibility.md) | Evidence for the 99% aspiration and tests of stronger task references | Builder and reviewers |
 
 ## Corrections to the original proposal
 

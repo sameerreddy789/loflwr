@@ -16,7 +16,21 @@ Last updated: **3 November 2026**. This is the prototype handoff status. Detaile
 | Study launcher | Pilot/full plans, immutable configuration/asset/source identities, sequential execution, bounded process lifetime, resume, and explicit incomplete states are implemented and unit tested. A shorter horizon is calibration and cannot access final test. |
 | Dashboard and reports | Saved events, work/traffic, coefficients/clipping, quality, replay, evidence downloads, and checkpoint-backed CPU queries are implemented. The Windows launcher uses offline model settings and binds localhost. Reader and Streamlit fixture checks exist. |
 
-The full WSL2 environment passed **101 tests with no skips** on 3 November 2026. This includes interrupted-attempt recovery, stable dashboard run selection, and transient progress-file replacement handling. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
+The full WSL2 environment passed **115 tests with no skips** on 3 November 2026. This includes interrupted-attempt recovery, stable dashboard run selection, transient progress-file replacement handling, and validation-reference/candidate-recall safeguards. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
+
+The seed-42 pilot has completed frozen-base, centralized B-only, sample-weighted,
+equal-weighted, equal-plus-clipping and scripted-dropout runs. Final-test accuracy
+is respectively 32%, 40.6%, 24.6%, 35.4%, 34.4% and 33.4%. The dropout run committed
+all twenty attempts, rejecting the killed client's work on attempts 4/8/12 and
+accepting fresh rejoining on 5/9/13. The weak-client omission run and full
+multi-seed program remain incomplete. See the [results register](results/README.md)
+for work, identities and limitations.
+
+A separate [accuracy feasibility study](accuracy-99-feasibility.md) reaches
+95.5% top-1 validation accuracy using centralized frozen MPNet retrieval with
+expanded training data. Its 99% top-2 candidate recall is not classification
+accuracy. Neither score belongs to the federated model, and neither is an
+independent final-test result.
 
 ## Traceable local checks
 
@@ -37,7 +51,7 @@ These are execution checks. A small smoke loss change or a single post-round acc
 
 | Gate | Evidence still required |
 | --- | --- |
-| Frozen comparative study | Completed declared runs with frozen-base/centralized references, sample/equal/clipped comparisons, exact actual work, and final-test access only after the full horizon. The full multi-seed program remains separate from a seed-42 pilot. |
+| Frozen comparative study | Finish the pilot's omission run, then the declared multi-seed/data/work matrix. Six pilot configurations have completed with final-test results after their fixed horizons; successful execution does not establish high task accuracy. |
 | Useful weak-client participation | Matched omission runs and paired seed differences, including negligible or unfavorable effects. Nonzero updates alone do not prove utility. |
 | Actual interruption and recovery | Real Ray rehearsal passed process kill, below-quorum B retention, and all-five-client fresh rejoining. [TLS rehearsal](results/tls-node-recovery.json) also passed full SuperNode process-tree termination, two-survivor commit, and fresh rejoin. These are same-host tests. The 60-second Ray deadline missed cold/queued work, so the frozen comparative pilot declares 300 seconds. |
 | Fresh offline startup | Fresh CPU inference and fresh three-node local TLS deployment passed inside a loopback-only network namespace. The deployment committed with two accepted updates; one client missed its deadline. See [offline deployment evidence](results/offline-deployment.json). Physical-laptop deployment remains untested. |

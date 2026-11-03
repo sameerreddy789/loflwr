@@ -75,6 +75,26 @@ the transform unit tests alone are not a model experiment. See the
 accuracy figure and its provenance record from committed measurement exports.
 Use the prepared reporting environment; no model, dataset or live run is read.
 
+[accuracy_feasibility.py](accuracy_feasibility.py) evaluates four fixed
+centralized classifiers on the same validation split across imbalanced,
+balanced and expanded eligible training data. It never scores the final test
+or modifies federated manifests. Its MPNet reference is a frozen sentence
+encoder, not SetFit training or federated LoRA. Cache the exact model revision
+listed in [the feasibility review](../research/accuracy-99-feasibility.md), then
+run `python tools/accuracy_feasibility.py --output-dir runs/accuracy-reference-new`.
+The command requires a new output directory and validates cached asset identity.
+
+[candidate_recall.py](candidate_recall.py) reproduces post-hoc top-1/2/3 distinct
+label recall from that reference's cached embeddings. It checks the original
+configuration and manifest identities, and does not load a model or score the
+test set. Run `python tools/candidate_recall.py --reference-dir runs/accuracy-feasibility-20261103 --output runs/candidate-recall-new.json`.
+Recall at two or three candidates is not end-to-end classification accuracy.
+
+[plot_accuracy_feasibility.py](plot_accuracy_feasibility.py) renders all twelve
+top-1 validation references from the public JSON export, with a 99% target line
+and source/generator/figure hashes. Run it in the prepared reporting environment;
+it reads no model or live experiment data.
+
 [calibrate_persistent_worker.py](calibrate_persistent_worker.py) checks real-model cold/warm delta equivalence, interleaved client state reset, optimizer-process termination/replacement, and deadline cleanup. It uses isolated subprocesses rather than a complete Flower round. Choose a new `--run-id` when repeating it; the default identifies the original local calibration. The [deployment guide](../docs/deployment.md) separates localhost runtime checks from an untested manual LAN setup.
 
 ## Repository checks

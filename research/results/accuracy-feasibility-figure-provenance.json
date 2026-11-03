@@ -1,0 +1,123 @@
+{
+  "kind": "centralized_top1_validation_reference_figure",
+  "generated_utc": "2026-11-03T07:14:40.610363+00:00",
+  "source": {
+    "file": "research/results/accuracy-feasibility-references.json",
+    "sha256": "1876a89389e24255e1720f6f5d797fedea0dd8e6cc8ba1d707507b8d98b1b7fa",
+    "original_evidence": {
+      "file": "runs/accuracy-feasibility-20261103/summary.json",
+      "sha256": "c54646cc180cb4e8e98530de48fc1cc4723005c8810ea5e6eabc5a5d3edf56c1",
+      "bytes": 445024
+    }
+  },
+  "run_id": "accuracy-feasibility-20261103",
+  "config_hash": "a32b8b5423abc9507f8569aa46c02e5d09ef9322cda31bf8a4d4ada60bbd9a1d",
+  "validation_records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+  "split": "validation",
+  "labels": 20,
+  "target_accuracy": 0.99,
+  "script": {
+    "file": "tools/plot_accuracy_feasibility.py",
+    "sha256": "03cbe9a86aed75822d43226a0cc57a49b4bdd7adcdb6bb0e6a79e6265c9a6448"
+  },
+  "environment": {
+    "matplotlib": "3.10.7"
+  },
+  "measurements": [
+    {
+      "scenario": "imbalanced",
+      "method": "word_tfidf_logreg",
+      "correct": 83,
+      "count": 200,
+      "accuracy": 0.415
+    },
+    {
+      "scenario": "imbalanced",
+      "method": "word_char_tfidf_svm",
+      "correct": 99,
+      "count": 200,
+      "accuracy": 0.495
+    },
+    {
+      "scenario": "imbalanced",
+      "method": "mpnet_logreg",
+      "correct": 156,
+      "count": 200,
+      "accuracy": 0.78
+    },
+    {
+      "scenario": "imbalanced",
+      "method": "mpnet_nearest_example",
+      "correct": 146,
+      "count": 200,
+      "accuracy": 0.73
+    },
+    {
+      "scenario": "balanced",
+      "method": "word_tfidf_logreg",
+      "correct": 174,
+      "count": 200,
+      "accuracy": 0.87
+    },
+    {
+      "scenario": "balanced",
+      "method": "word_char_tfidf_svm",
+      "correct": 183,
+      "count": 200,
+      "accuracy": 0.915
+    },
+    {
+      "scenario": "balanced",
+      "method": "mpnet_logreg",
+      "correct": 180,
+      "count": 200,
+      "accuracy": 0.9
+    },
+    {
+      "scenario": "balanced",
+      "method": "mpnet_nearest_example",
+      "correct": 186,
+      "count": 200,
+      "accuracy": 0.93
+    },
+    {
+      "scenario": "all_eligible_training",
+      "method": "word_tfidf_logreg",
+      "correct": 182,
+      "count": 200,
+      "accuracy": 0.91
+    },
+    {
+      "scenario": "all_eligible_training",
+      "method": "word_char_tfidf_svm",
+      "correct": 189,
+      "count": 200,
+      "accuracy": 0.945
+    },
+    {
+      "scenario": "all_eligible_training",
+      "method": "mpnet_logreg",
+      "correct": 188,
+      "count": 200,
+      "accuracy": 0.94
+    },
+    {
+      "scenario": "all_eligible_training",
+      "method": "mpnet_nearest_example",
+      "correct": 191,
+      "count": 200,
+      "accuracy": 0.955
+    }
+  ],
+  "outputs": [
+    {
+      "file": "research/results/accuracy-feasibility.png",
+      "sha256": "c1a176938f19cbe75c4a930c2bd20cea89a20597ae74674b54340c273ead2e00"
+    },
+    {
+      "file": "research/results/accuracy-feasibility.svg",
+      "sha256": "034f349e998cefd97c2b78cb3452e05cacbad2490df20b086590ac6ef0731e9f"
+    }
+  ],
+  "interpretation": "Twelve top-1 centralized reference measurements on the same 200 validation queries. No top-k recall, federated accuracy or final-test scores are plotted. Data regimes change quantity and class coverage; they do not isolate balancing. The best score is selected from reused validation data, not independent confirmation."
+}
