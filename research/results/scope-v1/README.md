@@ -6,6 +6,30 @@ classifier. The new test contains only unsupported requests, so it can estimate
 false acceptance but cannot establish new all-intent accuracy or positive-query
 coverage.
 
+## Measured result
+
+The lock was committed and pushed in `8e3f241723d9fdba5d1915eb1865a8ecb33b2f1b`
+before scoring. The [test result](negative-test-result.json) records all 2,279
+unique queries, model/data identities, per-intent scope errors and artifact hashes.
+
+| Fixed classifier margin | False accepts without scope | False accepts with scope |
+| --- | --- | --- |
+| No margin rejection | 2,279/2,279 (100%) | 265/2,279 (11.63%) |
+| 0.9581952095031738 | 964/2,279 (42.30%) | 136/2,279 (5.97%) |
+| 1.669316291809082 | 467/2,279 (20.49%) | 76/2,279 (3.33%) |
+| 2.1202011108398438 | 311/2,279 (13.65%) | 57/2,279 (2.50%) |
+
+Every row was declared before inference; none was chosen by test performance.
+The 95% positive coverage figure belongs to the **scope detector alone on reused
+validation**, not the combined margin-and-scope system on independent positives.
+The lower false-accept rate is therefore not evidence of 97.5% or 100% overall
+accuracy. The confirmed head remains 94% on its original locked 300-query set.
+
+The scope detector remains an experimental component. Before deployment, measure
+combined coverage and classification quality on fresh supported and unsupported
+queries drawn from a declared application distribution. These 2,279 test queries
+are now scored evidence and cannot become another untouched test after tuning.
+
 ## Before test inference
 
 The [confirmation plan](confirmation-plan.json) locks 40 source/artifact files,

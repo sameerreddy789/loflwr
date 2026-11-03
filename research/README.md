@@ -17,6 +17,16 @@ accepts** under the strictest fixed margin rule. It does not replace the
 all-twenty-intent result. No directly compatible full-task public test was found
 among the reviewed candidates.
 
+The [client-local preparation report](results/encoder-local-v1/README.md) now
+checks both deployment layouts with isolated offline encoding and unchanged
+train/validation predictions. The [scope-detector report](results/scope-v1/README.md)
+adds a locked negative-only test on 2,279 previously unscored unsupported
+BANKING77 queries: the strictest margin plus scope accepts 57, versus 311 with
+margin alone. The scope detector is experimental; this does not establish new
+all-intent accuracy or fresh supported-query coverage. Follow the
+[encoder laptop guide](../docs/encoder-laptop-rehearsal.md) for the physical
+rehearsal that remains pending.
+
 The [seven-day prototype plan](seven-day-prototype.md), [ideation synthesis](ideation.md),
 and [abstract alignment](abstract-alignment.md) preserve the design process.
 The original SmolLM2/BANKING77/shared-A benchmark and its results remain intact.
@@ -50,8 +60,11 @@ the now-implemented encoder/classifier experiments and internal quality gates. F
 scoring corrections reach 52%/63%/58.5% validation for sample/equal/clipped;
 the [seven-configuration pilot](results/pilot-r2-20261103/README.md) is complete,
 including an unfavorable/null weak-client omission comparison. Those original
-LoRA results must not be mixed with the expanded-data MPNet result. The full
-multi-seed study and deployment across three physical laptops remain incomplete.
+LoRA results must not be mixed with the expanded-data MPNet result. The
+[encoder three-seed matrix](results/encoder-matrix-v1/README.md) is now complete:
+33 runs, matched weighting/clipping, budgets, imbalance and omission controls.
+The original LoRA full multi-seed program and physical three-laptop deployment
+remain separate pending work.
 
 ## Original recommendation and delivered variant
 

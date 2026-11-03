@@ -1,0 +1,360 @@
+{
+  "status": "completed",
+  "run_id": "encoder-local-three-v1",
+  "layout": "three",
+  "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+  "manifest_hash": "f8f017eda5cf910f2981f5ba90e71cab32548413b2a50eb04bff02af474cc699",
+  "source_manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+  "reference_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "wall_seconds": 411.852135344,
+  "parity": {
+    "0": {
+      "count": 1128,
+      "maximum_absolute_feature_difference": 9.499490261077881e-08,
+      "changed_head_predictions": 0,
+      "absolute_tolerance": 1e-05
+    },
+    "1": {
+      "count": 1224,
+      "maximum_absolute_feature_difference": 1.043081283569336e-07,
+      "changed_head_predictions": 0,
+      "absolute_tolerance": 1e-05
+    },
+    "2": {
+      "count": 408,
+      "maximum_absolute_feature_difference": 9.778887033462524e-08,
+      "changed_head_predictions": 0,
+      "absolute_tolerance": 1e-05
+    },
+    "server": {
+      "count": 200,
+      "maximum_absolute_feature_difference": 8.940696716308594e-08,
+      "changed_head_predictions": 0,
+      "absolute_tolerance": 1e-05
+    }
+  },
+  "preparation": {
+    "0": {
+      "status": "completed",
+      "created_utc": "2026-11-03T13:46:28.107927+00:00",
+      "participant": "0",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "registration_hash": "f85bd35b124aca0ebdb1d63d70bb833949a6de60a795ab05f7f1ef1fb43aaadc",
+      "count": 1128,
+      "raw_feature_bytes": 3465216,
+      "archive_bytes": 3520102,
+      "source_record_bundle_hashes": [
+        "6db655c7dfa60fd97367de72c3f74b48ef86214ef2855a81c2c8e31504a32fc7",
+        "5854475e041283af01f4944d83106ee5b5e7f05c1cd35c29fefded6158416bb1"
+      ],
+      "telemetry": {
+        "encoding_seconds_including_asset_verification_and_model_loading": 109.243860499,
+        "truncated": 0,
+        "memory": {
+          "peak_rss_bytes": 1192480768,
+          "rss_sampling_interval_seconds": 0.02
+        },
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "feature_settings": {
+          "dtype": "float32",
+          "device": "cpu",
+          "max_length": 384,
+          "pooling": "attention_mask_mean_then_l2_normalize",
+          "batch_size": 8,
+          "cpu_threads": 1
+        },
+        "memory_scope": "Sampled current preparation process RSS; encoder is in this process, no child process is launched."
+      },
+      "interpretation": "Local offline feature preparation, not model training or an accuracy result."
+    },
+    "1": {
+      "status": "completed",
+      "created_utc": "2026-11-03T13:49:38.310255+00:00",
+      "participant": "1",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "registration_hash": "e8b2cb5104387f5fdf800b072f83c7b7bb7a1d366198b5501237784ea20a1e48",
+      "count": 1224,
+      "raw_feature_bytes": 3760128,
+      "archive_bytes": 3819622,
+      "source_record_bundle_hashes": [
+        "24a01990a113ffd6afda07f98fd75192a47732afbbb01581fe00e4f071bb8bba",
+        "9fefdc7aac4cfa9762abe5ba8c94a72aa94b308c4b2234b4b79373674723f9a5"
+      ],
+      "telemetry": {
+        "encoding_seconds_including_asset_verification_and_model_loading": 180.865659134,
+        "truncated": 0,
+        "memory": {
+          "peak_rss_bytes": 1188864000,
+          "rss_sampling_interval_seconds": 0.02
+        },
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "feature_settings": {
+          "dtype": "float32",
+          "device": "cpu",
+          "max_length": 384,
+          "pooling": "attention_mask_mean_then_l2_normalize",
+          "batch_size": 8,
+          "cpu_threads": 1
+        },
+        "memory_scope": "Sampled current preparation process RSS; encoder is in this process, no child process is launched."
+      },
+      "interpretation": "Local offline feature preparation, not model training or an accuracy result."
+    },
+    "2": {
+      "status": "completed",
+      "created_utc": "2026-11-03T13:50:27.930214+00:00",
+      "participant": "2",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "registration_hash": "4b50fe509108ea2090c2ffc7a7eae07eed975015a1ea7b1a50708943375a23da",
+      "count": 408,
+      "raw_feature_bytes": 1253376,
+      "archive_bytes": 1273702,
+      "source_record_bundle_hashes": [
+        "d3e22f124d16b627642ac0a7deff3bc93e2cd84a419baa5c067bbf957524bf2b"
+      ],
+      "telemetry": {
+        "encoding_seconds_including_asset_verification_and_model_loading": 32.67842211300001,
+        "truncated": 0,
+        "memory": {
+          "peak_rss_bytes": 1186975744,
+          "rss_sampling_interval_seconds": 0.02
+        },
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "feature_settings": {
+          "dtype": "float32",
+          "device": "cpu",
+          "max_length": 384,
+          "pooling": "attention_mask_mean_then_l2_normalize",
+          "batch_size": 8,
+          "cpu_threads": 1
+        },
+        "memory_scope": "Sampled current preparation process RSS; encoder is in this process, no child process is launched."
+      },
+      "interpretation": "Local offline feature preparation, not model training or an accuracy result."
+    },
+    "server": {
+      "status": "completed",
+      "created_utc": "2026-11-03T13:51:15.653758+00:00",
+      "participant": "server",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "registration_hash": "8c5616153db973928f502e12fb44d11cf21755a17a01c7f5415e0afd26a01f31",
+      "count": 200,
+      "raw_feature_bytes": 614400,
+      "archive_bytes": 624742,
+      "source_record_bundle_hashes": [
+        "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e"
+      ],
+      "telemetry": {
+        "encoding_seconds_including_asset_verification_and_model_loading": 32.720656210000016,
+        "truncated": 0,
+        "memory": {
+          "peak_rss_bytes": 1195184128,
+          "rss_sampling_interval_seconds": 0.02
+        },
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "feature_settings": {
+          "dtype": "float32",
+          "device": "cpu",
+          "max_length": 384,
+          "pooling": "attention_mask_mean_then_l2_normalize",
+          "batch_size": 8,
+          "cpu_threads": 1
+        },
+        "memory_scope": "Sampled current preparation process RSS; encoder is in this process, no child process is launched."
+      },
+      "interpretation": "Local offline feature preparation, not model training or an accuracy result."
+    }
+  },
+  "registrations": [
+    {
+      "kind": "mpnet_local_registration_v1",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "participant": "0",
+      "role": "client",
+      "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+      "entry": {
+        "file": "clients/client_0.npz",
+        "records_file": "clients/client_0.json",
+        "sha256": "cb460a911bac09d2af9b81b59a572ac1ad824bed882d20b491299046e4bab9b9",
+        "count": 1128,
+        "records_hash": "e9ba1d43dffebbde6427223cb6c4b7521ab39d41fb01da4014c3617e88558799",
+        "label_counts": {
+          "card_arrival": 143,
+          "card_delivery_estimate": 102,
+          "activate_my_card": 149,
+          "card_about_to_expire": 119,
+          "card_payment_not_recognised": 158,
+          "pending_card_payment": 149,
+          "declined_card_payment": 143,
+          "transaction_charged_twice": 165
+        }
+      },
+      "registration_hash": "f85bd35b124aca0ebdb1d63d70bb833949a6de60a795ab05f7f1ef1fb43aaadc"
+    },
+    {
+      "kind": "mpnet_local_registration_v1",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "participant": "1",
+      "role": "client",
+      "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+      "entry": {
+        "file": "clients/client_1.npz",
+        "records_file": "clients/client_1.json",
+        "sha256": "86e6833f66ad3613416b6d3249cb16d7ff75d352b4d569b451e41c5ba34f5c68",
+        "count": 1224,
+        "records_hash": "fe2bd797be982cd7e818454f25d37db80fecc8548717cb4b9ec6d725186db53f",
+        "label_counts": {
+          "cancel_transfer": 147,
+          "transfer_not_received_by_recipient": 161,
+          "pending_transfer": 138,
+          "transfer_fee_charged": 162,
+          "pending_cash_withdrawal": 133,
+          "wrong_amount_of_cash_received": 170,
+          "declined_cash_withdrawal": 163,
+          "cash_withdrawal_not_recognised": 150
+        }
+      },
+      "registration_hash": "e8b2cb5104387f5fdf800b072f83c7b7bb7a1d366198b5501237784ea20a1e48"
+    },
+    {
+      "kind": "mpnet_local_registration_v1",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "participant": "2",
+      "role": "client",
+      "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+      "entry": {
+        "file": "clients/client_2.npz",
+        "records_file": "clients/client_2.json",
+        "sha256": "218e71eb4bdf54840431ca4e8bd46f73a625e6fd41e3df0fd320986a58087cc0",
+        "count": 408,
+        "records_hash": "d3e22f124d16b627642ac0a7deff3bc93e2cd84a419baa5c067bbf957524bf2b",
+        "label_counts": {
+          "edit_personal_details": 111,
+          "why_verify_identity": 111,
+          "unable_to_verify_identity": 92,
+          "verify_my_identity": 94
+        }
+      },
+      "registration_hash": "4b50fe509108ea2090c2ffc7a7eae07eed975015a1ea7b1a50708943375a23da"
+    },
+    {
+      "kind": "mpnet_local_registration_v1",
+      "plan_hash": "6c612ba06af58f89db79669642c1e8e60ce80f2c5c45b7c67f47cb83459709b6",
+      "participant": "server",
+      "role": "validation",
+      "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+      "entry": {
+        "file": "validation.npz",
+        "records_file": "validation.json",
+        "sha256": "96991915f69881312da277d02c6f650cbb411bf2d7bca66b5ebd8aca72984b2a",
+        "count": 200,
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "label_counts": {
+          "card_arrival": 10,
+          "card_delivery_estimate": 10,
+          "activate_my_card": 10,
+          "card_about_to_expire": 10,
+          "pending_card_payment": 10,
+          "declined_card_payment": 10,
+          "card_payment_not_recognised": 10,
+          "transaction_charged_twice": 10,
+          "pending_transfer": 10,
+          "transfer_not_received_by_recipient": 10,
+          "transfer_fee_charged": 10,
+          "cancel_transfer": 10,
+          "pending_cash_withdrawal": 10,
+          "declined_cash_withdrawal": 10,
+          "wrong_amount_of_cash_received": 10,
+          "cash_withdrawal_not_recognised": 10,
+          "edit_personal_details": 10,
+          "verify_my_identity": 10,
+          "unable_to_verify_identity": 10,
+          "why_verify_identity": 10
+        }
+      },
+      "registration_hash": "8c5616153db973928f502e12fb44d11cf21755a17a01c7f5415e0afd26a01f31"
+    }
+  ],
+  "source_hashes": {
+    "fedlora_edge/encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+    "tools/check_encoder_local_preparation.py": "adc759829989d37355a5badc8953d6ec3c57b56f2af33399bfa886ce4334c5e1"
+  },
+  "limits": [
+    "Public records provisioned by an auditor before isolation; production data ownership not established.",
+    "One physical laptop. Registration size is metadata, not training payload or a privacy guarantee.",
+    "Only training/validation features compared; old confirmation/external tests not scored."
+  ],
+  "isolation_checks": {
+    "0": {
+      "participant": "0",
+      "own_input_files": [
+        "records_0.json",
+        "records_1.json"
+      ],
+      "hidden_paths_absent": [
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/manifest.json",
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/confirmation.json",
+        "/mnt/d/Hackathons/loflwr/runs/encoder-flower-balanced-v2/selected/checkpoint.json"
+      ],
+      "network_error": "[Errno 101] Network is unreachable",
+      "pid_namespace": true,
+      "original_repository_masked": true,
+      "registration_hash": "f85bd35b124aca0ebdb1d63d70bb833949a6de60a795ab05f7f1ef1fb43aaadc",
+      "scope": "Linux mount/PID/network namespaces on one physical laptop, not independent physical devices"
+    },
+    "1": {
+      "participant": "1",
+      "own_input_files": [
+        "records_0.json",
+        "records_1.json"
+      ],
+      "hidden_paths_absent": [
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/manifest.json",
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/confirmation.json",
+        "/mnt/d/Hackathons/loflwr/runs/encoder-flower-balanced-v2/selected/checkpoint.json"
+      ],
+      "network_error": "[Errno 101] Network is unreachable",
+      "pid_namespace": true,
+      "original_repository_masked": true,
+      "registration_hash": "e8b2cb5104387f5fdf800b072f83c7b7bb7a1d366198b5501237784ea20a1e48",
+      "scope": "Linux mount/PID/network namespaces on one physical laptop, not independent physical devices"
+    },
+    "2": {
+      "participant": "2",
+      "own_input_files": [
+        "records_0.json"
+      ],
+      "hidden_paths_absent": [
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/manifest.json",
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/confirmation.json",
+        "/mnt/d/Hackathons/loflwr/runs/encoder-flower-balanced-v2/selected/checkpoint.json"
+      ],
+      "network_error": "[Errno 101] Network is unreachable",
+      "pid_namespace": true,
+      "original_repository_masked": true,
+      "registration_hash": "4b50fe509108ea2090c2ffc7a7eae07eed975015a1ea7b1a50708943375a23da",
+      "scope": "Linux mount/PID/network namespaces on one physical laptop, not independent physical devices"
+    },
+    "server": {
+      "participant": "server",
+      "own_input_files": [
+        "records_0.json"
+      ],
+      "hidden_paths_absent": [
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/manifest.json",
+        "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1/confirmation.json",
+        "/mnt/d/Hackathons/loflwr/runs/encoder-flower-balanced-v2/selected/checkpoint.json"
+      ],
+      "network_error": "[Errno 101] Network is unreachable",
+      "pid_namespace": true,
+      "original_repository_masked": true,
+      "registration_hash": "8c5616153db973928f502e12fb44d11cf21755a17a01c7f5415e0afd26a01f31",
+      "scope": "Linux mount/PID/network namespaces on one physical laptop, not independent physical devices"
+    }
+  },
+  "original_result_sha256": "43d3ee6072fdad6984efe3bf819d3ec1696a71c8cdfc791262699975aa1ef4c9"
+}

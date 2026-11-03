@@ -1,5 +1,29 @@
 # Project utilities
 
+## Encoder local preparation and remaining-work checks
+
+These tools concern the frozen-MPNet/federated-head variant. Use the
+[encoder laptop guide](../docs/encoder-laptop-rehearsal.md) for the complete
+per-machine workflow and [remaining gates](../docs/remaining-work-plan.md) for
+what local checks can establish.
+
+| Tool | Purpose |
+| --- | --- |
+| [prepare_encoder_local.py](prepare_encoder_local.py) | Create a shared metadata plan, embed each participant's own records offline, and assemble registrations without reading other participants' features |
+| [check_encoder_local_preparation.py](check_encoder_local_preparation.py) | Exercise five/three-role preparation in isolated Linux namespaces and compare training/validation features with the fixed reference |
+| [configure_encoder_laptop.py](configure_encoder_laptop.py) | Validate one local role and write its config; preserve an existing head's parameters only when its encoder contract matches |
+| [build_encoder_app.py](build_encoder_app.py) | Stage a code-only Flower app with encoder entry points; the repository root keeps the original LoRA entry points |
+| [run_encoder_deployment.py](run_encoder_deployment.py) | Run same-host TLS/authenticated, role-isolated Flower recovery checks and optional offline startup; use fresh output directories |
+| [run_encoder_matrix.py](run_encoder_matrix.py) | Prepare/run/report the fixed 33-cell, three-seed development matrix with real head optimization and sequential mathematical aggregation |
+| [run_scope_study.py](run_scope_study.py) | Develop and lock a separate unsupported-query detector before its negative-only test; preserves a fixed spent-test boundary after scoring |
+| [profile_encoder_demo.py](profile_encoder_demo.py) | Measure CPU model-load/query latency and process RSS on authored timing probes without calculating accuracy |
+
+All accept `--help`. Linux namespace checks require the tested WSL environment
+and `bubblewrap`; the CPU latency profile also runs in the Windows CPU environment.
+Raw queries, features, model weights and run outputs remain ignored.
+
+## Existing LoRA utilities
+
 `check_offline_start.py` verifies a fresh cached-model query or local TLS
 deployment inside a Linux network namespace containing only loopback. It refuses
 ordinary host networking. See the [measured offline check](../research/results/offline-start.json).

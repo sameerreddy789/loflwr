@@ -1,0 +1,483 @@
+{
+  "accepted_counts": [
+    5,
+    4,
+    5,
+    2,
+    5
+  ],
+  "activation_startup_deadline_seconds": 75,
+  "attempts": 5,
+  "client_ids": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "committed_versions": 4,
+  "config_hash": "fc1f6554cf041831064d10c010958363c1765d989bf23e7d6c865881f66072ac",
+  "final_head_hash": "9b4b534ef956587a010c475aa1ea128cda780dd7a1d1665a4772f9dcbe78bb48",
+  "fresh_offline_start_required": false,
+  "initial_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "isolation": {
+    "0": {
+      "client_id": "0",
+      "dataset_files": [
+        "clients/client_0.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "1": {
+      "client_id": "1",
+      "dataset_files": [
+        "clients/client_1.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "2": {
+      "client_id": "2",
+      "dataset_files": [
+        "clients/client_2.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "3": {
+      "client_id": "3",
+      "dataset_files": [
+        "clients/client_3.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "4": {
+      "client_id": "4",
+      "dataset_files": [
+        "clients/client_4.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "server": {
+      "client_id": null,
+      "dataset_files": [
+        "manifest.json",
+        "validation.npz"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "server"
+    }
+  },
+  "kind": "frozen_mpnet_linear_head",
+  "launcher_sha256": "4a50bb0b1a112e65c9ebb0f84336845ead0e032def4daecdc87e13d8675aabb3",
+  "limits": [
+    "No physical multi-laptop or LAN failure evidence.",
+    "Head-only training, not LoRA or encoder fine-tuning.",
+    "Warm-started parameters preserve existing model before recovery updates; reused validation is not fresh confirmation.",
+    "Private keys, raw queries and feature arrays are excluded from this export."
+  ],
+  "local_manifest_hash": "8a9f09be8ae08129e7c3d8c577f959fbffd8efe25482b4940d69223d84de77d7",
+  "memory_scope": "Sum of sampled RSS per role process tree; shared pages may be double counted",
+  "network": {
+    "interfaces": [
+      "lo",
+      "eth0"
+    ]
+  },
+  "node_restarts": [
+    {
+      "after_attempt_id": 2,
+      "client_id": "1",
+      "event": "node_restarted",
+      "node_id": 9133859890744986970,
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716176.4043758
+    },
+    {
+      "after_attempt_id": 4,
+      "client_id": "0",
+      "event": "node_restarted",
+      "node_id": 1114187163519759046,
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716304.1633105
+    },
+    {
+      "after_attempt_id": 4,
+      "client_id": "1",
+      "event": "node_restarted",
+      "node_id": 9133859890744986970,
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716304.1861815
+    },
+    {
+      "after_attempt_id": 4,
+      "client_id": "2",
+      "event": "node_restarted",
+      "node_id": 5385285682531510305,
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716304.2123451
+    }
+  ],
+  "overall_supervisor_deadline_seconds": 900,
+  "package_sha256": "89e8c780f04d85183318332452020fd3503fdb8194fea1dfc1bf690d12aee4a6",
+  "peak_process_tree_rss_bytes": {
+    "0": 1024016384,
+    "1": 1027477504,
+    "2": 1068879872,
+    "3": 1089392640,
+    "4": 1082372096,
+    "server": 970489856
+  },
+  "process_interruptions": [
+    {
+      "attempt_id": 2,
+      "client_id": "1",
+      "completed_steps": 1,
+      "event": "node_process_tree_killed",
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716136.2652464
+    },
+    {
+      "attempt_id": 4,
+      "client_id": "1",
+      "completed_steps": 1,
+      "event": "node_process_tree_killed",
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716260.0894473
+    },
+    {
+      "attempt_id": 4,
+      "client_id": "0",
+      "completed_steps": 1,
+      "event": "node_process_tree_killed",
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716260.4020574
+    },
+    {
+      "attempt_id": 4,
+      "client_id": "2",
+      "completed_steps": 1,
+      "event": "node_process_tree_killed",
+      "run_id": "encoder-isolated-five-v8",
+      "timestamp": 1793716260.5879374
+    }
+  ],
+  "quorum": 3,
+  "rejoin_readiness": [
+    {
+      "after_attempt_id": 2,
+      "event": "rejoin_readiness",
+      "ready": [
+        "1"
+      ],
+      "run_id": "encoder-isolated-five-v8",
+      "seconds": 41.11486750500012,
+      "still_unavailable": [],
+      "timeout_seconds": 90,
+      "timestamp": 1793716221.9068828
+    },
+    {
+      "after_attempt_id": 4,
+      "event": "rejoin_readiness",
+      "ready": [
+        "0",
+        "1",
+        "2"
+      ],
+      "run_id": "encoder-isolated-five-v8",
+      "seconds": 19.96612472799984,
+      "still_unavailable": [],
+      "timeout_seconds": 90,
+      "timestamp": 1793716328.6178074
+    }
+  ],
+  "rejoin_readiness_deadline_seconds": 90,
+  "result_sha256": "a16cdb99630591bf98b113c839f376c20e32115de1ffba1b2434a0612d69a03b",
+  "rounds": [
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "aggregation_seconds": 0.054222073999881104,
+      "all_accepted_clients_started_from_current_head": true,
+      "attempt_id": 1,
+      "below_quorum_retention_passed": null,
+      "checkpoint_hash": "f4ae74df518e04c6ba466b9bc8980f3fab86d0041d378aae3c87635718ebaaf3",
+      "coefficients": {
+        "0": 0.2,
+        "1": 0.2,
+        "2": 0.2,
+        "3": 0.2,
+        "4": 0.2
+      },
+      "collection_seconds": 23.417737137999893,
+      "completed_optimizer_steps": {
+        "0": 1,
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "incoming_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "serialized_reply_bytes": 322358,
+      "status": "committed",
+      "version_after": 1,
+      "version_before": 0
+    },
+    {
+      "absent": [
+        "1"
+      ],
+      "accepted": [
+        "0",
+        "2",
+        "3",
+        "4"
+      ],
+      "aggregation_seconds": 0.05255698999985725,
+      "all_accepted_clients_started_from_current_head": true,
+      "attempt_id": 2,
+      "below_quorum_retention_passed": null,
+      "checkpoint_hash": "1fc7e6e2dd43cf66da3454ee0d15169eb4ee9b594fd663714ae462acc1b28b4a",
+      "coefficients": {
+        "0": 0.25,
+        "2": 0.25,
+        "3": 0.25,
+        "4": 0.25
+      },
+      "collection_seconds": 60.00042925999992,
+      "completed_optimizer_steps": {
+        "0": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "incoming_head_hash": "f4ae74df518e04c6ba466b9bc8980f3fab86d0041d378aae3c87635718ebaaf3",
+      "serialized_reply_bytes": 257873,
+      "status": "committed",
+      "version_after": 2,
+      "version_before": 1
+    },
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "aggregation_seconds": 0.05868409200002134,
+      "all_accepted_clients_started_from_current_head": true,
+      "attempt_id": 3,
+      "below_quorum_retention_passed": null,
+      "checkpoint_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "coefficients": {
+        "0": 0.2,
+        "1": 0.2,
+        "2": 0.2,
+        "3": 0.2,
+        "4": 0.2
+      },
+      "collection_seconds": 17.763381592000087,
+      "completed_optimizer_steps": {
+        "0": 1,
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "incoming_head_hash": "1fc7e6e2dd43cf66da3454ee0d15169eb4ee9b594fd663714ae462acc1b28b4a",
+      "serialized_reply_bytes": 322347,
+      "status": "committed",
+      "version_after": 3,
+      "version_before": 2
+    },
+    {
+      "absent": [
+        "0",
+        "1",
+        "2"
+      ],
+      "accepted": [
+        "3",
+        "4"
+      ],
+      "aggregation_seconds": null,
+      "all_accepted_clients_started_from_current_head": true,
+      "attempt_id": 4,
+      "below_quorum_retention_passed": true,
+      "checkpoint_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "coefficients": {},
+      "collection_seconds": 60.00137501200015,
+      "completed_optimizer_steps": {
+        "3": 1,
+        "4": 1
+      },
+      "incoming_head_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "serialized_reply_bytes": 129236,
+      "status": "skipped",
+      "version_after": 3,
+      "version_before": 3
+    },
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "aggregation_seconds": 0.07595502500021212,
+      "all_accepted_clients_started_from_current_head": true,
+      "attempt_id": 5,
+      "below_quorum_retention_passed": null,
+      "checkpoint_hash": "9b4b534ef956587a010c475aa1ea128cda780dd7a1d1665a4772f9dcbe78bb48",
+      "coefficients": {
+        "0": 0.2,
+        "1": 0.2,
+        "2": 0.2,
+        "3": 0.2,
+        "4": 0.2
+      },
+      "collection_seconds": 18.308775520000154,
+      "completed_optimizer_steps": {
+        "0": 1,
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "incoming_head_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "serialized_reply_bytes": 322343,
+      "status": "committed",
+      "version_after": 4,
+      "version_before": 3
+    }
+  ],
+  "run_id": "encoder-isolated-five-v8",
+  "schema_version": 1,
+  "scope": "TLS authenticated Flower Deployment Runtime; separate mount/PID namespaces on ONE physical laptop",
+  "server_app_wall_seconds": 271.63600016600003,
+  "source_files_sha256": {
+    "__init__.py": "e211703a2c1b775d459e75b20a07dc575b618152d1925609c147557f17430252",
+    "aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+    "checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+    "client_job.py": "ceaeba157b08f9c3ed5f47dcaab7f75aeacf83cad27ebef50df181234df6bd6f",
+    "dashboard.py": "d687a6df0d80654be5bf222f6bfffe29bddaa33db73fbbc1bc400bfeac2557ba",
+    "data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+    "encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752",
+    "encoder_dashboard.py": "9a760a0d7e6b22852e9dd799b0818c0131429411c99189a2f5fa9fbed4621f7d",
+    "encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "encoder_deployment_app.py": "c19ee656f48bed63355b2d2cc9023f09c6bfa539c65543a55c55917c4172da85",
+    "encoder_flower.py": "85393b029f61b4f9ee6594c301e0e82ab8a1566e1ef34a4faf0d2aa6c05bbc47",
+    "encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+    "federation.py": "f977994193f1991ac67e1437fe5c39cc808ac1a6539445794abd580ecef2d8c7",
+    "flower_app.py": "f2b7c99d16170d2e596de3567631b8c9d4dc381e5e6fde828c8deab9cda56aca",
+    "persistent_worker.py": "361608719728b0d0bca390a42aa1ecbf96def357fc3526dbc938e864a2cbc54e",
+    "protocol.py": "82e63641c5d5f0eac9a0c2c9c01442e2c2bfd8cd2456745f10a98478dfa64a1b",
+    "responses.py": "73b270fd34cb97edd61f3480e8f70eef7651c46d67e272aa2092ff303f42b144",
+    "results.py": "ee1bd07be6bd0920e3f72b1d4bb17d72504add7af6a1c9007e0d72049ff5a99d",
+    "state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "supernode_launcher.py": "06c19048233f77f79acd70a5b25478b567a018f5c10596e8b3b9f3691bac3987",
+    "training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8"
+  },
+  "status": "completed",
+  "tls_authenticated": true,
+  "traffic": {
+    "raw_head_bytes_per_direction_per_client": 61520,
+    "scope": "Serialized Flower message/protobuf sizes, NOT packet-captured network totals. Excludes TLS/HTTP framing, authentication, readiness/control traffic and one-time assets.",
+    "serialized_training_reply_bytes": 1354157,
+    "serialized_training_request_bytes": 1563655,
+    "trained_parameters": 15380
+  },
+  "training_collection_deadline_seconds": 60,
+  "validation_accuracy_history": [
+    {
+      "accuracy": 0.955,
+      "attempt_id": 0,
+      "version": 0
+    },
+    {
+      "accuracy": 0.955,
+      "attempt_id": 1,
+      "version": 1
+    },
+    {
+      "accuracy": 0.955,
+      "attempt_id": 2,
+      "version": 2
+    },
+    {
+      "accuracy": 0.955,
+      "attempt_id": 3,
+      "version": 3
+    },
+    {
+      "accuracy": 0.955,
+      "attempt_id": 5,
+      "version": 4
+    }
+  ],
+  "verified_fresh_rejoins": [
+    {
+      "attempt_id": 3,
+      "client_id": "1",
+      "event": "client_rejoined",
+      "run_id": "encoder-isolated-five-v8",
+      "synchronized_head_hash": "1fc7e6e2dd43cf66da3454ee0d15169eb4ee9b594fd663714ae462acc1b28b4a",
+      "timestamp": 1793716239.662036,
+      "version": 2
+    },
+    {
+      "attempt_id": 5,
+      "client_id": "1",
+      "event": "client_rejoined",
+      "run_id": "encoder-isolated-five-v8",
+      "synchronized_head_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "timestamp": 1793716345.536525,
+      "version": 3
+    },
+    {
+      "attempt_id": 5,
+      "client_id": "0",
+      "event": "client_rejoined",
+      "run_id": "encoder-isolated-five-v8",
+      "synchronized_head_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "timestamp": 1793716346.8553953,
+      "version": 3
+    },
+    {
+      "attempt_id": 5,
+      "client_id": "2",
+      "event": "client_rejoined",
+      "run_id": "encoder-isolated-five-v8",
+      "synchronized_head_hash": "7503541dc4f18434ed3d5c1c695b931d4fa68635ff180a920ec6fb5e811854e3",
+      "timestamp": 1793716346.9152186,
+      "version": 3
+    }
+  ],
+  "wall_seconds": 303.352404404
+}

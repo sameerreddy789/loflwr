@@ -33,8 +33,9 @@ from .state import (hash_state, state_from_dict, state_nbytes, state_to_dict,
 def validate_config(config: dict) -> dict:
     """Validate metadata without opening any client training feature archive."""
     manifest = load_encoder_manifest(config["dataset_dir"])
-    if set(manifest["clients"]) != set(map(str, range(5))):
-        raise ValueError("This runtime requires five logical clients")
+    count = len(manifest["clients"])
+    if count not in (3, 5) or set(manifest["clients"]) != set(map(str, range(count))):
+        raise ValueError("This runtime requires three or five consecutively identified clients")
     identity = config["identity"]
     from .encoder_head import HeadConfig
     head_config = asdict(HeadConfig(**config.get("head_config", {})))
@@ -62,19 +63,19 @@ def validate_config(config: dict) -> dict:
             raise ValueError(f"{name} must contain positive integers")
     if not set(map(str, config.get("omitted_clients", []))) <= set(manifest["clients"]):
         raise ValueError("Unknown omitted client")
-    if len(set(map(str, config.get("omitted_clients", [])))) == 5:
+    if len(set(map(str, config.get("omitted_clients", [])))) == count:
         raise ValueError("At least one client must be selected")
     for name, default in (("evaluate_every", 1), ("worker_cpus", 1), ("quorum", 3)):
         value = config.get(name, default)
         if isinstance(value, bool) or not isinstance(value, int) or value < 1:
             raise ValueError(f"{name} must be a positive integer")
-    if config.get("quorum", 3) > 5:
+    if config.get("quorum", 3) > count:
         raise ValueError("Quorum exceeds known client count")
     seed = config.get("seed", 42)
     if isinstance(seed, bool) or not isinstance(seed, int) or not 0 <= seed < 2**63:
         raise ValueError("Seed must be an integer in [0, 2**63)")
     for name, default in (("deadline_seconds", 60), ("startup_timeout_seconds", 120),
-                          ("worker_idle_timeout_seconds", 900)):
+                          ("worker_idle_timeout_seconds", 900), ("rejoin_wait_seconds", 45)):
         value = config.get(name, default)
         if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
             raise ValueError(f"{name} must be finite and positive")
@@ -82,7 +83,7 @@ def validate_config(config: dict) -> dict:
         if name in config and not isinstance(config[name], bool):
             raise ValueError(f"{name} must be boolean")
     schedules = set()
-    for name in ("simulated_failures", "process_interruptions"):
+    for name in ("simulated_failures", "process_interruptions", "external_node_interruptions"):
         for entry in config.get(name, []):
             attempt, client = entry["attempt_id"], str(entry["client_id"])
             if (isinstance(attempt, bool) or not isinstance(attempt, int)
@@ -91,10 +92,13 @@ def validate_config(config: dict) -> dict:
                     or (attempt, client) in schedules):
                 raise ValueError("Invalid or overlapping failure schedule")
             schedules.add((attempt, client))
-            if name == "process_interruptions":
+            if name in ("process_interruptions", "external_node_interruptions"):
                 step = entry["after_steps"]
                 if isinstance(step, bool) or not isinstance(step, int) or not 1 <= step <= config["budgets"][client]:
                     raise ValueError("Interruption must follow a completed requested step")
+    pause = config.get("between_attempt_seconds", 0)
+    if isinstance(pause, bool) or not isinstance(pause, (int, float)) or not math.isfinite(pause) or pause < 0:
+        raise ValueError("Between-attempt pause must be finite and nonnegative")
     return manifest
 
 
@@ -147,7 +151,8 @@ def train_worker(input_path: Path, output_path: Path, progress_path: Path) -> No
     EventLog(config["run_dir"], request.run_id).emit("client_synchronized",
         client_id=request.client_id, attempt_id=request.attempt_id,
         version=request.version, base_head_hash=request.base_b_hash)
-    interruption = _scheduled(config, "process_interruptions", request)
+    interruption = (_scheduled(config, "process_interruptions", request)
+                    or _scheduled(config, "external_node_interruptions", request))
 
     def progress(step: int, work: dict) -> None:
         atomic_json(progress_path, {"optimizer_steps": step, "telemetry": work})
@@ -404,6 +409,8 @@ def make_client_app(config: dict):
         received = time.time()
         request = RoundRequest.from_dict(json.loads(message.content["request"]["json"]))
         client = str(context.node_config["partition-id"])
+        if config.get("local_client_id", client) != client:
+            raise ValueError("Node partition does not match its local package")
         if client != request.client_id or set(message.content) != {"head", "request"}:
             raise ValueError("Wrong client or unexpected request payload")
         manifest = validate_config(config)
@@ -433,6 +440,39 @@ def evaluate_head(trainer, X, y, labels: list[str], state: dict) -> dict:
     return {**classification_metrics([labels[int(i)] for i in y], [labels[int(i)] for i in scores.argmax(axis=1)]),
             "task_loss": float(np.mean(logsumexp - scores[np.arange(len(y)), y])),
             "head_hash": hash_state(state), "b_hash": hash_state(state), "scoring_rule": "linear_head_argmax"}
+
+
+def await_rejoining_nodes(grid, mapping, absent, timeout):
+    """Bound readiness separately from training; authenticate replies to pinned IDs.
+
+    A node that remains unavailable is still allowed to miss the next attempt.
+    Training quorum/deadline logic remains authoritative; this never waits forever.
+    """
+    from flwr.app import Message, RecordDict
+    from .flower_app import _collect
+    pending = set(absent) & set(mapping)
+    started = time.monotonic()
+    end = started + timeout
+    ready = set()
+    inverse = {node: client for client, node in mapping.items()}
+    while pending and time.monotonic() < end:
+        remaining = min(5.0, end-time.monotonic())
+        if remaining <= 0:
+            break
+        messages = [Message(RecordDict(), dst_node_id=mapping[c], message_type="query.identity",
+                            ttl=remaining) for c in sorted(pending)]
+        for reply, _ in _collect(grid, messages, remaining):
+            if reply.has_error():
+                continue
+            client = inverse.get(reply.metadata.src_node_id)
+            if (client in pending and set(reply.content) == {"metadata"}
+                    and str(reply.content["metadata"].get("client_id")) == client):
+                ready.add(client)
+                pending.remove(client)
+        if pending:
+            time.sleep(min(.25, max(0, end-time.monotonic())))
+    return {"ready": sorted(ready), "still_unavailable": sorted(pending),
+            "seconds": time.monotonic()-started, "timeout_seconds": timeout}
 
 
 def make_server_app(config: dict):
@@ -501,7 +541,8 @@ def make_server_app(config: dict):
                     config_hash=coordinator.config_hash, metadata={"selection": record,
                         "selection_rule": "Highest evaluated validation accuracy, then macro F1, earliest evaluation"})
 
-        coordinator.events.emit("run_started", kind="frozen_mpnet_linear_head", runtime="flower_ray_one_cpu_worker",
+        runtime_kind = config.get("runtime_kind", "flower_ray_one_cpu_worker")
+        coordinator.events.emit("run_started", kind="frozen_mpnet_linear_head", runtime=runtime_kind,
             traffic_measurement="Serialized Flower protobuf; no feature/query arrays; excludes transport framing")
         if config.get("evaluate_initial", True) and coordinator.version not in evaluated:
             evaluate()
@@ -517,6 +558,9 @@ def make_server_app(config: dict):
         if coordinator.attempt_id > config["attempts"]:
             raise ValueError("Declared horizon precedes the checkpoint")
         for _ in range(coordinator.attempt_id, config["attempts"]):
+            if previous_absent and config.get("wait_for_rejoining_nodes", False):
+                readiness = await_rejoining_nodes(grid, mapping, previous_absent, config.get("rejoin_wait_seconds", 45))
+                coordinator.events.emit("rejoin_readiness", after_attempt_id=coordinator.attempt_id, **readiness)
             budgets = {c: config["budgets"][c] for c in counts if c not in set(map(str, config.get("omitted_clients", [])))}
             requests = coordinator.begin(budgets, manifest_hashes=hashes)
             messages = [Message(RecordDict({"head": _array_record(coordinator.base),
@@ -552,15 +596,17 @@ def make_server_app(config: dict):
                 evaluate()
             print(json.dumps({"attempt": coordinator.attempt_id, "version": coordinator.version,
                               "status": result["status"], "accepted": result["accepted"]}), flush=True)
+            if config.get("between_attempt_seconds", 0):
+                time.sleep(config["between_attempt_seconds"])
         if not evaluation_history or evaluation_history[-1]["attempt_id"] != coordinator.attempt_id:
             evaluate()
         atomic_json(Path(config["run_dir"]) / "final_results.json", {
-            "run_id": config["run_id"], "kind": "frozen_mpnet_linear_head", "runtime": "flower_ray_one_cpu_worker",
+            "run_id": config["run_id"], "kind": "frozen_mpnet_linear_head", "runtime": runtime_kind,
             "attempts": coordinator.attempt_id, "committed_versions": coordinator.version,
             "config_hash": coordinator.config_hash, "head_hash": hash_state(coordinator.state),
             "identity": config["identity"], "total_wall_seconds": time.monotonic() - started,
             "rounds": coordinator.results, "evaluations": evaluation_history, "selected": selected,
-            "limits": ["One host with five logical clients; not physical-laptop evidence.",
+            "limits": [config.get("deployment_scope", "One host with five logical clients; not physical-laptop evidence."),
                 "Process interruption kills a local optimizer child; simulated failures are labelled separately.",
                 "Frozen encoder plus trained head; not a LoRA or full-model optimization experiment."]})
         coordinator.events.emit("run_completed", attempt_id=coordinator.attempt_id, version=coordinator.version)

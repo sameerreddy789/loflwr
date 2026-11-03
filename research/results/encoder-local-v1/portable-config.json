@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "scope": "Configuration and code bundle smoke only; fixture node IDs do not prove transport",
+  "roles": [
+    "server",
+    "0",
+    "1",
+    "2"
+  ],
+  "source_local_manifest_hash": "f8f017eda5cf910f2981f5ba90e71cab32548413b2a50eb04bff02af474cc699",
+  "original_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "migrated_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "app": "/mnt/d/Hackathons/loflwr/runs/encoder-portable-smoke-v1/app",
+  "node_map_kind": "fixture-not-registered",
+  "source_hashes": {
+    "tools/configure_encoder_laptop.py": "4285dad04b4a59630fc5fe384223abdf9b8c4adc9056cf594254c4551d11634b",
+    "tools/build_encoder_app.py": "ec7984f57a5b46f5064c805908dae4dcc7791dc7b655cbba6b1cb807e27090da",
+    "tests/test_encoder_portable.py": "320281aa944acde8f10e65f01a6585ef793e59a1d63d2f8797038aea28681a64"
+  }
+}

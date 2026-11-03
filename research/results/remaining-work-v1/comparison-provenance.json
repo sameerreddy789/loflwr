@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "research/results/encoder-matrix-v1/summary.json": "50b7210bd0cc508a37ec1653e8e4d948f4c54256c31d4720fa3507244201b993",
+    "research/results/scope-v1/negative-test-result.json": "71ae9de3898d61d6ad770d742210fd23dfd9d633320363c2aaa0b33bd8895fb9",
+    "tools/plot_remaining_evidence.py": "eeadf3969679e9aa382bdf79c335eea3b7758aabe34d52b6eac00d4d8bee1807"
+  },
+  "matrix_plan_hash": "feaa99c55fc908fe7b3236477ad0066fc70141c7624486b49d5caeddce78bd77",
+  "scope_lock_hash": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa",
+  "limits": "Development validation in panels 1\u20132; negative-only locked test in panel 3. Confirmed 20-intent accuracy remains 94%."
+}

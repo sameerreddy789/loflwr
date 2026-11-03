@@ -1,0 +1,669 @@
+{
+  "kind": "encoder_matrix_v1",
+  "created_utc": "2026-11-03T13:44:13.530779+00:00",
+  "cells": [
+    {
+      "id": "s42-expanded-equal-sample",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-expanded-equal-equal",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-expanded-equal-equal_clipped",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-expanded-heterogeneous-sample",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-expanded-heterogeneous-equal",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-expanded-heterogeneous-equal_clipped",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-imbalanced-heterogeneous-sample",
+      "seed": 42,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-imbalanced-heterogeneous-equal",
+      "seed": 42,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-imbalanced-heterogeneous-equal_clipped",
+      "seed": 42,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s42-expanded-heterogeneous-equal-omit4",
+      "seed": 42,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [
+        "4"
+      ],
+      "unavailable": []
+    },
+    {
+      "id": "s42-imbalanced-heterogeneous-equal_clipped-unavailable1",
+      "seed": 42,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": [
+        {
+          "client_id": "1",
+          "start": 101,
+          "end": 110
+        },
+        {
+          "client_id": "1",
+          "start": 251,
+          "end": 260
+        },
+        {
+          "client_id": "1",
+          "start": 401,
+          "end": 410
+        }
+      ]
+    },
+    {
+      "id": "s43-expanded-equal-sample",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-expanded-equal-equal",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-expanded-equal-equal_clipped",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-expanded-heterogeneous-sample",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-expanded-heterogeneous-equal",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-expanded-heterogeneous-equal_clipped",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-imbalanced-heterogeneous-sample",
+      "seed": 43,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-imbalanced-heterogeneous-equal",
+      "seed": 43,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-imbalanced-heterogeneous-equal_clipped",
+      "seed": 43,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s43-expanded-heterogeneous-equal-omit4",
+      "seed": 43,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [
+        "4"
+      ],
+      "unavailable": []
+    },
+    {
+      "id": "s43-imbalanced-heterogeneous-equal_clipped-unavailable1",
+      "seed": 43,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": [
+        {
+          "client_id": "1",
+          "start": 101,
+          "end": 110
+        },
+        {
+          "client_id": "1",
+          "start": 251,
+          "end": 260
+        },
+        {
+          "client_id": "1",
+          "start": 401,
+          "end": 410
+        }
+      ]
+    },
+    {
+      "id": "s44-expanded-equal-sample",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-expanded-equal-equal",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-expanded-equal-equal_clipped",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "equal",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-expanded-heterogeneous-sample",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-expanded-heterogeneous-equal",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-expanded-heterogeneous-equal_clipped",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-imbalanced-heterogeneous-sample",
+      "seed": 44,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "sample",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-imbalanced-heterogeneous-equal",
+      "seed": 44,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-imbalanced-heterogeneous-equal_clipped",
+      "seed": 44,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": []
+    },
+    {
+      "id": "s44-expanded-heterogeneous-equal-omit4",
+      "seed": 44,
+      "regime": "expanded",
+      "work": "heterogeneous",
+      "strategy": "equal",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [
+        "4"
+      ],
+      "unavailable": []
+    },
+    {
+      "id": "s44-imbalanced-heterogeneous-equal_clipped-unavailable1",
+      "seed": 44,
+      "regime": "imbalanced",
+      "work": "heterogeneous",
+      "strategy": "equal_clipped",
+      "budgets": {
+        "0": 1,
+        "1": 4,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "omitted": [],
+      "unavailable": [
+        {
+          "client_id": "1",
+          "start": 101,
+          "end": 110
+        },
+        {
+          "client_id": "1",
+          "start": 251,
+          "end": 260
+        },
+        {
+          "client_id": "1",
+          "start": 401,
+          "end": 410
+        }
+      ]
+    }
+  ],
+  "attempts": 500,
+  "evaluate_every": 50,
+  "quorum": 3,
+  "head_config": {
+    "learning_rate": 20,
+    "batch_size": 1024,
+    "weight_decay": 3.6231884057971014e-05,
+    "optimizer": "sgd",
+    "gradient_clip": 10.0,
+    "cpu_threads": 1,
+    "class_balance": true
+  },
+  "datasets": {
+    "expanded": "assets/encoder-bank20-v1",
+    "imbalanced": "assets/encoder-bank20-imbalance-v1"
+  },
+  "client_counts": {
+    "expanded": {
+      "0": 513,
+      "1": 615,
+      "2": 608,
+      "3": 616,
+      "4": 408
+    },
+    "imbalanced": {
+      "0": 10,
+      "1": 360,
+      "2": 10,
+      "3": 10,
+      "4": 10
+    }
+  },
+  "initial": {
+    "42": {
+      "file": "initial-42.json",
+      "sha256": "87043460d6ceeccc004a80d7f8626d5871c668b72dc5e1e2d7589f875dc37de3",
+      "state_hash": "2ac1bd10ad3083b01fec2ffb9724ea2a7c507a8bad4ea5afd9cee2f50c0dbdb5"
+    },
+    "43": {
+      "file": "initial-43.json",
+      "sha256": "2810d0e1257c0a772078358903c208eedfc87037c9f7313579dfed42301a822e",
+      "state_hash": "1fab3585edc308330052563b776e1c084d6034bdd988c78e17cfe134a01a1338"
+    },
+    "44": {
+      "file": "initial-44.json",
+      "sha256": "5b41854cd4d7b82db21831595adc7f99d74f3c0ea7744c94397061078593bdcb",
+      "state_hash": "45624af0e22a36add1145cc5a57b1813bb2af6ac6a8035d5b30e26993732f594"
+    }
+  },
+  "files": {
+    "tools/run_encoder_matrix.py": "e592bde3f22aee6f09678aeed4f70654261b7f4fb48992afd4b65c2a5445abb2",
+    "tools/run_encoder_study.py": "2db625bcc586178e861c811b96cd317abb2e21ccd0b39deb7749358cf73d78bf",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "fedlora_edge/aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+    "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+    "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+    "fedlora_edge/checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+    "assets/encoder-bank20-v1/manifest.json": "fae1e84940caee8028fae8aa96cd5d945938e80a736bc25ac521c441cb0103e3",
+    "assets/encoder-bank20-v1/validation.npz": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92",
+    "assets/encoder-bank20-v1/clients/client_0.npz": "8886b48a8716cd9004bd54db999af012f5dc58374ea73458d066b4c0f6d24edb",
+    "assets/encoder-bank20-v1/clients/client_1.npz": "6441f2c12d0589deb53edf03b2eb05fd04ea35763f02c1ac3bbd7101603dd4ff",
+    "assets/encoder-bank20-v1/clients/client_2.npz": "299c580ea7cbe569372a37c4d10c72ae5014cbce54a4196ea83f677263d702f0",
+    "assets/encoder-bank20-v1/clients/client_3.npz": "4df217147af14faa6b29b69eb55705a88d45af32af877aa36fc638d71eba9e14",
+    "assets/encoder-bank20-v1/clients/client_4.npz": "5f2219155a4ef95b0008fa8204677c24a1017f92bebc8ddf61643d5fb50069af",
+    "assets/encoder-bank20-imbalance-v1/manifest.json": "35497f0956752fc68b8a3adad16437c136771505aecb5526d9b8ccad7311e362",
+    "assets/encoder-bank20-imbalance-v1/validation.npz": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92",
+    "assets/encoder-bank20-imbalance-v1/clients/client_0.npz": "ab25f20a3e689d1bb5fb065b217ff5dec56bd0f6cc9036d1177e91cbbe56b50f",
+    "assets/encoder-bank20-imbalance-v1/clients/client_1.npz": "6a9d386850cf534f1ff9e588794dcf903ac69cc0c30b049a377be25d6c59f7dc",
+    "assets/encoder-bank20-imbalance-v1/clients/client_2.npz": "53921f56a49313f804194b77c96e3a817efb571670f12d06f8d2cdc2c9773f3b",
+    "assets/encoder-bank20-imbalance-v1/clients/client_3.npz": "825a88ed3b39bf098133a2c09773072f8de0c35bf5e92e7de1911d117d709abf",
+    "assets/encoder-bank20-imbalance-v1/clients/client_4.npz": "526d6772931e2448e5ea109edad66ce10a8bd4bf03a31a5bffacb05cfd896f00"
+  },
+  "python": "3.11.15 (main, May 10 2026, 19:31:25) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.8.0+cpu",
+  "split": "reused_validation",
+  "selection_rule": "highest evaluated validation accuracy, then macro F1, earliest attempt; final reported separately",
+  "scope": "Sequential in-memory mathematical federation with real head optimization. No Flower, network, or physical-device claim.",
+  "unavailability": "Predeclared skipped work, not actual process termination. Client random streams remain independent.",
+  "plan_hash": "feaa99c55fc908fe7b3236477ad0066fc70141c7624486b49d5caeddce78bd77"
+}

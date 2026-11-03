@@ -1,133 +1,85 @@
-# Future plans after the working prototype
+# Future plans after the completed local studies
 
-Updated **3 November 2026**. These are prioritized next steps for the solo
-builder, not completed experiments or commitments to particular scores.
-The [current results](../research/results/encoder-v2/README.md) establish 94%
-independent confirmation accuracy for the frozen-MPNet/federated-head variant,
-95.5% reused-validation accuracy, and working five-client Flower training.
-Only one physical laptop has been tested. Preserve the separate original LoRA
-benchmark and its unfavorable results.
+Updated **3 November 2026**. The stable frozen-MPNet/federated-head model remains
+**94% accurate on independent confirmation (282/300)**. New development and
+scope results do not replace that score. Head-only training and the original
+SmolLM2 LoRA benchmark retain separate identities.
 
-Keep the published checkpoint, model assets, policy, confirmation plan/result,
-and lock identities unchanged. Give every new experiment a fresh run ID and
-frozen configuration. The existing evidence remains the baseline for comparison.
+## What moved out of the plan
 
-## 1. Rehearse the prepared demo
+- [Client-local preparation](../research/results/encoder-local-v1/README.md)
+  passed in five- and three-client layouts with isolated, offline processes,
+  matching features and zero changed train/validation predictions. Portable
+  configuration and code-only app packaging also passed.
+- [All 33 encoder study cells](../research/results/encoder-matrix-v1/README.md)
+  completed across three seeds, including weighting/clipping controls, unequal
+  budgets, extreme imbalance, weak-client omission and scripted unavailability.
+  The omission benefit was 18 validation points per seed. These are numerical
+  federation studies, not 33 Flower deployments.
+- [The locked scope test](../research/results/scope-v1/README.md) reduced false
+  accepts under the strictest margin from 311/2,279 to 57/2,279. The detector
+  remains experimental because fresh supported-query coverage is unknown.
+- [CPU profiling](../research/results/encoder-local-v1/demo-profile.json)
+  measured 152 ms median and 229 ms p95 warm query latency in this observed run.
+  Timing probes contain no accuracy labels.
+- [Isolated Flower rehearsals](../research/results/remaining-work-v1/README.md)
+  passed three/five-client dropout, deliberate quorum loss and fresh rejoining.
+  Fresh offline three-client startup also passed; these are same-host results.
 
-Use the [morning guide](morning-demo.md) and [encoder guide](encoder-demo.md).
-Show the fixed checkpoint, independent accuracy, recorded client participation,
-and a new live banking query. When clarification is enabled, show answered
-accuracy together with coverage. Prepare a recording as a clearly labeled
-fallback, without presenting it as live training.
+The [remaining-work checklist](remaining-work-plan.md) records the current
+runtime gates. Keep the selected head, original confirmation, CLINC test and
+new scope-test locks unchanged. Use fresh run IDs for further experiments.
 
-**Done when:** the prepared laptop starts the demo from a fresh process with
-internet disconnected, inference works, the recorded dropout/rejoin is easy to
-inspect, and the launch/recovery checklist is followed by the user. Automated
-checks already passed; this milestone is the hands-on rehearsal.
+## 1. Rehearse with the actual presenter
 
-## 2. Move encoder feature preparation onto each client
+Follow the [judging script](judging-presentation.md) and [encoder demo guide](encoder-demo.md).
+Launch from a fresh process without internet, enter live queries, explain
+recorded versus live training, show a skipped quorum and a fresh rejoin, and
+keep a clearly labeled recording as a fallback. Say 94% overall confirmation
+accuracy; pair 98.65% answered-query accuracy with its 74.33% coverage.
 
-The current encoder experiment generated features centrally from a public
-reference cache, then partitioned them. Add a local preparation path so each
-client embeds only its own queries using the same pinned tokenizer, encoder,
-pooling, normalization, and length limit. Keep the server's public evaluation
-data separate from client training data. Cache features locally and share only
-head updates during federation. Continue treating this as head training, not LoRA.
+Done when the presenter can complete the sequence, recover the launch if it
+fails, and answer why a head-only variant differs from LoRA. Code checks do not
+replace this human rehearsal. Verify scope continuity with the organizers if
+required by the submitted abstract; do not assume approval of an architecture
+change or that the Round 1 scoring weights apply to finals.
 
-**Done when:** on a public parity fixture, local and reference preparation agree
-within a declared numerical tolerance and produce the same evaluated predictions;
-client processes can operate without other clients' query files; the training
-server operates without client query/feature files; and payload inspection
-confirms that training messages contain updates and metadata only. Publish
-feature-preparation time, peak process memory, and identity hashes.
+## 2. Use three physical laptops
 
-## 3. Rehearse three physical laptops
+Only one is available now. Follow the [per-laptop guide](encoder-laptop-rehearsal.md)
+when two more are available. Prepare each machine's own records locally, pin and
+smoke-test its environment, establish the intended LAN route/TLS/known-node
+identities, and calibrate actual work. Record one client disappearing, a bounded
+survivor decision, below-quorum checkpoint retention, and fresh synchronization.
+Finish with a fresh startup while external internet is disconnected.
 
-This depends on two additional laptops becoming available and on client-local
-feature preparation. Adapt the existing Flower application to the three-client
-layout: host owns lifecycle/payments, laptop 1 owns transfers/cash withdrawals,
-and laptop 2 owns verification. Keep that experiment separate from the
-five-client domain benchmark.
+Measure whole-process memory, per-machine CPU timings, network wire bytes and
+completed work. Serialized payload bytes omit TLS framing and retransmissions;
+summed RSS can count shared memory twice. A same-host namespace test does not
+establish physical reachability or performance on a weaker machine.
 
-Use the [deployment guide](deployment.md), a dedicated LAN/hotspot, TLS, and
-authenticated known nodes. CPU clients need at least 8 GB RAM; measure complete
-process-tree memory rather than just tensor size. Cache tested dependencies and
-model assets before disabling internet. Start from the planned 60-second reply
-deadline and calibrate actual step budgets before the run; record any change
-before collecting evidence.
+## 3. Confirm future accuracy and scope changes
 
-**Done when:** three physical machines train; two valid survivors commit within
-the declared deadline; fewer than two valid replies retain the global version;
-and a dropped/rejoining device synchronizes current state before training.
-Record an actual network-loss test, a fresh offline start, work completed,
-participation, aggregation coefficients, measured traffic, and wall time.
+Use the [fresh evaluation protocol](fresh-evaluation.md). The 300-query
+confirmation, original final test, CLINC set and 2,279-query scope test have all
+been scored. They are evidence, not new model-selection resources.
 
-## 4. Complete the experiment matrix across seeds
+Gather suitable fresh supported queries, preferably independently authored,
+and define an application-relevant mixture of supported and unsupported inputs.
+Select the next model and combined scope/clarification policy on development
+only. Lock everything before final evaluation. Report top-1 accuracy, macro F1,
+worst domain, false accepts, coverage, and errors. A lower false-accept rate on
+negative queries alone cannot establish better full-system accuracy.
 
-Freeze a new study plan using seeds **42, 43, and 44**, with matched data,
-initialization, optimization, work budgets, and dropout schedules. Compare
-sample weighting, equal weighting, and equal weighting plus clipping under
-balanced/imbalanced data and equal/unequal budgets. Pair each weak-client
-omission run with an otherwise identical full-client run, retaining independent
-client random streams.
+99–100% is unachieved. New data or training can be tested, but no score is promised.
+A classifier should request clarification when appropriate, with measured coverage
+costs, rather than reporting selectively filtered performance as overall accuracy.
 
-Use the [encoder configurations](../configurations/encoder/README.md) as starting
-points. Freeze the encoder study's own horizon and budgets: do not silently
-substitute the original SmolLM2 twenty-attempt settings for the encoder's
-500-attempt regime. Keep the expanded 2,760-example data and original
-400-example imbalance comparisons distinct.
+## 4. Extend only after the preceding gates
 
-**Done when:** every planned run is completed or explicitly marked failed;
-accuracy, macro F1, domain gap, worst-domain accuracy, participation, work,
-memory, traffic, and time include per-seed values and mean/standard deviation.
-Report paired omission differences and adverse results. Three seeds provide a
-variability check, not a universal convergence or fairness guarantee.
-
-## 5. Improve task quality without reusing the final test for selection
-
-Acquire new training/development examples for difficult intent boundaries and
-independently collected or authored evaluation queries representative of the
-demo's twenty intents. Deduplicate and adjudicate labels before experiments;
-freeze row identities and manifests. Existing validation analysis can motivate
-development work. Do not change confirmation labels, exclusions, or thresholds
-to increase the existing score.
-
-Use the [fresh-evaluation collection guide](fresh-evaluation.md) for independent
-query authorship, blinded annotation, provenance, and a suggested 400-query pilot.
-
-The [completed CLINC150 study](../research/results/external-clinc-v1/README.md)
-adds narrow external evidence, not a replacement all-intent test. Its strictest
-margin rule still accepted 5/120 unsupported banking requests. Develop explicit
-scope detection with separate in-scope and unsupported development examples;
-freeze it before another independent test. Report false accepts together with
-in-scope accuracy/coverage. Keep the now-scored CLINC test out of threshold
-selection, and do not claim that a clarification request resolves the user's task.
-
-Evaluate training-data coverage, intent-boundary modeling, and optional
-clarification/reranking on development data with matched baselines. Candidate
-recall is not final top-1 accuracy; user clarification requires an end-to-end
-evaluation of its own. Shared-A MPNet adapter trials so far did not outperform
-the head-only model, so additional adapter tuning needs a specific hypothesis.
-
-**Done when:** a new model and all policies are chosen on development data,
-then locked before a new independent final evaluation. Report all-query
-accuracy, macro F1, domain scores, and selective accuracy/coverage, including
-regressions. The current 300-query confirmation set is already scored and cannot
-become untouched again. Reaching 99–100% is not guaranteed.
-
-## 6. Measure efficiency before adding complexity
-
-On each target device, measure cold startup, local feature preparation, training
-time, warm/cold inference latency, peak process-tree RAM/VRAM, raw update bytes,
-serialized messages, and network bytes. Separate preparation from per-round
-cost. Include repeated-query p50/p95 latency with sample count and load conditions.
-
-Use those measurements to decide whether another encoder, smaller precision,
-adapters, or scheduling changes justify their cost. Secure aggregation,
-differential privacy, asynchronous federation, and heterogeneous ranks remain
-separate extensions with their own threat models and accuracy/efficiency tests.
-
-**Done when:** a reproducible report states environment pins, hardware, sample
-counts, run identities, and the tradeoffs of any selected change. Data locality,
-TLS, or a small payload alone does not establish formal privacy or robustness
-against malicious clients.
+The original LoRA multi-seed program remains distinct from the completed encoder
+matrix. Additional adapter experiments, heterogeneous ranks, asynchronous
+federation, secure aggregation and differential privacy need separate hypotheses,
+compatible runtime tests, budgets and evidence. The project does not currently
+claim a new optimizer, formal privacy, malicious-client robustness or a general
+convergence guarantee.

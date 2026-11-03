@@ -1,0 +1,173 @@
+{
+  "accepted_counts": [
+    3
+  ],
+  "activation_startup_deadline_seconds": 75,
+  "attempts": 1,
+  "client_ids": [
+    "0",
+    "1",
+    "2"
+  ],
+  "committed_versions": 1,
+  "config_hash": "2757712e2d89a3a101e8949a7452c0c208b0523e8230d850e797a7c8d806e4c2",
+  "final_head_hash": "fc63e194d42bb22a0403895933b118edcbeab758cae8e93c7a47d384223dbdd0",
+  "fresh_offline_start_required": true,
+  "initial_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "isolation": {
+    "0": {
+      "client_id": "0",
+      "dataset_files": [
+        "clients/client_0.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "1": {
+      "client_id": "1",
+      "dataset_files": [
+        "clients/client_1.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "2": {
+      "client_id": "2",
+      "dataset_files": [
+        "clients/client_2.npz",
+        "manifest.json"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "client"
+    },
+    "server": {
+      "client_id": null,
+      "dataset_files": [
+        "manifest.json",
+        "validation.npz"
+      ],
+      "forbidden_host_paths_checked_absent": 3,
+      "mechanism": "Linux mount namespace via bubblewrap",
+      "role": "server"
+    }
+  },
+  "kind": "frozen_mpnet_linear_head",
+  "launcher_sha256": "4a50bb0b1a112e65c9ebb0f84336845ead0e032def4daecdc87e13d8675aabb3",
+  "limits": [
+    "No physical multi-laptop or LAN failure evidence.",
+    "Head-only training, not LoRA or encoder fine-tuning.",
+    "Warm-started parameters preserve existing model before recovery updates; reused validation is not fresh confirmation.",
+    "Private keys, raw queries and feature arrays are excluded from this export."
+  ],
+  "local_manifest_hash": "f8f017eda5cf910f2981f5ba90e71cab32548413b2a50eb04bff02af474cc699",
+  "memory_scope": "Sum of sampled RSS per role process tree; shared pages may be double counted",
+  "network": {
+    "external_connection_error": "[Errno 101] Network is unreachable",
+    "interfaces": [
+      "lo"
+    ]
+  },
+  "node_restarts": [],
+  "overall_supervisor_deadline_seconds": 900,
+  "package_sha256": "88fe46344584645f5ed802a79367a6dc141a106c20b39d7f7888a9f6428338d0",
+  "peak_process_tree_rss_bytes": {
+    "0": 1073930240,
+    "1": 1072087040,
+    "2": 1069203456,
+    "server": 952377344
+  },
+  "process_interruptions": [],
+  "quorum": 2,
+  "rejoin_readiness": [],
+  "rejoin_readiness_deadline_seconds": 90,
+  "result_sha256": "c200079baed1ef297d9fdc93960e22261f3929fd7e64b41c2ea1067a2c1b2315",
+  "rounds": [
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2"
+      ],
+      "aggregation_seconds": 0.0456463900000017,
+      "all_accepted_clients_started_from_current_head": true,
+      "attempt_id": 1,
+      "below_quorum_retention_passed": null,
+      "checkpoint_hash": "fc63e194d42bb22a0403895933b118edcbeab758cae8e93c7a47d384223dbdd0",
+      "coefficients": {
+        "0": 0.3333333333333333,
+        "1": 0.3333333333333333,
+        "2": 0.3333333333333333
+      },
+      "collection_seconds": 20.01251619200002,
+      "completed_optimizer_steps": {
+        "0": 1,
+        "1": 2,
+        "2": 1
+      },
+      "incoming_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "serialized_reply_bytes": 193572,
+      "status": "committed",
+      "version_after": 1,
+      "version_before": 0
+    }
+  ],
+  "run_id": "encoder-isolated-offline-three-v1",
+  "schema_version": 1,
+  "scope": "TLS authenticated Flower Deployment Runtime; separate mount/PID namespaces on ONE physical laptop",
+  "server_app_wall_seconds": 30.94170478000001,
+  "source_files_sha256": {
+    "__init__.py": "e211703a2c1b775d459e75b20a07dc575b618152d1925609c147557f17430252",
+    "aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+    "checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+    "client_job.py": "ceaeba157b08f9c3ed5f47dcaab7f75aeacf83cad27ebef50df181234df6bd6f",
+    "dashboard.py": "d687a6df0d80654be5bf222f6bfffe29bddaa33db73fbbc1bc400bfeac2557ba",
+    "data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+    "encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752",
+    "encoder_dashboard.py": "9a760a0d7e6b22852e9dd799b0818c0131429411c99189a2f5fa9fbed4621f7d",
+    "encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "encoder_deployment_app.py": "c19ee656f48bed63355b2d2cc9023f09c6bfa539c65543a55c55917c4172da85",
+    "encoder_flower.py": "85393b029f61b4f9ee6594c301e0e82ab8a1566e1ef34a4faf0d2aa6c05bbc47",
+    "encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+    "federation.py": "f977994193f1991ac67e1437fe5c39cc808ac1a6539445794abd580ecef2d8c7",
+    "flower_app.py": "f2b7c99d16170d2e596de3567631b8c9d4dc381e5e6fde828c8deab9cda56aca",
+    "persistent_worker.py": "361608719728b0d0bca390a42aa1ecbf96def357fc3526dbc938e864a2cbc54e",
+    "protocol.py": "82e63641c5d5f0eac9a0c2c9c01442e2c2bfd8cd2456745f10a98478dfa64a1b",
+    "responses.py": "73b270fd34cb97edd61f3480e8f70eef7651c46d67e272aa2092ff303f42b144",
+    "results.py": "ee1bd07be6bd0920e3f72b1d4bb17d72504add7af6a1c9007e0d72049ff5a99d",
+    "state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "supernode_launcher.py": "06c19048233f77f79acd70a5b25478b567a018f5c10596e8b3b9f3691bac3987",
+    "training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8"
+  },
+  "status": "completed",
+  "tls_authenticated": true,
+  "traffic": {
+    "raw_head_bytes_per_direction_per_client": 61520,
+    "scope": "Serialized Flower message/protobuf sizes, NOT packet-captured network totals. Excludes TLS/HTTP framing, authentication, readiness/control traffic and one-time assets.",
+    "serialized_training_reply_bytes": 193572,
+    "serialized_training_request_bytes": 187667,
+    "trained_parameters": 15380
+  },
+  "training_collection_deadline_seconds": 60,
+  "validation_accuracy_history": [
+    {
+      "accuracy": 0.955,
+      "attempt_id": 0,
+      "version": 0
+    },
+    {
+      "accuracy": 0.955,
+      "attempt_id": 1,
+      "version": 1
+    }
+  ],
+  "verified_fresh_rejoins": [],
+  "wall_seconds": 53.778925841000046
+}

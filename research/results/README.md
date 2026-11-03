@@ -1,5 +1,16 @@
 # Measured results
 
+The [completed encoder matrix](encoder-matrix-v1/README.md) adds **33 runs across
+three seeds**, including an 18-point paired benefit from the one-step verification
+client. The [local preparation report](encoder-local-v1/README.md) verifies
+participant-local offline encoding for both layouts and records CPU costs.
+The [new scope test](scope-v1/README.md) gives **57/2,279 unsupported false accepts**
+with scope plus the strictest margin, versus **311/2,279** with margin alone.
+These results keep development, negative-only testing and runtime checks distinct.
+The [isolated Flower report](remaining-work-v1/README.md) records completed
+three/five-client TLS recovery, deliberate missed quorum, current-state rejoining
+and a fresh offline three-client start, all on one physical laptop.
+
 The [external CLINC150 report](external-clinc-v1/README.md) adds **28/29 correct
 on one compatible intent** and separately measures unsupported-topic false
 accepts. Its strictest frozen margin accepts 5/120 unsupported banking queries.
@@ -28,8 +39,8 @@ references, local process recovery, and the adapter trial with no accuracy gain.
 Updated 3 November 2026. These measurements come from actual local runs on one
 laptop. JSON exports retain run/configuration/model/data identities and hashes
 of original evidence. Model weights, data queries and private node keys remain
-outside source control. The full multi-seed study and three-physical-laptop
-experiment have not been completed.
+outside source control. The encoder three-seed study is complete. The original
+LoRA full multi-seed program and three-physical-laptop experiment remain pending.
 
 ## Local optimization and transport
 

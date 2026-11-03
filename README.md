@@ -11,7 +11,7 @@ and rejoin preserved that validation score. See the
 The model and clarification thresholds were locked in commit `7413e6b` before
 confirmation. The strictest frozen rule answered 223/300 queries and got 220
 correct: **98.65% accuracy on answered queries at 74.33% coverage**. It declined
-the other 77. Neither full-set nor selective 99–100% accuracy was achieved.
+the other 77. Neither full-set nor selective 99â€“100% accuracy was achieved.
 
 A separate [external CLINC150 check](research/results/external-clinc-v1/README.md)
 now scores **28/29 (96.55%) on one compatible intent**, with all twenty labels
@@ -20,6 +20,17 @@ still competing. The strictest existing margin rule also falsely accepted
 the all-twenty-intent confirmation remains 94%. See the
 [public-dataset review](research/public-dataset-evaluation.md) for compatibility,
 deduplication and source limitations.
+
+The latest [client-local preparation checks](research/results/encoder-local-v1/README.md)
+now pass in both five- and three-client layouts, with each isolated process
+reading its own records and **zero changed predictions across 2,960 train/validation
+examples per layout**. A separate [locked scope-detector study](research/results/scope-v1/README.md)
+reduces unsupported-request false accepts from **311/2,279 to 57/2,279** under
+the strictest fixed margin. It remains experimental: this negative-only test
+does not change the confirmed 94% intent accuracy or establish fresh positive coverage.
+The new [isolated Flower rehearsals](research/results/remaining-work-v1/README.md)
+also pass three- and five-client dropout, below-quorum retention, fresh rejoining,
+and fresh three-client startup in a loopback-only network namespace.
 
 To open the upgraded query demo on the prepared laptop:
 
@@ -31,14 +42,14 @@ Open <http://127.0.0.1:8511>. The [encoder demo guide](docs/encoder-demo.md)
 explains live classification, recorded evidence and supported intents.
 Use the [three-minute judging script](docs/judging-presentation.md) for the
 spoken presentation, exact demo sequence, and answers to likely judge questions.
-The [presentation figure](research/results/encoder-v2/judging-evidence.png)
-visualizes the imbalance and omission comparisons with their separate scopes.
+The [updated presentation figure](research/results/remaining-work-v1/comparison.png)
+visualizes the three-seed imbalance/omission comparisons and separate scope test.
 
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 169 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 203 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -47,20 +58,27 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **3 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest verification](research/results/external-clinc-v1/verification.json)
-adds nine checks for external data boundaries, mapping, scores, lock integrity,
-and supported/unsupported metric denominators. The prior
+The [latest verification](research/results/remaining-work-v1/verification.json)
+records 203 passing tests plus the original, CLINC and scope evaluation locks.
+It covers local ownership, portable configuration, rejoin readiness, bounded
+startup retries, orphan-process cleanup and cancellation. The prior
 [representation verification](research/results/encoder-representation/verification.json)
 records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **169 passed, 0 failed, 0 skipped** in 18.165 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, and evaluation locks |
+| Full automated suite, Ubuntu WSL2 | **203 passed, 0 failed, 0 skipped** in 35.609 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, local preparation, deployment lifecycle and evaluation locks |
 | Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the full suite, not 7 additional unique tests |
-| Locked artifact integrity | **24/24 file hashes matched** | Model/tokenizer assets, selected checkpoint, sources, and evaluation configuration |
+| Locked artifact integrity | **24/24 original, 36/36 external, 40/40 scope file hashes matched** | Overlapping locks, not 100 unique files; assets, checkpoints, sources and evaluation configurations |
 | Live CPU query check | Passed; a fresh pending-card-payment query returned `pending_card_payment` | Functional inference check, not an accuracy benchmark |
 | Actual five-client Flower training | **500/500 attempts committed** with all five contributors | `encoder-flower-balanced-v2`, selected version 500 |
-| Trained-model dropout and recovery | **3/3 attempts committed**; 5 → 4 → 5 accepted clients | One laptop; a client process was killed during attempt 2 and rejoined with fresh state in attempt 3 |
+| Trained-model dropout and recovery | **3/3 attempts committed**; 5 â†’ 4 â†’ 5 accepted clients | One laptop; a client process was killed during attempt 2 and rejoined with fresh state in attempt 3 |
+| Client-local preparation | **Five- and three-client layouts passed**; zero changed predictions on 2,960 train/validation rows each | Separate mount/PID/network namespaces, pinned offline encoder, own records only; not physical laptops |
+| Portable setup | **Four role configs and code-only Flower FAB built** | Selected head hash preserved; configuration check uses fixture node IDs |
+| CPU query timing | **152 ms median / 229 ms p95**, 30 warm timing probes | Two CPU threads; 735.03 MiB peak process RSS; authored probes provide no accuracy measurement |
+| Repeated encoder study | **33/33 runs completed**, 16,500 committed attempts across seeds 42/43/44 | Real head optimization with sequential mathematical aggregation; separate from Flower runtime evidence |
+| New isolated TLS recovery | **3 â†’ 2 â†’ 3 â†’ 1 â†’ 3** and **5 â†’ 4 â†’ 5 â†’ 2 â†’ 5** accepted contributors | Real SuperNode process loss; below-quorum attempts skipped, current state checked on every accepted reply; one physical laptop |
+| Fresh offline encoder deployment | **All 3 clients accepted** in a fresh loopback-only network namespace | External connectivity unavailable, dependencies already installed, runtime downloads disabled; not physical LAN evidence |
 
 Timings are observations from this laptop, not controlled performance comparisons.
 The full suite includes the dashboard tests. Missing optional dependencies can
@@ -68,17 +86,26 @@ produce skips elsewhere; a smaller passing suite does not reproduce this result.
 
 | Model-quality measure | Result | Evaluation boundary |
 | --- | --- | --- |
-| Independent confirmation top-1 accuracy | **94.0% — 282/300 correct** | All 300 queries; checkpoint and scoring frozen before access |
+| Independent confirmation top-1 accuracy | **94.0% â€” 282/300 correct** | All 300 queries; checkpoint and scoring frozen before access |
 | Confirmation macro F1 / worst-domain accuracy | **0.93914 / 88.33%** | Transfers was the weakest domain |
-| Validation accuracy | **95.5% — 191/200 correct** | Reused development set that guided model selection |
-| Strictest frozen clarification policy | **98.65% — 220/223 answered correctly** | **74.33% coverage**; 77/300 queries declined |
-| External CLINC150 mapped-class top-1 | **96.55% — 28/29 correct** | One compatible intent only; not another twenty-intent score |
+| Validation accuracy | **95.5% â€” 191/200 correct** | Reused development set that guided model selection |
+| Strictest frozen clarification policy | **98.65% â€” 220/223 answered correctly** | **74.33% coverage**; 77/300 queries declined |
+| External CLINC150 mapped-class top-1 | **96.55% â€” 28/29 correct** | One compatible intent only; not another twenty-intent score |
 | External unsupported banking, strictest frozen margin | **5/120 false accepts (4.17%)** | 115 declined; unrelated-topic group separately had 0/120 false accepts |
+| New unsupported BANKING77 scope test | **57/2,279 false accepts (2.50%)**, versus **311/2,279 (13.65%)** without scope | 57 unsupported intents; separate experimental detector; scope-only positive validation coverage 190/200, not fresh combined-system coverage |
 
 See [all confirmation results](research/results/encoder-v2/confirmation-result.json)
 and the [complete experiment report](research/results/encoder-v2/README.md),
 including negative adapter results and matched imbalance/omission comparisons.
 Passing software tests is separate from predicting banking intents correctly.
+
+The [three-seed study](research/results/encoder-matrix-v1/README.md) gives an
+**18-point paired validation benefit** from including the one-step verification
+client in every seed: 95.5% versus 77.5%. It owns the only examples of four
+intents. Under the separate 400-query 90%-imbalance condition, final accuracy
+averaged **62.5% sample-weighted, 76.5% equal, and 78.17% Â± 0.29 points clipped**.
+All expanded-data methods finished at 95.5%. These are development results;
+all selected/final outcomes, including regressions, are published.
 
 ## Future plans
 
@@ -88,16 +115,19 @@ the weak-device/federation challenge alongside task quality.
 | Priority | Next milestone | Completion evidence |
 | --- | --- | --- |
 | 1 | Rehearse the prepared demo and record a fallback | Fresh offline launch, live queries, clearly labeled event replay, and a reproducible launch checklist |
-| 2 | Prepare encoder features independently on each client | Local query-to-feature preparation using the same pinned encoder; the server receives only model updates |
-| 3 | Test three physical laptops | Measured CPU/RAM budgets, authenticated TLS, bounded dropout/rejoin, and fresh startup without internet |
-| 4 | Complete matched experiments across seeds 42/43/44 | Equal/sample/clipped aggregation under heterogeneous budgets, imbalance, dropout, and paired weak-client omission; report variability and unfavorable outcomes |
-| 5 | Improve accuracy with new development data and a new independent test | Train-only improvements selected on validation; freeze the next model and policies before scoring new held-out queries |
-| 6 | Profile efficiency and evaluate later extensions | End-to-end memory, traffic and latency measurements; separate evidence before claiming benefits from adapters, secure aggregation, or differential privacy |
+| 2 | Test three physical laptops | Measured CPU/RAM budgets, authenticated TLS, bounded dropout/rejoin, and fresh startup without internet; only one laptop is available now |
+| 3 | Confirm the combined classifier/scope policy on fresh supported queries | Independent coverage and accuracy; the new negative-only result alone does not justify deploying it |
+| 4 | Improve accuracy with new development data and a new independent test | Train-only improvements selected on validation; freeze the next model and policies before scoring fresh held-out queries |
+| 5 | Measure physical-network efficiency and evaluate later extensions | Wire traffic, hardware-specific memory/latency and repeated deployment runs; separate evidence for adapters, secure aggregation or differential privacy |
+
+Client-local preparation and the 33-cell encoder study have moved from planned
+work to measured results. The [remaining-work checklist](docs/remaining-work-plan.md)
+and [physical laptop guide](docs/encoder-laptop-rehearsal.md) identify the next gates.
 
 The [detailed future plan](docs/future-plans.md) gives dependencies and acceptance
 criteria. The current 300-query confirmation set is now evaluation evidence;
 it cannot serve as an untouched test for the next model-selection cycle.
-**99–100% remains an unachieved target, not a promised milestone.**
+**99â€“100% remains an unachieved target, not a promised milestone.**
 
 ## Accuracy research and original results
 
@@ -106,7 +136,7 @@ tests transformer-layer adaptation on training data and reused validation only.
 Both three-epoch and ten-epoch comparisons peaked at **96% validation (192/200)**;
 the twelve-layer ten-epoch run ended at 94.5%. These are centralized development
 references with much larger trainable states; they do
-not replace the independently confirmed Flower head or establish 99–100% accuracy.
+not replace the independently confirmed Flower head or establish 99â€“100% accuracy.
 The [fresh-evaluation guide](docs/fresh-evaluation.md) describes the new data
 needed to verify a subsequent model without reusing a spent test set.
 

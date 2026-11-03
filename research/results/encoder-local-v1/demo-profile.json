@@ -1,0 +1,230 @@
+{
+  "status": "completed",
+  "run_id": "encoder-demo-profile-v1",
+  "created_utc": "2026-11-03T14:03:57.044773+00:00",
+  "configuration": {
+    "device": "cpu",
+    "dtype": "float32",
+    "cpu_threads": 2,
+    "repeats": 6,
+    "query_count": 5,
+    "batch_size": 1
+  },
+  "probe_hash": "c2eb40d8cb28ed96f659351c8f92fde1f46b901146092ae0b2848f2a75603d69",
+  "source_hashes": {
+    "tools/profile_encoder_demo.py": "9d93405e4a83d6b0ad8e3a294a70d21e0ab346032121da82400ab13ee182c7d6",
+    "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "fedlora_edge/encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752"
+  },
+  "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "source_run_id": "encoder-flower-balanced-v2",
+  "model_loading_seconds_including_asset_verification": 15.756165999999212,
+  "first_query_seconds": 0.45243420000042534,
+  "measured_queries": 30,
+  "warm_seconds": {
+    "median": 0.1523020999993605,
+    "p95_linear_interpolation": 0.2292286049989343,
+    "min": 0.10059609999734676,
+    "max": 0.2612497000009171
+  },
+  "memory": {
+    "peak_rss_bytes": 770736128,
+    "rss_sampling_interval_seconds": 0.02
+  },
+  "observations": [
+    {
+      "repeat": 0,
+      "probe": 0,
+      "seconds": 0.13239320000138832,
+      "truncated": false
+    },
+    {
+      "repeat": 0,
+      "probe": 1,
+      "seconds": 0.1372096999984933,
+      "truncated": false
+    },
+    {
+      "repeat": 0,
+      "probe": 2,
+      "seconds": 0.19448239999474026,
+      "truncated": false
+    },
+    {
+      "repeat": 0,
+      "probe": 3,
+      "seconds": 0.18742660000134492,
+      "truncated": false
+    },
+    {
+      "repeat": 0,
+      "probe": 4,
+      "seconds": 0.20920839999598684,
+      "truncated": false
+    },
+    {
+      "repeat": 1,
+      "probe": 0,
+      "seconds": 0.1515360999983386,
+      "truncated": false
+    },
+    {
+      "repeat": 1,
+      "probe": 1,
+      "seconds": 0.15879649999988033,
+      "truncated": false
+    },
+    {
+      "repeat": 1,
+      "probe": 2,
+      "seconds": 0.19512700000632321,
+      "truncated": false
+    },
+    {
+      "repeat": 1,
+      "probe": 3,
+      "seconds": 0.22556719999556663,
+      "truncated": false
+    },
+    {
+      "repeat": 1,
+      "probe": 4,
+      "seconds": 0.2612497000009171,
+      "truncated": false
+    },
+    {
+      "repeat": 2,
+      "probe": 0,
+      "seconds": 0.16147970000019995,
+      "truncated": false
+    },
+    {
+      "repeat": 2,
+      "probe": 1,
+      "seconds": 0.1530681000003824,
+      "truncated": false
+    },
+    {
+      "repeat": 2,
+      "probe": 2,
+      "seconds": 0.21391610000137007,
+      "truncated": false
+    },
+    {
+      "repeat": 2,
+      "probe": 3,
+      "seconds": 0.19143049999547657,
+      "truncated": false
+    },
+    {
+      "repeat": 2,
+      "probe": 4,
+      "seconds": 0.2009293000010075,
+      "truncated": false
+    },
+    {
+      "repeat": 3,
+      "probe": 0,
+      "seconds": 0.11620489999768324,
+      "truncated": false
+    },
+    {
+      "repeat": 3,
+      "probe": 1,
+      "seconds": 0.10059609999734676,
+      "truncated": false
+    },
+    {
+      "repeat": 3,
+      "probe": 2,
+      "seconds": 0.13513830000010785,
+      "truncated": false
+    },
+    {
+      "repeat": 3,
+      "probe": 3,
+      "seconds": 0.14397330000065267,
+      "truncated": false
+    },
+    {
+      "repeat": 3,
+      "probe": 4,
+      "seconds": 0.17217830000299728,
+      "truncated": false
+    },
+    {
+      "repeat": 4,
+      "probe": 0,
+      "seconds": 0.11233209999772953,
+      "truncated": false
+    },
+    {
+      "repeat": 4,
+      "probe": 1,
+      "seconds": 0.11648869999771705,
+      "truncated": false
+    },
+    {
+      "repeat": 4,
+      "probe": 2,
+      "seconds": 0.1330445999992662,
+      "truncated": false
+    },
+    {
+      "repeat": 4,
+      "probe": 3,
+      "seconds": 0.13790029999654507,
+      "truncated": false
+    },
+    {
+      "repeat": 4,
+      "probe": 4,
+      "seconds": 0.14675619999616174,
+      "truncated": false
+    },
+    {
+      "repeat": 5,
+      "probe": 0,
+      "seconds": 0.11307680000027176,
+      "truncated": false
+    },
+    {
+      "repeat": 5,
+      "probe": 1,
+      "seconds": 0.10915590000513475,
+      "truncated": false
+    },
+    {
+      "repeat": 5,
+      "probe": 2,
+      "seconds": 0.12931329999992158,
+      "truncated": false
+    },
+    {
+      "repeat": 5,
+      "probe": 3,
+      "seconds": 0.2322243000016897,
+      "truncated": false
+    },
+    {
+      "repeat": 5,
+      "probe": 4,
+      "seconds": 0.21813790000305744,
+      "truncated": false
+    }
+  ],
+  "environment": {
+    "python": "3.11.15 (main, May 10 2026, 19:31:25) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1"
+  },
+  "limits": [
+    "Authored timing probes; no accuracy or coverage measured.",
+    "Fresh Python process, warm OS file cache possible; imports precede load timer.",
+    "Single laptop with concurrent experiment work; no isolated hardware comparison.",
+    "Process RSS includes encoder, head and runtime, but excludes browser and other processes."
+  ],
+  "original_result_sha256": "b3b47db0f4e948fa152adc3e70c9c2f359160b1a65f3119e70e2295f422663ee"
+}

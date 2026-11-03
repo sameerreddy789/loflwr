@@ -1,0 +1,298 @@
+{
+  "status": "completed",
+  "run_id": "scope-v1",
+  "lock_hash": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa",
+  "pre_inference_commit": "8e3f241723d9fdba5d1915eb1865a8ecb33b2f1b",
+  "count": 2279,
+  "unsupported_intents": 57,
+  "scope_only_false_accepts": 265,
+  "comparisons": [
+    {
+      "margin_threshold": 0.0,
+      "count": 2279,
+      "original_margin_false_accepts": 2279,
+      "with_scope_false_accepts": 265,
+      "original_margin_false_accept_rate": 1.0,
+      "with_scope_false_accept_rate": 0.11627906976744186
+    },
+    {
+      "margin_threshold": 0.9581952095031738,
+      "count": 2279,
+      "original_margin_false_accepts": 964,
+      "with_scope_false_accepts": 136,
+      "original_margin_false_accept_rate": 0.4229925405879772,
+      "with_scope_false_accept_rate": 0.0596752961825362
+    },
+    {
+      "margin_threshold": 1.669316291809082,
+      "count": 2279,
+      "original_margin_false_accepts": 467,
+      "with_scope_false_accepts": 76,
+      "original_margin_false_accept_rate": 0.20491443615620886,
+      "with_scope_false_accept_rate": 0.03334795963141729
+    },
+    {
+      "margin_threshold": 2.1202011108398438,
+      "count": 2279,
+      "original_margin_false_accepts": 311,
+      "with_scope_false_accepts": 57,
+      "original_margin_false_accept_rate": 0.13646336112329968,
+      "with_scope_false_accept_rate": 0.025010969723562967
+    }
+  ],
+  "encoding": {
+    "encoding_seconds_including_asset_verification_and_model_loading": 347.2796075,
+    "truncated": 0,
+    "memory": {
+      "peak_rss_bytes": 1218695168,
+      "rss_sampling_interval_seconds": 0.02
+    },
+    "torch": "2.8.0+cu126",
+    "transformers": "4.57.1",
+    "feature_settings": {
+      "dtype": "float32",
+      "device": "cpu",
+      "max_length": 384,
+      "pooling": "attention_mask_mean_then_l2_normalize",
+      "batch_size": 8,
+      "cpu_threads": 1
+    },
+    "memory_scope": "Sampled current preparation process RSS; encoder is in this process, no child process is launched."
+  },
+  "interpretation": "Negative-only held-out test. Positive coverage is validation-only. No new 20-intent accuracy or full-system confirmation.",
+  "per_intent": {
+    "Refund_not_showing_up": {
+      "count": 40,
+      "scope_false_accepts": 1
+    },
+    "age_limit": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "apple_pay_or_google_pay": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "atm_support": {
+      "count": 39,
+      "scope_false_accepts": 4
+    },
+    "automatic_top_up": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "balance_not_updated_after_bank_transfer": {
+      "count": 40,
+      "scope_false_accepts": 15
+    },
+    "balance_not_updated_after_cheque_or_cash_deposit": {
+      "count": 40,
+      "scope_false_accepts": 6
+    },
+    "beneficiary_not_allowed": {
+      "count": 40,
+      "scope_false_accepts": 5
+    },
+    "card_acceptance": {
+      "count": 40,
+      "scope_false_accepts": 1
+    },
+    "card_linking": {
+      "count": 40,
+      "scope_false_accepts": 5
+    },
+    "card_not_working": {
+      "count": 40,
+      "scope_false_accepts": 6
+    },
+    "card_payment_fee_charged": {
+      "count": 40,
+      "scope_false_accepts": 12
+    },
+    "card_payment_wrong_exchange_rate": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "card_swallowed": {
+      "count": 40,
+      "scope_false_accepts": 16
+    },
+    "cash_withdrawal_charge": {
+      "count": 40,
+      "scope_false_accepts": 20
+    },
+    "change_pin": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "compromised_card": {
+      "count": 40,
+      "scope_false_accepts": 21
+    },
+    "contactless_not_working": {
+      "count": 40,
+      "scope_false_accepts": 3
+    },
+    "country_support": {
+      "count": 40,
+      "scope_false_accepts": 5
+    },
+    "declined_transfer": {
+      "count": 40,
+      "scope_false_accepts": 16
+    },
+    "direct_debit_payment_not_recognised": {
+      "count": 40,
+      "scope_false_accepts": 12
+    },
+    "disposable_card_limits": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "exchange_charge": {
+      "count": 40,
+      "scope_false_accepts": 1
+    },
+    "exchange_rate": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "exchange_via_app": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "extra_charge_on_statement": {
+      "count": 40,
+      "scope_false_accepts": 11
+    },
+    "failed_transfer": {
+      "count": 40,
+      "scope_false_accepts": 7
+    },
+    "fiat_currency_support": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "get_disposable_virtual_card": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "get_physical_card": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "getting_spare_card": {
+      "count": 40,
+      "scope_false_accepts": 6
+    },
+    "getting_virtual_card": {
+      "count": 40,
+      "scope_false_accepts": 1
+    },
+    "lost_or_stolen_card": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "lost_or_stolen_phone": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "order_physical_card": {
+      "count": 40,
+      "scope_false_accepts": 5
+    },
+    "passcode_forgotten": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "pending_top_up": {
+      "count": 40,
+      "scope_false_accepts": 4
+    },
+    "pin_blocked": {
+      "count": 40,
+      "scope_false_accepts": 1
+    },
+    "receiving_money": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "request_refund": {
+      "count": 40,
+      "scope_false_accepts": 8
+    },
+    "reverted_card_payment?": {
+      "count": 40,
+      "scope_false_accepts": 18
+    },
+    "supported_cards_and_currencies": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "terminate_account": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "top_up_by_bank_transfer_charge": {
+      "count": 40,
+      "scope_false_accepts": 5
+    },
+    "top_up_by_card_charge": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "top_up_by_cash_or_cheque": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "top_up_failed": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "top_up_limits": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "top_up_reverted": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "topping_up_by_card": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "transfer_into_account": {
+      "count": 40,
+      "scope_false_accepts": 2
+    },
+    "transfer_timing": {
+      "count": 40,
+      "scope_false_accepts": 21
+    },
+    "verify_source_of_funds": {
+      "count": 40,
+      "scope_false_accepts": 3
+    },
+    "verify_top_up": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "virtual_card_not_working": {
+      "count": 40,
+      "scope_false_accepts": 0
+    },
+    "visa_or_mastercard": {
+      "count": 40,
+      "scope_false_accepts": 1
+    },
+    "wrong_exchange_rate_for_cash_withdrawal": {
+      "count": 40,
+      "scope_false_accepts": 7
+    }
+  },
+  "artifacts_sha256": {
+    "negative-test-result.json": "cc62611cc17e5dba234610f3b6b662dc046f5e12220ab5339083170025f49a67",
+    "negative-test-scores.npz": "8a110645900d1e9056237ada215050cb2dbea6784a530db69d9bf2bbb03e9d8e",
+    "negative-test-started.json": "b1b331ce6e22c125e495207c783d92eee7fbb2cd3aa32be7aec159d724d0239f"
+  }
+}

@@ -14,6 +14,15 @@ unsupported-topic results are separate. Preserve the protocol, evaluator code,
 fixture tests and locked artifacts; do not tune thresholds, labels or exclusions
 on this now-scored set and claim another untouched result. New evaluation work
 must use separate modules and explicitly identified development/test data.
+The negative-only scope evaluation in `research/results/scope-v1/` was locked
+and pushed in `8e3f241` before scoring 2,279 unique unsupported BANKING77 test
+queries. Preserve its 40-file lock, evaluator, fixture tests, selected detector
+and data; do not tune on this now-scored set. The strictest margin plus scope
+falsely accepted 57/2,279 versus 311/2,279 without scope. This measures false
+acceptance, not a new twenty-intent accuracy or independent positive coverage.
+The scope detector is not deployed into the confirmed query model. Its positive
+coverage of 190/200 is for scope alone on reused validation. New development
+must use separate modules and obtain fresh evaluation data before new claims.
 Later representation diagnostics in `tools/run_encoder_representation_study.py`
 adapt transformer layers on pooled public training data. They are centralized
 development references, not LoRA, Flower results, or a replacement for the
