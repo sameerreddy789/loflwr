@@ -1,0 +1,40 @@
+{
+  "kind": "public_scope_detector_development_v1",
+  "created_utc": "2026-11-03T14:03:02.031644+00:00",
+  "negative_train_per_label": 25,
+  "negative_validation_per_label": 10,
+  "selection_seed": 20261103,
+  "C_values": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "minimum_positive_validation_coverage": 0.95,
+  "selection": "fewest negative validation false accepts with at least 95% positive validation coverage; then most positive accepts; then lower C",
+  "negative_test_status": "unscored",
+  "original_confirmation_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+  "source_accounting": {
+    "unsupported_intents": 57,
+    "source_negative_training_rows": 7043,
+    "source_negative_test_rows": 2280,
+    "selected_counts": {
+      "train": 1425,
+      "validation": 570,
+      "negative_test": 2279
+    },
+    "negative_test_normalized_duplicates": [
+      {
+        "retained_source_id": "test:1442",
+        "excluded_source_id": "test:1462"
+      }
+    ],
+    "deduplication": "Unicode NFKC, case folding, whitespace collapse; first test row retained; all test text excluded from development"
+  },
+  "encoder_manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+  "records_hashes": {
+    "train": "792a8120f97206ff6cd0fabe9742e0abdfe39960380c92b78c8e4c8bd1a8ff9a",
+    "validation": "be1ba57314386d00e1b4e72598f268fe5e61bc6996d84c06908dff4f5313ea6b",
+    "negative_test": "2e26efa541222ce61d6c3b925664327260c76f419d219154e9584e711ba3150c"
+  },
+  "scope": "Centralized public-data binary detector on frozen MPNet, separate from federated head. Negative-only final test."
+}

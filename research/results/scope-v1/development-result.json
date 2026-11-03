@@ -1,0 +1,60 @@
+{
+  "status": "development_completed",
+  "scope": "Centralized public-data binary detector on frozen MPNet, separate from federated head. Negative-only final test.",
+  "candidates": [
+    {
+      "C": 0.1,
+      "threshold": -0.3244250351842005,
+      "positive_accepted": 190,
+      "positive_count": 200,
+      "negative_false_accepts": 180,
+      "negative_count": 570
+    },
+    {
+      "C": 1.0,
+      "threshold": -0.7358315789515703,
+      "positive_accepted": 190,
+      "positive_count": 200,
+      "negative_false_accepts": 147,
+      "negative_count": 570
+    },
+    {
+      "C": 10.0,
+      "threshold": -0.4532273876866362,
+      "positive_accepted": 190,
+      "positive_count": 200,
+      "negative_false_accepts": 72,
+      "negative_count": 570
+    }
+  ],
+  "selected": {
+    "C": 10.0,
+    "threshold": -0.4532273876866362,
+    "positive_accepted": 190,
+    "positive_count": 200,
+    "negative_false_accepts": 72,
+    "negative_count": 570
+  },
+  "wall_seconds": 247.98789369699998,
+  "negative_encoding": {
+    "encoding_seconds_including_asset_verification_and_model_loading": 234.49683800900004,
+    "truncated": 0,
+    "memory": {
+      "peak_rss_bytes": 1208152064,
+      "rss_sampling_interval_seconds": 0.02
+    },
+    "torch": "2.8.0+cu126",
+    "transformers": "4.57.1",
+    "feature_settings": {
+      "dtype": "float32",
+      "device": "cpu",
+      "max_length": 384,
+      "pooling": "attention_mask_mean_then_l2_normalize",
+      "batch_size": 8,
+      "cpu_threads": 1
+    },
+    "memory_scope": "Sampled current preparation process RSS; encoder is in this process, no child process is launched."
+  },
+  "sklearn": "1.9.1",
+  "python": "3.11.15 (main, May  8 2026, 18:33:10) [Clang 22.1.3 ]"
+}

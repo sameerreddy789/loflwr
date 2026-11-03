@@ -1,0 +1,85 @@
+{
+  "kind": "locked_negative_only_scope_confirmation_v1",
+  "run_id": "scope-v1",
+  "files": {
+    "assets/encoder-bank20-v1/manifest.json": "fae1e84940caee8028fae8aa96cd5d945938e80a736bc25ac521c441cb0103e3",
+    "assets/reference-mpnet/1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+    "assets/reference-mpnet/README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+    "assets/reference-mpnet/config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+    "assets/reference-mpnet/model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+    "assets/reference-mpnet/modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+    "assets/reference-mpnet/sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+    "assets/reference-mpnet/special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+    "assets/reference-mpnet/tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+    "assets/reference-mpnet/tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+    "assets/reference-mpnet/vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada",
+    "fedlora_edge/checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+    "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+    "fedlora_edge/encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752",
+    "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+    "runs/encoder-final-policy-v2.json": "ff691c58f0333245017c9d87effd6f2667e0fbd5b57abf120fbc5c35231e033e",
+    "runs/encoder-flower-balanced-v2/final_results.json": "98b08066a653b8c11bf9ebd459e22a1025c06ac05c709fac5acf332beda17552",
+    "runs/encoder-flower-balanced-v2/selected/checkpoint.json": "39cfba43aac7784b92cd6fda5217644c2ed56cd57a2c34cc1b46935c2c687c82",
+    "tools/calibrate_encoder_policy.py": "1f7edc96a4fbffc0a5ae53dd6ff0fe202df5786486274aa18755d7e51d7c792f",
+    "tools/confirm_encoder.py": "5c046c927930551d436c40dfbb69add971b3eaac389282fdb0d2a56622e2e641",
+    "runs/scope-v1/scope-model.json": "c9517050df871bd5abc29eec9bdb5f12ed0299f6feca86f0ac0412a4827e9bbc",
+    "runs/scope-v1/negative_test.json": "e32bd9d160171e743ac0e1653f2543158f9cce829109df60a939282ad3b5a1cb",
+    "runs/scope-v1/train.json": "6b63bf5cba37a7c18ac7f8f1833f901c7adaa266301e1735afd09f697452cfdb",
+    "runs/scope-v1/validation.json": "be05454de475f573bd288e362b45fe353de94807bfd5f25e5358a694ca9815f9",
+    "runs/scope-v1/development-plan.json": "9f60b208b37200dc99e3427cec36963d3547a582e9a44761351fa0a833b3d79b",
+    "runs/scope-v1/development-result.json": "25399a03192f5d6013f46314efe85aa37834af82e4b75e0645ebbe5ecf355c4a",
+    "tools/run_scope_study.py": "7c898b5765d976c02cf6d84e2332734f379238c61ec4173ea928577cdad8d4e9",
+    "tests/test_scope_study.py": "591c08cc4a1ece761a79077932783987ced56c3802ad7063ae668473631f00e5",
+    "fedlora_edge/encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+    "tools/evaluate_external_clinc.py": "78c5d453d61fdc5e5b4db79def91ab7700cf382d5313bba50b7daa599025ac8b",
+    "assets/encoder-bank20-v1/clients/client_0.npz": "8886b48a8716cd9004bd54db999af012f5dc58374ea73458d066b4c0f6d24edb",
+    "assets/encoder-bank20-v1/clients/client_1.npz": "6441f2c12d0589deb53edf03b2eb05fd04ea35763f02c1ac3bbd7101603dd4ff",
+    "assets/encoder-bank20-v1/clients/client_2.npz": "299c580ea7cbe569372a37c4d10c72ae5014cbce54a4196ea83f677263d702f0",
+    "assets/encoder-bank20-v1/clients/client_3.npz": "4df217147af14faa6b29b69eb55705a88d45af32af877aa36fc638d71eba9e14",
+    "assets/encoder-bank20-v1/clients/client_4.npz": "5f2219155a4ef95b0008fa8204677c24a1017f92bebc8ddf61643d5fb50069af",
+    "assets/encoder-bank20-v1/validation.npz": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92"
+  },
+  "model_file": "runs/scope-v1/scope-model.json",
+  "model_sha256": "c9517050df871bd5abc29eec9bdb5f12ed0299f6feca86f0ac0412a4827e9bbc",
+  "negative_test_file": "runs/scope-v1/negative_test.json",
+  "negative_test_hash": "2e26efa541222ce61d6c3b925664327260c76f419d219154e9584e711ba3150c",
+  "negative_test_count": 2279,
+  "source_accounting": {
+    "unsupported_intents": 57,
+    "source_negative_training_rows": 7043,
+    "source_negative_test_rows": 2280,
+    "selected_counts": {
+      "train": 1425,
+      "validation": 570,
+      "negative_test": 2279
+    },
+    "negative_test_normalized_duplicates": [
+      {
+        "retained_source_id": "test:1442",
+        "excluded_source_id": "test:1462"
+      }
+    ],
+    "deduplication": "Unicode NFKC, case folding, whitespace collapse; first test row retained; all test text excluded from development"
+  },
+  "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "margin_thresholds": [
+    0.9581952095031738,
+    1.669316291809082,
+    2.1202011108398438
+  ],
+  "model_selection": {
+    "C": 10.0,
+    "threshold": -0.4532273876866362,
+    "positive_accepted": 190,
+    "positive_count": 200,
+    "negative_false_accepts": 72,
+    "negative_count": 570
+  },
+  "scope": "Centralized public-data binary detector on frozen MPNet, separate from federated head. Negative-only final test.",
+  "status": "locked_before_negative_test_inference",
+  "lock_hash": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa"
+}
