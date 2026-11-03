@@ -1,0 +1,31 @@
+{
+  "validation_count": 200,
+  "live_accuracy": 0.955,
+  "max_logit_difference": 0.0,
+  "prediction_agreement": 1.0,
+  "head_hash": "385ca9ade96264eafb0a77947847f84436b4d9c21d438d01cce378c6467b8cc2",
+  "seconds": 50.900274999999965,
+  "truncated": 0,
+  "query": {
+    "intent": "pending_card_payment",
+    "response": "Open the payment details to check its pending status. The card payment support team can help explain a payment that remains pending.",
+    "candidates": [
+      {
+        "Intent": "pending_card_payment",
+        "Uncalibrated logit": 6.39748477935791
+      },
+      {
+        "Intent": "declined_card_payment",
+        "Uncalibrated logit": 2.712190628051758
+      },
+      {
+        "Intent": "pending_transfer",
+        "Uncalibrated logit": 2.286552906036377
+      }
+    ],
+    "seconds": 0.37774480000007316,
+    "truncated": false,
+    "head_hash": "385ca9ade96264eafb0a77947847f84436b4d9c21d438d01cce378c6467b8cc2",
+    "run_id": "balance-fast-long"
+  }
+}

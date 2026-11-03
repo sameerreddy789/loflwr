@@ -16,6 +16,17 @@ def main(argv=None) -> int:
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args(argv)
     config = json.loads(args.config.read_text(encoding="utf-8"))
+    if "identity" not in config:
+        from dataclasses import asdict
+        from fedlora_edge.encoder_data import load_encoder_manifest
+        from fedlora_edge.encoder_head import HeadConfig, HeadTrainer
+        from tools.run_encoder_study import make_identity
+        manifest = load_encoder_manifest(config["dataset_dir"])
+        head_config = HeadConfig(**config.get("head_config", {}))
+        trainer = HeadTrainer(manifest["feature_dim"], len(manifest["labels"]),
+                              config.get("seed", 42), head_config)
+        config["head_config"] = asdict(head_config)
+        config["identity"] = make_identity(manifest, trainer.get_state(), asdict(head_config))
     if args.resume:
         config["resume"] = True
     from fedlora_edge.encoder_flower import simulate

@@ -16,7 +16,7 @@ class HeadConfigTests(unittest.TestCase):
     def test_invalid_optimizer_configuration_is_rejected(self):
         for kwargs in ({"learning_rate": 0}, {"learning_rate": float("nan")},
                        {"weight_decay": -1}, {"gradient_clip": 0}, {"batch_size": True},
-                       {"cpu_threads": 1.5}, {"optimizer": "unknown"}):
+                       {"cpu_threads": 1.5}, {"optimizer": "unknown"}, {"class_balance": 1}):
             with self.subTest(kwargs=kwargs), self.assertRaises(ValueError):
                 HeadConfig(**kwargs)
 
@@ -113,6 +113,32 @@ class HeadTrainerTests(unittest.TestCase):
         self.assertEqual(result["examples_processed"], 5)  # 2 + 1 + 2
         self.assertEqual(result["unique_examples_processed"], 3)
         self.assertEqual(result["completed_optimizer_steps"], 3)
+
+    def test_equal_fullbatch_client_updates_match_balanced_global_gradient(self):
+        # Different client and per-class counts, two classes on each client.
+        # Equal client weights must give every class the same objective weight.
+        import numpy as np
+        config = HeadConfig(learning_rate=0.5, batch_size=99, class_balance=True,
+                            weight_decay=0.003)
+        y0, y1 = torch.tensor([0, 0, 0, 1]), torch.tensor([2, 3, 3, 3, 3, 3])
+        x0, x1 = torch.eye(4)[y0], torch.eye(4)[y1]
+        clients = []
+        for x, y in ((x0, y0), (x1, y1)):
+            trainer = HeadTrainer(4, 4, 42, config)
+            trainer.train(x, y, 1, seed=3)
+            clients.append(trainer.get_state())
+        central = HeadTrainer(4, 4, 42, config)
+        central.train(torch.cat([x0, x1]), torch.cat([y0, y1]), 1, seed=3)
+        for name, expected in central.get_state().items():
+            actual = (np.array(clients[0][name].values) + np.array(clients[1][name].values)) / 2
+            np.testing.assert_allclose(actual, expected.values, atol=6e-8, rtol=1e-6)
+
+    def test_class_weights_use_whole_local_dataset(self):
+        config = HeadConfig(learning_rate=0.1, batch_size=1, class_balance=True)
+        trainer = HeadTrainer(2, 3, config=config)
+        result = trainer.train(torch.eye(2)[[0, 0, 0, 1]], torch.tensor([0, 0, 0, 1]), 2, seed=3)
+        self.assertAlmostEqual(result["class_weights"][0], 2 / 3, places=6)
+        self.assertEqual(result["class_weights"][1:], [2.0, 0.0])
 
 
 if __name__ == "__main__":

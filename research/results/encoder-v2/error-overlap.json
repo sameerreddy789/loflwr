@@ -1,0 +1,357 @@
+{
+  "split": "reused_validation",
+  "count": 200,
+  "input_sha256": {
+    "runs/encoder-reference-ablation-v1/summary.json": "85e9445326282629697c82421b5efca95543b71109eb461bf37c893b2e06a6b1",
+    "runs/accuracy-feasibility-20261103/summary.json": "c54646cc180cb4e8e98530de48fc1cc4723005c8810ea5e6eabc5a5d3edf56c1",
+    "runs/encoder-balanced-v2/balance-fast-long/selected/checkpoint.json": "5c2c7d1fa48c2a5621431d42b160ae9d3bf3fc7b22835464f6cdbcf75adfa8ba"
+  },
+  "errors": {
+    "federated_head": [
+      "train:1087",
+      "train:3865",
+      "train:3956",
+      "train:4975",
+      "train:5924",
+      "train:5937",
+      "train:6000",
+      "train:9777",
+      "train:9816"
+    ],
+    "logistic_c10": [
+      "train:1087",
+      "train:3865",
+      "train:3956",
+      "train:4975",
+      "train:5924",
+      "train:5937",
+      "train:6000",
+      "train:9777",
+      "train:9816"
+    ],
+    "logistic_c100": [
+      "train:1087",
+      "train:3865",
+      "train:3956",
+      "train:4975",
+      "train:5924",
+      "train:5937",
+      "train:6000",
+      "train:9777",
+      "train:9816"
+    ],
+    "mlp_128_early_stop": [
+      "train:1087",
+      "train:3865",
+      "train:3956",
+      "train:4975",
+      "train:5924",
+      "train:5937",
+      "train:6000",
+      "train:9267",
+      "train:9777"
+    ],
+    "nearest_example": [
+      "train:1087",
+      "train:2805",
+      "train:3865",
+      "train:3956",
+      "train:5924",
+      "train:5937",
+      "train:6000",
+      "train:9183",
+      "train:9777"
+    ]
+  },
+  "common_errors": [
+    "train:1087",
+    "train:3865",
+    "train:3956",
+    "train:5924",
+    "train:5937",
+    "train:6000",
+    "train:9777"
+  ],
+  "union_errors": [
+    "train:1087",
+    "train:2805",
+    "train:3865",
+    "train:3956",
+    "train:4975",
+    "train:5924",
+    "train:5937",
+    "train:6000",
+    "train:9183",
+    "train:9267",
+    "train:9777",
+    "train:9816"
+  ],
+  "oracle_upper_bound": 0.965,
+  "head_logistic_c10_identical_predictions": true,
+  "per_error": {
+    "train:1087": {
+      "federated_head": [
+        "card_delivery_estimate",
+        "card_arrival"
+      ],
+      "logistic_c10": [
+        "card_delivery_estimate",
+        "card_arrival"
+      ],
+      "logistic_c100": [
+        "card_delivery_estimate",
+        "card_arrival"
+      ],
+      "mlp_128_early_stop": [
+        "card_delivery_estimate",
+        "card_arrival"
+      ],
+      "nearest_example": [
+        "card_delivery_estimate",
+        "card_arrival"
+      ]
+    },
+    "train:2805": {
+      "federated_head": [
+        "transfer_not_received_by_recipient",
+        "transfer_not_received_by_recipient"
+      ],
+      "logistic_c10": [
+        "transfer_not_received_by_recipient",
+        "transfer_not_received_by_recipient"
+      ],
+      "logistic_c100": [
+        "transfer_not_received_by_recipient",
+        "transfer_not_received_by_recipient"
+      ],
+      "mlp_128_early_stop": [
+        "transfer_not_received_by_recipient",
+        "transfer_not_received_by_recipient"
+      ],
+      "nearest_example": [
+        "transfer_not_received_by_recipient",
+        "pending_transfer"
+      ]
+    },
+    "train:3865": {
+      "federated_head": [
+        "why_verify_identity",
+        "verify_my_identity"
+      ],
+      "logistic_c10": [
+        "why_verify_identity",
+        "verify_my_identity"
+      ],
+      "logistic_c100": [
+        "why_verify_identity",
+        "verify_my_identity"
+      ],
+      "mlp_128_early_stop": [
+        "why_verify_identity",
+        "verify_my_identity"
+      ],
+      "nearest_example": [
+        "why_verify_identity",
+        "verify_my_identity"
+      ]
+    },
+    "train:3956": {
+      "federated_head": [
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "logistic_c10": [
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "logistic_c100": [
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "mlp_128_early_stop": [
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "nearest_example": [
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ]
+    },
+    "train:4975": {
+      "federated_head": [
+        "declined_cash_withdrawal",
+        "activate_my_card"
+      ],
+      "logistic_c10": [
+        "declined_cash_withdrawal",
+        "activate_my_card"
+      ],
+      "logistic_c100": [
+        "declined_cash_withdrawal",
+        "activate_my_card"
+      ],
+      "mlp_128_early_stop": [
+        "declined_cash_withdrawal",
+        "activate_my_card"
+      ],
+      "nearest_example": [
+        "declined_cash_withdrawal",
+        "declined_cash_withdrawal"
+      ]
+    },
+    "train:5924": {
+      "federated_head": [
+        "declined_card_payment",
+        "declined_cash_withdrawal"
+      ],
+      "logistic_c10": [
+        "declined_card_payment",
+        "declined_cash_withdrawal"
+      ],
+      "logistic_c100": [
+        "declined_card_payment",
+        "declined_cash_withdrawal"
+      ],
+      "mlp_128_early_stop": [
+        "declined_card_payment",
+        "declined_cash_withdrawal"
+      ],
+      "nearest_example": [
+        "declined_card_payment",
+        "declined_cash_withdrawal"
+      ]
+    },
+    "train:5937": {
+      "federated_head": [
+        "declined_card_payment",
+        "pending_card_payment"
+      ],
+      "logistic_c10": [
+        "declined_card_payment",
+        "pending_card_payment"
+      ],
+      "logistic_c100": [
+        "declined_card_payment",
+        "pending_card_payment"
+      ],
+      "mlp_128_early_stop": [
+        "declined_card_payment",
+        "pending_card_payment"
+      ],
+      "nearest_example": [
+        "declined_card_payment",
+        "pending_card_payment"
+      ]
+    },
+    "train:6000": {
+      "federated_head": [
+        "pending_transfer",
+        "transfer_not_received_by_recipient"
+      ],
+      "logistic_c10": [
+        "pending_transfer",
+        "transfer_not_received_by_recipient"
+      ],
+      "logistic_c100": [
+        "pending_transfer",
+        "pending_card_payment"
+      ],
+      "mlp_128_early_stop": [
+        "pending_transfer",
+        "pending_card_payment"
+      ],
+      "nearest_example": [
+        "pending_transfer",
+        "pending_card_payment"
+      ]
+    },
+    "train:9183": {
+      "federated_head": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "logistic_c10": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "logistic_c100": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "mlp_128_early_stop": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "nearest_example": [
+        "activate_my_card",
+        "card_arrival"
+      ]
+    },
+    "train:9267": {
+      "federated_head": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "logistic_c10": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "logistic_c100": [
+        "activate_my_card",
+        "activate_my_card"
+      ],
+      "mlp_128_early_stop": [
+        "activate_my_card",
+        "card_about_to_expire"
+      ],
+      "nearest_example": [
+        "activate_my_card",
+        "activate_my_card"
+      ]
+    },
+    "train:9777": {
+      "federated_head": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "logistic_c10": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "logistic_c100": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "mlp_128_early_stop": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "nearest_example": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ]
+    },
+    "train:9816": {
+      "federated_head": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "logistic_c10": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "logistic_c100": [
+        "verify_my_identity",
+        "why_verify_identity"
+      ],
+      "mlp_128_early_stop": [
+        "verify_my_identity",
+        "verify_my_identity"
+      ],
+      "nearest_example": [
+        "verify_my_identity",
+        "verify_my_identity"
+      ]
+    }
+  }
+}

@@ -1,11 +1,22 @@
 # FedLoRA-Edge
 
-**Accuracy recovery update, 3 November:** the new frozen-MPNet/federated-head
-variant reached **92.5% validation accuracy** through actual five-client Flower
-training. A centralized reference reached 95.5%; neither score is a fresh test
-result or a 99% claim. Local process dropout and rejoining also passed. See the
-[encoder results and evidence](research/results/encoder-v1/README.md). The
-original SmolLM2/LoRA benchmark below remains available as a separate experiment.
+**Accuracy recovery update, 3 November:** the frozen-MPNet/federated-head variant
+reached **95.5% validation accuracy** in sequential five-client training, with
+identical live CPU inference. The earlier actual Flower run reached 92.5%; the
+95.5% configuration's Flower rerun is underway. See [new head results](research/results/encoder-v2/README.md),
+[earlier Flower evidence](research/results/encoder-v1/README.md), and the
+[remaining-error analysis](research/encoder-error-analysis.md). These are reused
+validation results, not fresh test results or a 99% claim. The original
+SmolLM2/LoRA benchmark below remains a separate experiment.
+
+To open the upgraded query demo on the prepared laptop:
+
+```powershell
+.\tools\start_encoder_demo.ps1 -RunDirectory runs/encoder-balanced-v2/balance-fast-long
+```
+
+Open <http://127.0.0.1:8511>. The [encoder demo guide](docs/encoder-demo.md)
+explains live classification, recorded evidence and supported intents.
 
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 

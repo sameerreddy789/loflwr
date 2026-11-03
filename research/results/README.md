@@ -1,5 +1,8 @@
 # Measured results
 
+The [class-balanced head report](encoder-v2/README.md) adds 95.5% sequential
+federated validation accuracy, live inference parity, and remaining-error analysis.
+
 The [encoder recovery report](encoder-v1/README.md) records the newer 92.5%
 validation result from actual five-client Flower head training, centralized
 references, local process recovery, and the adapter trial with no accuracy gain.

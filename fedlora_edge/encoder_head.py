@@ -24,8 +24,11 @@ class HeadConfig:
     optimizer: str = "sgd"
     gradient_clip: float = 10.0
     cpu_threads: int = 1
+    class_balance: bool = False
 
     def __post_init__(self) -> None:
+        if not isinstance(self.class_balance, bool):
+            raise ValueError("class_balance must be a boolean.")
         for name in ("learning_rate", "weight_decay", "gradient_clip"):
             value = getattr(self, name)
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
@@ -208,6 +211,15 @@ class HeadTrainer:
         with _RssMonitor() as memory:
             x = self._features(features)
             y = self._labels(labels, len(x))
+            # Fixed local-dataset weights, not minibatch-dependent normalization.
+            # With four disjoint classes per client and equal client coefficients,
+            # full-batch one-step gradients match the balanced 20-class objective.
+            class_weights = torch.ones(self.num_classes, dtype=torch.float32)
+            if self.config.class_balance:
+                counts = torch.bincount(y, minlength=self.num_classes)
+                present = counts > 0
+                class_weights.zero_()
+                class_weights[present] = len(y) / (present.sum() * counts[present])
             generator = torch.Generator(device="cpu").manual_seed(seed)
             optimizer = self._optimizer()
             pending = torch.empty(0, dtype=torch.long)
@@ -224,7 +236,9 @@ class HeadTrainer:
                             pending = torch.randperm(len(x), generator=generator)
                         indices, pending = pending[:self.config.batch_size], pending[self.config.batch_size:]
                     optimizer.zero_grad(set_to_none=True)
-                    loss = torch.nn.functional.cross_entropy(self.head(x[indices]), y[indices])
+                    per_example = torch.nn.functional.cross_entropy(
+                        self.head(x[indices]), y[indices], reduction="none")
+                    loss = (per_example * class_weights[y[indices]]).mean()
                     if not torch.isfinite(loss).item():
                         raise ValueError("Nonfinite classification-head task loss.")
                     loss.backward()
@@ -254,6 +268,8 @@ class HeadTrainer:
         norms = x.norm(dim=1)
         return {"kind": "frozen_encoder_head_training", "device": "cpu", "precision": "float32",
                 "config": asdict(self.config), "optimizer_state_reset": True, "seed": seed,
+                "class_weights": class_weights.tolist(),
+                "loss_weighting": "fixed local inverse-frequency" if self.config.class_balance else "unweighted",
                 "manifest_examples": len(x), "input_dim": self.input_dim, "num_classes": self.num_classes,
                 "parameter_count": self.parameter_count, "raw_parameter_bytes": 4 * self.parameter_count,
                 "requested_optimizer_steps": steps, "completed_optimizer_steps": steps,
