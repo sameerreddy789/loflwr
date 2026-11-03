@@ -1,0 +1,243 @@
+{
+  "source_file": {
+    "file": "runs/scorer-gather-gpu-check-20261102/result.json",
+    "sha256": "59a08000ed196d9a9f3eaf48d8f616a2da8107b097024bd1481f0d4b2397400c",
+    "bytes": 73058
+  },
+  "measurements": {
+    "run_id": "scorer-gather-gpu-check-20261102",
+    "kind": "real_model_validation_scorer_parity_and_memory_calibration",
+    "created_utc": "2026-11-02T18:56:48.437687+00:00",
+    "passed": true,
+    "configuration": {
+      "learning_rate": 0.0002,
+      "weight_decay": 0.0,
+      "microbatch_size": 1,
+      "gradient_accumulation": 4,
+      "max_length": 128,
+      "gradient_clip": 1.0,
+      "proximal_mu": 0.0,
+      "activation_checkpointing": false,
+      "cpu_threads": 4,
+      "eval_batch_size": 20
+    },
+    "identity": {
+      "schema_version": 1,
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "adapter_settings": {
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ],
+        "scaling": 2.0
+      },
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "b_parameters": 184320,
+      "wire_dtype": "float32",
+      "initialization_seed": 42,
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "eos_token_id": 2,
+      "pad_token_id": 2,
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349"
+    },
+    "source_training_sha256": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+    "environment": {
+      "python": "3.11.15",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "packages": {
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "peft": "0.17.1",
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.8.0",
+        "psutil": "7.2.2"
+      },
+      "cuda_runtime": "12.6",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+    },
+    "gpu_properties": {
+      "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "total_memory_bytes": 6441926656
+    },
+    "same_logits_probe_indices": [
+      0,
+      40,
+      80,
+      111,
+      120,
+      160,
+      183,
+      199
+    ],
+    "same_logits_max_score_difference": 0.0,
+    "prior_run_id": "flower-gpu-smoke-20261102",
+    "max_prior_true_completion_score_difference": 0.0,
+    "prior_prediction_matches": 200,
+    "prior_evaluation_seconds": 51.765201869000066,
+    "prior_peak_gpu_allocated_bytes": 2083764224,
+    "prior_peak_gpu_reserved_bytes": 9393143808,
+    "evaluation_wall_seconds": 27.295872090000003,
+    "post_cleanup_gpu_allocated_bytes": 581583872,
+    "post_cleanup_gpu_reserved_bytes": 597688320,
+    "metrics": {
+      "count": 200,
+      "accuracy": 0.31,
+      "macro_f1": 0.24164443438772082,
+      "per_intent": {
+        "card_arrival": {
+          "f1": 0.3125,
+          "support": 10,
+          "accuracy": 0.5
+        },
+        "card_delivery_estimate": {
+          "f1": 0.18181818181818182,
+          "support": 10,
+          "accuracy": 0.1
+        },
+        "activate_my_card": {
+          "f1": 0.8235294117647058,
+          "support": 10,
+          "accuracy": 0.7
+        },
+        "card_about_to_expire": {
+          "f1": 0.3333333333333333,
+          "support": 10,
+          "accuracy": 0.2
+        },
+        "pending_card_payment": {
+          "f1": 0.56,
+          "support": 10,
+          "accuracy": 0.7
+        },
+        "declined_card_payment": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "card_payment_not_recognised": {
+          "f1": 0.3333333333333333,
+          "support": 10,
+          "accuracy": 0.2
+        },
+        "transaction_charged_twice": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "pending_transfer": {
+          "f1": 0.34782608695652173,
+          "support": 10,
+          "accuracy": 0.8
+        },
+        "transfer_not_received_by_recipient": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "transfer_fee_charged": {
+          "f1": 0.18181818181818182,
+          "support": 10,
+          "accuracy": 0.1
+        },
+        "cancel_transfer": {
+          "f1": 0.2597402597402597,
+          "support": 10,
+          "accuracy": 1.0
+        },
+        "pending_cash_withdrawal": {
+          "f1": 0.26666666666666666,
+          "support": 10,
+          "accuracy": 0.2
+        },
+        "declined_cash_withdrawal": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "wrong_amount_of_cash_received": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "cash_withdrawal_not_recognised": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "edit_personal_details": {
+          "f1": 0.7777777777777778,
+          "support": 10,
+          "accuracy": 0.7
+        },
+        "verify_my_identity": {
+          "f1": 0.45454545454545453,
+          "support": 10,
+          "accuracy": 1.0
+        },
+        "unable_to_verify_identity": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "why_verify_identity": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        }
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.375,
+        "Card payments": 0.225,
+        "Transfers": 0.475,
+        "Cash withdrawals": 0.05,
+        "Account verification": 0.425
+      },
+      "worst_domain_accuracy": 0.05,
+      "domain_gap": 0.425,
+      "task_loss": 5.0024809347072114,
+      "supervised_tokens": 1420,
+      "evaluation_seconds": 27.223392047000004,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "truncated_queries": 1,
+      "b_hash": "d2e17cd0d8d1e975d2ff65df3643275cd3f3052840ad1db0c81ba17116d5c735",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+      "peak_rss_bytes": 1766518784,
+      "rss_sampling_interval_seconds": 0.02,
+      "peak_gpu_allocated_bytes": 1140814336,
+      "peak_gpu_reserved_bytes": 3701473280
+    }
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

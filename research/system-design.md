@@ -1,6 +1,6 @@
 # System design and training contract
 
-This is the implementation reference for the approved system. Except for tensor-state helpers, the components described here still need to be built and tested.
+This is the implementation reference for the approved system. The [implementation status](implementation-status.md) and [results register](results/README.md) distinguish implemented and verified behavior from remaining deployment and experiment gates.
 
 ## Architecture
 

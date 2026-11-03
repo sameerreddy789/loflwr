@@ -1,0 +1,154 @@
+{
+  "source_file": {
+    "file": "runs/smoke-gpu.json",
+    "sha256": "d84a2aa92a20e9d995446c87bac5e337ef6ed79f752993faa6bcd1ddfa50376d",
+    "bytes": 26053
+  },
+  "measurements": {
+    "kind": "real_model_optimization_smoke",
+    "passed": true,
+    "identity": {
+      "schema_version": 1,
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "adapter_settings": {
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ],
+        "scaling": 2.0
+      },
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "b_parameters": 184320,
+      "wire_dtype": "float32",
+      "initialization_seed": 42,
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "eos_token_id": 2,
+      "pad_token_id": 2,
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349"
+    },
+    "environment": {
+      "python": "3.11.15",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "packages": {
+        "torch": "2.8.0+cu126",
+        "transformers": "4.57.1",
+        "peft": "0.17.1",
+        "huggingface-hub": "0.36.0",
+        "safetensors": "0.8.0",
+        "psutil": "7.2.2"
+      },
+      "cuda_runtime": "12.6",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+    },
+    "b_changed": true,
+    "frozen_before": {
+      "base_hash": "e2b7d2172619aa864e64b3a09ea875da1b2cc2b659a2698aabb70f0ff7cca338",
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409"
+    },
+    "frozen_after": {
+      "base_hash": "e2b7d2172619aa864e64b3a09ea875da1b2cc2b659a2698aabb70f0ff7cca338",
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409"
+    },
+    "padding_mask_correct": true,
+    "checked_padding_positions": 89,
+    "real_eos_preserved": true,
+    "pad_equals_eos": true,
+    "common_candidate_prompt": true,
+    "long_query_truncation_preserves_completion": true,
+    "max_batch_score_difference": 1.9073486328125e-05,
+    "before_task_loss": 5.967981066022601,
+    "after_task_loss": 5.711070287795294,
+    "telemetry": {
+      "optimizer_steps": 2,
+      "completed_optimizer_steps": 2,
+      "requested_optimizer_steps": 2,
+      "microbatches": 8,
+      "examples_processed": 8,
+      "tokens_processed": 344,
+      "supervised_tokens": 42,
+      "truncated_examples_processed": 0,
+      "supervision_truncated_examples": 0,
+      "task_loss": 5.902669588724772,
+      "penalized_objective_loss": 5.902669588724772,
+      "local_train_seconds": 11.237190657000156,
+      "gradient_norms_before_clip": [
+        3.6187186241149902,
+        3.623220205307007
+      ],
+      "nonzero_b_gradient": true,
+      "device": "cuda",
+      "precision": "float32",
+      "config": {
+        "learning_rate": 0.0002,
+        "weight_decay": 0.0,
+        "microbatch_size": 1,
+        "gradient_accumulation": 4,
+        "max_length": 128,
+        "gradient_clip": 1.0,
+        "proximal_mu": 0.0,
+        "activation_checkpointing": false,
+        "cpu_threads": 4,
+        "eval_batch_size": 20
+      },
+      "peak_rss_bytes": 1817956352,
+      "rss_sampling_interval_seconds": 0.02,
+      "peak_gpu_allocated_bytes": 700595712,
+      "peak_gpu_reserved_bytes": 759169024,
+      "client_seed": 795192563,
+      "run_seed": 42,
+      "attempt_id": 0,
+      "client_id": 0,
+      "manifest_examples": 4,
+      "records_hash": "5c540014b74744f4fed56ef45a95eb6d2d93024d0fcda4cd2995b469ca392b45",
+      "truncated_manifest_queries": 0
+    },
+    "b_hash": "48c24e8b45c509d3dd9c1172a974f7ab8f04fdbb918b9cdc7d8b1e5bc4cecc30",
+    "run_id": "smoke-20261102T183617Z",
+    "configuration": {
+      "learning_rate": 0.0002,
+      "weight_decay": 0.0,
+      "microbatch_size": 1,
+      "gradient_accumulation": 4,
+      "max_length": 128,
+      "gradient_clip": 1.0,
+      "proximal_mu": 0.0,
+      "activation_checkpointing": false,
+      "cpu_threads": 4,
+      "eval_batch_size": 20
+    },
+    "manifest_path": "assets/banking77/manifests/imbalanced/client_0.json",
+    "manifest_hash": "a8a117397a9dff1b39b285d423de8bfeab8d877af2a09d9601456fcdd4fbae30"
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

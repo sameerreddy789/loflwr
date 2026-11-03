@@ -1,0 +1,46 @@
+{
+  "source_file": {
+    "file": "runs/scorer-gather-gpu-check-20261102/training-parity.json",
+    "sha256": "0b88de17a49f248f9cf8cfba28722c16123357235af81b1be8d9f7752bdaa674",
+    "bytes": 1481
+  },
+  "measurements": {
+    "kind": "observed_real_model_gpu_output_parity_across_sync_cleanup",
+    "passed": true,
+    "before_run_id": "flower-gpu-smoke-20261102",
+    "after_run_id": "persistent-worker-calibration-20261102",
+    "before_output": "runs\\flower-gpu-smoke-20261102\\client_jobs\\flower-gpu-smoke-20261102\\attempt_1\\0\\output.json",
+    "after_output": "runs\\persistent-worker-calibration-20261102\\warm_repeat\\persistent-worker-calibration-20261102\\attempt_1\\0\\output.json",
+    "source_training_sha256": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+    "checks": {
+      "client_seed": true,
+      "optimizer_steps": true,
+      "microbatches": true,
+      "tokens_processed": true,
+      "supervised_tokens": true,
+      "task_loss": true,
+      "penalized_objective_loss": true,
+      "gradient_norms_before_clip": true,
+      "records_hash": true,
+      "incoming_b_equal": true,
+      "delta_bitwise_equal": true,
+      "training_config_equal": true
+    },
+    "delta_hash": "3b1e40aa00b7871d62e3d3fa0b9e9712da3fa564e9c396af50685203496123e7",
+    "configuration": {
+      "activation_checkpointing": false,
+      "cpu_threads": 4,
+      "eval_batch_size": 20,
+      "gradient_accumulation": 4,
+      "gradient_clip": 1.0,
+      "learning_rate": 0.0002,
+      "max_length": 128,
+      "microbatch_size": 1,
+      "proximal_mu": 0.0,
+      "weight_decay": 0.0
+    },
+    "client_seed": 984182580,
+    "records_hash": "baf4da33106e9f913dfefaa86346be91767ab3eb9b33030c988d29557bd1beb3"
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

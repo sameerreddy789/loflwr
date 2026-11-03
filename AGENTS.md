@@ -17,7 +17,9 @@ and private node keys in ignored `certificates/`. Publish measured results with
 their run identity and configuration. A toy protocol check is not a language-model
 experiment. Do not add fabricated training metrics to documentation or the dashboard.
 
-The existing dependency-free tensor-state tests run with
-`python -m unittest discover -s tests`. Protocol, data, and model tests remain
-implementation work. Use the Python 3.11+ setup described in the README and freeze
-the full training/Flower environments after actual compatibility smoke tests.
+Run `python -m unittest discover -s tests` for the state, aggregation, protocol,
+data, trainer, result-reader, and study-plan checks. Optional Torch, Flower, and
+Streamlit checks skip when their dependencies are absent; read the skip count.
+Real model optimization, Flower runtime, and physical-laptop recovery remain
+separate evidence gates. Use the Python 3.11+ setup and tested environment pins
+described in the README; update pins only after actual compatibility smoke tests.

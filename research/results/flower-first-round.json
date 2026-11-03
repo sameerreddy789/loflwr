@@ -1,0 +1,750 @@
+{
+  "report_format_version": 1,
+  "generated_utc": "2026-11-02T18:49:58.605444+00:00",
+  "run_id": "flower-gpu-smoke-20261102",
+  "run_directory": "runs/flower-gpu-smoke-20261102",
+  "evidence_label": "Model evaluation recorded",
+  "config_sha256": "9dbfe5992155781bc4b0b90957ee8681a0c6253816e71fce99b3519dfb8f7e67",
+  "configuration": {
+    "clients": {
+      "0": 160,
+      "1": 160,
+      "2": 160,
+      "3": 160,
+      "4": 160
+    },
+    "deadline_seconds": 600.0,
+    "epsilon": 1e-12,
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    },
+    "manifest_hashes": {
+      "0": "762b9fa771ccd1755305d95bd5308dbc7b460ef127f16d3a4ea7ccc6d93d594b",
+      "1": "e6096f15d24bb8fe364322b17bfbd7d4d87c485af77f8c1f92d32fa5151e8c5a",
+      "2": "54d67072f46edde4ac4c2a125d83745c7f54400db55a0befbe5cde9746913fe4",
+      "3": "521272d58fa00d992ee3026b1000e5875879d405ba02e761ed87e04b1574c738",
+      "4": "2725107fe091ddc334e8a212f2d3b9401530bd2dd12f99d05063a2c7d570da4f"
+    },
+    "quorum": 3,
+    "run_id": "flower-gpu-smoke-20261102",
+    "runtime": {
+      "adapter_dir": "assets/adapter",
+      "asset_dir": "assets/model",
+      "attempts": 1,
+      "budgets": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2
+      },
+      "client_manifests": {
+        "0": [
+          "assets/banking77/manifests/balanced/client_0.json"
+        ],
+        "1": [
+          "assets/banking77/manifests/balanced/client_1.json"
+        ],
+        "2": [
+          "assets/banking77/manifests/balanced/client_2.json"
+        ],
+        "3": [
+          "assets/banking77/manifests/balanced/client_3.json"
+        ],
+        "4": [
+          "assets/banking77/manifests/balanced/client_4.json"
+        ]
+      },
+      "deadline_seconds": 600.0,
+      "device": "cuda",
+      "evaluate_every": 1,
+      "evaluate_initial": false,
+      "evaluation_device": "cuda",
+      "omitted_clients": [],
+      "process_interruptions": [],
+      "quorum": 3,
+      "run_dir": "runs/flower-gpu-smoke-20261102",
+      "run_id": "flower-gpu-smoke-20261102",
+      "runtime": "flower_ray_one_gpu_worker",
+      "scenario": "balanced",
+      "seed": 42,
+      "strategy": "equal_clipped",
+      "training_config": {},
+      "validation_manifest": "assets/banking77/manifests/validation.json"
+    },
+    "seed": 42,
+    "strategy": "equal_clipped"
+  },
+  "checkpoint": {
+    "run_id": "flower-gpu-smoke-20261102",
+    "attempt_id": 1,
+    "version": 1,
+    "b_hash": "d2e17cd0d8d1e975d2ff65df3643275cd3f3052840ad1db0c81ba17116d5c735",
+    "config_hash": "9dbfe5992155781bc4b0b90957ee8681a0c6253816e71fce99b3519dfb8f7e67",
+    "identity": {
+      "adapter_settings": {
+        "alpha": 16,
+        "dropout": 0.05,
+        "rank": 8,
+        "scaling": 2.0,
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ]
+      },
+      "asset_hash": "ce3ec340748eae81172dda808c7a389b67a1e96b64de3d65bdf636cd5fca20fb",
+      "b_parameters": 184320,
+      "common_a_hash": "9b34c3898b65789470bf19c062e613239585d2092e4be89e2956f8cce1f6f409",
+      "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+      "eos_token_id": 2,
+      "initialization_seed": 42,
+      "intents": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "pad_token_id": 2,
+      "schema_version": 1,
+      "scoring_rule": "sum_completion_logprob_including_eos",
+      "system_prompt": "Classify the banking request. Reply with only the exact intent label.",
+      "tokenization_version": "chat-prompt-explicit-label-eos-left-truncate-common-budget-v1",
+      "tokenizer_hash": "860735a66ec455d61bed5affd6e06d5568056dbdd373a833b970fe5032127dec",
+      "wire_dtype": "float32"
+    }
+  },
+  "attempts": [
+    {
+      "Attempt": 1,
+      "Status": "Committed",
+      "Version before": 0,
+      "Version after": 1,
+      "Accepted": 5,
+      "Selected": 5,
+      "Collection seconds": 106.94674389300008,
+      "Checkpoint hash": "d2e17cd0d8d1e975d2ff65df3643275cd3f3052840ad1db0c81ba17116d5c735"
+    }
+  ],
+  "accepted_reply_work": {
+    "optimizer_steps": 10.0,
+    "optimizer_steps_coverage": {
+      "measured_replies": 5,
+      "accepted_replies": 5
+    },
+    "processed_examples": 40.0,
+    "processed_examples_coverage": {
+      "measured_replies": 5,
+      "accepted_replies": 5
+    },
+    "processed_tokens": 2008.0,
+    "processed_tokens_coverage": {
+      "measured_replies": 5,
+      "accepted_replies": 5
+    },
+    "reported_training_seconds": 18.704823543000657,
+    "reported_training_seconds_coverage": {
+      "measured_replies": 5,
+      "accepted_replies": 5
+    },
+    "raw_delta_bytes": 3686400.0,
+    "raw_delta_bytes_coverage": {
+      "measured_replies": 5,
+      "accepted_replies": 5
+    },
+    "serialized_reply_bytes": 3768887.0,
+    "serialized_reply_bytes_coverage": {
+      "measured_replies": 5,
+      "received_replies": 5
+    },
+    "serialized_reply_bytes_scope": "All received replies",
+    "scope": "Accepted federated replies or reported centralized blocks; partial centralized work is included. Missing telemetry is not zero.",
+    "serialized_request_bytes": 3761743.0,
+    "serialized_request_bytes_coverage": {
+      "measured_dispatches": 1,
+      "recorded_dispatches": 1
+    }
+  },
+  "evaluations": [
+    {
+      "source": "events.jsonl:26",
+      "split": "validation",
+      "attempt_id": 1,
+      "version": 1,
+      "timestamp": 1793645007.0093164,
+      "metrics": {
+        "accuracy": 0.31,
+        "b_hash": "d2e17cd0d8d1e975d2ff65df3643275cd3f3052840ad1db0c81ba17116d5c735",
+        "contract_hash": "790bad41bf45a74865c36ac5918b5778973ab497b90fc5e903484e6cadd05349",
+        "count": 200,
+        "domain_gap": 0.425,
+        "evaluation_seconds": 51.765201869000066,
+        "macro_f1": 0.24164443438772082,
+        "peak_gpu_allocated_bytes": 2083764224,
+        "peak_gpu_reserved_bytes": 9393143808,
+        "peak_rss_bytes": 1864433664,
+        "per_domain_accuracy": {
+          "Account verification": 0.425,
+          "Card lifecycle": 0.375,
+          "Card payments": 0.225,
+          "Cash withdrawals": 0.05,
+          "Transfers": 0.475
+        },
+        "per_intent": {
+          "activate_my_card": {
+            "accuracy": 0.7,
+            "f1": 0.8235294117647058,
+            "support": 10
+          },
+          "cancel_transfer": {
+            "accuracy": 1.0,
+            "f1": 0.2597402597402597,
+            "support": 10
+          },
+          "card_about_to_expire": {
+            "accuracy": 0.2,
+            "f1": 0.3333333333333333,
+            "support": 10
+          },
+          "card_arrival": {
+            "accuracy": 0.5,
+            "f1": 0.3125,
+            "support": 10
+          },
+          "card_delivery_estimate": {
+            "accuracy": 0.1,
+            "f1": 0.18181818181818182,
+            "support": 10
+          },
+          "card_payment_not_recognised": {
+            "accuracy": 0.2,
+            "f1": 0.3333333333333333,
+            "support": 10
+          },
+          "cash_withdrawal_not_recognised": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "declined_card_payment": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "declined_cash_withdrawal": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "edit_personal_details": {
+            "accuracy": 0.7,
+            "f1": 0.7777777777777778,
+            "support": 10
+          },
+          "pending_card_payment": {
+            "accuracy": 0.7,
+            "f1": 0.56,
+            "support": 10
+          },
+          "pending_cash_withdrawal": {
+            "accuracy": 0.2,
+            "f1": 0.26666666666666666,
+            "support": 10
+          },
+          "pending_transfer": {
+            "accuracy": 0.8,
+            "f1": 0.34782608695652173,
+            "support": 10
+          },
+          "transaction_charged_twice": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "transfer_fee_charged": {
+            "accuracy": 0.1,
+            "f1": 0.18181818181818182,
+            "support": 10
+          },
+          "transfer_not_received_by_recipient": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "unable_to_verify_identity": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "verify_my_identity": {
+            "accuracy": 1.0,
+            "f1": 0.45454545454545453,
+            "support": 10
+          },
+          "why_verify_identity": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          },
+          "wrong_amount_of_cash_received": {
+            "accuracy": 0.0,
+            "f1": 0.0,
+            "support": 10
+          }
+        },
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "rss_sampling_interval_seconds": 0.02,
+        "scoring_rule": "sum_completion_logprob_including_eos",
+        "supervised_tokens": 1420,
+        "task_loss": 5.0024809347072114,
+        "truncated_queries": 1,
+        "worst_domain_accuracy": 0.05
+      },
+      "also_recorded_in": [
+        "evaluations.jsonl"
+      ]
+    }
+  ],
+  "round_details": [
+    {
+      "absent": [],
+      "accepted": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "aggregation": {
+        "aggregate_norm": 0.10575814207593676,
+        "clip_factors": {
+          "0": 0.9999999999933785,
+          "1": 1.0,
+          "2": 0.9966796469726643,
+          "3": 1.0,
+          "4": 0.99468902670573
+        },
+        "clip_threshold": 0.15102438251278943,
+        "clipped_norms": {
+          "0": 0.15102438251178943,
+          "1": 0.14835734297271533,
+          "2": 0.15102438251179273,
+          "3": 0.14490716766465156,
+          "4": 0.15102438251179473
+        },
+        "clipping_fraction": 0.6,
+        "coefficients": {
+          "0": 0.2,
+          "1": 0.2,
+          "2": 0.2,
+          "3": 0.2,
+          "4": 0.2
+        },
+        "declared_sample_sizes": {
+          "0": 160,
+          "1": 160,
+          "2": 160,
+          "3": 160,
+          "4": 160
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.15102438251278943,
+          "1": 0.14835734297271533,
+          "2": 0.1515275073294788,
+          "3": 0.14490716766465156,
+          "4": 0.15183075157867804
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "aggregation_seconds": 0.513034639000125,
+      "attempt_id": 1,
+      "checkpoint_hash": "d2e17cd0d8d1e975d2ff65df3643275cd3f3052840ad1db0c81ba17116d5c735",
+      "clients": {
+        "0": {
+          "attempt_id": 1,
+          "client_id": "0",
+          "client_processing_seconds": 21.27966005799999,
+          "client_seed": 984182580,
+          "completed_optimizer_steps": 2,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            3.3623621463775635,
+            3.4379236698150635
+          ],
+          "job_pid": 1002,
+          "job_process_seconds": 20.789974783999696,
+          "local_train_seconds": 2.8209089010001662,
+          "manifest_examples": 160,
+          "microbatches": 8,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 730914304,
+          "peak_gpu_reserved_bytes": 765460480,
+          "peak_rss_bytes": 1778847744,
+          "penalized_objective_loss": 5.315713914541098,
+          "precision": "float32",
+          "queue_wait_seconds": 0.24481797218322754,
+          "records_hash": "baf4da33106e9f913dfefaa86346be91767ab3eb9b33030c988d29557bd1beb3",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 52,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.315713914541098,
+          "tokens_processed": 379,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0
+        },
+        "1": {
+          "attempt_id": 1,
+          "client_id": "1",
+          "client_processing_seconds": 18.82954392900001,
+          "client_seed": 114255239,
+          "completed_optimizer_steps": 2,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            2.967604398727417,
+            2.6106247901916504
+          ],
+          "job_pid": 1165,
+          "job_process_seconds": 18.384987054999783,
+          "local_train_seconds": 4.641199862000121,
+          "manifest_examples": 160,
+          "microbatches": 8,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 711995904,
+          "peak_gpu_reserved_bytes": 761266176,
+          "peak_rss_bytes": 1781485568,
+          "penalized_objective_loss": 5.42312478197032,
+          "precision": "float32",
+          "queue_wait_seconds": 22.295281648635864,
+          "records_hash": "f3a73fd232ee816536504e037d3dd6328e3317224ed6fb3051cd41cc82e3068d",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 58,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.42312478197032,
+          "tokens_processed": 396,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0
+        },
+        "2": {
+          "attempt_id": 1,
+          "client_id": "2",
+          "client_processing_seconds": 21.539464858999963,
+          "client_seed": 1802542905,
+          "completed_optimizer_steps": 2,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            5.358809471130371,
+            3.01539945602417
+          ],
+          "job_pid": 1293,
+          "job_process_seconds": 21.007347604999723,
+          "local_train_seconds": 4.139736948000063,
+          "manifest_examples": 160,
+          "microbatches": 8,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 717769216,
+          "peak_gpu_reserved_bytes": 757071872,
+          "peak_rss_bytes": 1780400128,
+          "penalized_objective_loss": 5.942126547417989,
+          "precision": "float32",
+          "queue_wait_seconds": 41.25987267494202,
+          "records_hash": "19c71b0b6897c12c98c7c91081983cfc8389c231d2a2eb66b709d77311ce57f0",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 41,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.942126547417989,
+          "tokens_processed": 362,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 1
+        },
+        "3": {
+          "attempt_id": 1,
+          "client_id": "3",
+          "client_processing_seconds": 22.11358889200028,
+          "client_seed": 2087838701,
+          "completed_optimizer_steps": 2,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            2.391324520111084,
+            1.7441576719284058
+          ],
+          "job_pid": 1447,
+          "job_process_seconds": 21.429292654000164,
+          "local_train_seconds": 4.22239092000018,
+          "manifest_examples": 160,
+          "microbatches": 8,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 789362176,
+          "peak_gpu_reserved_bytes": 817889280,
+          "peak_rss_bytes": 1782194176,
+          "penalized_objective_loss": 4.589989101564562,
+          "precision": "float32",
+          "queue_wait_seconds": 63.63818025588989,
+          "records_hash": "3a895affc2a2a1ceb9527933ac4f642bed26c97f7c00d55842af3e2c996cb921",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 74,
+          "supervision_truncated_examples": 0,
+          "task_loss": 4.589989101564562,
+          "tokens_processed": 510,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0
+        },
+        "4": {
+          "attempt_id": 1,
+          "client_id": "4",
+          "client_processing_seconds": 22.236569298000177,
+          "client_seed": 763674519,
+          "completed_optimizer_steps": 2,
+          "config": {
+            "activation_checkpointing": false,
+            "cpu_threads": 4,
+            "eval_batch_size": 20,
+            "gradient_accumulation": 4,
+            "gradient_clip": 1.0,
+            "learning_rate": 0.0002,
+            "max_length": 128,
+            "microbatch_size": 1,
+            "proximal_mu": 0.0,
+            "weight_decay": 0.0
+          },
+          "declared_sample_size": 160,
+          "device": "cuda",
+          "examples_processed": 8,
+          "gradient_norms_before_clip": [
+            2.145237684249878,
+            2.5184741020202637
+          ],
+          "job_pid": 1587,
+          "job_process_seconds": 21.811777526000242,
+          "local_train_seconds": 2.880586912000126,
+          "manifest_examples": 160,
+          "microbatches": 8,
+          "nonzero_b_gradient": true,
+          "optimizer_steps": 2,
+          "peak_gpu_allocated_bytes": 704016896,
+          "peak_gpu_reserved_bytes": 723517440,
+          "peak_rss_bytes": 1780752384,
+          "penalized_objective_loss": 5.732042014598846,
+          "precision": "float32",
+          "queue_wait_seconds": 86.62876200675964,
+          "records_hash": "5f69cccb246eb5dfd3322492eda9aed9bfbe03c824294f103e21cbaaf566c080",
+          "requested_optimizer_steps": 2,
+          "rss_sampling_interval_seconds": 0.02,
+          "run_seed": 42,
+          "supervised_tokens": 48,
+          "supervision_truncated_examples": 0,
+          "task_loss": 5.732042014598846,
+          "tokens_processed": 361,
+          "truncated_examples_processed": 0,
+          "truncated_manifest_queries": 0
+        }
+      },
+      "collection_seconds": 106.94674389300008,
+      "event": "round_result",
+      "quorum": 3,
+      "raw_b_bytes": 737280,
+      "rejected": [],
+      "run_id": "flower-gpu-smoke-20261102",
+      "selected": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "serialized_reply_bytes": 3768887,
+      "status": "committed",
+      "timestamp": 1793644942.8925755,
+      "version": 1,
+      "version_after": 1,
+      "version_before": 0
+    }
+  ],
+  "source_files": [
+    {
+      "file": "config.json",
+      "bytes": 16258,
+      "sha256": "65ab8aae19aa86377abb34b50543042c5b849e07e55eb46d9ea8a025f5c1ad88",
+      "modified_utc": "2026-11-02T18:40:29.034820+00:00"
+    },
+    {
+      "file": "events.jsonl",
+      "bytes": 58031,
+      "sha256": "ae929561878687b8820e3d515482f1b132d21a22e0ac0f9332edbeaf0fff54aa",
+      "modified_utc": "2026-11-02T18:43:27.131101+00:00"
+    },
+    {
+      "file": "round_results.json",
+      "bytes": 7261,
+      "sha256": "40d1afec64078bf1ab654df74412d6bdea2aab7f3834a88e24fa95f40bcf2fbf",
+      "modified_utc": "2026-11-02T18:42:22.214177+00:00"
+    },
+    {
+      "file": "evaluations.jsonl",
+      "bytes": 37033,
+      "sha256": "7f8c4dd28a64e1cc143d0d923dfbc1d72448a6e817a154993d009c4ce6b47fb4",
+      "modified_utc": "2026-11-02T18:43:27.081347+00:00"
+    },
+    {
+      "file": "checkpoint.json",
+      "bytes": 4258337,
+      "sha256": "f6b5eaca41f1798c71e92762ecd562d833662f24e802f4e1df8d1bab76ddb45b",
+      "modified_utc": "2026-11-02T18:42:22.179114+00:00"
+    },
+    {
+      "file": "final_results.json",
+      "bytes": 57045,
+      "sha256": "f7419030cac8b0428d46e6850650e633eeeb885180ca42dd869dcc01e3b4fdd6",
+      "modified_utc": "2026-11-02T18:43:27.115068+00:00"
+    }
+  ],
+  "read_warnings": [],
+  "interpretation": [
+    "Recorded measurements only; missing fields remain null.",
+    "A protocol check is not a language-model experiment.",
+    "This report does not establish matched comparisons, superiority, or physical deployment."
+  ],
+  "recorded_config_hash": "9dbfe5992155781bc4b0b90957ee8681a0c6253816e71fce99b3519dfb8f7e67",
+  "completion": {
+    "run_id": "flower-gpu-smoke-20261102",
+    "runtime": "flower_ray_one_gpu_worker",
+    "attempts": 1,
+    "committed_versions": 1,
+    "config_hash": "9dbfe5992155781bc4b0b90957ee8681a0c6253816e71fce99b3519dfb8f7e67",
+    "total_wall_seconds": 174.69747521599993
+  },
+  "publication_note": "Derived compact measurements. Tensor payloads, predictions and dataset queries are omitted; workspace paths normalized. Source/config hashes identify original local files, not this transformed report. Inspect limitations alongside results."
+}

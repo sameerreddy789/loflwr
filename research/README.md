@@ -1,6 +1,6 @@
 # FedLoRA-Edge research dossier
 
-**Initial delivery: 20 October 2026. Research/planning update: 2 November 2026.** This dossier records the selected implementation target and primary-source review. It contains no completed training results. The new checkpoint constraint is one solo builder with a working demo due in one week.
+**Initial delivery: 20 October 2026. Implementation update: 3 November 2026.** This dossier records the selected design and primary-source review. See the [results register](results/README.md) for measured CPU/GPU and Flower checks, and [implementation status](implementation-status.md) for remaining acceptance gates. The checkpoint constraint is one solo builder with a working demo due in one week.
 
 Start with the [seven-day prototype plan](seven-day-prototype.md). It stages a preliminary comparison before the full evaluation program. The [ideation synthesis](ideation.md) explains the reasoning, and [abstract alignment](abstract-alignment.md) records changes from the newly reviewed GPT-2/WikiText-2/capped-weight proposal. The selected SmolLM2/BANKING77/shared-A design remains active.
 

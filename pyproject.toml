@@ -21,6 +21,20 @@ dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
 Repository = "https://github.com/sameerreddy789/loflwr"
 Documentation = "https://github.com/sameerreddy789/loflwr/tree/main/research"
 
+[project.scripts]
+fedlora-data = "fedlora_edge.data:main"
+fedlora-train = "fedlora_edge.training:main"
+
+[tool.flwr.app]
+publisher = "fedlora-edge"
+
+[tool.flwr.app.components]
+serverapp = "fedlora_edge.flower_app:server_app"
+clientapp = "fedlora_edge.flower_app:client_app"
+
+[tool.flwr.app.config]
+config-path = ""
+
 [tool.setuptools.packages.find]
 include = ["fedlora_edge*"]
 

@@ -1,0 +1,154 @@
+{
+  "source_file": {
+    "file": "runs/tfidf-imbalanced-validation.json",
+    "sha256": "5fd86a7a5108a0e7f93157555046537df7ad5fc30ac150763ddaa77aa65386a0",
+    "bytes": 31546
+  },
+  "measurements": {
+    "config": {
+      "run_id": "tfidf-imbalanced-validation",
+      "kind": "centralized_tfidf_classifier_reference",
+      "scenario": "imbalanced",
+      "split": "validation",
+      "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+      "vectorizer": {
+        "ngram_range": [
+          1,
+          2
+        ],
+        "sublinear_tf": true
+      },
+      "classifier": {
+        "C": 1.0,
+        "max_iter": 1000,
+        "class_weight": "balanced",
+        "random_state": 42
+      },
+      "scikit_learn_version": "1.9.1",
+      "training_records_hash": "bc3fc53749d93b22a135be2124fbb64b701c15ffa502900bc7f1a523a487a1e7",
+      "evaluation_records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+      "config_hash": "926cfc3cc1707b5ea8e0fcfa9740f779260b1c2147292da5c410d654cda3bc10"
+    },
+    "metrics": {
+      "count": 200,
+      "accuracy": 0.415,
+      "macro_f1": 0.36003036390634374,
+      "per_intent": {
+        "card_arrival": {
+          "f1": 0.26666666666666666,
+          "support": 10,
+          "accuracy": 0.2
+        },
+        "card_delivery_estimate": {
+          "f1": 0.15384615384615385,
+          "support": 10,
+          "accuracy": 0.1
+        },
+        "activate_my_card": {
+          "f1": 0.46153846153846156,
+          "support": 10,
+          "accuracy": 0.3
+        },
+        "card_about_to_expire": {
+          "f1": 0.5714285714285714,
+          "support": 10,
+          "accuracy": 0.4
+        },
+        "pending_card_payment": {
+          "f1": 0.45,
+          "support": 10,
+          "accuracy": 0.9
+        },
+        "declined_card_payment": {
+          "f1": 0.425531914893617,
+          "support": 10,
+          "accuracy": 1.0
+        },
+        "card_payment_not_recognised": {
+          "f1": 0.5263157894736842,
+          "support": 10,
+          "accuracy": 1.0
+        },
+        "transaction_charged_twice": {
+          "f1": 0.625,
+          "support": 10,
+          "accuracy": 1.0
+        },
+        "pending_transfer": {
+          "f1": 0.18181818181818182,
+          "support": 10,
+          "accuracy": 0.1
+        },
+        "transfer_not_received_by_recipient": {
+          "f1": 0.23076923076923078,
+          "support": 10,
+          "accuracy": 0.3
+        },
+        "transfer_fee_charged": {
+          "f1": 0.3333333333333333,
+          "support": 10,
+          "accuracy": 0.2
+        },
+        "cancel_transfer": {
+          "f1": 0.3076923076923077,
+          "support": 10,
+          "accuracy": 0.2
+        },
+        "pending_cash_withdrawal": {
+          "f1": 0.47619047619047616,
+          "support": 10,
+          "accuracy": 0.5
+        },
+        "declined_cash_withdrawal": {
+          "f1": 0.46153846153846156,
+          "support": 10,
+          "accuracy": 0.3
+        },
+        "wrong_amount_of_cash_received": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "cash_withdrawal_not_recognised": {
+          "f1": 0.0,
+          "support": 10,
+          "accuracy": 0.0
+        },
+        "edit_personal_details": {
+          "f1": 0.8571428571428571,
+          "support": 10,
+          "accuracy": 0.9
+        },
+        "verify_my_identity": {
+          "f1": 0.5384615384615384,
+          "support": 10,
+          "accuracy": 0.7
+        },
+        "unable_to_verify_identity": {
+          "f1": 0.16666666666666666,
+          "support": 10,
+          "accuracy": 0.1
+        },
+        "why_verify_identity": {
+          "f1": 0.16666666666666666,
+          "support": 10,
+          "accuracy": 0.1
+        }
+      },
+      "per_domain_accuracy": {
+        "Card lifecycle": 0.25,
+        "Card payments": 0.975,
+        "Transfers": 0.2,
+        "Cash withdrawals": 0.2,
+        "Account verification": 0.45
+      },
+      "worst_domain_accuracy": 0.2,
+      "domain_gap": 0.7749999999999999
+    },
+    "training_examples": 400,
+    "fit_seconds": 0.41947979999531526,
+    "prediction_seconds": 0.014750200003618374,
+    "interpretation": "Centralized public-data task reference with inverse-class-frequency loss weights. No LoRA, federation, or dropout claim."
+  },
+  "publication_note": "Compact copy; tensor payloads and dataset queries omitted."
+}

@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "dataset_repository": "PolyAI-LDN/task-specific-datasets",
+  "dataset_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "source_hashes": {
+    "train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+    "test.csv": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+    "LICENSE": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661",
+    "README.md": "7b9ce9069931cc2de89dce8c7ffb53d07806cf413601ccf133b9af5227b3a373"
+  },
+  "selection_seed": 20261020,
+  "normalization_version": "nfkc-casefold-whitespace-v1",
+  "original_counts": {
+    "train": 10003,
+    "test": 3080
+  },
+  "excluded_duplicates": {
+    "within_train": 4,
+    "within_test": 1,
+    "train_matching_official_test": 7
+  },
+  "available_per_intent": {
+    "card_arrival": {
+      "eligible_train": 153,
+      "unique_official_test": 40
+    },
+    "card_delivery_estimate": {
+      "eligible_train": 112,
+      "unique_official_test": 40
+    },
+    "activate_my_card": {
+      "eligible_train": 159,
+      "unique_official_test": 40
+    },
+    "card_about_to_expire": {
+      "eligible_train": 129,
+      "unique_official_test": 40
+    },
+    "pending_card_payment": {
+      "eligible_train": 159,
+      "unique_official_test": 40
+    },
+    "declined_card_payment": {
+      "eligible_train": 153,
+      "unique_official_test": 40
+    },
+    "card_payment_not_recognised": {
+      "eligible_train": 168,
+      "unique_official_test": 40
+    },
+    "transaction_charged_twice": {
+      "eligible_train": 175,
+      "unique_official_test": 40
+    },
+    "pending_transfer": {
+      "eligible_train": 148,
+      "unique_official_test": 40
+    },
+    "transfer_not_received_by_recipient": {
+      "eligible_train": 171,
+      "unique_official_test": 40
+    },
+    "transfer_fee_charged": {
+      "eligible_train": 172,
+      "unique_official_test": 40
+    },
+    "cancel_transfer": {
+      "eligible_train": 157,
+      "unique_official_test": 40
+    },
+    "pending_cash_withdrawal": {
+      "eligible_train": 143,
+      "unique_official_test": 40
+    },
+    "declined_cash_withdrawal": {
+      "eligible_train": 173,
+      "unique_official_test": 40
+    },
+    "wrong_amount_of_cash_received": {
+      "eligible_train": 180,
+      "unique_official_test": 40
+    },
+    "cash_withdrawal_not_recognised": {
+      "eligible_train": 160,
+      "unique_official_test": 40
+    },
+    "edit_personal_details": {
+      "eligible_train": 121,
+      "unique_official_test": 40
+    },
+    "verify_my_identity": {
+      "eligible_train": 104,
+      "unique_official_test": 40
+    },
+    "unable_to_verify_identity": {
+      "eligible_train": 102,
+      "unique_official_test": 40
+    },
+    "why_verify_identity": {
+      "eligible_train": 121,
+      "unique_official_test": 40
+    }
+  },
+  "manifests": {
+    "validation": {
+      "path": "validation.json",
+      "hash": "57fa0aef12c2013bb1a4128afed717d96c8d6425ce04f51352fa200bad51cc06",
+      "count": 200
+    },
+    "test": {
+      "path": "test.json",
+      "hash": "a8474e596b4dece885527e5c4e9bf8cbe2e41012cc49380f346f8b22c0cb581c",
+      "count": 500
+    },
+    "balanced/client_0": {
+      "path": "balanced/client_0.json",
+      "hash": "aeeab71cd797428b4177b70d343925411020934047a3eecf43caa3a182cc122b",
+      "count": 160
+    },
+    "balanced/client_1": {
+      "path": "balanced/client_1.json",
+      "hash": "892c23b2e71a22957d8c678ec89fe2e6b709ca3aa792460dd26635303fdddd28",
+      "count": 160
+    },
+    "balanced/client_2": {
+      "path": "balanced/client_2.json",
+      "hash": "ff4a5c2de60a725349c3c11ada88fe96b3fd33582de0e7a9648a8bf2636a32f4",
+      "count": 160
+    },
+    "balanced/client_3": {
+      "path": "balanced/client_3.json",
+      "hash": "896d5da16e3e917c5532693565788bd11766cb224d29d5b82014cc2add12ea53",
+      "count": 160
+    },
+    "balanced/client_4": {
+      "path": "balanced/client_4.json",
+      "hash": "1cab22c8cfd998d7851c587bf6519845558f8146d0b47c9254de063d51fea804",
+      "count": 160
+    },
+    "imbalanced/client_0": {
+      "path": "imbalanced/client_0.json",
+      "hash": "a8a117397a9dff1b39b285d423de8bfeab8d877af2a09d9601456fcdd4fbae30",
+      "count": 10
+    },
+    "imbalanced/client_1": {
+      "path": "imbalanced/client_1.json",
+      "hash": "9eb9261aad4f434496e374b3df4b4c3761d637b760cf35b61c2ee6e728464e7d",
+      "count": 360
+    },
+    "imbalanced/client_2": {
+      "path": "imbalanced/client_2.json",
+      "hash": "a41a17af3bdafbc695bb5af74b598efbdcc28e050add045722238975b22c7d8d",
+      "count": 10
+    },
+    "imbalanced/client_3": {
+      "path": "imbalanced/client_3.json",
+      "hash": "0eef7e54e8c966e7b1f9cfa92a0b2422994361222226d74fd09956ddbdcf19ee",
+      "count": 10
+    },
+    "imbalanced/client_4": {
+      "path": "imbalanced/client_4.json",
+      "hash": "844ac5a471ac6e1ca6a28b851024807e1071b8342d40a69fafffcb89541a73c7",
+      "count": 10
+    }
+  },
+  "manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc"
+}
