@@ -1,5 +1,11 @@
 # Measured results
 
+The [external CLINC150 report](external-clinc-v1/README.md) adds **28/29 correct
+on one compatible intent** and separately measures unsupported-topic false
+accepts. Its strictest frozen margin accepts 5/120 unsupported banking queries.
+The source mapping and model were committed before scoring; the result does
+not replace the all-twenty-intent confirmation below.
+
 The [class-balanced head report](encoder-v2/README.md) records **94.0% independent
 confirmation accuracy (282/300)** and **95.5% validation accuracy (191/200)** for
 the selected actual five-client Flower head, version 500. The model and all

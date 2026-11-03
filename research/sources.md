@@ -126,3 +126,15 @@ PyPI metadata checks found the proposed Flower 1.40.0, Transformers 4.57.1, PEFT
 The uploaded four-page PDF and the competition rules supplied in conversation are user-provided sources. The PDF's size/hash, exact commitments and review limits are recorded in [abstract-alignment.md](abstract-alignment.md). It does not establish actual submission or acceptance. No current official Techfest competition page was independently verified, and Round 1 weights must not be presented as confirmed finals weights. The portal questions in that review are drafts; nothing was submitted or emailed.
 
 The clipping/renormalization counterexample, capped-weight feasibility condition, shared-A linearity discussion, step totals, and candidate-score counts are algebra/arithmetic. The pilot selection, centralized replay schedule, solo priorities and stop/go gates are engineering decisions. Their scientific and resource outcomes remain unmeasured. The existing October `source-review.json` is preserved as historical metadata and does not purport to contain these November reviews.
+
+## External evaluation review — 3 November 2026
+
+The [public-dataset assessment](public-dataset-evaluation.md) records verified
+revisions, licenses, publication status and review depth for CLINC150, Bitext
+retail banking, NLU++, NPCI TauIndianBankBench, HWU64 and MASSIVE. CLINC's official
+data, ontology, README and CC BY 3.0 LICENSE were checked; NLU++ collection and
+ethics sections were read. The remaining sources have the explicitly narrower
+review depth shown in that assessment. No public full-task replacement was
+established. The [completed CLINC result](results/external-clinc-v1/README.md) is
+project evidence on one matching intent plus unsupported topics, distinct from
+source descriptions and from the original all-intent confirmation.

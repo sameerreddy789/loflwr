@@ -95,6 +95,14 @@ to increase the existing score.
 Use the [fresh-evaluation collection guide](fresh-evaluation.md) for independent
 query authorship, blinded annotation, provenance, and a suggested 400-query pilot.
 
+The [completed CLINC150 study](../research/results/external-clinc-v1/README.md)
+adds narrow external evidence, not a replacement all-intent test. Its strictest
+margin rule still accepted 5/120 unsupported banking requests. Develop explicit
+scope detection with separate in-scope and unsupported development examples;
+freeze it before another independent test. Report false accepts together with
+in-scope accuracy/coverage. Keep the now-scored CLINC test out of threshold
+selection, and do not claim that a clarification request resolves the user's task.
+
 Evaluate training-data coverage, intent-boundary modeling, and optional
 clarification/reranking on development data with matched baselines. Candidate
 recall is not final top-1 accuracy; user clarification requires an end-to-end

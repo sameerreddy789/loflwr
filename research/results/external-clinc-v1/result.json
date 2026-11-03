@@ -1,0 +1,230 @@
+{
+  "status": "completed",
+  "run_id": "external-clinc-v1",
+  "model_run_id": "encoder-flower-balanced-v2",
+  "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "lock_hash": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+  "records_hash": "05af90901f5a425a401d7f1e9c8f5547d5216e94fcd5f93e073ed35036b947e5",
+  "pre_inference_commit": "23dba1f51422db03d29bbc378f9edb6eaea9c342",
+  "metrics": {
+    "mapped_intent": {
+      "count": 29,
+      "correct": 28,
+      "accuracy": 0.9655172413793104,
+      "nominal_wilson_95": [
+        0.8282447812067973,
+        0.9938867857072374
+      ],
+      "scope": "One mapped class, predicted among all twenty labels"
+    },
+    "policies": [
+      {
+        "threshold": 0.9581952095031738,
+        "target_validation_accuracy": 0.98,
+        "mapped_intent": {
+          "count": 29,
+          "answered": 26,
+          "correct_answered": 26,
+          "wrong_answered": 0,
+          "declined": 3,
+          "coverage": 0.896551724137931,
+          "accuracy_on_answered": 1.0
+        },
+        "unsupported_groups": {
+          "unsupported_banking": {
+            "count": 120,
+            "false_accepts": 27,
+            "false_accept_rate": 0.225,
+            "declined": 93,
+            "decline_rate": 0.775,
+            "per_class": {
+              "routing": {
+                "count": 30,
+                "false_accepts": 4
+              },
+              "pin_change": {
+                "count": 30,
+                "false_accepts": 14
+              },
+              "interest_rate": {
+                "count": 30,
+                "false_accepts": 4
+              },
+              "credit_score": {
+                "count": 30,
+                "false_accepts": 5
+              }
+            }
+          },
+          "unrelated_topics": {
+            "count": 120,
+            "false_accepts": 23,
+            "false_accept_rate": 0.19166666666666668,
+            "declined": 97,
+            "decline_rate": 0.8083333333333333,
+            "per_class": {
+              "weather": {
+                "count": 30,
+                "false_accepts": 2
+              },
+              "play_music": {
+                "count": 30,
+                "false_accepts": 2
+              },
+              "recipe": {
+                "count": 30,
+                "false_accepts": 7
+              },
+              "book_flight": {
+                "count": 30,
+                "false_accepts": 12
+              }
+            }
+          }
+        }
+      },
+      {
+        "threshold": 1.669316291809082,
+        "target_validation_accuracy": 0.99,
+        "mapped_intent": {
+          "count": 29,
+          "answered": 22,
+          "correct_answered": 22,
+          "wrong_answered": 0,
+          "declined": 7,
+          "coverage": 0.7586206896551724,
+          "accuracy_on_answered": 1.0
+        },
+        "unsupported_groups": {
+          "unsupported_banking": {
+            "count": 120,
+            "false_accepts": 11,
+            "false_accept_rate": 0.09166666666666666,
+            "declined": 109,
+            "decline_rate": 0.9083333333333333,
+            "per_class": {
+              "routing": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "pin_change": {
+                "count": 30,
+                "false_accepts": 11
+              },
+              "interest_rate": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "credit_score": {
+                "count": 30,
+                "false_accepts": 0
+              }
+            }
+          },
+          "unrelated_topics": {
+            "count": 120,
+            "false_accepts": 2,
+            "false_accept_rate": 0.016666666666666666,
+            "declined": 118,
+            "decline_rate": 0.9833333333333333,
+            "per_class": {
+              "weather": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "play_music": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "recipe": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "book_flight": {
+                "count": 30,
+                "false_accepts": 2
+              }
+            }
+          }
+        }
+      },
+      {
+        "threshold": 2.1202011108398438,
+        "target_validation_accuracy": 1.0,
+        "mapped_intent": {
+          "count": 29,
+          "answered": 17,
+          "correct_answered": 17,
+          "wrong_answered": 0,
+          "declined": 12,
+          "coverage": 0.5862068965517241,
+          "accuracy_on_answered": 1.0
+        },
+        "unsupported_groups": {
+          "unsupported_banking": {
+            "count": 120,
+            "false_accepts": 5,
+            "false_accept_rate": 0.041666666666666664,
+            "declined": 115,
+            "decline_rate": 0.9583333333333334,
+            "per_class": {
+              "routing": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "pin_change": {
+                "count": 30,
+                "false_accepts": 5
+              },
+              "interest_rate": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "credit_score": {
+                "count": 30,
+                "false_accepts": 0
+              }
+            }
+          },
+          "unrelated_topics": {
+            "count": 120,
+            "false_accepts": 0,
+            "false_accept_rate": 0.0,
+            "declined": 120,
+            "decline_rate": 1.0,
+            "per_class": {
+              "weather": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "play_music": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "recipe": {
+                "count": 30,
+                "false_accepts": 0
+              },
+              "book_flight": {
+                "count": 30,
+                "false_accepts": 0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "truncated": 0,
+  "wall_seconds_including_model_loading": 19.420754099999613,
+  "environment": {
+    "python": "3.11.15 (main, May 10 2026, 19:31:25) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1",
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 2
+  },
+  "interpretation": "One-class transfer and two unsupported-topic stress groups, not 20-intent accuracy.",
+  "pretraining_exposure": "Independent collection from BANKING77; encoder pretraining exposure has not been ruled out."
+}

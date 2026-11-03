@@ -13,6 +13,14 @@ confirmation. The strictest frozen rule answered 223/300 queries and got 220
 correct: **98.65% accuracy on answered queries at 74.33% coverage**. It declined
 the other 77. Neither full-set nor selective 99–100% accuracy was achieved.
 
+A separate [external CLINC150 check](research/results/external-clinc-v1/README.md)
+now scores **28/29 (96.55%) on one compatible intent**, with all twenty labels
+still competing. The strictest existing margin rule also falsely accepted
+**5/120 unsupported banking requests**. This is a narrow transfer/scope test;
+the all-twenty-intent confirmation remains 94%. See the
+[public-dataset review](research/public-dataset-evaluation.md) for compatibility,
+deduplication and source limitations.
+
 To open the upgraded query demo on the prepared laptop:
 
 ```powershell
@@ -30,7 +38,7 @@ Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficie
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 160 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 169 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -39,12 +47,15 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **3 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest verification](research/results/encoder-representation/verification.json)
-adds three checks for representation-training data boundaries and frozen layers.
+The [latest verification](research/results/external-clinc-v1/verification.json)
+adds nine checks for external data boundaries, mapping, scores, lock integrity,
+and supported/unsupported metric denominators. The prior
+[representation verification](research/results/encoder-representation/verification.json)
+records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **160 passed, 0 failed, 0 skipped** in 14.706 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, and evaluation locks |
+| Full automated suite, Ubuntu WSL2 | **169 passed, 0 failed, 0 skipped** in 18.165 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, and evaluation locks |
 | Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the full suite, not 7 additional unique tests |
 | Locked artifact integrity | **24/24 file hashes matched** | Model/tokenizer assets, selected checkpoint, sources, and evaluation configuration |
 | Live CPU query check | Passed; a fresh pending-card-payment query returned `pending_card_payment` | Functional inference check, not an accuracy benchmark |
@@ -61,6 +72,8 @@ produce skips elsewhere; a smaller passing suite does not reproduce this result.
 | Confirmation macro F1 / worst-domain accuracy | **0.93914 / 88.33%** | Transfers was the weakest domain |
 | Validation accuracy | **95.5% — 191/200 correct** | Reused development set that guided model selection |
 | Strictest frozen clarification policy | **98.65% — 220/223 answered correctly** | **74.33% coverage**; 77/300 queries declined |
+| External CLINC150 mapped-class top-1 | **96.55% — 28/29 correct** | One compatible intent only; not another twenty-intent score |
+| External unsupported banking, strictest frozen margin | **5/120 false accepts (4.17%)** | 115 declined; unrelated-topic group separately had 0/120 false accepts |
 
 See [all confirmation results](research/results/encoder-v2/confirmation-result.json)
 and the [complete experiment report](research/results/encoder-v2/README.md),

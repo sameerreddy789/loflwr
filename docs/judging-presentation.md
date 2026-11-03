@@ -115,6 +115,7 @@ seeds, and accuracy improvements evaluated on a new independent test.”
 | Question | Answer |
 | --- | --- |
 | Did you achieve 100%? | No. The independent result is 94%, with 18 errors. Even the strictest frozen clarification rule made three errors among 223 answers. Its 98.65% result requires the 74.33% coverage figure. |
+| Did you test another dataset? | Yes. After freezing the mapping and model, CLINC150 gave 28/29 correct on its one compatible intent. This is not twenty-intent accuracy. The strictest fixed margin also falsely accepted 5/120 unsupported banking queries, exposing the need for separately evaluated scope detection. |
 | Why change the model? | The bounded task is intent classification. The original generative LoRA experiment performed poorly; stronger sentence representations justified a separately identified head-training variant. Training data also expanded to 2,760 queries, so old and new scores are not a matched aggregation comparison. |
 | Is the final model LoRA? | The demonstrated high-accuracy model trains a classifier head on frozen MPNet features. The original SmolLM2 B-only LoRA and MPNet B-plus-head experiments remain in the repository. Further adapter training did not improve the selected validation accuracy. |
 | What is new? | I am not claiming to have invented LoRA, frozen-A training, equal averaging or clipping. The work integrates update validation, deadlines, quorum commits, fresh rejoining and visible influence, then measures them with matched stress and omission experiments and a locked confirmation test. |

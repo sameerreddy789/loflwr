@@ -99,6 +99,15 @@ it reads no model or live experiment data.
 
 ## Repository checks
 
+[evaluate_external_clinc.py](evaluate_external_clinc.py) prepares and locks the
+fixed CLINC150 subset, then evaluates the unchanged deployed MPNet head. It
+verifies original frozen files, excludes exact BANKING77 overlaps, retains all
+twenty competing labels, and reports supported-class accuracy separately from
+unsupported-topic false accepts. Preparation requires GitHub CLI access;
+inference uses cached local model assets. The delivered v1 plan is immutable.
+See its [protocol](../research/external-clinc-protocol.md) and
+[result/reproduction notes](../research/results/external-clinc-v1/README.md).
+
 ```sh
 python -m unittest discover -s tests -v
 python tools/check_docs.py

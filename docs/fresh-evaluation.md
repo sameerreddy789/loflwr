@@ -5,6 +5,14 @@ been scored. Reusing them can check regressions, but cannot provide a new
 untouched estimate after further model selection. Do not replace the published
 94% result with a score selected from those sets.
 
+The [public-dataset review](../research/public-dataset-evaluation.md) found
+CLINC150 suitable for a limited transfer/scope check. Its
+[completed evaluation](../research/results/external-clinc-v1/README.md) covers
+one compatible intent (28/29 correct) and eight unsupported classes. These
+269 queries are now scored too; they are not a fresh twenty-intent collection.
+None of the reviewed sources supplied a verified directly compatible full-task
+test. The collection procedure below remains the route to that missing evidence.
+
 ## Collection procedure
 
 1. Fix the twenty-intent scope, target population, collection instructions,

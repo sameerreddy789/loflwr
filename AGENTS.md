@@ -7,6 +7,13 @@ variants. The active development adds frozen MPNet plus a federated classifier
 head, followed by shared-A MPNet LoRA B plus a classifier head. Preserve original
 benchmark results and identities; do not mix these variants or call head-only
 training LoRA. See `research/accuracy-recovery-plan.md` and measured run identities.
+The external CLINC150 evaluation in `research/results/external-clinc-v1/` was
+locked and pushed in `23dba1f` before scoring 269 retained queries. It measured
+28/29 correct on one compatible intent, not all-twenty-intent accuracy. Its
+unsupported-topic results are separate. Preserve the protocol, evaluator code,
+fixture tests and locked artifacts; do not tune thresholds, labels or exclusions
+on this now-scored set and claim another untouched result. New evaluation work
+must use separate modules and explicitly identified development/test data.
 Later representation diagnostics in `tools/run_encoder_representation_study.py`
 adapt transformer layers on pooled public training data. They are centralized
 development references, not LoRA, Flower results, or a replacement for the

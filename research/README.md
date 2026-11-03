@@ -10,6 +10,13 @@ also completed. The [final report](results/encoder-v2/README.md) includes advers
 results and all frozen selective policies: none reached 99%. The strictest
 policy achieved 98.65% on answered queries at 74.33% coverage.
 
+The [public-dataset review](public-dataset-evaluation.md) led to a separately
+locked [CLINC150 external test](results/external-clinc-v1/README.md): **28/29
+correct on one compatible intent**, and **5/120 unsupported banking false
+accepts** under the strictest fixed margin rule. It does not replace the
+all-twenty-intent result. No directly compatible full-task public test was found
+among the reviewed candidates.
+
 The [seven-day prototype plan](seven-day-prototype.md), [ideation synthesis](ideation.md),
 and [abstract alignment](abstract-alignment.md) preserve the design process.
 The original SmolLM2/BANKING77/shared-A benchmark and its results remain intact.

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03",
+  "run_id": "external-clinc-v1",
+  "external_lock_hash": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+  "original_confirmation_lock_hash": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+  "original_frozen_files_matched": 24,
+  "external_frozen_files_matched": 36,
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests",
+    "environment": "Ubuntu WSL2 /home/sameer/.venvs/loflwr/bin/python",
+    "passed": 169,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 18.165,
+    "log": "runs/external-clinc-v1-unit-tests.log",
+    "log_sha256": "9c3554425489a4961d4e78c760217c5375d983b249ae823655b1f7dcc5422128"
+  },
+  "artifacts": {
+    "runs/external-clinc-v1/result.json": "d931859d45a4a304436079192539d02f818866759682f6afff168c4aab14f770",
+    "runs/external-clinc-v1/scores.npy": "def28ca5a57415db0729a704511b48a7bb4028d9853997494a97dee98a776f87",
+    "runs/external-clinc-v1/predictions.json": "6625fe38a79411c3c2e52a7de9d596465b2295a3b53564c94d324cb56ba0a588",
+    "research/results/external-clinc-v1/result.json": "043593ef4f36a7c11d0664aa67d0104d662d15cef32b9b97eface12fe327291a"
+  },
+  "interpretation": "Software checks and file integrity are separate from measured model accuracy. No old confirmation queries rescored.",
+  "export": "Result values unchanged; public JSON uses LF line endings for stable Git bytes.",
+  "documentation_checks": {
+    "markdown_files": 46,
+    "project_skills": 4,
+    "broken_local_file_links": 0
+  }
+}
