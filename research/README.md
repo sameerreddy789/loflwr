@@ -2,7 +2,19 @@
 
 **Initial delivery: 20 October 2026. Implementation update: 3 November 2026.** This dossier records the selected design and primary-source review. See the [results register](results/README.md) for measured CPU/GPU and Flower checks, and [implementation status](implementation-status.md) for remaining acceptance gates. The checkpoint constraint is one solo builder with a working demo due in one week.
 
-Start with the [seven-day prototype plan](seven-day-prototype.md). It stages a preliminary comparison before the full evaluation program. The [ideation synthesis](ideation.md) explains the reasoning, and [abstract alignment](abstract-alignment.md) records changes from the newly reviewed GPT-2/WikiText-2/capped-weight proposal. The selected SmolLM2/BANKING77/shared-A design remains active.
+The delivered accuracy variant uses frozen MPNet with a federated twenty-class
+head. It reached **94.0% independent confirmation accuracy (282/300)** after
+selection at **95.5% validation accuracy (191/200)**. All 500 actual Flower
+attempts accepted five clients; a trained-model process dropout and fresh rejoin
+also completed. The [final report](results/encoder-v2/README.md) includes adverse
+results and all frozen selective policies: none reached 99%. The strictest
+policy achieved 98.65% on answered queries at 74.33% coverage.
+
+The [seven-day prototype plan](seven-day-prototype.md), [ideation synthesis](ideation.md),
+and [abstract alignment](abstract-alignment.md) preserve the design process.
+The original SmolLM2/BANKING77/shared-A benchmark and its results remain intact.
+The user-authorized MPNet head and B-plus-head variants have separate identities;
+head-only training is not LoRA.
 
 The [accuracy diagnosis](accuracy-diagnosis.md) combines partial federated
 run and code audits with primary-source research. A copied version-9 checkpoint
@@ -20,18 +32,30 @@ finds 99% top-2 recall; this is not classification accuracy. The review also
 records completed original-scoring federated
 comparisons and suspected annotation issues, keeping these scopes distinct.
 
-The [accuracy recovery plan](accuracy-recovery-plan.md) specifies the next
-encoder/classifier experiments and internal quality gates. Final-checkpoint
+The [accuracy recovery plan](accuracy-recovery-plan.md) records the rationale for
+the now-implemented encoder/classifier experiments and internal quality gates. Final-checkpoint
 scoring corrections reach 52%/63%/58.5% validation for sample/equal/clipped;
 the [seven-configuration pilot](results/pilot-r2-20261103/README.md) is complete,
-including an unfavorable/null weak-client omission comparison. Neither is a
-completed high-accuracy federated model or the full multi-seed study.
+including an unfavorable/null weak-client omission comparison. Those original
+LoRA results must not be mixed with the expanded-data MPNet result. The full
+multi-seed study and deployment across three physical laptops remain incomplete.
 
-## Recommendation
+## Original recommendation and delivered variant
 
 Build a small English banking-support system that trains across ordinary laptops, shares only adapter updates, exposes survivor aggregation coefficients, and recovers when a participant disappears during training. Use SmolLM2-135M-Instruct, Flower's ClientApp/ServerApp architecture, and a shared frozen-A adapter with B-only updates.
 
-The bounded task has 20 BANKING77 intents across five domains. Predict an allowed intent by scoring its completion; map the prediction to a team-authored response. This makes task quality measurable and avoids treating unrestricted generated banking advice as the product.
+That original benchmark is implemented and preserved. For the working query
+demo, use the delivered frozen-MPNet classifier head: 15,380 trainable parameters
+and 61,520 raw FP32 bytes per direction. Its clients load separate feature
+archives, but those public-data features were prepared centrally before
+partitioning. This is not evidence of distributed feature preparation or
+physical isolation. The separate frozen-A MPNet adapter trial did not improve
+validation accuracy and remains reported.
+
+The bounded task has 20 BANKING77 intents across five domains. The original
+LoRA model scores intent completions; the delivered encoder uses a 20-class
+head. Both map a predicted intent to a team-authored response. This makes task
+quality measurable and keeps generated banking advice outside the product.
 
 The deployment target is three laptops with CPU clients having at least 8 GB RAM. The main benchmark has five simulated clients. These experiments must be reported separately. Use WSL2 and one GPU training worker at a time for the single-machine benchmark.
 

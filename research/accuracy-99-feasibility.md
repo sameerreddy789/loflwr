@@ -1,5 +1,20 @@
 # Can FedLoRA-Edge reach 99% accuracy?
 
+**Final update, 3 November 2026:** the implemented actual five-client Flower
+head reached **95.5% validation (191/200)** and **94.0% independent confirmation
+(282/300)**. The model, assets, scoring sources and margin thresholds were
+locked in commit `7413e6b` before the 300 previously unscored queries were
+opened. The strictest fixed clarification rule answered 223 queries, with 220
+correct: **98.65% answered accuracy at 74.33% coverage**. No overall or selective
+rule achieved 99–100%. [The final report](results/encoder-v2/README.md) preserves
+all outcomes, including adapter trials with no accuracy gain.
+
+The remaining sections preserve the original feasibility investigation and its
+reference experiments. They motivated the separate encoder implementation;
+they are not new claims about the final checkpoint. The scored confirmation
+split is now evaluation evidence, not tuning data. A future model selection
+cycle needs a new independently held-out evaluation set.
+
 Review date: **3 November 2026**. We ran twelve stronger task-reference checks;
 the best achieved **95.5% validation accuracy, 191/200**, using frozen MPNet
 embeddings and 2,760 eligible training examples. None reached 99% top-1 accuracy.
@@ -13,7 +28,7 @@ It remains possible in principle on a finite sample, but these experiments do
 not establish an intrinsic ceiling or show that a future model will reach it.
 
 The [accuracy recovery plan](accuracy-recovery-plan.md) turns these findings
-into a separate proposed encoder/classifier experiment, including local-data
+into the separately implemented encoder/classifier experiment, including local-data
 ownership, an adapter-learning variant, and explicit decision gates. The
 original seven-configuration pilot and final-checkpoint scoring diagnostics are
 now complete; the full multi-seed program is not.
@@ -22,7 +37,8 @@ now complete; the full multi-seed program is not.
 
 | Claim | What it actually requires |
 | --- | --- |
-| 99% on the fixed final test | At least 495 correct out of 500 queries, with all twenty labels available |
+| 99% on the original fixed final test | At least 495 correct out of 500 queries, with all twenty labels available |
+| 99% on the new confirmation split | At least 297 correct out of 300; the fixed model scored 282 |
 | 99% on validation | At least 198 correct out of 200; useful for development, not independent final confirmation |
 | 99% among automatically answered queries | A selective-prediction metric; also report how many queries were answered and deferred |
 | 99% on future users | Evidence from representative future data; a finite benchmark score alone does not establish it |
@@ -35,17 +51,18 @@ selection on validation, fixed class stratification, or domain shift. In
 particular, observing 99% is not the same as establishing a population accuracy
 of at least 99%.
 
-Our test is balanced at 100 queries per domain. With at most five errors in
-total, even the weakest domain would need at least 95/100 correct. The main
-system currently gets 14/100 correct in its weakest domain. Closing that gap
+The original test is balanced at 100 queries per domain. With at most five errors in
+total, even the weakest domain would need at least 95/100 correct. The original
+SmolLM2 main run gets 14/100 correct in its weakest domain. Closing that gap
 requires substantially better generalization, not just rounding an aggregate
 percentage or changing the weighting display.
 
 This is also a closed-set benchmark: every evaluated query belongs to one of
 the twenty supported intents. Even a 99% score here would not establish 99%
 accuracy on arbitrary banking questions, unsupported intents or unrelated text.
-The current query interface always chooses a supported label; out-of-scope
-detection and clarification need their own evaluation.
+The original query interface always chooses a supported label. The new encoder
+demo can decline low-margin predictions, but this does not reliably detect all
+unsupported requests. Clarification accuracy and coverage are measured separately.
 
 ## What our evidence says now
 
@@ -164,22 +181,22 @@ benchmark or a claim about end-to-end inference latency.
 
 Reaching 99% on this validation set would mean fixing **seven of the remaining
 nine errors without introducing any new ones**. The data-rich reference is much
-stronger than the current generative setup, but neither this gap nor its score
+stronger than the original generative setup, but neither this gap nor its score
 proves that 99% is achievable or impossible. These are centralized references;
-the 95.5% score must not be attributed to the federated model.
+this reference score must not be attributed to the separately trained federated
+model, whose later 95.5% validation result has its own evidence.
 
 **The best lookup score is not the easiest federated design to transfer.**
 Nearest-example retrieval keeps an index of individual training embeddings;
 centralizing that index is different from sending fixed-size model updates.
 The MPNet logistic classifier reaches **94%** with the same expanded data and
-has a natural parameter-update interface. A proposed twenty-way linear head on
-768-dimensional features would have `(768 + 1) * 20 = 15,380` parameters, or
-about 60.1 KiB in FP32 before transport overhead. That is arithmetic for a
-possible design, not a measured federated implementation or payload. Clients
-could compute their features locally and share head updates, but its actual
-federated quality, privacy boundary and weak-client contribution would need
-testing. It would be a declared architecture variant, not the current B-only
-SmolLM2 experiment.
+has a natural parameter-update interface. The proposed twenty-way linear head on
+768-dimensional features has `(768 + 1) * 20 = 15,380` parameters, or about 60.1
+KiB in FP32 before transport overhead. That design is now implemented and its
+separate [federated evidence](results/encoder-v2/README.md) reports quality,
+payload, dropout and weak-client contribution. Clients loaded separate feature
+archives; the public-data features were prepared centrally before partitioning.
+The head is an explicitly declared architecture variant, not B-only SmolLM2 LoRA.
 
 To reproduce with the prepared CPU environment, first download only the pinned
 reference assets (not every export format in the model repository):
@@ -317,7 +334,7 @@ intent semantics, but does not establish a numerical label-noise ceiling.
 | Product extension | Ask for clarification or defer uncertain queries | A wrong banking answer is costlier than an honest clarification | Precision, coverage and rejection behavior separately; never rename selective precision as overall accuracy |
 
 A trainable classifier head, a different encoder, different verbalizers, larger
-rank or a server optimizer is a design change. The active SmolLM2/shared-A/B-only
+rank or a server optimizer is a design change. The original SmolLM2/shared-A/B-only
 contract must remain intact during its frozen comparison. Prepare a new
 configuration and adapter identity for any adoption; do not attribute several
 simultaneous changes to one algorithm.
@@ -346,13 +363,12 @@ the objective, influence and generalization rather than only lengthening trainin
    Report accuracy and worst-domain accuracy under dropout and unequal work,
    rather than making 99% the sole definition of a successful federation system.
 
-The immediate recommendation is to keep the original federation study as
-engineering evidence, retain the completed scoring correction results, and
-prioritize the balanced-data experiment. If classification
-quality is the main objective, the sentence-encoder results justify a separately
-specified encoder/classifier or discriminative fine-tuning prototype. A clean,
-independently reviewed confirmation set is needed before a 99% claim. Do not
-replace the current B-only contract or relabel the benchmark silently.
+The original recommendation was to retain the federation study and scoring
+corrections, then build the separately specified encoder/classifier prototype.
+That work and its locked confirmation are now complete. It delivers 94%
+independent accuracy, not 99%. Preserve both the original B-only evidence and
+the encoder results, including failures; do not adjust labels, exclude errors,
+or tune thresholds on the scored confirmation to manufacture a higher result.
 
 ## Source review and access limits
 

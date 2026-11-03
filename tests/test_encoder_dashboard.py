@@ -82,14 +82,16 @@ class EncoderDashboardTests(unittest.TestCase):
         self.fixture()
         saved = json.loads((self.root / "selected/checkpoint.json").read_text())
         policy_file = self.root / "policy.json"
-        policy_file.write_text(json.dumps({"head_hash": saved["b_hash"],
+        policy_file.write_text(json.dumps({"head_hash": saved["b_hash"], "run_id": saved["run_id"],
+            "kind": "validation_calibrated_margin_policies", "split": "reused_validation",
+            "manifest_hash": "fixture", "validation_records_hash": "fixture",
             "policies": [{"target_validation_accuracy": 1., "threshold": 2.}]}))
         class FixturePredictor:
             def query(self, text):
                 return {"intent": "card_arrival", "response": "DO NOT DISPLAY THIS FIXTURE RESPONSE",
                     "candidates": [{"Intent": "card_arrival", "Uncalibrated logit": 2.},
                                    {"Intent": "card_delivery_estimate", "Uncalibrated logit": 1.}],
-                    "seconds": 0., "truncated": False}
+                    "seconds": 0., "truncated": False, "head_hash": saved["b_hash"]}
         with patch("fedlora_edge.encoder_inference.EncoderPredictor", return_value=FixturePredictor()):
             app = self.app()
             next(w for w in app.text_input if w.label == "Margin policy file (optional)").set_value(str(policy_file)).run()
@@ -98,6 +100,38 @@ class EncoderDashboardTests(unittest.TestCase):
             self.assertEqual(len(app.exception), 0)
             self.assertTrue(any(h.value == "More detail needed" for h in app.subheader))
             self.assertFalse(any("DO NOT DISPLAY" in p.value for p in app.markdown))
+
+
+    def test_confirmed_policy_cannot_silently_change_threshold_or_split(self):
+        from fedlora_edge.encoder_dashboard import load_margin_threshold
+        original = json.loads((APP.parents[1] / "research/results/encoder-v2/final-policy.json").read_text())
+        saved = {"b_hash": original["head_hash"], "run_id": original["run_id"]}
+        path = self.root / "policy.json"
+        path.write_text(json.dumps(original))
+        self.assertEqual(load_margin_threshold(path, saved), 2.1202011108398438)
+        for field, value in (("split", "confirmation"), ("manifest_hash", "wrong")):
+            changed = dict(original, **{field: value})
+            path.write_text(json.dumps(changed))
+            with self.assertRaises(ValueError):
+                load_margin_threshold(path, saved)
+        original["policies"][-1]["threshold"] += 1.
+        path.write_text(json.dumps(original))
+        with self.assertRaisesRegex(ValueError, "frozen"):
+            load_margin_threshold(path, saved)
+
+    def test_validation_result_cannot_be_displayed_as_confirmation(self):
+        from fedlora_edge.encoder_dashboard import confirmation_for
+        path = self.root / "research/results/encoder-v2/confirmation-result.json"
+        path.parent.mkdir(parents=True)
+        result = {"status": "completed", "head_hash": "fixture", "config_hash": "fixture",
+                  "split": "previously_unscored_confirmation"}
+        saved = {"b_hash": "fixture", "config_hash": "fixture"}
+        with patch("fedlora_edge.encoder_dashboard.ROOT", self.root):
+            path.write_text(json.dumps(result))
+            self.assertIsNotNone(confirmation_for(saved))
+            result["split"] = "validation"
+            path.write_text(json.dumps(result))
+            self.assertIsNone(confirmation_for(saved))
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 param(
     [string]$Python = '',
     [int]$Port = 8511,
-    [string]$RunDirectory = 'runs/encoder-flower-fullbatch5-v1',
+    [string]$RunDirectory = 'runs/encoder-flower-balanced-v2',
     [string]$PolicyFile = ''
 )
 $ErrorActionPreference = 'Stop'

@@ -1,8 +1,38 @@
 # Morning demo on the prepared laptop
 
-This guide is for the first hands-on check of the one-laptop prototype. It uses the existing local model, adapter, data, and Python environments. Five clients in the run are logical participants sharing one GPU worker. The three-physical-laptop deployment remains a later rehearsal.
+This guide uses the existing assets and environments on the prepared laptop.
+Five clients are logical participants on this machine. Physical multi-laptop
+deployment remains a separate rehearsal.
 
-## 1. Open the saved evidence
+## Start with the final encoder demo
+
+```powershell
+Set-Location D:\Hackathons\loflwr
+.\tools\start_encoder_demo.ps1 -PolicyFile research/results/encoder-v2/final-policy.json
+```
+
+Open <http://127.0.0.1:8511>. If this demo is already running, open that address
+directly. The default is the actual Flower run `encoder-flower-balanced-v2`,
+selected version 500. It uses frozen MPNet and a federated classifier head.
+
+1. Show **94% independent confirmation accuracy (282/300)** and **95.5% reused
+   validation accuracy (191/200)**. Neither is a 99–100% result.
+2. Ask a fresh banking question. The frozen clarification policy withholds
+   low-margin responses. It achieved 220/223 correct answered queries (98.65%)
+   at 74.33% coverage on confirmation, declining 77/300.
+3. Open **Training evidence** and inspect client weights and completed steps.
+4. For recorded dropout evidence, select `runs/encoder-flower-trained-recovery-v2`
+   and clear the policy field. Attempt 2 accepted four survivors after a real
+   client process was killed; attempt 3 accepted all five after fresh sync.
+   All three retained 95.5% validation accuracy. Label this recorded recovery.
+5. Restore the default run and policy for final query inference.
+
+See [the encoder guide](encoder-demo.md) for exact behavior and
+[the final evidence](../research/results/encoder-v2/README.md) for limits.
+The original LoRA workflow is preserved below for comparison; it has different
+model/data identities and much lower task accuracy.
+
+## Original LoRA workflow: 1. Open the saved evidence
 
 Open [http://127.0.0.1:8510](http://127.0.0.1:8510). If the dashboard is not running, start it from PowerShell:
 

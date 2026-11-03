@@ -2,6 +2,35 @@
 
 Last updated: **3 November 2026**. This is the prototype handoff status. Detailed published measurements belong in the [results register](results/README.md); ignored run files remain on the prepared laptop.
 
+## Delivered accuracy variant
+
+The selected frozen-MPNet/federated-head model scored **94.0% on independent
+confirmation (282/300)**, following **95.5% validation (191/200)**. Model, assets,
+scoring sources and all optional margin rules were frozen in commit `7413e6b`
+before confirmation. The strictest rule achieved **98.65% on 223 answered
+queries**, or **74.33% coverage**; no frozen rule reached 99%. Further tuning
+requires a new independently held-out evaluation set. See the
+[complete report and locked results](results/encoder-v2/README.md).
+
+| Component | Current evidence |
+| --- | --- |
+| Actual Flower head training | `encoder-flower-balanced-v2`, selected version 500; all 500 attempts committed with five clients. The head has 15,380 parameters / 61,520 raw FP32 bytes per direction. |
+| Unequal budgets and clipping | Matched 500-attempt runs with budgets `[1,4,2,2,1]` reached 95.5% validation with equal averaging and with median clipping. |
+| Weak-client contribution | One paired seed: omitting client 4 reduced validation from 95.5% to 77.5%, and its verification domain from 90% to 0%. This does not establish multi-seed significance. |
+| Original 90% data imbalance | The separate 400-example head study reached best validation 72% sample-weighted, 78.5% equal, and 79% clipped. One-query differences do not establish clipping superiority. |
+| Trained-model recovery | `encoder-flower-trained-recovery-v2`: client 1 killed during attempt 2; four survivors committed with weights 0.25; all five rejoined with fresh state in attempt 3. Collection took 10.27/6.83/1.78 seconds under a 60-second deadline. Validation stayed 95.5%. |
+| Adapter variant | Shared frozen-A MPNet B-plus-head CPU/GPU invariants passed. Further federated/centralized adapter trials did not exceed 95.5% validation; the federated trial selected its initial checkpoint. |
+| Offline query demo | Pinned local MPNet and selected Flower head, published aggregate confirmation, recorded client evidence, and optional frozen clarification rule. CPU inference exactly reproduced the 200 cached validation predictions. |
+
+The full WSL suite passed **157 tests, zero skips**. Seven dashboard checks also
+passed after adding confirmation display. These tests do not score confirmation
+queries. Only one physical laptop was available; feature preparation used a
+central public reference cache before partitioning into client archives.
+
+## Original SmolLM2 benchmark
+
+The following preserves the separate B-only LoRA implementation and evidence.
+
 ## Implemented and exercised
 
 | Component | Current evidence |
@@ -16,7 +45,7 @@ Last updated: **3 November 2026**. This is the prototype handoff status. Detaile
 | Study launcher | Pilot/full plans, immutable configuration/asset/source identities, sequential execution, bounded process lifetime, resume, and explicit incomplete states are implemented and unit tested. A shorter horizon is calibration and cannot access final test. |
 | Dashboard and reports | Saved events, work/traffic, coefficients/clipping, quality, replay, evidence downloads, and checkpoint-backed CPU queries are implemented. The Windows launcher uses offline model settings and binds localhost. Reader and Streamlit fixture checks exist. |
 
-The full WSL2 environment passed **115 tests with no skips** on 3 November 2026. This includes interrupted-attempt recovery, stable dashboard run selection, transient progress-file replacement handling, and validation-reference/candidate-recall safeguards. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
+The earlier original-benchmark WSL2 suite passed **115 tests with no skips** on 3 November 2026; the later 157-test suite above includes encoder checks. The original checks cover interrupted-attempt recovery, stable dashboard run selection, transient progress-file replacement handling, and validation-reference/candidate-recall safeguards. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
 
 The seed-42 pilot has completed frozen-base, centralized B-only, sample-weighted,
 equal-weighted, equal-plus-clipping and scripted-dropout runs. Final-test accuracy
@@ -31,8 +60,8 @@ for work, identities and limitations.
 A separate [accuracy feasibility study](accuracy-99-feasibility.md) reaches
 95.5% top-1 validation accuracy using centralized frozen MPNet retrieval with
 expanded training data. Its 99% top-2 candidate recall is not classification
-accuracy. Neither score belongs to the federated model, and neither is an
-independent final-test result.
+accuracy. These reference scores are centralized validation results; the
+separate final federated model and confirmation result are reported above.
 
 ## Traceable local checks
 
@@ -54,7 +83,7 @@ These are execution checks. A small smoke loss change or a single post-round acc
 | Gate | Evidence still required |
 | --- | --- |
 | Frozen comparative study | All seven pilot configurations completed their fixed horizons and final tests. The declared multi-seed/data/work matrix remains outstanding; successful execution does not establish high task accuracy. |
-| Useful weak-client participation | Matched omission runs and paired seed differences, including negligible or unfavorable effects. Nonzero updates alone do not prove utility. |
+| Useful weak-client participation | One paired encoder seed demonstrates a benefit; the original LoRA pair was null/unfavorable. Multi-seed paired differences remain outstanding. Nonzero updates alone do not prove utility. |
 | Actual interruption and recovery | Real Ray rehearsal passed process kill, below-quorum B retention, and all-five-client fresh rejoining. [TLS rehearsal](results/tls-node-recovery.json) also passed full SuperNode process-tree termination, two-survivor commit, and fresh rejoin. These are same-host tests. The 60-second Ray deadline missed cold/queued work, so the frozen comparative pilot declares 300 seconds. |
 | Fresh offline startup | Fresh CPU inference and fresh three-node local TLS deployment passed inside a loopback-only network namespace. The deployment committed with two accepted updates; one client missed its deadline. See [offline deployment evidence](results/offline-deployment.json). Physical-laptop deployment remains untested. |
 | Three physical laptops | Measured CPU budgets and whole-process memory, LAN/TLS/known-node setup, real device loss/rejoin, and a fresh start with internet disconnected. Logical clients on one laptop do not satisfy this gate. |

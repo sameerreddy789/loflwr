@@ -8,8 +8,13 @@ head, followed by shared-A MPNet LoRA B plus a classifier head. Preserve origina
 benchmark results and identities; do not mix these variants or call head-only
 training LoRA. See `research/accuracy-recovery-plan.md` and measured run identities.
 The 300-query confirmation split in `assets/encoder-bank20-v1/confirmation.json`
-is unscored at preparation; do not evaluate it until model/configuration selection
-is explicitly frozen. Validation remains the reused 200-query development split.
+was scored on 3 November after locking model/configuration and all margin rules
+in commit `7413e6b` (lock `81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681`).
+The fixed Flower head scored 94% (282/300). This is now evaluation evidence,
+not tuning data. Do not change the model, thresholds, labels or exclusions based
+on these results and claim another untouched confirmation result. Further model
+selection needs a new independently held-out evaluation set. Validation remains
+the reused 200-query development split. Keep original negative results.
 `research/reference-team-brief/` preserves an earlier Qwen/77-intent/capped-weight
 proposal. Do not treat it as the active specification.
 

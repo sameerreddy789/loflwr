@@ -1,0 +1,176 @@
+{
+  "config_hash": "8c0c26475a2e8952edc99028b8e330af87f21d4943e50d78429cb51c9d7d6504",
+  "correct": 282,
+  "errors": 18,
+  "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "interpretation": "Report all 300. Do not tune against this result; a finite sample is not a population guarantee.",
+  "lock_hash": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+  "metrics": {
+    "accuracy": 0.94,
+    "count": 300,
+    "cross_entropy": 0.22889530236151548,
+    "domain_gap": 0.08333333333333337,
+    "macro_f1": 0.9391419348607075,
+    "per_domain_accuracy": {
+      "Account verification": 0.9666666666666667,
+      "Card lifecycle": 0.9333333333333333,
+      "Card payments": 0.9666666666666667,
+      "Cash withdrawals": 0.95,
+      "Transfers": 0.8833333333333333
+    },
+    "per_intent": {
+      "activate_my_card": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9655172413793104,
+        "support": 15
+      },
+      "cancel_transfer": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "card_about_to_expire": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "card_arrival": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.875,
+        "support": 15
+      },
+      "card_delivery_estimate": {
+        "accuracy": 0.8666666666666667,
+        "f1": 0.896551724137931,
+        "support": 15
+      },
+      "card_payment_not_recognised": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9333333333333333,
+        "support": 15
+      },
+      "cash_withdrawal_not_recognised": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9032258064516129,
+        "support": 15
+      },
+      "declined_card_payment": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9333333333333333,
+        "support": 15
+      },
+      "declined_cash_withdrawal": {
+        "accuracy": 1.0,
+        "f1": 0.967741935483871,
+        "support": 15
+      },
+      "edit_personal_details": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "pending_card_payment": {
+        "accuracy": 1.0,
+        "f1": 0.9375,
+        "support": 15
+      },
+      "pending_cash_withdrawal": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "pending_transfer": {
+        "accuracy": 0.6,
+        "f1": 0.75,
+        "support": 15
+      },
+      "transaction_charged_twice": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "transfer_fee_charged": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "transfer_not_received_by_recipient": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.8235294117647058,
+        "support": 15
+      },
+      "unable_to_verify_identity": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9655172413793104,
+        "support": 15
+      },
+      "verify_my_identity": {
+        "accuracy": 0.9333333333333333,
+        "f1": 0.9655172413793104,
+        "support": 15
+      },
+      "why_verify_identity": {
+        "accuracy": 1.0,
+        "f1": 0.9375,
+        "support": 15
+      },
+      "wrong_amount_of_cash_received": {
+        "accuracy": 0.8666666666666667,
+        "f1": 0.9285714285714286,
+        "support": 15
+      }
+    },
+    "worst_domain_accuracy": 0.8833333333333333
+  },
+  "nominal_wilson_95": [
+    0.9071605548470915,
+    0.9617136304753079
+  ],
+  "records_hash": "0f64d98ee438f308f5bee8667a310c435040c12569cc7ae3bca430b40812c3ca",
+  "run_id": "encoder-flower-balanced-v2",
+  "selective_results": [
+    {
+      "confirmation_abstained": 25,
+      "confirmation_accuracy_on_answered": 0.96,
+      "confirmation_answered": 275,
+      "confirmation_correct_answered": 264,
+      "confirmation_coverage": 0.9166666666666666,
+      "target_validation_accuracy": 0.98,
+      "threshold": 0.9581952095031738,
+      "validation_accuracy_on_answered": 0.9836956521739131,
+      "validation_answered": 184,
+      "validation_coverage": 0.92
+    },
+    {
+      "confirmation_abstained": 53,
+      "confirmation_accuracy_on_answered": 0.9757085020242915,
+      "confirmation_answered": 247,
+      "confirmation_correct_answered": 241,
+      "confirmation_coverage": 0.8233333333333334,
+      "target_validation_accuracy": 0.99,
+      "threshold": 1.669316291809082,
+      "validation_accuracy_on_answered": 0.9940119760479041,
+      "validation_answered": 167,
+      "validation_coverage": 0.835
+    },
+    {
+      "confirmation_abstained": 77,
+      "confirmation_accuracy_on_answered": 0.9865470852017937,
+      "confirmation_answered": 223,
+      "confirmation_correct_answered": 220,
+      "confirmation_coverage": 0.7433333333333333,
+      "target_validation_accuracy": 1.0,
+      "threshold": 2.1202011108398438,
+      "validation_accuracy_on_answered": 1.0,
+      "validation_answered": 157,
+      "validation_coverage": 0.785
+    }
+  ],
+  "split": "previously_unscored_confirmation",
+  "status": "completed",
+  "top2_candidate_recall": 0.9866666666666667,
+  "truncated": 0,
+  "wall_seconds_including_model_loading": 46.94956269999966,
+  "source_sha256": "054d18f01e8c031951e1fbbc8ae8e522f11088a8bc429641f84b3c63c190f071",
+  "source_file": "runs\\encoder-confirmation-v2\\result.json"
+}

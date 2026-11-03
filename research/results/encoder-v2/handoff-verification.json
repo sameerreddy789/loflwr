@@ -1,0 +1,58 @@
+{
+  "kind": "final_handoff_verification",
+  "created_utc": "2026-11-03T11:19:01.617262+00:00",
+  "run_id": "encoder-flower-balanced-v2",
+  "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "config_hash": "8c0c26475a2e8952edc99028b8e330af87f21d4943e50d78429cb51c9d7d6504",
+  "lock_hash": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+  "locked_files_verified": 24,
+  "checks": {
+    "full_wsl": {
+      "tests": 157,
+      "skips": 0,
+      "result": "passed",
+      "source": "runs\\encoder-balanced-v2\\handoff-unit-tests.log",
+      "source_sha256": "d6097fc217e8625dd957bac1c5511c1582f2e12f2137e1481ebd4b1821eb323b"
+    },
+    "dashboard_cpu": {
+      "tests": 7,
+      "skips": 0,
+      "result": "passed",
+      "source": "runs\\encoder-balanced-v2\\handoff-dashboard-tests.log",
+      "source_sha256": "b48be4d9999daa2fda90667c20442d797ee01e83340f313e073e20e2b2f15401"
+    }
+  },
+  "live_dashboard_smoke": {
+    "kind": "live_cpu_dashboard_smoke_not_an_accuracy_evaluation",
+    "run_id": "encoder-flower-balanced-v2",
+    "query": "My card payment is still pending.",
+    "subheaders": [
+      "What do you need help with?",
+      "Pending card payment",
+      "Locked confirmation evaluation",
+      "Measured validation result",
+      "Recorded client participation",
+      "Card lifecycle",
+      "Card payments",
+      "Transfers",
+      "Cash withdrawals",
+      "Account verification"
+    ],
+    "confirmation_display": [
+      "**Independent confirmation: 94.0% accuracy** (282/300)."
+    ],
+    "policy": "research/results/encoder-v2/final-policy.json",
+    "wall_seconds_including_loading": 18.5,
+    "errors": [],
+    "network_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    }
+  },
+  "live_dashboard_source_sha256": "fc2d0da68e3a6df428aeadb69bb67f81b0369ee0f2cc8227c710ec220d3723b9",
+  "limitations": [
+    "UI smoke is not an accuracy evaluation.",
+    "Offline flags and local-only model loading do not replace the separately published network-disabled inference experiment.",
+    "Five clients share one physical laptop."
+  ]
+}

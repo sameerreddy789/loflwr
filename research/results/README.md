@@ -1,9 +1,15 @@
 # Measured results
 
-The [class-balanced head report](encoder-v2/README.md) adds 95.5% sequential
-federated validation accuracy, live inference parity, and remaining-error analysis.
+The [class-balanced head report](encoder-v2/README.md) records **94.0% independent
+confirmation accuracy (282/300)** and **95.5% validation accuracy (191/200)** for
+the selected actual five-client Flower head, version 500. The model and all
+margin rules were locked in commit `7413e6b` before confirmation. The strictest
+rule answered 223/300 queries with 220 correct: **98.65% at 74.33% coverage**.
+No rule reached 99%. See the [aggregate confirmation result](encoder-v2/confirmation-result.json),
+matched stress comparisons, weak-client omission and trained-model dropout/rejoin
+in that report. Head-only training is distinct from the original LoRA benchmark.
 
-The [encoder recovery report](encoder-v1/README.md) records the newer 92.5%
+The [encoder recovery report](encoder-v1/README.md) preserves the earlier 92.5%
 validation result from actual five-client Flower head training, centralized
 references, local process recovery, and the adapter trial with no accuracy gain.
 

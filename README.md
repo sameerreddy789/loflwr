@@ -1,18 +1,22 @@
 # FedLoRA-Edge
 
 **Current measured result, 3 November:** the frozen-MPNet/federated-head variant
-reached **95.5% validation accuracy (191/200)** through actual five-client Flower
-training. Every one of 500 attempts accepted all five clients. Unequal-budget
-and clipping comparisons also reached 95.5%; a real process dropout and rejoin
-preserved that score. See the [complete evidence](research/results/encoder-v2/README.md)
-and [remaining-error analysis](research/encoder-error-analysis.md). Validation
-was reused for model selection. The selected model and thresholds are locked
-for a separate 300-query confirmation evaluation; no 99% all-query claim is made.
+scored **94% on independent confirmation (282/300)** and **95.5% on validation
+(191/200)**. Its actual five-client Flower run completed 500 attempts. Unequal-budget
+and clipping comparisons also reached 95.5% validation; a real process dropout
+and rejoin preserved that validation score. See the
+[complete evidence](research/results/encoder-v2/README.md) and
+[remaining-error analysis](research/encoder-error-analysis.md).
+
+The model and clarification thresholds were locked in commit `7413e6b` before
+confirmation. The strictest frozen rule answered 223/300 queries and got 220
+correct: **98.65% accuracy on answered queries at 74.33% coverage**. It declined
+the other 77. Neither full-set nor selective 99–100% accuracy was achieved.
 
 To open the upgraded query demo on the prepared laptop:
 
 ```powershell
-.\tools\start_encoder_demo.ps1 -RunDirectory runs/encoder-flower-balanced-v2
+.\tools\start_encoder_demo.ps1 -PolicyFile research/results/encoder-v2/final-policy.json
 ```
 
 Open <http://127.0.0.1:8511>. The [encoder demo guide](docs/encoder-demo.md)
@@ -22,7 +26,7 @@ Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficie
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 155 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 157 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -31,18 +35,21 @@ The [99% feasibility investigation](research/accuracy-99-feasibility.md) reports
 2,760 training queries. None of its twelve fixed reference checks reached 99%
 top-1 accuracy. A post-hoc check reached 99% **top-2 candidate recall**, meaning
 the correct label is among two suggestions; no reranker has achieved 99% accuracy.
-This is not the federated model's score: the completed seed-42 original-scoring
-test gives 24.6% for sample weighting, 35.4% for equal weighting, and 34.4% for
-equal weighting plus clipping. The [scoring investigation](research/accuracy-diagnosis.md)
+Those were centralized reference checks. In the historical SmolLM2 LoRA
+benchmark, the completed seed-42 original-scoring test gives 24.6% for sample
+weighting, 35.4% for equal weighting, and 34.4% for equal weighting plus clipping.
+The [scoring investigation](research/accuracy-diagnosis.md)
 also records a separate validation correction from 34.5% to 64.5% at version 9.
 
 All seven configurations in the [seed-42 pilot](research/results/pilot-r2-20261103/README.md)
 have now completed. The same scoring correction on final sample/equal/clipped
 checkpoints reaches 52%/63%/58.5% validation accuracy. The
-[accuracy recovery plan](research/accuracy-recovery-plan.md) proposes a separately
-measured encoder/classifier variant; the deployed B-only contract remains unchanged.
+[accuracy recovery plan](research/accuracy-recovery-plan.md) led to the separately
+measured encoder/classifier variant reported above. The original B-only contract
+and results are preserved. Training data and architecture changed, so the old
+and new scores are not a matched aggregation comparison.
 
-## Open the prepared demo
+## Open the original LoRA console
 
 From PowerShell on the current laptop:
 
@@ -129,7 +136,11 @@ The [research overview](research/README.md), [system design](research/system-des
 
 Equal survivor coefficients address server weighting. They do not guarantee equal domain accuracy or remove participation bias. FedProx is a local drift penalty, not an influence cap. Below-quorum attempts must remain visible and retain the previous committed model.
 
-The query interface always selects one of twenty labels, including for unrelated text. Its completion scores are not calibrated confidence. Responses are demonstration content; the application has no bank account access and performs no banking actions.
+Both models rank twenty supported labels. The encoder console can ask for more
+detail on low-margin queries when the frozen policy is enabled; that is not a
+general unsupported-request detector. Logits and completion scores are not
+calibrated confidence. Responses are demonstration content; the application
+has no bank account access and performs no banking actions.
 
 Data locality is the privacy boundary. Adapter updates can leak information. Differential privacy, secure aggregation, and malicious-client robustness are not established. Do not commit credentials, model weights, datasets, caches, or raw run directories. Published measurements must carry their run/configuration/model/manifest identities and include unfavorable results.
 

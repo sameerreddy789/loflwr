@@ -1,5 +1,12 @@
 # Class-balanced encoder head
 
+**Final confirmation, 3 November 2026: 94.0% accuracy (282/300), with 18 errors.**
+The selected actual Flower head is version 500 of `encoder-flower-balanced-v2`.
+Its 95.5% validation score guided selection; the separate, previously unscored
+300-query confirmation set was opened only after the model, assets, scoring
+sources and all margin rules were locked in commit `7413e6b`.
+Neither overall nor selective answering reached 99–100% on confirmation.
+
 ![Measured validation learning curves](learning-curves.png)
 
 The actual five-client Flower head reached **95.5% (191/200) validation accuracy**
@@ -42,8 +49,12 @@ Its predictions match centralized logistic C10 exactly. Worst-domain accuracy is
 
 The [offline demo](../../../docs/encoder-demo.md) supports this run, actual Flower
 head runs, live questions and recorded training evidence. The full WSL test
-suite passed **155 tests, zero skips**. Model selection and all three optional
-margin thresholds are now [locked before confirmation](confirmation-plan.json).
+suite passed **157 tests, zero skips**. Model selection and all three optional
+margin thresholds were [locked before confirmation](confirmation-plan.json).
+The [completed aggregate result](confirmation-result.json) preserves every
+fixed policy outcome; the [frozen policy](final-policy.json) remains unchanged.
+The [handoff verification](handoff-verification.json) records seven passing CPU
+dashboard checks, a fresh live query, and rechecked hashes of every locked file.
 
 - [All three frozen head trials](head-trials.json)
 - [Live versus cached inference](live-parity.json)
@@ -87,9 +98,44 @@ retains every scheduled evaluation and frozen-base/A checks.
 A [validation-only margin diagnostic](selective-diagnostic.json) found 166/167
 correct answers (99.40%) at 83.5% coverage, or 157/157 correct answers at 78.5%
 coverage. The remaining queries were declined, not counted correct. Full-set
-accuracy remains **95.5%**. These thresholds were selected on reused validation
-and have not yet been validated on fresh queries. They do not meet an
-unqualified 99–100% all-query accuracy claim.
+validation accuracy remains **95.5%**. These thresholds were selected on reused
+validation. Their independent confirmation results below were lower; the
+validation-only diagnostic is not the final quality estimate.
+
+## Locked independent confirmation
+
+The frozen model scored **282/300 correct (94.0%)**, macro F1 **0.93914**, and
+cross-entropy **0.22890**. The nominal 95% Wilson interval is **90.72–96.17%**;
+it is a finite-sample interval, not a guarantee on future banking requests.
+The split has 15 queries per intent and 60 per domain. All 300 queries were
+scored, with no truncations or exclusions.
+
+| Domain | Correct / queries | Accuracy |
+| --- | ---: | ---: |
+| Card lifecycle | 56/60 | 93.33% |
+| Card payments | 58/60 | 96.67% |
+| Transfers | 53/60 | 88.33% |
+| Cash withdrawals | 57/60 | 95.00% |
+| Account verification | 58/60 | 96.67% |
+
+The optional margin rules were frozen together before confirmation access.
+Their target names describe validation targets, not achieved test accuracy.
+
+| Validation target | Fixed margin threshold | Correct / answered | Answered accuracy | Coverage | Declined |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 98% | 0.9581952095031738 | 264/275 | 96.00% | 91.67% | 25 |
+| 99% | 1.669316291809082 | 241/247 | 97.57% | 82.33% | 53 |
+| 100% | 2.1202011108398438 | 220/223 | 98.65% | 74.33% | 77 |
+
+Declined queries are not correct answers. The strictest rule still made three
+errors among 223 answers. Top-2 candidate recall was 98.67%; this only means
+that the correct label appeared among two candidates and is not top-1 accuracy.
+
+The lock hash is
+`81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681`.
+This split is now evaluation evidence. Do not tune the model, thresholds,
+labels or exclusions against it and claim a new untouched result. Further
+model selection requires a new independently held-out evaluation set.
 
 ## Completed stress comparisons
 
