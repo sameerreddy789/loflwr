@@ -8,6 +8,7 @@ snapshots, not cross-platform universal locks or wheel-hash lockfiles.
 | --- | --- |
 | [cpu-windows-py311.txt](cpu-windows-py311.txt) | Windows x64, Python 3.11.15, CPU training and Streamlit query console |
 | [cuda-wsl-py311.txt](cuda-wsl-py311.txt) | Ubuntu WSL2 x86_64, Python 3.11.15, PyTorch CUDA 12.6, Flower 1.40.0 with Ray 2.55.1 |
+| [reporting-windows-py311.txt](reporting-windows-py311.txt) | Separate Windows Python 3.11.15 environment for Matplotlib result figures; no training dependencies |
 
 The Windows environment intentionally does not include Flower/Ray. Use WSL2 for
 the five-client simulation. The CUDA run used an NVIDIA RTX 3050 Laptop GPU with

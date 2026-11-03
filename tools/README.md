@@ -4,6 +4,11 @@
 deployment inside a Linux network namespace containing only loopback. It refuses
 ordinary host networking. See the [measured offline check](../research/results/offline-start.json).
 
+`publish_study.py` produces a compact study report and PNG/SVG figures from saved
+evidence. It requires completed-run, checkpoint, configuration and final-test
+identity agreement before reporting final-test scores. See the
+[publication guide](../docs/results-publication.md).
+
 Run these commands from the repository root with the appropriate Python environment. The [prepared-laptop guide](../docs/morning-demo.md) gives exact Windows/WSL paths; [requirements](../requirements/README.md) documents tested dependencies. Store assets in ignored `assets/`, outputs in ignored `runs/`, and private node credentials in ignored `certificates/`.
 
 ## Demo and evidence
