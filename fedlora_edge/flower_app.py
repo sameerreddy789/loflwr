@@ -22,7 +22,7 @@ from flwr.clientapp import ClientApp
 from flwr.common.serde import message_to_proto
 from flwr.serverapp import Grid, ServerApp
 
-from .checkpoint import EventLog, atomic_json, canonical_hash
+from .checkpoint import EventLog, atomic_json, canonical_hash, read_progress
 from .data import load_manifest
 from .protocol import ClientReply, RoundCoordinator, RoundRequest, validate_request
 from .state import TensorData, TensorState, state_from_dict, state_nbytes, state_to_dict
@@ -161,8 +161,7 @@ def _run_training_unlocked(request: RoundRequest, incoming: TensorState, config:
                  base_b_hash=request.base_b_hash)
         try:
             while process.poll() is None:
-                if progress_path.exists():
-                    progress = json.loads(progress_path.read_text(encoding="utf-8"))
+                progress = read_progress(progress_path, progress)
                 if (interruption is not None and progress.get("status") == "training"
                         and progress.get("optimizer_steps", 0) >= int(interruption["after_steps"])):
                     _stop_job(process, kill=True)

@@ -13,7 +13,7 @@ import sys
 import time
 from pathlib import Path
 
-from .checkpoint import EventLog, atomic_json
+from .checkpoint import EventLog, atomic_json, read_progress
 
 
 def _absolute(path: str) -> str:
@@ -302,8 +302,8 @@ def deploy_local(config: dict, *, project_dir: str, port: int, certificate_dir: 
                 job_root = Path(config.get("client_job_dir", str(run_dir / "client_jobs")))
                 progress_path = (job_root / config["run_id"]
                                  / f"attempt_{int(entry['attempt_id'])}" / client_id / "progress.json")
-                if not entry["triggered"] and progress_path.exists():
-                    progress = json.loads(progress_path.read_text())
+                if not entry["triggered"]:
+                    progress = read_progress(progress_path)
                     if (progress.get("status") == "training"
                             and progress.get("optimizer_steps", 0) >= int(entry["after_steps"])):
                         original_pid = nodes[client_id].pid

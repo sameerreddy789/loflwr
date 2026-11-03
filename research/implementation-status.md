@@ -16,7 +16,7 @@ Last updated: **3 November 2026**. This is the prototype handoff status. Detaile
 | Study launcher | Pilot/full plans, immutable configuration/asset/source identities, sequential execution, bounded process lifetime, resume, and explicit incomplete states are implemented and unit tested. A shorter horizon is calibration and cannot access final test. |
 | Dashboard and reports | Saved events, work/traffic, coefficients/clipping, quality, replay, evidence downloads, and checkpoint-backed CPU queries are implemented. The Windows launcher uses offline model settings and binds localhost. Reader and Streamlit fixture checks exist. |
 
-The full WSL2 environment passed **98 tests with no skips** on 3 November 2026. This includes interrupted-attempt recovery and stable dashboard run selection. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
+The full WSL2 environment passed **101 tests with no skips** on 3 November 2026. This includes interrupted-attempt recovery, stable dashboard run selection, and transient progress-file replacement handling. Optional integration tests need their corresponding packages. Unit tests and runtime probes are distinct from language-model experiments.
 
 ## Traceable local checks
 

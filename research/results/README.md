@@ -94,6 +94,17 @@ language model is not automatically the best solution for a bounded intent task.
 
 ## Interpreting the next experiments
 
+The first frozen study, `pilot-20261103`, was interrupted after its first
+sample-weighted attempt. Two clients encountered `FileNotFoundError` while a
+progress snapshot was being replaced on the Windows-mounted WSL filesystem.
+The round consequently used only clients 0, 2 and 3. That is not the declared
+healthy weighting comparison. [Its evidence is retained](interrupted-pilot-sample.json).
+The fix makes only advisory progress reads tolerate a transient missing or
+incomplete snapshot; checkpoint/update validation remains strict. The replacement
+study `pilot-r2-20261103` starts from the same initial B and settings, with new
+source/configuration identities. No hyperparameters were changed using test
+results. The interrupted run must not be pooled into the main comparison.
+
 The [frozen study runner](../../docs/study-runner.md) fixes manifests, common A,
 initial B, settings, source hashes and attempt horizons before final-test access.
 Its seed-42 pilot compares frozen base, centralized B-only training, sample

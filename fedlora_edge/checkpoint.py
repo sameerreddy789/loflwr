@@ -18,6 +18,18 @@ def canonical_hash(value: Any) -> str:
                                      allow_nan=False).encode()).hexdigest()
 
 
+def read_progress(path: str | Path, previous: dict | None = None) -> dict:
+    """Read advisory telemetry without racing its replacement on shared drives.
+
+    Checkpoints and completed updates retain strict reads and identity checks.
+    """
+    try:
+        value = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (FileNotFoundError, PermissionError, json.JSONDecodeError):
+        return previous if previous is not None else {}
+    return value if isinstance(value, dict) else (previous if previous is not None else {})
+
+
 def atomic_json(path: str | Path, value: Any) -> None:
     """Flush the full new file before replacement; old files survive failed writes."""
     path = Path(path)

@@ -17,7 +17,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .checkpoint import EventLog
+from .checkpoint import EventLog, read_progress
 from .client_job import worker_profile
 from .protocol import RoundRequest
 from .state import state_from_dict
@@ -126,8 +126,7 @@ def run_persistent_job(request: RoundRequest, input_path: Path, output_path: Pat
         progress: dict[str, Any] = {}
         status = "failed"
         while True:
-            if progress_path.exists():
-                progress = json.loads(progress_path.read_text(encoding="utf-8"))
+            progress = read_progress(progress_path, progress)
             if (interruption is not None and progress.get("status") == "training"
                     and progress.get("optimizer_steps", 0) >= int(interruption["after_steps"])):
                 stop_worker(kill=True)
