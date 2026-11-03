@@ -139,6 +139,12 @@ model selection requires a new independently held-out evaluation set.
 
 ## Completed stress comparisons
 
+![Presentation evidence from separate validation comparisons](judging-evidence.png)
+
+The [figure provenance](judging-evidence-provenance.json) records source hashes
+and the exact checkpoint comparison. Its panels use different training-data
+regimes and must not be combined into a single accuracy improvement claim.
+
 | Scenario | Best validation | Final validation | Worst domain at selected checkpoint |
 | --- | --- | --- | --- |
 | Expanded data, equal budgets, actual Flower | 95.5% | 95.5% | 90% |
@@ -149,11 +155,26 @@ model selection requires a new independently held-out evaluation set.
 | Original 400 examples, equal weighting | 78.5% | 78.0% | 57.5% |
 | Original 400 examples, equal weighting plus clipping | 79.0% | 78.5% | 57.5% |
 
-The expanded-data omission pair uses 500 attempts, identical initialization,
-hyperparameters and per-client random streams. Client 4 has one optimizer step
-per attempt; removing it reduces overall accuracy by 18 percentage points and
-its verification domain from 90% to 0%. This is one paired seed, not a
-multi-seed significance claim. Its four labels have no other training owner.
+The expanded-data omission comparison uses **attempt 500** of the original
+`balance-fast-long` control and `omit-weak4`. Their initial tensor hashes,
+manifest, optimizer, one-step client budgets and seed match. The control's full
+horizon was 1,000 attempts, versus 500 for omission; evaluation intervals were
+50 versus 100. The figure compares the saved attempt-500 metrics explicitly,
+not the final points of different horizons. Removing client 4 reduced accuracy
+by 18 percentage points and its verification domain from 90% to 0%. This is one
+seed and those four labels have no other training owner; it does not establish
+a multi-seed significance result.
+
+A later [unequal-budget omission run](omission-heterogeneous-head.json) completed
+all 500 attempts at 77.5% validation and 0% verification accuracy. It used budgets
+`[1,4,2,2,1]`, omitting client 4, and took 237.86 seconds. Its initial tensor hash
+was `b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa`,
+while the earlier native-Windows control used
+`2ac1bd10ad3083b01fec2ffb9724ea2a7c507a8bad4ea5afd9cee2f50c0dbdb5`.
+Seed 42 alone did not reproduce identical initialization across these prepared
+environments. This supplementary run is not substituted into the matched
+checkpoint figure. Future paired runs should distribute identical initial
+tensors as well as pinning environments and seeds.
 
 The 400-example study reuses the original `[10,360,10,10,10]` training rows and
 200-query validation set. It uses equal one-step budgets and 300 attempts.

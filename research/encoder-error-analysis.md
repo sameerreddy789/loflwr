@@ -35,11 +35,11 @@ IDs would invalidate the current benchmark comparison.
 
 More optimization of this linear head is unlikely to resolve the shared
 representation errors: its selected predictions already match a separately
-solved logistic reference. The next tested option adapts MPNet's representations
-with frozen-A LoRA B plus the head, starting from the stronger federated head.
-It uses training text only and validation for selection. Earlier adapter trials
-starting from 92.5% did not improve accuracy; the new trial must also retain
-unfavorable results.
+solved logistic reference. Subsequent trials adapted MPNet with frozen-A LoRA B
+plus the head, starting from the stronger federated head. They used training
+text only and validation for selection, and did not exceed 95.5% validation.
+Those negative results remain in the [completed report](results/encoder-v2/README.md).
+The transformer-layer diagnostic below tests a different, larger update space.
 
 For a real banking assistant, asking a clarifying question on ambiguous requests
 is useful. Accuracy after user clarification, top-two recall, or accuracy on
@@ -47,8 +47,16 @@ answered queries must be reported separately from automatic top-one accuracy
 over every query. None is a valid substitute for a claimed 99–100% full-set score.
 
 The original 500 test queries were already inspected. The newer 300-query
-confirmation set remains sealed until the final model and scoring procedure
-are fixed. Even a perfect finite sample would not prove perfect future accuracy.
+confirmation set was subsequently scored after locking the model and rules in
+commit `7413e6b`: the selected Flower head achieved 94% (282/300). It is now
+evaluation evidence and cannot be reused as an untouched test for further
+selection. Even a perfect finite sample would not prove perfect future accuracy.
+
+The later [representation diagnostic](results/encoder-representation/README.md)
+tests a different mechanism: adapting transformer layers with a persistent
+optimizer. Its first two three-epoch variants reached 96% reused-validation
+accuracy, one query above the frozen-head result. This does not change the
+published independent score or establish a 99–100% path.
 
 ## Evidence
 

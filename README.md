@@ -21,12 +21,16 @@ To open the upgraded query demo on the prepared laptop:
 
 Open <http://127.0.0.1:8511>. The [encoder demo guide](docs/encoder-demo.md)
 explains live classification, recorded evidence and supported intents.
+Use the [three-minute judging script](docs/judging-presentation.md) for the
+spoken presentation, exact demo sequence, and answers to likely judge questions.
+The [presentation figure](research/results/encoder-v2/judging-evidence.png)
+visualizes the imbalance and omission comparisons with their separate scopes.
 
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 157 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 160 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -35,11 +39,13 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **3 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
+The [latest verification](research/results/encoder-representation/verification.json)
+adds three checks for representation-training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **157 passed, 0 failed, 0 skipped** in 19.297 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, and evaluation locks |
-| Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the 157 tests, not 7 additional unique tests |
+| Full automated suite, Ubuntu WSL2 | **160 passed, 0 failed, 0 skipped** in 14.706 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards, and evaluation locks |
+| Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the full suite, not 7 additional unique tests |
 | Locked artifact integrity | **24/24 file hashes matched** | Model/tokenizer assets, selected checkpoint, sources, and evaluation configuration |
 | Live CPU query check | Passed; a fresh pending-card-payment query returned `pending_card_payment` | Functional inference check, not an accuracy benchmark |
 | Actual five-client Flower training | **500/500 attempts committed** with all five contributors | `encoder-flower-balanced-v2`, selected version 500 |
@@ -81,6 +87,15 @@ it cannot serve as an untouched test for the next model-selection cycle.
 **99–100% remains an unachieved target, not a promised milestone.**
 
 ## Accuracy research and original results
+
+The new [representation diagnostic](research/results/encoder-representation/README.md)
+tests transformer-layer adaptation on training data and reused validation only.
+Both three-epoch and ten-epoch comparisons peaked at **96% validation (192/200)**;
+the twelve-layer ten-epoch run ended at 94.5%. These are centralized development
+references with much larger trainable states; they do
+not replace the independently confirmed Flower head or establish 99–100% accuracy.
+The [fresh-evaluation guide](docs/fresh-evaluation.md) describes the new data
+needed to verify a subsequent model without reusing a spent test set.
 
 The [99% feasibility investigation](research/accuracy-99-feasibility.md) reports
 **95.5% validation accuracy** from a separate centralized MPNet reference using

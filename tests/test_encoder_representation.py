@@ -3,7 +3,7 @@ import importlib.util
 import unittest
 
 from fedlora_edge.data import INTENTS
-from tools.run_encoder_representation_study import select_top_layers, validate_records
+from tools.run_encoder_representation_study import select_top_layers, validate_records, validate_cached_validation
 
 
 class RepresentationDataTests(unittest.TestCase):
@@ -20,6 +20,14 @@ class RepresentationDataTests(unittest.TestCase):
             validate_records(train, [dict(validation[0], source_id="test:999", source_split="test")])
         with self.assertRaisesRegex(ValueError, "overlap"):
             validate_records(train, [dict(validation[0], query="  TRAINING phrase 0  ")])
+
+    def test_cached_validation_labels_and_order_must_match_records(self):
+        _, validation = self.fixture()
+        validate_cached_validation(validation, ["train:999"], [0])
+        with self.assertRaises(ValueError):
+            validate_cached_validation(validation, ["train:998"], [0])
+        with self.assertRaises(ValueError):
+            validate_cached_validation(validation, ["train:999"], [1])
 
     @unittest.skipUnless(importlib.util.find_spec("torch"), "Optional Torch dependency is absent")
     def test_only_selected_last_layers_receive_gradients(self):

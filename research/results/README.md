@@ -9,6 +9,12 @@ No rule reached 99%. See the [aggregate confirmation result](encoder-v2/confirma
 matched stress comparisons, weak-client omission and trained-model dropout/rejoin
 in that report. Head-only training is distinct from the original LoRA benchmark.
 
+The later [representation diagnostics](encoder-representation/README.md) test
+adapting transformer layers on public training data. Short and longer variants
+peaked at 96% reused-validation accuracy, with the larger model ending at 94.5%.
+They are centralized references, not
+new confirmed or Flower-trained models. The original 94% result remains intact.
+
 The [encoder recovery report](encoder-v1/README.md) preserves the earlier 92.5%
 validation result from actual five-client Flower head training, centralized
 references, local process recovery, and the adapter trial with no accuracy gain.

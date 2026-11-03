@@ -1,0 +1,40 @@
+{
+  "kind": "published_aggregate_figure",
+  "figure": "judging-evidence.png",
+  "source_files_sha256": {
+    "imbalance-trials.json": "b1354a2be56b088b2f3f0e6afac7894299c4dc481dd7c73a4f6768dbb4f05515",
+    "head-trials.json": "aef11681f71bcfaca7924cdd2b35e61732f717afafb52d29ed2ccd6d867589a4",
+    "omission-head.json": "fd2fdd56d3b22497b53a77762315c5d0aab03204910bd32fa25e2c23817c173a"
+  },
+  "script_sha256": "7f5e4cebeebc42e951b8fcfa14cf07547b38a6c52073e5e7f0b6937a32e79778",
+  "figure_sha256": "7cb4a63041261e786bd60deb4e7104246b61b95d0673678908a3bf7fb9b592a8",
+  "scores_percent": [
+    [
+      72.0,
+      78.5,
+      79.0
+    ],
+    [
+      95.5,
+      77.5
+    ]
+  ],
+  "omission_matched_fields": [
+    "seed",
+    "identity",
+    "head_config",
+    "initial_state_hash",
+    "budgets",
+    "strategy"
+  ],
+  "omission_comparison_attempt": 500,
+  "omission_run_horizons": {
+    "balance-fast-long": 1000,
+    "omit-weak4": 500
+  },
+  "omission_evaluation_intervals": {
+    "balance-fast-long": 50,
+    "omit-weak4": 100
+  },
+  "interpretation": "Separate data regimes, reused validation, one seed. Omission compares identical initialization/optimizer/budgets at attempt500, not entire runs with different horizons/evaluation schedules. No physical-laptop or population guarantee."
+}

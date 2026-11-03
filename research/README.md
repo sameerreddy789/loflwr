@@ -16,6 +16,12 @@ The original SmolLM2/BANKING77/shared-A benchmark and its results remain intact.
 The user-authorized MPNet head and B-plus-head variants have separate identities;
 head-only training is not LoRA.
 
+The [representation diagnostics](results/encoder-representation/README.md) test
+larger transformer-layer updates using pooled training data and reused validation.
+They are centralized development references. Use the
+[judging presentation guide](../docs/judging-presentation.md) to demonstrate the
+confirmed Flower head and clearly separate these research results.
+
 The [accuracy diagnosis](accuracy-diagnosis.md) combines partial federated
 run and code audits with primary-source research. A copied version-9 checkpoint
 scores 34.5% under the original rule and 64.5% with content-free centering on

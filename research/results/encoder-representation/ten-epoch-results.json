@@ -1,0 +1,3000 @@
+{
+  "plan": {
+    "asset_hash": "949e5f7ab1ebac4b8b23a21fa7748fc2f0bdbdc7694213ba700a6e4cd71ed5f4",
+    "class_weighting": "N/(20*n_class), loss normalized by summed weights per effective batch",
+    "config_hash": "a5e162c25d100da7b396259172fcb3c94af6ae26dc66688e5818db078bd98671",
+    "cooperative_optimization_budget_seconds": 1800,
+    "created_utc": "2026-11-03T12:20:41.652766+00:00",
+    "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "effective_batch_size": 32,
+    "encoder_learning_rate": 1e-05,
+    "environment": {
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cu126",
+      "transformers": "4.57.1"
+    },
+    "epochs": 10,
+    "gradient_clip": 1.0,
+    "head_learning_rate": 0.001,
+    "initial_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+    "initial_head_run_id": "encoder-flower-balanced-v2",
+    "interpretation": "Centralized public-training-data diagnostic only. Not LoRA, Flower, privacy evidence, or an independent confirmation result. Published model stays unchanged.",
+    "kind": "centralized_representation_diagnostic",
+    "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+    "max_length": 384,
+    "microbatch_size": 8,
+    "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "optimizer": "persistent AdamW across all minibatches and epochs",
+    "precision": "FP32",
+    "run_id": "encoder-representation-v4",
+    "seed": 42,
+    "selection": "Highest validation accuracy, then macro F1; earliest epoch breaks remaining ties; complete all epochs.",
+    "source_sha256": {
+      "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+      "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+      "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+      "tools/run_encoder_representation_study.py": "6fc16145d70e41c20768e3b4b071c73237cf3df1804720020610c6ff80137611"
+    },
+    "split": "reused_validation",
+    "train_count": 2760,
+    "training_records_hash": "adb5aa028326a70626762174e4f87b924e3de52469687c616267ca9629391ab5",
+    "validation_count": 200,
+    "validation_records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+    "variants": [
+      {
+        "layers": 2,
+        "name": "last_2_layers"
+      },
+      {
+        "layers": 12,
+        "name": "last_12_layers"
+      }
+    ],
+    "weight_decay": 0.01
+  },
+  "results": [
+    {
+      "adaptable_after": "5911a8900ae6c982546d69cbf3fe3b03038695826d24fdcbb593c8a502a77c01",
+      "adaptable_before": "eb958d7f477386437da0483ee5f32b1311353ed79aa397152a35c529bdb62369",
+      "completed_epochs": 10,
+      "frozen_after": "464587a307a1f468fe3dd80cbdc9fc12b1a4a30cc9db8ed293e00d4c97725462",
+      "frozen_before": "464587a307a1f468fe3dd80cbdc9fc12b1a4a30cc9db8ed293e00d4c97725462",
+      "history": [
+        {
+          "epoch": 0,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.20755472779273987,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9550402521455151,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 0
+        },
+        {
+          "epoch": 1,
+          "metrics": {
+            "accuracy": 0.95,
+            "count": 200,
+            "cross_entropy": 0.1779104620218277,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.950052783473836,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.95,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 87
+        },
+        {
+          "epoch": 2,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.16892822086811066,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9550402521455151,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 174
+        },
+        {
+          "epoch": 3,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.16228492558002472,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 261
+        },
+        {
+          "epoch": 4,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.16294485330581665,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9550402521455151,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 348
+        },
+        {
+          "epoch": 5,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.1589394360780716,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 435
+        },
+        {
+          "epoch": 6,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.15968646109104156,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 522
+        },
+        {
+          "epoch": 7,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.1573912799358368,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 609
+        },
+        {
+          "epoch": 8,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.16630229353904724,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 696
+        },
+        {
+          "epoch": 9,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.16214044392108917,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 783
+        },
+        {
+          "epoch": 10,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.16479068994522095,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9552567023619654,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9090909090909091,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 870
+        }
+      ],
+      "name": "last_2_layers",
+      "optimizer_steps": 870,
+      "peak_cuda_allocated_bytes": 748595712,
+      "peak_cuda_reserved_bytes": 861929472,
+      "raw_fp32_parameter_bytes": 56764496,
+      "selected": {
+        "epoch": 3,
+        "metrics": {
+          "accuracy": 0.96,
+          "count": 200,
+          "cross_entropy": 0.16228492558002472,
+          "domain_gap": 0.09999999999999998,
+          "macro_f1": 0.9600527834738358,
+          "per_domain_accuracy": {
+            "Account verification": 0.9,
+            "Card lifecycle": 0.975,
+            "Card payments": 0.95,
+            "Cash withdrawals": 0.975,
+            "Transfers": 1.0
+          },
+          "per_intent": {
+            "activate_my_card": {
+              "accuracy": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 10
+            },
+            "cancel_transfer": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "card_about_to_expire": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "card_arrival": {
+              "accuracy": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 10
+            },
+            "card_delivery_estimate": {
+              "accuracy": 0.9,
+              "f1": 0.9473684210526315,
+              "support": 10
+            },
+            "card_payment_not_recognised": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "cash_withdrawal_not_recognised": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "declined_card_payment": {
+              "accuracy": 0.8,
+              "f1": 0.8888888888888888,
+              "support": 10
+            },
+            "declined_cash_withdrawal": {
+              "accuracy": 0.9,
+              "f1": 0.9,
+              "support": 10
+            },
+            "edit_personal_details": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "pending_card_payment": {
+              "accuracy": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 10
+            },
+            "pending_cash_withdrawal": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "pending_transfer": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "transaction_charged_twice": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "transfer_fee_charged": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "transfer_not_received_by_recipient": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "unable_to_verify_identity": {
+              "accuracy": 0.9,
+              "f1": 0.9473684210526315,
+              "support": 10
+            },
+            "verify_my_identity": {
+              "accuracy": 0.8,
+              "f1": 0.8421052631578947,
+              "support": 10
+            },
+            "why_verify_identity": {
+              "accuracy": 0.9,
+              "f1": 0.8181818181818182,
+              "support": 10
+            },
+            "wrong_amount_of_cash_received": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            }
+          },
+          "worst_domain_accuracy": 0.9
+        },
+        "optimizer_steps": 261
+      },
+      "status": "completed",
+      "trainable_parameters": 14191124,
+      "wall_seconds": 127.16770551900001,
+      "selected_state_sha256": "3f4edf8414fd4f812c57205870a7ca31f762c7ae05f2aed37b65c27d875f8f52"
+    },
+    {
+      "adaptable_after": "2f940906a016a2db21ce4bfe7e240ec3abe26ba3911d4bf8c34e4eddbe6ba05e",
+      "adaptable_before": "db5a3e9ccf84562147988b10b28c98587040b77f2f290bc081f360f71b088e9d",
+      "completed_epochs": 10,
+      "frozen_after": "c1086e0f8946b822464c4dc15abf72d98af531b6e5fee0c74473f38fafcbaaac",
+      "frozen_before": "c1086e0f8946b822464c4dc15abf72d98af531b6e5fee0c74473f38fafcbaaac",
+      "history": [
+        {
+          "epoch": 0,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.20755472779273987,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9550402521455151,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 0
+        },
+        {
+          "epoch": 1,
+          "metrics": {
+            "accuracy": 0.95,
+            "count": 200,
+            "cross_entropy": 0.14958073198795319,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9498705096073519,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.95,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8571428571428571,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 87
+        },
+        {
+          "epoch": 2,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.1591482013463974,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9550402521455151,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 174
+        },
+        {
+          "epoch": 3,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.14835931360721588,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9550402521455151,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 261
+        },
+        {
+          "epoch": 4,
+          "metrics": {
+            "accuracy": 0.95,
+            "count": 200,
+            "cross_entropy": 0.15688785910606384,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.950168223589276,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.95,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9090909090909091,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9090909090909091,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 348
+        },
+        {
+          "epoch": 5,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.15587620437145233,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 435
+        },
+        {
+          "epoch": 6,
+          "metrics": {
+            "accuracy": 0.95,
+            "count": 200,
+            "cross_entropy": 0.1856870800256729,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9503689724971188,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.925,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.8695652173913043,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 522
+        },
+        {
+          "epoch": 7,
+          "metrics": {
+            "accuracy": 0.96,
+            "count": 200,
+            "cross_entropy": 0.17313848435878754,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9600527834738358,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.975,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 609
+        },
+        {
+          "epoch": 8,
+          "metrics": {
+            "accuracy": 0.955,
+            "count": 200,
+            "cross_entropy": 0.18813855946063995,
+            "domain_gap": 0.09999999999999998,
+            "macro_f1": 0.9549643047011467,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.95,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 1.0
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.9090909090909091,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9523809523809523,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 696
+        },
+        {
+          "epoch": 9,
+          "metrics": {
+            "accuracy": 0.945,
+            "count": 200,
+            "cross_entropy": 0.19593769311904907,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9455728913852482,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.925,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.8695652173913043,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9090909090909091,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 783
+        },
+        {
+          "epoch": 10,
+          "metrics": {
+            "accuracy": 0.945,
+            "count": 200,
+            "cross_entropy": 0.19520370662212372,
+            "domain_gap": 0.07499999999999996,
+            "macro_f1": 0.9455728913852482,
+            "per_domain_accuracy": {
+              "Account verification": 0.9,
+              "Card lifecycle": 0.925,
+              "Card payments": 0.95,
+              "Cash withdrawals": 0.975,
+              "Transfers": 0.975
+            },
+            "per_intent": {
+              "activate_my_card": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "cancel_transfer": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_about_to_expire": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "card_arrival": {
+                "accuracy": 1.0,
+                "f1": 0.8695652173913043,
+                "support": 10
+              },
+              "card_delivery_estimate": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "card_payment_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "cash_withdrawal_not_recognised": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "declined_card_payment": {
+                "accuracy": 0.8,
+                "f1": 0.8888888888888888,
+                "support": 10
+              },
+              "declined_cash_withdrawal": {
+                "accuracy": 0.9,
+                "f1": 0.9,
+                "support": 10
+              },
+              "edit_personal_details": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_card_payment": {
+                "accuracy": 1.0,
+                "f1": 0.9090909090909091,
+                "support": 10
+              },
+              "pending_cash_withdrawal": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "pending_transfer": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "transaction_charged_twice": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_fee_charged": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "transfer_not_received_by_recipient": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              },
+              "unable_to_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.9473684210526315,
+                "support": 10
+              },
+              "verify_my_identity": {
+                "accuracy": 0.8,
+                "f1": 0.8421052631578947,
+                "support": 10
+              },
+              "why_verify_identity": {
+                "accuracy": 0.9,
+                "f1": 0.8181818181818182,
+                "support": 10
+              },
+              "wrong_amount_of_cash_received": {
+                "accuracy": 1.0,
+                "f1": 1.0,
+                "support": 10
+              }
+            },
+            "worst_domain_accuracy": 0.9
+          },
+          "optimizer_steps": 870
+        }
+      ],
+      "name": "last_12_layers",
+      "optimizer_steps": 870,
+      "peak_cuda_allocated_bytes": 2089741312,
+      "peak_cuda_reserved_bytes": 2405433344,
+      "raw_fp32_parameter_bytes": 340279376,
+      "selected": {
+        "epoch": 5,
+        "metrics": {
+          "accuracy": 0.96,
+          "count": 200,
+          "cross_entropy": 0.15587620437145233,
+          "domain_gap": 0.09999999999999998,
+          "macro_f1": 0.9600527834738358,
+          "per_domain_accuracy": {
+            "Account verification": 0.9,
+            "Card lifecycle": 0.975,
+            "Card payments": 0.95,
+            "Cash withdrawals": 0.975,
+            "Transfers": 1.0
+          },
+          "per_intent": {
+            "activate_my_card": {
+              "accuracy": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 10
+            },
+            "cancel_transfer": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "card_about_to_expire": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "card_arrival": {
+              "accuracy": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 10
+            },
+            "card_delivery_estimate": {
+              "accuracy": 0.9,
+              "f1": 0.9473684210526315,
+              "support": 10
+            },
+            "card_payment_not_recognised": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "cash_withdrawal_not_recognised": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "declined_card_payment": {
+              "accuracy": 0.8,
+              "f1": 0.8888888888888888,
+              "support": 10
+            },
+            "declined_cash_withdrawal": {
+              "accuracy": 0.9,
+              "f1": 0.9,
+              "support": 10
+            },
+            "edit_personal_details": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "pending_card_payment": {
+              "accuracy": 1.0,
+              "f1": 0.9523809523809523,
+              "support": 10
+            },
+            "pending_cash_withdrawal": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "pending_transfer": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "transaction_charged_twice": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "transfer_fee_charged": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "transfer_not_received_by_recipient": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            },
+            "unable_to_verify_identity": {
+              "accuracy": 0.9,
+              "f1": 0.9473684210526315,
+              "support": 10
+            },
+            "verify_my_identity": {
+              "accuracy": 0.8,
+              "f1": 0.8421052631578947,
+              "support": 10
+            },
+            "why_verify_identity": {
+              "accuracy": 0.9,
+              "f1": 0.8181818181818182,
+              "support": 10
+            },
+            "wrong_amount_of_cash_received": {
+              "accuracy": 1.0,
+              "f1": 1.0,
+              "support": 10
+            }
+          },
+          "worst_domain_accuracy": 0.9
+        },
+        "optimizer_steps": 435
+      },
+      "status": "completed",
+      "trainable_parameters": 85069844,
+      "wall_seconds": 317.608327787,
+      "selected_state_sha256": "e1ead2116b6ed9a2f337ed8f7948adb004ee70b10093215dd66db0a9f6d2e3c9"
+    }
+  ],
+  "status": "completed",
+  "source_sha256": "defebccf7f0045788faf035791bb566f55c629f8fc9d712edb77682f0268b133"
+}

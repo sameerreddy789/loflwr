@@ -30,6 +30,10 @@ Open two browser tabs at <http://127.0.0.1:8511>. Keep the launcher running.
 3. Have the [results report](../research/results/encoder-v2/README.md) ready for
    comparison questions. The saved curves and process events are recorded;
    questions entered into Tab A run live local inference.
+4. Keep the [presentation figure](../research/results/encoder-v2/judging-evidence.png)
+   ready for the final comparison. Its left panel uses 400 training queries;
+   its right panel compares equal-budget checkpoints at attempt 500 with 2,760
+   training queries. The all-client control continued to attempt 1,000.
 
 Rehearse once with internet disconnected. A clean clone needs the documented
 assets and environments; this launcher assumes the laptop is already prepared.
@@ -91,7 +95,7 @@ recovery, not training this model from scratch in three rounds.”
 
 ### 2:10–2:40 — Why the federation matters
 
-“In one matched experiment, removing the weakest verification client reduced
+“At comparable 500-attempt checkpoints, removing the verification client reduced
 validation accuracy from 95.5% to 77.5%. That client supplied useful knowledge.
 
 In the separate extreme-imbalance study, sample weighting reached 72%, equal
@@ -118,12 +122,13 @@ seeds, and accuracy improvements evaluated on a new independent test.”
 | Why not use one centralized classifier? | A centralized reference is useful for task quality. Federation addresses the deployment constraint where each participant owns its data. This prototype exercises separate client archives and update exchange, but central public-data feature preparation means it does not yet demonstrate complete local preparation. |
 | Does equal weighting guarantee fairness? | It gives equal coefficients to accepted survivors, not equal accuracy or guaranteed equal influence in every sense. Clipping limits update norms. Repeated absence can still create participation bias. |
 | Did clipping beat averaging? | In the 400-example study, the best scores were 79% clipped versus 78.5% plain equal. That difference is one validation query in one seed; it is not strong evidence of superiority. Sample weighting reached 72%. |
-| Did weak clients actually help? | In the matched expanded-data omission pair, the score fell from 95.5% to 77.5%, and verification accuracy from 90% to 0%, without client 4. Those four labels had no other training owner. This is one paired seed; the original LoRA omission result was null/unfavorable. |
+| Did weak clients actually help? | At attempt 500, equal-budget checkpoints with matching initialization and optimizer scored 95.5% with all clients versus 77.5% without client 4; verification fell from 90% to 0%. Those four labels had no other training owner. The all-client run continued to 1,000 attempts; this compares their attempt-500 states, not both final states. One seed is preliminary; the original LoRA omission result was null/unfavorable. |
 | Are these five physical devices? | No. They are five logical clients on one laptop. The process kill and rejoin are real; the three-laptop experiment remains to be run. |
 | Is this private or secure against malicious clients? | Training replies carry model updates. The current setup does not establish differential privacy, secure aggregation, or malicious-client robustness. Local preparation is a next step; model updates themselves can leak information. |
 | How cheap is the system? | The selected head transmits 61,520 raw FP32 bytes per direction, before transport overhead. That is not total memory or end-to-end traffic. The frozen encoder still costs storage, RAM and feature-computation time. |
-| Do 157 tests mean 100% model accuracy? | No. All 157 software tests passed with zero skips in the prepared environment. They check behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
+| Do 160 tests mean 100% model accuracy? | No. The latest 160 software tests passed with zero skips in the prepared environment, including three new representation-study checks. They check behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
 | How will you improve accuracy now? | Use training-only data and validation to test a small, declared next experiment, preserving adverse results. Freeze the next model and any clarification policy before scoring a new independently held-out set. The current 300 queries are now evaluation evidence; 99–100% is a target, not a promise. |
+| Did the subsequent larger-model experiment solve the accuracy problem? | No. Four transformer-layer adaptation configurations peaked at 96% reused-validation accuracy. The twelve-layer ten-epoch run finished at 94.5% and has a much larger trainable state. These centralized diagnostics did not replace the confirmed Flower model. |
 
 ## Evidence to keep one click away
 
@@ -135,9 +140,10 @@ seeds, and accuracy improvements evaluated on a new independent test.”
 | Real interruption, survivor weights, fresh rejoin | [Trained-model recovery](../research/results/encoder-v2/trained-recovery.json) |
 | Unequal budgets and clipping | [Heterogeneous head](../research/results/encoder-v2/heterogeneous-head.json), [clipped counterpart](../research/results/encoder-v2/heterogeneous-clipped-head.json) |
 | Weak-client omission and interpretation | [Omission export](../research/results/encoder-v2/omission-head.json), [paired comparison report](../research/results/encoder-v2/README.md) |
+| Presentation comparison figure | [PNG](../research/results/encoder-v2/judging-evidence.png), [source hashes and comparison conditions](../research/results/encoder-v2/judging-evidence-provenance.json) |
 | 90% data imbalance, including plain equal control | [Imbalance trials](../research/results/encoder-v2/imbalance-trials.json) |
 | Negative adapter result | [Federated adapter](../research/results/encoder-v2/federated-adapter.json), [centralized adapter reference](../research/results/encoder-v2/centralized-adapter.json) |
-| Software tests, live query, locked-file checks | [Handoff verification](../research/results/encoder-v2/handoff-verification.json) |
+| Software tests, live query, locked-file checks | [Original handoff verification](../research/results/encoder-v2/handoff-verification.json), [latest 160-test verification](../research/results/encoder-representation/verification.json) |
 | Original LoRA results and proposal history | [Original pilot](../research/results/pilot-r2-20261103/README.md), [abstract alignment](../research/abstract-alignment.md) |
 
 Before presenting, confirm both demo tabs display the intended run, the model is

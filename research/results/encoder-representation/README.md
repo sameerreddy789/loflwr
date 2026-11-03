@@ -6,6 +6,11 @@ This is one extra correct development query in one seed. It is not a new
 independent score, a federated result, or evidence of 99–100% accuracy.
 The selected Flower demo remains at its measured **94% confirmation** result.
 
+A subsequent fixed ten-epoch comparison also peaked at **96%**. Its final
+two-layer score fell to 95.5%; adapting all twelve transformer layers ended at
+94.5%. These four tested configurations did not achieve 99–100%. The modest
+development gain does not justify claiming a stronger confirmed system.
+
 ## Three-epoch comparison
 
 The [complete export](three-epoch-results.json) preserves the plan, all evaluated
@@ -36,6 +41,31 @@ between update groups, not a hard process deadline. All three epochs completed.
 No old test or confirmation query was opened. Original assets, checkpoint,
 thresholds, and evaluation sources are unchanged.
 
+## Ten-epoch follow-up
+
+After the short study completed, a new plan fixed ten epochs and two versus
+twelve trainable transformer layers before evaluating that follow-up. This is a
+sequential development decision, not a claim that both studies were registered
+together. The embedding layer remains frozen even in the twelve-layer variant.
+
+| Variant | Selected epoch | Best validation | Final validation | Trainable parameters | Peak allocated VRAM | Training/evaluation time |
+| --- | ---: | --- | --- | ---: | ---: | ---: |
+| Last two layers + head | 3 | 96.0% | 95.5% | 14,191,124 | 748,595,712 bytes | 127.17 s |
+| All twelve transformer layers + head | 5 | 96.0% | 94.5% | 85,069,844 | 2,089,741,312 bytes | 317.61 s |
+
+Each completed **870 optimizer steps**, with the same training data, seed,
+microbatch/effective batch, learning rates, precision, and optimizer as the short
+comparison. The [complete ten-epoch export](ten-epoch-results.json) includes
+every evaluated epoch and both favorable and unfavorable outcomes. Its source
+adds explicit equality checks between validation feature IDs/labels and the
+validation text records, and exposes epoch/layer counts as command arguments.
+
+The larger variant's trainable state would occupy **340,279,376 FP32 bytes** if
+transmitted. This arithmetic estimate is over 5,500 times the deployed head's
+61,520 bytes; the diagnostic did not transmit it. It is not a practical drop-in
+replacement for the current edge federation. More training or more trainable
+layers did not reliably improve development accuracy in this comparison.
+
 ## Interpretation and reproduction
 
 The new representation can change one previously incorrect development decision,
@@ -51,10 +81,14 @@ evaluation set, not repeated use of the now-scored 300-query confirmation.
 
 ```sh
 python tools/run_encoder_representation_study.py --output runs/representation-fresh
+python tools/run_encoder_representation_study.py --output runs/representation-long-fresh --epochs 10 --trainable-layers 2 12
 ```
 
 Outputs must be fresh directories inside ignored `runs/`. The original script
 and dependencies are identified by hashes in the export. The source repository
-retains the experiment's code history. [Verification](verification.json) records
-**159 passing full-suite tests, zero skips**, including two new data-boundary and
-gradient-freezing tests. Those tests are separate from model-quality evidence.
+retains the experiment's code history: the short run used commit `022fc9c`'s
+script. [Verification](verification.json) records the earlier 159-test result
+and the latest **160 passing full-suite tests, zero skips**, including checks
+for data origin/overlap, cached-label alignment and gradient freezing. All 24
+files in the original confirmation lock still match. Those checks are separate
+from model-quality evidence.

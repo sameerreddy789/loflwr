@@ -7,6 +7,10 @@ variants. The active development adds frozen MPNet plus a federated classifier
 head, followed by shared-A MPNet LoRA B plus a classifier head. Preserve original
 benchmark results and identities; do not mix these variants or call head-only
 training LoRA. See `research/accuracy-recovery-plan.md` and measured run identities.
+Later representation diagnostics in `tools/run_encoder_representation_study.py`
+adapt transformer layers on pooled public training data. They are centralized
+development references, not LoRA, Flower results, or a replacement for the
+confirmed demo. Use `research/results/encoder-representation/` for their evidence.
 The 300-query confirmation split in `assets/encoder-bank20-v1/confirmation.json`
 was scored on 3 November after locking model/configuration and all margin rules
 in commit `7413e6b` (lock `81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681`).

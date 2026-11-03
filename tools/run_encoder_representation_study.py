@@ -1,6 +1,6 @@
 """Validation-only centralized MPNet representation diagnostic, not federation.
 
-Train the last two or four encoder layers and the warm head with a persistent
+Train selected final encoder layers and the warm head with a persistent
 optimizer. Never open confirmation/test queries or replace the published model.
 """
 from __future__ import annotations
@@ -54,6 +54,12 @@ def select_top_layers(encoder, count):
     return [p for p in encoder.parameters() if p.requires_grad]
 
 
+def validate_cached_validation(records, source_ids, labels):
+    if (list(source_ids) != [r["source_id"] for r in records]
+            or list(labels) != [INTENTS.index(r["label"]) for r in records]):
+        raise ValueError("Cached validation feature IDs/labels differ from text records.")
+
+
 def parameter_hash(encoder, *, trainable):
     digest = hashlib.sha256()
     for name, parameter in sorted(encoder.named_parameters()):
@@ -78,6 +84,10 @@ def run(args):
         raise ValueError("Choose a fresh directory inside ignored runs/.")
     if not torch.cuda.is_available():
         raise RuntimeError("This bounded reference requires the prepared CUDA environment.")
+    if (not 1 <= args.epochs <= 20 or not args.trainable_layers
+            or len(set(args.trainable_layers)) != len(args.trainable_layers)
+            or any(not 1 <= n <= 12 for n in args.trainable_layers)):
+        raise ValueError("Use 1–20 epochs and unique layer counts from 1 to 12.")
     torch.set_num_threads(2)
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
@@ -93,7 +103,8 @@ def run(args):
     validate_records(train, validation)
     if len(train) != 2760 or len(validation) != 200:
         raise ValueError("This diagnostic requires the existing 2,760/200 development split.")
-    Xval, yval, _ = load_feature_split(args.dataset_dir)
+    Xval, yval, val_ids = load_feature_split(args.dataset_dir)
+    validate_cached_validation(validation, val_ids, yval)
     cached_logits = Xval @ saved["state"]["head.weight"].to_numpy().T + saved["state"]["head.bias"].to_numpy()
     tokenizer = AutoTokenizer.from_pretrained(args.model_dir, local_files_only=True)
     tokenizer.padding_side = "right"
@@ -111,16 +122,16 @@ def run(args):
     labels = torch.tensor([INTENTS.index(r["label"]) for r in train], device="cuda")
     counts = Counter(labels.cpu().tolist())
     weights = torch.tensor([len(train) / (20 * counts[i]) for i in range(20)], device="cuda")
-    variants = [{"name": "last_two_layers", "layers": 2}, {"name": "last_four_layers", "layers": 4}]
+    variants = [{"name": f"last_{count}_layers", "layers": count} for count in args.trainable_layers]
     plan = {"kind": "centralized_representation_diagnostic", "run_id": output.name,
         "created_utc": datetime.now(timezone.utc).isoformat(), "split": "reused_validation",
-        "variants": variants, "seed": 42, "epochs": 3, "microbatch_size": 8,
+        "variants": variants, "seed": 42, "epochs": args.epochs, "microbatch_size": 8,
         "effective_batch_size": 32, "encoder_learning_rate": 1e-5, "head_learning_rate": 1e-3,
         "weight_decay": 0.01, "gradient_clip": 1., "precision": "FP32", "max_length": 384,
         "optimizer": "persistent AdamW across all minibatches and epochs",
         "class_weighting": "N/(20*n_class), loss normalized by summed weights per effective batch",
         "selection": "Highest validation accuracy, then macro F1; earliest epoch breaks remaining ties; complete all epochs.",
-        "maximum_seconds_per_variant": 1800, "device": torch.cuda.get_device_name(),
+        "cooperative_optimization_budget_seconds": 1800, "device": torch.cuda.get_device_name(),
         "manifest_hash": manifest["manifest_hash"], "training_records_hash": content_hash(train),
         "validation_records_hash": content_hash(validation), "train_count": len(train), "validation_count": len(validation),
         "initial_head_hash": saved["b_hash"], "initial_head_run_id": saved["run_id"],
@@ -184,11 +195,11 @@ def run(args):
                 save_file(state, str(directory / "selected.safetensors"), metadata={"config_hash": plan["config_hash"], "variant": variant["name"]})
                 atomic_json(directory / "selected.json", {"selection": row, "state_sha256": hashlib.sha256((directory / "selected.safetensors").read_bytes()).hexdigest()})
             atomic_json(directory / "progress.json", {"status": "running", "history": history, "selected": selected})
-            print(f"{variant['name']} epoch {epoch}/3: validation {metrics['accuracy']:.1%}, worst {metrics['worst_domain_accuracy']:.1%}", flush=True)
+            print(f"{variant['name']} epoch {epoch}/{plan['epochs']}: validation {metrics['accuracy']:.1%}, worst {metrics['worst_domain_accuracy']:.1%}", flush=True)
 
         evaluate(0)
         status = "completed"
-        for epoch in range(1, 4):
+        for epoch in range(1, plan["epochs"] + 1):
             encoder.eval()
             for layer in encoder.encoder.layer[-variant["layers"]:]:
                 layer.train()
@@ -196,7 +207,7 @@ def run(args):
             generator = torch.Generator().manual_seed(42 + epoch)
             order = torch.randperm(len(train), generator=generator).tolist()
             for start in range(0, len(order), 32):
-                if time.perf_counter() - started > plan["maximum_seconds_per_variant"]:
+                if time.perf_counter() - started > plan["cooperative_optimization_budget_seconds"]:
                     status = "time_budget_exhausted"
                     break
                 group = order[start:start + 32]
@@ -243,4 +254,6 @@ if __name__ == "__main__":
     parser.add_argument("--dataset-dir", default="assets/encoder-bank20-v1")
     parser.add_argument("--model-dir", default="assets/reference-mpnet")
     parser.add_argument("--head-dir", default="runs/encoder-flower-balanced-v2/selected")
+    parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--trainable-layers", type=int, nargs="+", default=[2, 4])
     run(parser.parse_args())

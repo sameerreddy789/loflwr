@@ -1,11 +1,21 @@
 {
-  "created_utc": "2026-11-03T12:19:49.224993+00:00",
-  "full_wsl_suite": {
+  "created_utc": "2026-11-03T12:22:31.975627+00:00",
+  "previous_full_wsl_suite": {
     "tests": 159,
     "skips": 0,
     "status": "passed",
     "seconds": 14.731,
     "source": "runs\\encoder-representation-v3-unit-tests.log",
     "source_sha256": "dcb4bc54ac69d24e1c760c4d48f8615ef3ed5ef1face50dc6b040b1e2fe61e00"
-  }
+  },
+  "full_wsl_suite": {
+    "tests": 160,
+    "skips": 0,
+    "status": "passed",
+    "seconds": 14.706,
+    "source": "runs\\encoder-representation-v4-unit-tests.log",
+    "source_sha256": "200dc519b86bd94715b54fe172998a4959b8f00708b122c9333f5b5cfb2ceb07"
+  },
+  "original_confirmation_lock_hash": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+  "unchanged_original_locked_files": 24
 }

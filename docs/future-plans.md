@@ -92,6 +92,9 @@ freeze row identities and manifests. Existing validation analysis can motivate
 development work. Do not change confirmation labels, exclusions, or thresholds
 to increase the existing score.
 
+Use the [fresh-evaluation collection guide](fresh-evaluation.md) for independent
+query authorship, blinded annotation, provenance, and a suggested 400-query pilot.
+
 Evaluate training-data coverage, intent-boundary modeling, and optional
 clarification/reranking on development data with matched baselines. Candidate
 recall is not final top-1 accuracy; user clarification requires an end-to-end

@@ -22,10 +22,19 @@ requires a new independently held-out evaluation set. See the
 | Adapter variant | Shared frozen-A MPNet B-plus-head CPU/GPU invariants passed. Further federated/centralized adapter trials did not exceed 95.5% validation; the federated trial selected its initial checkpoint. |
 | Offline query demo | Pinned local MPNet and selected Flower head, published aggregate confirmation, recorded client evidence, and optional frozen clarification rule. CPU inference exactly reproduced the 200 cached validation predictions. |
 
-The full WSL suite passed **157 tests, zero skips**. Seven dashboard checks also
+The latest WSL suite passed **160 tests, zero skips**, including three added
+representation-study checks; the original encoder handoff had 157. See the
+[latest verification](results/encoder-representation/verification.json).
+Seven dashboard checks also
 passed after adding confirmation display. These tests do not score confirmation
 queries. Only one physical laptop was available; feature preparation used a
 central public reference cache before partitioning into client archives.
+
+The [representation diagnostic](results/encoder-representation/README.md) is a
+separate centralized development experiment. Three- and ten-epoch variants
+peaked at 96% reused-validation accuracy; the larger ten-epoch model finished
+at 94.5%. It has no new independent score or
+federated transport result. The demonstrated Flower checkpoint remains unchanged.
 
 ## Original SmolLM2 benchmark
 
