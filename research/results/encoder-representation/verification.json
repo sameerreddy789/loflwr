@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-11-03T12:19:49.224993+00:00",
+  "full_wsl_suite": {
+    "tests": 159,
+    "skips": 0,
+    "status": "passed",
+    "seconds": 14.731,
+    "source": "runs\\encoder-representation-v3-unit-tests.log",
+    "source_sha256": "dcb4bc54ac69d24e1c760c4d48f8615ef3ed5ef1face50dc6b040b1e2fe61e00"
+  }
+}
