@@ -104,6 +104,23 @@ def _trainer(config: dict, manifest: dict):
                        seed=config.get("seed", 42), config=HeadConfig(**config.get("head_config", {})))
 
 
+def load_initial_checkpoint(config: dict, manifest: dict) -> dict:
+    """A server-only warm start; clients still receive the synchronized head."""
+    directory = Path(config["initial_checkpoint_dir"])
+    if not (directory / "checkpoint.json").is_file():
+        raise FileNotFoundError("Warm-start checkpoint is missing")
+    payload = CheckpointStore(directory).load()
+    digest = hashlib.sha256((directory / "checkpoint.json").read_bytes()).hexdigest()
+    expected = config.get("initial_checkpoint_sha256", digest)
+    identity = payload["identity"]
+    if (digest != expected or identity.get("kind") != "frozen_mpnet_linear_head"
+            or identity.get("encoder_identity_hash") != manifest["encoder_identity_hash"]
+            or identity.get("manifest_hash") != manifest["manifest_hash"]
+            or identity.get("labels") != manifest["labels"]):
+        raise ValueError("Warm-start checkpoint identity/hash mismatch")
+    return {**payload, "file_sha256": digest}
+
+
 def client_seed(request: RoundRequest) -> int:
     from .training import derive_client_seed
     return derive_client_seed(request.seed, request.attempt_id, request.client_id)
@@ -429,6 +446,12 @@ def make_server_app(config: dict):
         started = time.monotonic()
         manifest = validate_config(config)
         trainer = _trainer(config, manifest)
+        if config.get("initial_checkpoint_dir"):
+            initial = load_initial_checkpoint(config, manifest)
+            trainer.set_state(initial["state"])
+            EventLog(config["run_dir"], config["run_id"]).emit("warm_start_loaded",
+                source_run_id=initial["run_id"], source_version=initial["version"],
+                source_head_hash=initial["b_hash"], source_file_sha256=initial["file_sha256"])
         counts = {client: entry["count"] for client, entry in manifest["clients"].items()}
         hashes = {client: canonical_hash(entry) for client, entry in manifest["clients"].items()}
         coordinator = RoundCoordinator(run_dir=config["run_dir"], run_id=config["run_id"],
@@ -552,6 +575,11 @@ def simulate(config: dict) -> None:
     config.setdefault("persistent_worker", True)
     config.setdefault("selection_rule", "Highest evaluated validation accuracy, then macro F1, earliest evaluation")
     manifest = validate_config(config)
+    if config.get("initial_checkpoint_dir"):
+        config["initial_checkpoint_dir"] = str(Path(config["initial_checkpoint_dir"]).resolve())
+        initial = load_initial_checkpoint(config, manifest)
+        config["initial_checkpoint_sha256"] = initial["file_sha256"]
+        config["initial_head_hash"] = initial["b_hash"]
     config["manifest_hash"] = manifest["manifest_hash"]
     root = Path(__file__).resolve().parents[1]
     sources = {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in (

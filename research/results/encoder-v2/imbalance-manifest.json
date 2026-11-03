@@ -1,0 +1,155 @@
+{
+  "format_version": 1,
+  "kind": "mpnet_local_feature_dataset",
+  "feature_dim": 768,
+  "labels": [
+    "card_arrival",
+    "card_delivery_estimate",
+    "activate_my_card",
+    "card_about_to_expire",
+    "pending_card_payment",
+    "declined_card_payment",
+    "card_payment_not_recognised",
+    "transaction_charged_twice",
+    "pending_transfer",
+    "transfer_not_received_by_recipient",
+    "transfer_fee_charged",
+    "cancel_transfer",
+    "pending_cash_withdrawal",
+    "declined_cash_withdrawal",
+    "wrong_amount_of_cash_received",
+    "cash_withdrawal_not_recognised",
+    "edit_personal_details",
+    "verify_my_identity",
+    "unable_to_verify_identity",
+    "why_verify_identity"
+  ],
+  "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "encoder": {
+    "model_id": "sentence-transformers/all-mpnet-base-v2",
+    "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "license": "apache-2.0",
+    "files_sha256": {
+      "1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+      "config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+      "model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+      "sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+      "special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+      "tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+      "tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+      "vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada"
+    },
+    "pooling": "attention_mask_mean_then_l2_normalize",
+    "max_length": 384,
+    "batch_size": 8,
+    "device": "cpu",
+    "threads": 1
+  },
+  "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+  "source_reference_run": "accuracy-feasibility-20261103",
+  "source_reference_config_hash": "a32b8b5423abc9507f8569aa46c02e5d09ef9322cda31bf8a4d4ada60bbd9a1d",
+  "source_cache_sha256": "5e51de6d27fb601548ffdd4251e507781e122285542c10e2be2b171e8720e614",
+  "source_manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+  "preparation_note": "Public benchmark simulation prepared from the centralized frozen reference cache. Runtime clients load only their own features; the server receives parameter updates. This does not demonstrate distributed feature preparation or physical-device isolation.",
+  "clients": {
+    "0": {
+      "file": "clients/client_0.npz",
+      "sha256": "ab25f20a3e689d1bb5fb065b217ff5dec56bd0f6cc9036d1177e91cbbe56b50f",
+      "records_file": "clients/client_0.json",
+      "records_hash": "a4452734fa02dabcbb1da84fd764be78d744d9f16d70dd5c10133811cb6408ef",
+      "count": 10,
+      "label_counts": {
+        "card_arrival": 3,
+        "card_delivery_estimate": 3,
+        "activate_my_card": 2,
+        "card_about_to_expire": 2
+      }
+    },
+    "1": {
+      "file": "clients/client_1.npz",
+      "sha256": "6a9d386850cf534f1ff9e588794dcf903ac69cc0c30b049a377be25d6c59f7dc",
+      "records_file": "clients/client_1.json",
+      "records_hash": "3ffee50cb3f523c709e8a38f91185f578351406dad73419b5709e4ed1f7f5649",
+      "count": 360,
+      "label_counts": {
+        "pending_card_payment": 90,
+        "declined_card_payment": 90,
+        "card_payment_not_recognised": 90,
+        "transaction_charged_twice": 90
+      }
+    },
+    "2": {
+      "file": "clients/client_2.npz",
+      "sha256": "53921f56a49313f804194b77c96e3a817efb571670f12d06f8d2cdc2c9773f3b",
+      "records_file": "clients/client_2.json",
+      "records_hash": "fdac5169328f4ffb1a7dc0ff9352563927df4560c41d29132ec3e5e9494428ec",
+      "count": 10,
+      "label_counts": {
+        "pending_transfer": 3,
+        "transfer_not_received_by_recipient": 3,
+        "transfer_fee_charged": 2,
+        "cancel_transfer": 2
+      }
+    },
+    "3": {
+      "file": "clients/client_3.npz",
+      "sha256": "825a88ed3b39bf098133a2c09773072f8de0c35bf5e92e7de1911d117d709abf",
+      "records_file": "clients/client_3.json",
+      "records_hash": "039f8aa579d2594a0a0b102db0a81656254777a0bfd62f9f2b979f01e7542bf8",
+      "count": 10,
+      "label_counts": {
+        "pending_cash_withdrawal": 3,
+        "declined_cash_withdrawal": 3,
+        "wrong_amount_of_cash_received": 2,
+        "cash_withdrawal_not_recognised": 2
+      }
+    },
+    "4": {
+      "file": "clients/client_4.npz",
+      "sha256": "526d6772931e2448e5ea109edad66ce10a8bd4bf03a31a5bffacb05cfd896f00",
+      "records_file": "clients/client_4.json",
+      "records_hash": "a03d3862a89a501ad1b9fb1b7697e3c2764ba01ac00aa4214e615717fe5fe80d",
+      "count": 10,
+      "label_counts": {
+        "edit_personal_details": 3,
+        "verify_my_identity": 3,
+        "unable_to_verify_identity": 2,
+        "why_verify_identity": 2
+      }
+    }
+  },
+  "parent_manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+  "scenario": "original_400_query_90_percent_imbalance_validation_only",
+  "validation": {
+    "file": "validation.npz",
+    "sha256": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92",
+    "records_file": "validation.json",
+    "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+    "count": 200,
+    "label_counts": {
+      "card_arrival": 10,
+      "card_delivery_estimate": 10,
+      "activate_my_card": 10,
+      "card_about_to_expire": 10,
+      "pending_card_payment": 10,
+      "declined_card_payment": 10,
+      "card_payment_not_recognised": 10,
+      "transaction_charged_twice": 10,
+      "pending_transfer": 10,
+      "transfer_not_received_by_recipient": 10,
+      "transfer_fee_charged": 10,
+      "cancel_transfer": 10,
+      "pending_cash_withdrawal": 10,
+      "declined_cash_withdrawal": 10,
+      "wrong_amount_of_cash_received": 10,
+      "cash_withdrawal_not_recognised": 10,
+      "edit_personal_details": 10,
+      "verify_my_identity": 10,
+      "unable_to_verify_identity": 10,
+      "why_verify_identity": 10
+    }
+  },
+  "manifest_hash": "2a88d84ed75c00013fe638c27318f164cef1e5f3252d9f327f90f02dded09898"
+}

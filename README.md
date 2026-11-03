@@ -1,18 +1,18 @@
 # FedLoRA-Edge
 
-**Accuracy recovery update, 3 November:** the frozen-MPNet/federated-head variant
-reached **95.5% validation accuracy** in sequential five-client training, with
-identical live CPU inference. The earlier actual Flower run reached 92.5%; the
-95.5% configuration's Flower rerun is underway. See [new head results](research/results/encoder-v2/README.md),
-[earlier Flower evidence](research/results/encoder-v1/README.md), and the
-[remaining-error analysis](research/encoder-error-analysis.md). These are reused
-validation results, not fresh test results or a 99% claim. The original
-SmolLM2/LoRA benchmark below remains a separate experiment.
+**Current measured result, 3 November:** the frozen-MPNet/federated-head variant
+reached **95.5% validation accuracy (191/200)** through actual five-client Flower
+training. Every one of 500 attempts accepted all five clients. Unequal-budget
+and clipping comparisons also reached 95.5%; a real process dropout and rejoin
+preserved that score. See the [complete evidence](research/results/encoder-v2/README.md)
+and [remaining-error analysis](research/encoder-error-analysis.md). Validation
+was reused for model selection. The selected model and thresholds are locked
+for a separate 300-query confirmation evaluation; no 99% all-query claim is made.
 
 To open the upgraded query demo on the prepared laptop:
 
 ```powershell
-.\tools\start_encoder_demo.ps1 -RunDirectory runs/encoder-balanced-v2/balance-fast-long
+.\tools\start_encoder_demo.ps1 -RunDirectory runs/encoder-flower-balanced-v2
 ```
 
 Open <http://127.0.0.1:8511>. The [encoder demo guide](docs/encoder-demo.md)
@@ -20,9 +20,9 @@ explains live classification, recorded evidence and supported intents.
 
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
-Each client specializes a small language model on its local banking-intent data. The server combines validated B-only adapter updates, shows each contributor's coefficient, and commits only when enough valid replies arrive before the deadline.
+The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 115 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 155 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -61,7 +61,7 @@ The launcher detects `C:\Users\samee\.venvs\loflwr-cpu\Scripts\python.exe`. To c
 
 The GPU training environment is separate: Ubuntu under WSL2, using `/home/sameer/.venvs/loflwr/bin/python`. See the [morning guide](docs/morning-demo.md) for exact checks and a short training run, and the [dashboard guide](docs/dashboard.md) for replay and inference behavior. The [manual three-laptop guide](docs/deployment.md) describes an untested next rehearsal; `deploy-local --layout three` still launches all three clients on one host.
 
-## Selected design
+## Original LoRA benchmark
 
 | Component | Decision |
 | --- | --- |

@@ -1,0 +1,22 @@
+[
+  {
+    "run": "runs\\encoder-pilot-v1\\fed-fullbatch5",
+    "label": "Original optimizer",
+    "sha256": "7df463aa2db41464d7c33e7421bbb2a5eb160c356871bfc854a140ccbd2a0c77"
+  },
+  {
+    "run": "runs\\encoder-balanced-v2\\balance-only",
+    "label": "Class balance only",
+    "sha256": "4a7cf0ce081611116ce44611fbf3a969dfaab417fbdd6cf78d193879d2158260"
+  },
+  {
+    "run": "runs\\encoder-balanced-v2\\balance-fast-long",
+    "label": "Longer + weaker regularization",
+    "sha256": "eb3e5912ff5956085b7747507b55cf3f5ef3652b66225bcfe5039c68bb760df6"
+  },
+  {
+    "run": "runs\\encoder-stress-v2\\equal-clipped",
+    "label": "Longer + median clipping",
+    "sha256": "b5e0323373ace856bdfe150c1935790f32aea1c06a6211c448bb286fb5b76d7b"
+  }
+]

@@ -10,6 +10,17 @@ from .encoder_adapter import MODEL_REVISION, verify_encoder_assets
 from .encoder_head import HeadTrainer
 from .responses import response_for
 
+# Frozen reference manifest identities, including tokenizer/config bytes.
+PINNED_ASSET_HASH = "949e5f7ab1ebac4b8b23a21fa7748fc2f0bdbdc7694213ba700a6e4cd71ed5f4"
+PINNED_ENCODER_IDENTITY = "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+
+
+def verify_inference_assets(asset_dir):
+    identity = verify_encoder_assets(asset_dir)
+    if identity["asset_hash"] != PINNED_ASSET_HASH:
+        raise ValueError("Encoder configuration/tokenizer files differ from the frozen reference.")
+    return identity
+
 
 def load_head_checkpoint(directory):
     directory = Path(directory)
@@ -18,6 +29,7 @@ def load_head_checkpoint(directory):
     saved = CheckpointStore(directory).load()
     identity = saved["identity"]
     if (identity.get("kind") != "frozen_mpnet_linear_head"
+            or identity.get("encoder_identity_hash") != PINNED_ENCODER_IDENTITY
             or identity.get("model_revision") != MODEL_REVISION
             or identity.get("labels") != list(INTENTS)
             or identity.get("feature_dim") != 768
@@ -31,7 +43,7 @@ class EncoderPredictor:
         import torch
         from transformers import AutoModel, AutoTokenizer
         saved = load_head_checkpoint(checkpoint_dir)
-        self.asset_identity = verify_encoder_assets(asset_dir)
+        self.asset_identity = verify_inference_assets(asset_dir)
         torch.set_num_threads(cpu_threads)
         self.torch, self.device = torch, device
         self.tokenizer = AutoTokenizer.from_pretrained(str(asset_dir), local_files_only=True)

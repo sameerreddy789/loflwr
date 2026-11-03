@@ -1,0 +1,33 @@
+{
+  "network_interfaces": [
+    [
+      1,
+      "lo"
+    ]
+  ],
+  "external_connection_error": "[Errno 101] Network is unreachable",
+  "query_result": {
+    "intent": "activate_my_card",
+    "response": "Use the card activation option in your banking app and follow its instructions. Keep your PIN and card security details private.",
+    "candidates": [
+      {
+        "Intent": "activate_my_card",
+        "Uncalibrated logit": 9.526638984680176
+      },
+      {
+        "Intent": "card_arrival",
+        "Uncalibrated logit": 3.2760753631591797
+      },
+      {
+        "Intent": "card_about_to_expire",
+        "Uncalibrated logit": 2.566924571990967
+      }
+    ],
+    "seconds": 11.119716498000003,
+    "truncated": false,
+    "head_hash": "385ca9ade96264eafb0a77947847f84436b4d9c21d438d01cce378c6467b8cc2",
+    "run_id": "balance-fast-long"
+  },
+  "total_seconds": 44.53999955300003,
+  "interpretation": "Fresh loopback-only Linux network namespace, actual local CPU encoder inference. Not physical-laptop training."
+}

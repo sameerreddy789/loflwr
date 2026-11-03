@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 
 from fedlora_edge.data import INTENTS, content_hash
-from fedlora_edge.encoder_flower import client_seed, validate_config
+from fedlora_edge.encoder_flower import client_seed, validate_config, load_initial_checkpoint
 from fedlora_edge.encoder_head import HeadConfig
 from fedlora_edge.protocol import RoundRequest
 from fedlora_edge.state import TensorData, hash_state, state_schema
@@ -38,6 +38,23 @@ def fixture_config(directory):
 
 
 class EncoderFlowerConfigTests(unittest.TestCase):
+    def test_warm_start_is_bound_to_model_dataset_and_actual_file(self):
+        from fedlora_edge.checkpoint import CheckpointStore
+        with tempfile.TemporaryDirectory() as directory:
+            config, state = fixture_config(directory)
+            manifest = validate_config(config)
+            initial = Path(directory) / "initial"
+            CheckpointStore(initial).save(run_id="source", attempt_id=5, version=5,
+                state=state, identity=config["identity"], config_hash="source-config")
+            config["initial_checkpoint_dir"] = str(initial)
+            loaded = load_initial_checkpoint(config, manifest)
+            self.assertEqual(loaded["state"], state)
+            self.assertEqual(loaded["version"], 5)
+            with self.assertRaises(ValueError):
+                load_initial_checkpoint({**config, "initial_checkpoint_sha256": "wrong"}, manifest)
+            with self.assertRaises(ValueError):
+                load_initial_checkpoint(config, {**manifest, "manifest_hash": "another-dataset"})
+
     def test_identity_binds_shape_classes_encoder_and_optimizer(self):
         with tempfile.TemporaryDirectory() as directory:
             config, _ = fixture_config(directory)

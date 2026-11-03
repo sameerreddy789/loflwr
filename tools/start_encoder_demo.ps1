@@ -1,7 +1,8 @@
 param(
     [string]$Python = '',
     [int]$Port = 8511,
-    [string]$RunDirectory = 'runs/encoder-flower-fullbatch5-v1'
+    [string]$RunDirectory = 'runs/encoder-flower-fullbatch5-v1',
+    [string]$PolicyFile = ''
 )
 $ErrorActionPreference = 'Stop'
 $projectDirectory = Split-Path -Parent $PSScriptRoot
@@ -14,7 +15,9 @@ try {
     $env:TRANSFORMERS_OFFLINE = '1'
     $env:TOKENIZERS_PARALLELISM = 'false'
     Write-Host "Banking demo: http://127.0.0.1:$Port. Press Ctrl+C to stop."
-    & $Python -m streamlit run fedlora_edge/encoder_dashboard.py --server.port $Port --server.address 127.0.0.1 --server.headless true --browser.gatherUsageStats false -- --run-dir $RunDirectory
+    $demoArguments = @('-m', 'streamlit', 'run', 'fedlora_edge/encoder_dashboard.py', '--server.port', $Port, '--server.address', '127.0.0.1', '--server.headless', 'true', '--browser.gatherUsageStats', 'false', '--', '--run-dir', $RunDirectory)
+    if ($PolicyFile) { $demoArguments += @('--policy-file', $PolicyFile) }
+    & $Python @demoArguments
     if ($LASTEXITCODE -ne 0) { throw "Demo exited with code $LASTEXITCODE." }
 }
 finally { Pop-Location }

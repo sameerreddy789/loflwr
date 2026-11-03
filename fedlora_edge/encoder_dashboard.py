@@ -37,6 +37,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-dir", default=str(ROOT / "runs/encoder-flower-fullbatch5-v1"))
     parser.add_argument("--model-dir", default=str(ROOT / "assets/reference-mpnet"))
+    parser.add_argument("--policy-file", default="")
     args, _ = parser.parse_known_args()
     st.set_page_config(page_title="FedLoRA-Edge | Banking demo", layout="wide")
     st.markdown(STYLE, unsafe_allow_html=True)
@@ -46,6 +47,7 @@ def main():
         st.header("Experiment")
         run_dir = st.text_input("Completed run directory", args.run_dir)
         model_dir = st.text_input("Cached MPNet directory", args.model_dir)
+        policy_file = st.text_input("Margin policy file (optional)", args.policy_file)
         st.button("Reload evidence")
         st.caption("Inference runs locally. The selected model uses a frozen encoder and a trained classifier head.")
     try:
@@ -55,6 +57,21 @@ def main():
         return
     run_id = saved["run_id"]
     metrics = evidence["selected"]["metrics"]
+    margin_threshold = None
+    if policy_file:
+        try:
+            import math
+            policy = json.loads(Path(policy_file).read_text(encoding="utf-8"))
+            if policy.get("head_hash") != saved["b_hash"]:
+                raise ValueError("Margin policy belongs to a different checkpoint.")
+            point = next(p for p in policy["policies"] if p["target_validation_accuracy"] == 1.)
+            margin_threshold = point["threshold"]
+            if isinstance(margin_threshold, bool) or not isinstance(margin_threshold, (int, float)) or not math.isfinite(margin_threshold) or margin_threshold < 0:
+                raise ValueError("Invalid margin threshold.")
+            st.sidebar.caption("Clarification mode: low-margin predictions ask for more detail. The threshold was chosen on validation; future accuracy is not guaranteed.")
+        except (OSError, ValueError, KeyError, StopIteration) as exc:
+            st.error(f"Cannot use margin policy: {exc}")
+            return
     st.caption(f"{run_id} · selected version {saved['version']} · recorded training, live query inference")
     query_tab, evidence_tab, scope_tab = st.tabs(["Ask a query", "Training evidence", "Supported intents"])
     with query_tab:
@@ -75,16 +92,22 @@ def main():
                         return EncoderPredictor(assets, checkpoint)
                     with st.spinner("Loading local model and classifying your query…"):
                         result = predictor(model_dir, str(checkpoint_dir), signature).query(query)
-                    st.subheader(result["intent"].replace("_", " ").capitalize())
-                    st.write(result["response"])
-                    st.caption(f"{result['seconds']:.2f}s inference · team-authored support response")
+                    gap = result["candidates"][0]["Uncalibrated logit"] - result["candidates"][1]["Uncalibrated logit"]
+                    needs_details = margin_threshold is not None and gap < margin_threshold
+                    if needs_details:
+                        st.subheader("More detail needed")
+                        st.write("Please name the payment method or the exact issue, then classify the revised question. The topics below are suggestions; no support response has been selected.")
+                    else:
+                        st.subheader(result["intent"].replace("_", " ").capitalize())
+                        st.write(result["response"])
+                    st.caption(f"{result['seconds']:.2f}s inference · " + ("no automatic support response" if needs_details else "team-authored support response"))
                     st.dataframe(result["candidates"], hide_index=True, width="stretch")
                     st.caption("Logits rank the allowed intents. They are not calibrated probabilities.")
                     if result["truncated"]:
                         st.warning("The query exceeded 384 tokens; only its beginning was classified.")
                 except (OSError, ValueError, RuntimeError, ImportError) as exc:
                     st.error(f"Local inference could not start: {exc}")
-        st.caption("This closed-set demo always selects one of 20 intents. It cannot detect every unsupported request or perform account actions.")
+        st.caption("The model ranks 20 intents. Optional clarification mode declines low-margin answers; it cannot detect every unsupported request or perform account actions.")
     with evidence_tab:
         st.subheader("Measured validation result")
         st.write(f"**{metrics['accuracy']:.1%} accuracy** on {metrics['count']} development queries. "
@@ -103,11 +126,15 @@ def main():
             number = st.slider("Attempt to inspect", 1, len(rounds), len(rounds)) if len(rounds) > 1 else 1
             row = rounds[number - 1]
             coefficients = (row.get("aggregation") or {}).get("coefficients", {})
+            clip_factors = (row.get("aggregation") or {}).get("clip_factors", {})
+            clipped_norms = (row.get("aggregation") or {}).get("clipped_norms", {})
             clients = row.get("clients", {})
             st.write(f"{row['status'].capitalize()} · {len(row['accepted'])} accepted · "
                      f"{row.get('collection_seconds', 0):.2f}s collection")
             st.dataframe([{"Client": c, "Status": "Accepted" if c in row["accepted"] else "Absent or rejected",
-                           "Weight": coefficients.get(c, 0), "Steps": clients.get(c, {}).get("optimizer_steps", 0)}
+                           "Weight": coefficients.get(c, 0), "Clip factor": clip_factors.get(c),
+                           "Clipped delta norm": clipped_norms.get(c),
+                           "Steps": clients.get(c, {}).get("optimizer_steps", 0)}
                           for c in row.get("selected", [str(i) for i in range(5)])], hide_index=True, width="stretch")
         st.write("Each head update contains 15,380 FP32 parameters: 61,520 raw bytes per direction. Transport adds overhead.")
         with st.expander("Model identity and limits"):

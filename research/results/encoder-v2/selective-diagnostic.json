@@ -1,0 +1,28 @@
+{
+  "split": "reused_validation",
+  "count": 200,
+  "head_hash": "385ca9ade96264eafb0a77947847f84436b4d9c21d438d01cce378c6467b8cc2",
+  "top1_accuracy": 0.955,
+  "top2_recall": 0.985,
+  "policy": "Answer iff top1 minus top2 raw logit is at least threshold. Choose maximum validation coverage satisfying empirical requested accuracy, no minimum-confidence guarantee.",
+  "points": {
+    "0.98": {
+      "answered": 184,
+      "coverage": 0.92,
+      "threshold": 0.9581952095031738,
+      "accuracy_on_answered": 0.9836956521739131
+    },
+    "0.99": {
+      "answered": 167,
+      "coverage": 0.835,
+      "threshold": 1.669316291809082,
+      "accuracy_on_answered": 0.9940119760479041
+    },
+    "1.0": {
+      "answered": 157,
+      "coverage": 0.785,
+      "threshold": 2.120201587677002,
+      "accuracy_on_answered": 1.0
+    }
+  }
+}

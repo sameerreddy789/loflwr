@@ -1,0 +1,1157 @@
+{
+  "kind": "frozen_mpnet_linear_head",
+  "runtime": "flower_ray_one_cpu_worker",
+  "run_id": "encoder-flower-trained-recovery-v2",
+  "config_hash": "557e601249a028eab85cb68488317782231238d0db28c767499febc89824e34d",
+  "identity": {
+    "common_a_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+    "contract_hash": "a9abeb6755a04577036ab69f01cd566f7dd12abcb65ea997f761822b00b1c5f0",
+    "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+    "feature_dim": 768,
+    "head_config": {
+      "batch_size": 1024,
+      "class_balance": true,
+      "cpu_threads": 1,
+      "gradient_clip": 10,
+      "learning_rate": 20.0,
+      "optimizer": "sgd",
+      "weight_decay": 3.6231884057971014e-05
+    },
+    "head_schema": {
+      "head.bias": {
+        "dtype": "float32",
+        "shape": [
+          20
+        ]
+      },
+      "head.weight": {
+        "dtype": "float32",
+        "shape": [
+          20,
+          768
+        ]
+      }
+    },
+    "kind": "frozen_mpnet_linear_head",
+    "labels": [
+      "card_arrival",
+      "card_delivery_estimate",
+      "activate_my_card",
+      "card_about_to_expire",
+      "pending_card_payment",
+      "declined_card_payment",
+      "card_payment_not_recognised",
+      "transaction_charged_twice",
+      "pending_transfer",
+      "transfer_not_received_by_recipient",
+      "transfer_fee_charged",
+      "cancel_transfer",
+      "pending_cash_withdrawal",
+      "declined_cash_withdrawal",
+      "wrong_amount_of_cash_received",
+      "cash_withdrawal_not_recognised",
+      "edit_personal_details",
+      "verify_my_identity",
+      "unable_to_verify_identity",
+      "why_verify_identity"
+    ],
+    "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+    "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "protocol_alias_note": "Historical B fields carry classifier-head state; common_a_hash binds the frozen encoder identity. No LoRA A/B are trained in this variant."
+  },
+  "selected": {
+    "attempt_id": 0,
+    "manifest_hash": "ff32018ee48933c87ed3deae63cde0cc8e0512cdf2adb0180130f6b5eabf4ec5",
+    "metrics": {
+      "accuracy": 0.955,
+      "b_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "count": 200,
+      "domain_gap": 0.07499999999999996,
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "macro_f1": 0.9550402521455151,
+      "per_domain_accuracy": {
+        "Account verification": 0.9,
+        "Card lifecycle": 0.975,
+        "Card payments": 0.95,
+        "Cash withdrawals": 0.975,
+        "Transfers": 0.975
+      },
+      "per_intent": {
+        "activate_my_card": {
+          "accuracy": 1.0,
+          "f1": 0.9523809523809523,
+          "support": 10
+        },
+        "cancel_transfer": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "card_about_to_expire": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "card_arrival": {
+          "accuracy": 1.0,
+          "f1": 0.9523809523809523,
+          "support": 10
+        },
+        "card_delivery_estimate": {
+          "accuracy": 0.9,
+          "f1": 0.9473684210526315,
+          "support": 10
+        },
+        "card_payment_not_recognised": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "cash_withdrawal_not_recognised": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "declined_card_payment": {
+          "accuracy": 0.8,
+          "f1": 0.8888888888888888,
+          "support": 10
+        },
+        "declined_cash_withdrawal": {
+          "accuracy": 0.9,
+          "f1": 0.9,
+          "support": 10
+        },
+        "edit_personal_details": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "pending_card_payment": {
+          "accuracy": 1.0,
+          "f1": 0.9523809523809523,
+          "support": 10
+        },
+        "pending_cash_withdrawal": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "pending_transfer": {
+          "accuracy": 0.9,
+          "f1": 0.9473684210526315,
+          "support": 10
+        },
+        "transaction_charged_twice": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "transfer_fee_charged": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        },
+        "transfer_not_received_by_recipient": {
+          "accuracy": 1.0,
+          "f1": 0.9523809523809523,
+          "support": 10
+        },
+        "unable_to_verify_identity": {
+          "accuracy": 0.9,
+          "f1": 0.9473684210526315,
+          "support": 10
+        },
+        "verify_my_identity": {
+          "accuracy": 0.8,
+          "f1": 0.8421052631578947,
+          "support": 10
+        },
+        "why_verify_identity": {
+          "accuracy": 0.9,
+          "f1": 0.8181818181818182,
+          "support": 10
+        },
+        "wrong_amount_of_cash_received": {
+          "accuracy": 1.0,
+          "f1": 1.0,
+          "support": 10
+        }
+      },
+      "scoring_rule": "linear_head_argmax",
+      "task_loss": 0.20755470279290866,
+      "worst_domain_accuracy": 0.9
+    },
+    "run_id": "encoder-flower-trained-recovery-v2",
+    "split": "validation",
+    "timestamp": 1793703463.2824736,
+    "version": 0
+  },
+  "attempts": 3,
+  "committed_versions": 3,
+  "total_wall_seconds": 23.901457741999998,
+  "evaluations": [
+    {
+      "attempt_id": 0,
+      "manifest_hash": "ff32018ee48933c87ed3deae63cde0cc8e0512cdf2adb0180130f6b5eabf4ec5",
+      "metrics": {
+        "accuracy": 0.955,
+        "b_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+        "count": 200,
+        "domain_gap": 0.07499999999999996,
+        "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+        "macro_f1": 0.9550402521455151,
+        "per_domain_accuracy": {
+          "Account verification": 0.9,
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Cash withdrawals": 0.975,
+          "Transfers": 0.975
+        },
+        "per_intent": {
+          "activate_my_card": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "cancel_transfer": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_about_to_expire": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_arrival": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "card_delivery_estimate": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "card_payment_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "cash_withdrawal_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "declined_card_payment": {
+            "accuracy": 0.8,
+            "f1": 0.8888888888888888,
+            "support": 10
+          },
+          "declined_cash_withdrawal": {
+            "accuracy": 0.9,
+            "f1": 0.9,
+            "support": 10
+          },
+          "edit_personal_details": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_card_payment": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "pending_cash_withdrawal": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_transfer": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "transaction_charged_twice": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_fee_charged": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_not_received_by_recipient": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "unable_to_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "verify_my_identity": {
+            "accuracy": 0.8,
+            "f1": 0.8421052631578947,
+            "support": 10
+          },
+          "why_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.8181818181818182,
+            "support": 10
+          },
+          "wrong_amount_of_cash_received": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          }
+        },
+        "scoring_rule": "linear_head_argmax",
+        "task_loss": 0.20755470279290866,
+        "worst_domain_accuracy": 0.9
+      },
+      "run_id": "encoder-flower-trained-recovery-v2",
+      "split": "validation",
+      "timestamp": 1793703463.2824736,
+      "version": 0
+    },
+    {
+      "attempt_id": 1,
+      "manifest_hash": "ff32018ee48933c87ed3deae63cde0cc8e0512cdf2adb0180130f6b5eabf4ec5",
+      "metrics": {
+        "accuracy": 0.955,
+        "b_hash": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+        "count": 200,
+        "domain_gap": 0.07499999999999996,
+        "head_hash": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+        "macro_f1": 0.9550402521455151,
+        "per_domain_accuracy": {
+          "Account verification": 0.9,
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Cash withdrawals": 0.975,
+          "Transfers": 0.975
+        },
+        "per_intent": {
+          "activate_my_card": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "cancel_transfer": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_about_to_expire": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_arrival": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "card_delivery_estimate": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "card_payment_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "cash_withdrawal_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "declined_card_payment": {
+            "accuracy": 0.8,
+            "f1": 0.8888888888888888,
+            "support": 10
+          },
+          "declined_cash_withdrawal": {
+            "accuracy": 0.9,
+            "f1": 0.9,
+            "support": 10
+          },
+          "edit_personal_details": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_card_payment": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "pending_cash_withdrawal": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_transfer": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "transaction_charged_twice": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_fee_charged": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_not_received_by_recipient": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "unable_to_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "verify_my_identity": {
+            "accuracy": 0.8,
+            "f1": 0.8421052631578947,
+            "support": 10
+          },
+          "why_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.8181818181818182,
+            "support": 10
+          },
+          "wrong_amount_of_cash_received": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          }
+        },
+        "scoring_rule": "linear_head_argmax",
+        "task_loss": 0.20748348507972325,
+        "worst_domain_accuracy": 0.9
+      },
+      "run_id": "encoder-flower-trained-recovery-v2",
+      "split": "validation",
+      "timestamp": 1793703477.85776,
+      "version": 1
+    },
+    {
+      "attempt_id": 2,
+      "manifest_hash": "ff32018ee48933c87ed3deae63cde0cc8e0512cdf2adb0180130f6b5eabf4ec5",
+      "metrics": {
+        "accuracy": 0.955,
+        "b_hash": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+        "count": 200,
+        "domain_gap": 0.07499999999999996,
+        "head_hash": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+        "macro_f1": 0.9550402521455151,
+        "per_domain_accuracy": {
+          "Account verification": 0.9,
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Cash withdrawals": 0.975,
+          "Transfers": 0.975
+        },
+        "per_intent": {
+          "activate_my_card": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "cancel_transfer": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_about_to_expire": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_arrival": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "card_delivery_estimate": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "card_payment_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "cash_withdrawal_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "declined_card_payment": {
+            "accuracy": 0.8,
+            "f1": 0.8888888888888888,
+            "support": 10
+          },
+          "declined_cash_withdrawal": {
+            "accuracy": 0.9,
+            "f1": 0.9,
+            "support": 10
+          },
+          "edit_personal_details": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_card_payment": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "pending_cash_withdrawal": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_transfer": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "transaction_charged_twice": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_fee_charged": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_not_received_by_recipient": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "unable_to_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "verify_my_identity": {
+            "accuracy": 0.8,
+            "f1": 0.8421052631578947,
+            "support": 10
+          },
+          "why_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.8181818181818182,
+            "support": 10
+          },
+          "wrong_amount_of_cash_received": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          }
+        },
+        "scoring_rule": "linear_head_argmax",
+        "task_loss": 0.20781828910064665,
+        "worst_domain_accuracy": 0.9
+      },
+      "run_id": "encoder-flower-trained-recovery-v2",
+      "split": "validation",
+      "timestamp": 1793703484.805613,
+      "version": 2
+    },
+    {
+      "attempt_id": 3,
+      "manifest_hash": "ff32018ee48933c87ed3deae63cde0cc8e0512cdf2adb0180130f6b5eabf4ec5",
+      "metrics": {
+        "accuracy": 0.955,
+        "b_hash": "986e9b122922749c8dee14f537c2a9818c16f2750c42e2579cb6d4e852ccbdda",
+        "count": 200,
+        "domain_gap": 0.07499999999999996,
+        "head_hash": "986e9b122922749c8dee14f537c2a9818c16f2750c42e2579cb6d4e852ccbdda",
+        "macro_f1": 0.9550402521455151,
+        "per_domain_accuracy": {
+          "Account verification": 0.9,
+          "Card lifecycle": 0.975,
+          "Card payments": 0.95,
+          "Cash withdrawals": 0.975,
+          "Transfers": 0.975
+        },
+        "per_intent": {
+          "activate_my_card": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "cancel_transfer": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_about_to_expire": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "card_arrival": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "card_delivery_estimate": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "card_payment_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "cash_withdrawal_not_recognised": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "declined_card_payment": {
+            "accuracy": 0.8,
+            "f1": 0.8888888888888888,
+            "support": 10
+          },
+          "declined_cash_withdrawal": {
+            "accuracy": 0.9,
+            "f1": 0.9,
+            "support": 10
+          },
+          "edit_personal_details": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_card_payment": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "pending_cash_withdrawal": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "pending_transfer": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "transaction_charged_twice": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_fee_charged": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          },
+          "transfer_not_received_by_recipient": {
+            "accuracy": 1.0,
+            "f1": 0.9523809523809523,
+            "support": 10
+          },
+          "unable_to_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 10
+          },
+          "verify_my_identity": {
+            "accuracy": 0.8,
+            "f1": 0.8421052631578947,
+            "support": 10
+          },
+          "why_verify_identity": {
+            "accuracy": 0.9,
+            "f1": 0.8181818181818182,
+            "support": 10
+          },
+          "wrong_amount_of_cash_received": {
+            "accuracy": 1.0,
+            "f1": 1.0,
+            "support": 10
+          }
+        },
+        "scoring_rule": "linear_head_argmax",
+        "task_loss": 0.20777766244148915,
+        "worst_domain_accuracy": 0.9
+      },
+      "run_id": "encoder-flower-trained-recovery-v2",
+      "split": "validation",
+      "timestamp": 1793703486.6865623,
+      "version": 3
+    }
+  ],
+  "limits": [
+    "One host with five logical clients; not physical-laptop evidence.",
+    "Process interruption kills a local optimizer child; simulated failures are labelled separately.",
+    "Frozen encoder plus trained head; not a LoRA or full-model optimization experiment."
+  ],
+  "run_directory": "runs/encoder-flower-trained-recovery-v2",
+  "source_sha256": "3276fc23549f4344c844156995e03daddb2fe41617f1861400e5e1e8e7a84377",
+  "rounds": [
+    {
+      "attempt_id": 1,
+      "status": "committed",
+      "accepted": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "absent": [],
+      "rejected": [],
+      "version_before": 0,
+      "version_after": 1,
+      "collection_seconds": 10.271062553,
+      "serialized_reply_bytes": 323428,
+      "checkpoint_hash": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+      "quorum": 3,
+      "raw_b_bytes": 61520,
+      "aggregation_seconds": 0.04775694199999947,
+      "aggregation": {
+        "aggregate_norm": 0.03913306510277978,
+        "clip_factors": {
+          "0": 1.0,
+          "1": 0.5322651636398922,
+          "2": 0.9272063759310704,
+          "3": 0.9999999999986032,
+          "4": 1.0
+        },
+        "clip_threshold": 0.7159282978803856,
+        "clipped_norms": {
+          "0": 0.3198104527764464,
+          "1": 0.7159282978798532,
+          "2": 0.7159282978794583,
+          "3": 0.7159282978793856,
+          "4": 0.25139527097080216
+        },
+        "clipping_fraction": 0.6,
+        "coefficients": {
+          "0": 0.2,
+          "1": 0.2,
+          "2": 0.2,
+          "3": 0.2,
+          "4": 0.2
+        },
+        "declared_sample_sizes": {
+          "0": 513,
+          "1": 615,
+          "2": 608,
+          "3": 616,
+          "4": 408
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.3198104527764464,
+          "1": 1.3450594680741115,
+          "2": 0.77213478731803,
+          "3": 0.7159282978803856,
+          "4": 0.25139527097080216
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "clients": {
+        "0": {
+          "optimizer_steps": 1,
+          "examples_processed": 513,
+          "peak_rss_bytes": 595300352,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+          "state_hash_after": "619cd5e169d2d92fdf8218387c16889740efe5d79a2150a7218ff0964298bfb6",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "1": {
+          "optimizer_steps": 2,
+          "examples_processed": 1230,
+          "peak_rss_bytes": 599101440,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+          "state_hash_after": "f054c7cb09bfa9204421433014d4164fe66d65cd18ab8f9ccfa7bcf3f25f3048",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "2": {
+          "optimizer_steps": 1,
+          "examples_processed": 608,
+          "peak_rss_bytes": 599101440,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+          "state_hash_after": "ad63a519cd767cc0fc6d3e4af10923ea28bbda589951435d4ef34952204bac3c",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "3": {
+          "optimizer_steps": 1,
+          "examples_processed": 616,
+          "peak_rss_bytes": 599101440,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+          "state_hash_after": "3034ab54eb5bf65556e3fb3abd56d96db0a4c53b8738394b8890753c8eccc936",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "4": {
+          "optimizer_steps": 1,
+          "examples_processed": 408,
+          "peak_rss_bytes": 599101440,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+          "state_hash_after": "3e9a16635ca660752835e81b9c6a3e4d50a7f8cfd871bae01eb59fe3abac531d",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        }
+      }
+    },
+    {
+      "attempt_id": 2,
+      "status": "committed",
+      "accepted": [
+        "0",
+        "2",
+        "3",
+        "4"
+      ],
+      "absent": [],
+      "rejected": [
+        {
+          "client_id": "1",
+          "reason": "unsuccessful_work_status"
+        }
+      ],
+      "version_before": 1,
+      "version_after": 2,
+      "collection_seconds": 6.829298182999999,
+      "serialized_reply_bytes": 321917,
+      "checkpoint_hash": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+      "quorum": 3,
+      "raw_b_bytes": 61520,
+      "aggregation_seconds": 0.029716225999997903,
+      "aggregation": {
+        "aggregate_norm": 0.1570392560804057,
+        "clip_factors": {
+          "0": 1.0,
+          "2": 0.6651788034601579,
+          "3": 0.7244690463994109,
+          "4": 1.0
+        },
+        "clip_threshold": 0.512047575677882,
+        "clipped_norms": {
+          "0": 0.3173050155700896,
+          "2": 0.5120475756772168,
+          "3": 0.5120475756771575,
+          "4": 0.25131601009502724
+        },
+        "clipping_fraction": 0.5,
+        "coefficients": {
+          "0": 0.25,
+          "2": 0.25,
+          "3": 0.25,
+          "4": 0.25
+        },
+        "declared_sample_sizes": {
+          "0": 513,
+          "2": 608,
+          "3": 616,
+          "4": 408
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.3173050155700896,
+          "2": 0.7697893754485621,
+          "3": 0.7067901357856742,
+          "4": 0.25131601009502724
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "clients": {
+        "0": {
+          "optimizer_steps": 1,
+          "examples_processed": 513,
+          "peak_rss_bytes": 599101440,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+          "state_hash_after": "c84ff7db00988812ef19ef894cfee10b7a806a760c224471b6475d155f212d1e",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "2": {
+          "optimizer_steps": 1,
+          "examples_processed": 608,
+          "peak_rss_bytes": 596852736,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+          "state_hash_after": "7f031d03ee10305d31b87418df5d2bbfca728d97d36868393357c80f4e430a74",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "3": {
+          "optimizer_steps": 1,
+          "examples_processed": 616,
+          "peak_rss_bytes": 598949888,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+          "state_hash_after": "8cfb18bae1742356800652220e3baa10dc5d1da3f4845bbed9409125eaa0d3c1",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "4": {
+          "optimizer_steps": 1,
+          "examples_processed": 408,
+          "peak_rss_bytes": 598949888,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "e5ec54e5dbd0a5888f378b135ba326d0fade3579fcc6cf9d780c49fe30ddeb68",
+          "state_hash_after": "f1f540be19f0f50f04f68ad441f05417a6c3fa388bb7a1c42173195cbda971e9",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        }
+      }
+    },
+    {
+      "attempt_id": 3,
+      "status": "committed",
+      "accepted": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "absent": [],
+      "rejected": [],
+      "version_before": 2,
+      "version_after": 3,
+      "collection_seconds": 1.7806017589999996,
+      "serialized_reply_bytes": 323437,
+      "checkpoint_hash": "986e9b122922749c8dee14f537c2a9818c16f2750c42e2579cb6d4e852ccbdda",
+      "quorum": 3,
+      "raw_b_bytes": 61520,
+      "aggregation_seconds": 0.03156705100000323,
+      "aggregation": {
+        "aggregate_norm": 0.03299730385558862,
+        "clip_factors": {
+          "0": 1.0,
+          "1": 0.45876892942324854,
+          "2": 0.9057841806507763,
+          "3": 0.9999999999985167,
+          "4": 1.0
+        },
+        "clip_threshold": 0.6741728956498274,
+        "clipped_norms": {
+          "0": 0.30153850349777817,
+          "1": 0.6741728956493687,
+          "2": 0.6741728956489217,
+          "3": 0.6741728956488274,
+          "4": 0.25126242879159105
+        },
+        "clipping_fraction": 0.6,
+        "coefficients": {
+          "0": 0.2,
+          "1": 0.2,
+          "2": 0.2,
+          "3": 0.2,
+          "4": 0.2
+        },
+        "declared_sample_sizes": {
+          "0": 513,
+          "1": 615,
+          "2": 608,
+          "3": 616,
+          "4": 408
+        },
+        "epsilon": 1e-12,
+        "norms": {
+          "0": 0.30153850349777817,
+          "1": 1.4695260563894768,
+          "2": 0.7442974938738172,
+          "3": 0.6741728956498274,
+          "4": 0.25126242879159105
+        },
+        "strategy": "equal_clipped",
+        "zero_delta_clients": [],
+        "zero_threshold": false
+      },
+      "clients": {
+        "0": {
+          "optimizer_steps": 1,
+          "examples_processed": 513,
+          "peak_rss_bytes": 598949888,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+          "state_hash_after": "bd057fd489f9357ae63a353066672986406887d6a62e01d522e8ea06545e6b99",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "1": {
+          "optimizer_steps": 2,
+          "examples_processed": 1230,
+          "peak_rss_bytes": 598949888,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+          "state_hash_after": "f319fa075b73e403c44a6dc0cc3e3b4036ec9f98a50f75351184dd396ba08c48",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "2": {
+          "optimizer_steps": 1,
+          "examples_processed": 608,
+          "peak_rss_bytes": 598949888,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+          "state_hash_after": "8b90dd2366a081451e2e2c8b4c4db9b38d0a927683827826571ddf2d0e56fde8",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "3": {
+          "optimizer_steps": 1,
+          "examples_processed": 616,
+          "peak_rss_bytes": 600784896,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+          "state_hash_after": "7371314765690e0f68dc97181ac44a08eb702e286181bf8ef0580fafe25034de",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        },
+        "4": {
+          "optimizer_steps": 1,
+          "examples_processed": 408,
+          "peak_rss_bytes": 600784896,
+          "raw_parameter_bytes": 61520,
+          "state_hash_before": "8030f6d2deece26ced5c7edd4391158996c0d20dbcdbd2a6dc18b03075afbaba",
+          "state_hash_after": "732a8d7525ff14273dbee9a07f1f169a586392cd81c50ada09bc226d59574ea7",
+          "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb"
+        }
+      }
+    }
+  ],
+  "supporting_files_sha256": {
+    "runtime.json": "c4f1b446df03f9b19a496c88eb05d0f439ee96e5d37316d17d4c2edd9c0e3155",
+    "runtime_preparation.json": "e8360e9ff25e0d31fda5e6649bfb72a588008de8e9c4cb62439966e6d8b98e97",
+    "config.json": "e367d0ca3816ebddd5d6b96e38bcd42cd36c54aaa732763351c8f17fc294a928",
+    "events.jsonl": "caf057eb3c8716d1716941457c9a145b176ec8c906090c7a4ad47ea22f447461"
+  },
+  "runtime_configuration": {
+    "attempts": 3,
+    "budgets": {
+      "0": 1,
+      "1": 2,
+      "2": 1,
+      "3": 1,
+      "4": 1
+    },
+    "dataset_dir": "/mnt/d/Hackathons/loflwr/assets/encoder-bank20-v1",
+    "deadline_seconds": 60,
+    "evaluate_every": 1,
+    "head_config": {
+      "batch_size": 1024,
+      "class_balance": true,
+      "cpu_threads": 1,
+      "gradient_clip": 10,
+      "learning_rate": 20.0,
+      "optimizer": "sgd",
+      "weight_decay": 3.6231884057971014e-05
+    },
+    "identity": {
+      "common_a_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+      "contract_hash": "a9abeb6755a04577036ab69f01cd566f7dd12abcb65ea997f761822b00b1c5f0",
+      "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+      "feature_dim": 768,
+      "head_config": {
+        "batch_size": 1024,
+        "class_balance": true,
+        "cpu_threads": 1,
+        "gradient_clip": 10,
+        "learning_rate": 20.0,
+        "optimizer": "sgd",
+        "weight_decay": 3.6231884057971014e-05
+      },
+      "head_schema": {
+        "head.bias": {
+          "dtype": "float32",
+          "shape": [
+            20
+          ]
+        },
+        "head.weight": {
+          "dtype": "float32",
+          "shape": [
+            20,
+            768
+          ]
+        }
+      },
+      "kind": "frozen_mpnet_linear_head",
+      "labels": [
+        "card_arrival",
+        "card_delivery_estimate",
+        "activate_my_card",
+        "card_about_to_expire",
+        "pending_card_payment",
+        "declined_card_payment",
+        "card_payment_not_recognised",
+        "transaction_charged_twice",
+        "pending_transfer",
+        "transfer_not_received_by_recipient",
+        "transfer_fee_charged",
+        "cancel_transfer",
+        "pending_cash_withdrawal",
+        "declined_cash_withdrawal",
+        "wrong_amount_of_cash_received",
+        "cash_withdrawal_not_recognised",
+        "edit_personal_details",
+        "verify_my_identity",
+        "unable_to_verify_identity",
+        "why_verify_identity"
+      ],
+      "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+      "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+      "protocol_alias_note": "Historical B fields carry classifier-head state; common_a_hash binds the frozen encoder identity. No LoRA A/B are trained in this variant."
+    },
+    "initial_checkpoint_dir": "/mnt/d/Hackathons/loflwr/runs/encoder-flower-balanced-v2/selected",
+    "initial_checkpoint_sha256": "39cfba43aac7784b92cd6fda5217644c2ed56cd57a2c34cc1b46935c2c687c82",
+    "initial_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+    "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+    "persistent_worker": true,
+    "process_interruptions": [
+      {
+        "after_steps": 1,
+        "attempt_id": 2,
+        "client_id": "1"
+      }
+    ],
+    "quorum": 3,
+    "run_dir": "/mnt/d/Hackathons/loflwr/runs/encoder-flower-trained-recovery-v2",
+    "run_id": "encoder-flower-trained-recovery-v2",
+    "seed": 42,
+    "selection_rule": "Highest evaluated validation accuracy, then macro F1, earliest evaluation",
+    "source_files_sha256": {
+      "fedlora_edge/aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+      "fedlora_edge/checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+      "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+      "fedlora_edge/encoder_flower.py": "b1a051cef1365406218a25f5129630b2b4be71e416199357849456513bdfcc9e",
+      "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+      "fedlora_edge/flower_app.py": "f2b7c99d16170d2e596de3567631b8c9d4dc381e5e6fde828c8deab9cda56aca",
+      "fedlora_edge/protocol.py": "82e63641c5d5f0eac9a0c2c9c01442e2c2bfd8cd2456745f10a98478dfa64a1b",
+      "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+      "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+      "tools/run_encoder_flower.py": "1514f422165e5b2427b0d01934e600ddfc809ece2c6f80f8125288bccd8922be"
+    },
+    "strategy": "equal_clipped",
+    "worker_cpus": 1
+  }
+}

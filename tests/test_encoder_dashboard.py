@@ -26,10 +26,12 @@ class EncoderDashboardTests(unittest.TestCase):
         from fedlora_edge.data import INTENTS, content_hash
         from fedlora_edge.encoder_adapter import MODEL_REVISION
         from fedlora_edge.encoder_head import HeadTrainer
+        from fedlora_edge.encoder_inference import PINNED_ENCODER_IDENTITY
         from fedlora_edge.state import hash_state
         state = HeadTrainer().get_state()
         identity = {"kind": "frozen_mpnet_linear_head", "model_revision": MODEL_REVISION,
-                    "labels": list(INTENTS), "feature_dim": 768}
+                    "labels": list(INTENTS), "feature_dim": 768,
+                    "encoder_identity_hash": PINNED_ENCODER_IDENTITY}
         identity["contract_hash"] = content_hash(identity)
         CheckpointStore(self.root / "selected").save(run_id="UI-FIXTURE-NOT-AN-EXPERIMENT",
             attempt_id=1, version=1, state=state, identity=identity, config_hash="fixture")
@@ -75,6 +77,27 @@ class EncoderDashboardTests(unittest.TestCase):
         p.write_text(json.dumps(saved))
         app = self.app()
         self.assertTrue(any("contract" in e.value for e in app.error))
+
+    def test_low_margin_query_requests_details_instead_of_a_support_response(self):
+        self.fixture()
+        saved = json.loads((self.root / "selected/checkpoint.json").read_text())
+        policy_file = self.root / "policy.json"
+        policy_file.write_text(json.dumps({"head_hash": saved["b_hash"],
+            "policies": [{"target_validation_accuracy": 1., "threshold": 2.}]}))
+        class FixturePredictor:
+            def query(self, text):
+                return {"intent": "card_arrival", "response": "DO NOT DISPLAY THIS FIXTURE RESPONSE",
+                    "candidates": [{"Intent": "card_arrival", "Uncalibrated logit": 2.},
+                                   {"Intent": "card_delivery_estimate", "Uncalibrated logit": 1.}],
+                    "seconds": 0., "truncated": False}
+        with patch("fedlora_edge.encoder_inference.EncoderPredictor", return_value=FixturePredictor()):
+            app = self.app()
+            next(w for w in app.text_input if w.label == "Margin policy file (optional)").set_value(str(policy_file)).run()
+            app.text_area[0].set_value("Fixture question")
+            next(b for b in app.button if b.label == "Classify query").click().run()
+            self.assertEqual(len(app.exception), 0)
+            self.assertTrue(any(h.value == "More detail needed" for h in app.subheader))
+            self.assertFalse(any("DO NOT DISPLAY" in p.value for p in app.markdown))
 
 
 if __name__ == "__main__":
