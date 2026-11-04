@@ -22,8 +22,8 @@ requires a new independently held-out evaluation set. See the
 | Adapter variant | Shared frozen-A MPNet B-plus-head CPU/GPU invariants passed. Further federated/centralized adapter trials did not exceed 95.5% validation; the federated trial selected its initial checkpoint. |
 | Offline query demo | Pinned local MPNet and selected Flower head, published aggregate confirmation, recorded client evidence, and optional frozen clarification rule. CPU inference exactly reproduced the 200 cached validation predictions. |
 
-The WSL suite now passed **246 tests, zero failures and zero skips**. See the
-[latest verification](results/demo-extension-v1/verification.json). The seven
+The WSL suite now passed **260 tests, zero failures and zero skips**. See the
+[latest verification](results/rehearsal-evaluator-v1/verification.json). The seven
 dashboard checks are included, not additional tests. These checks do not score
 confirmation queries. Only one physical laptop is available.
 
@@ -34,6 +34,12 @@ original deck and silent backup. The [nine-run resource study](results/resource-
 held total optimizer work fixed: four local steps between averages saved 75%
 estimated raw payload but reduced validation accuracy by 2 points in every seed.
 It is a cached-feature development comparison, not a new test-set result.
+
+The [new fresh-evaluation runner](../docs/fresh-evaluation-runner.md) implements
+collection-to-lock binding, verified publication, once-only inference claims and
+separate primary/secondary metrics. Its real empty-pack path refused scoring;
+qualifying human evaluation remains pending. A fresh-server browser walkthrough
+passed ten functional observations, including playback of the narrated backup.
 
 The original experiment used a central public feature cache. The new
 [local preparation](results/encoder-local-v1/README.md) runs independently encode

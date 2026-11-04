@@ -163,6 +163,12 @@ external URLs, anchors, rendering or the presentation folder; review those separ
 - [fresh_query_collection.py](fresh_query_collection.py) creates empty blinded
   collection packets and checks readiness for a future evaluation lock. It has
   no inference/scoring command. Follow the [collection guide](../docs/fresh-query-collection.md).
+- [evaluate_fresh_bank20.py](evaluate_fresh_bank20.py) prepares a qualifying human
+  collection for locked, once-only evaluation of the unchanged confirmed head.
+  It verifies publication before claiming queries, preserves audited labels and
+  exclusions, and separates primary accuracy from selective/secondary metrics.
+  The current empty collection is blocked. Follow the
+  [runner guide](../docs/fresh-evaluation-runner.md) before any new scoring.
 
 ## Fixed-work communication study
 

@@ -165,7 +165,10 @@ either a list of objects, `{"records": [...]}`, or JSONL.
 Exit **2** means unfinished or invalid. Exit **0** and `ready_for_lock` mean the
 collection meets the software's proposed gate, including at least 20 supported
 rows per intent; `evaluation_ready` remains **false**. Human attestations are
-not independently verified by this tool. No scoring command exists.
+not independently verified by this tool. This collection tool has no scoring
+command. The [separate evaluation runner](fresh-evaluation-runner.md) can lock and
+score an eligible pack using the unchanged confirmed head; the current empty
+pack is refused, and combined scope evaluation remains a separate extension.
 
 The pack's `evaluation-handoff.json` lists the remaining requirements. Before
 any new inference, make a separate public, committed and pushed lock for:

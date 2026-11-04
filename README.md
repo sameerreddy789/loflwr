@@ -63,11 +63,20 @@ by default. The [fresh-query kit](docs/fresh-query-collection.md) creates empty
 blinded collection packets and checks readiness; human submissions and physical
 multi-laptop testing remain pending.
 
+The [fresh evaluation runner](docs/fresh-evaluation-runner.md) is now implemented.
+It requires an eligible human collection, a published frozen plan, unchanged
+inputs and a fresh GitHub publication check before claiming queries for one-time
+scoring. Today's empty pack correctly blocks it. A
+[fresh-server browser rehearsal](research/results/rehearsal-evaluator-v1/README.md)
+also passed ten functional observations, including clarification, recorded quorum
+retention/rejoining and backup-video playback. The human presentation remains to
+be rehearsed.
+
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 246 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 260 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -76,9 +85,11 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **4 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest delivery verification](research/results/demo-extension-v1/verification.json)
-records 246 passing tests, the new preflight and narrated backup, and unchanged
-original, CLINC and scope evaluation locks. The
+The [latest delivery verification](research/results/rehearsal-evaluator-v1/verification.json)
+records 260 passing tests, a browser rehearsal, the empty-collection refusal and
+unchanged original, CLINC and scope evaluation locks. The
+[previous extension](research/results/demo-extension-v1/verification.json)
+records 246 passing tests, the preflight, narrated backup and resource study. The
 [previous demo delivery](research/results/demo-delivery-v1/verification.json)
 preserves the 225-test result and original slide/recording hashes.
 The [previous runtime verification](research/results/remaining-work-v1/verification.json)
@@ -90,7 +101,9 @@ records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **246 passed, 0 failed, 0 skipped** in 29.359 s | Existing state/training/runtime/evaluation checks plus demo preflight and fixed-work study boundaries |
+| Full automated suite, Ubuntu WSL2 | **260 passed, 0 failed, 0 skipped** in 26.109 s | Existing checks plus fresh-evaluation publication, record integrity, once-only inference, metrics and FP32 boundary fixtures |
+| Fresh-server browser rehearsal | **Ten functional observations passed** | Live/blank/ambiguous input, recorded three/five-client recovery, comparisons, supported intents and browser video playback; no human rehearsal or new accuracy score |
+| New evaluation gate | **Empty real collection refused with exit 2** | Zero human queries; no evaluation lock, inference or exposure claims created |
 | Automated demo preflight | **All five checks passed** | Dependencies, published evidence, matching dashboard configuration, confirmed checkpoint and actual offline functional inference |
 | Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the full suite, not 7 additional unique tests |
 | Locked artifact integrity | **24/24 original, 36/36 external, 40/40 scope file hashes matched** | Overlapping locks, not 100 unique files; assets, checkpoints, sources and evaluation configurations |

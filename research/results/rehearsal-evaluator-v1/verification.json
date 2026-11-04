@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-04",
+  "delivery_id": "rehearsal-evaluator-v1",
+  "baseline_commit": "282751e15a507d185cb86a8e2587559c07882285",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests",
+    "environment": "Ubuntu WSL2 /home/sameer/.venvs/loflwr/bin/python",
+    "passed": 260,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 26.109,
+    "log": "runs/rehearsal-evaluator-tests-20261104.log",
+    "log_sha256": "aafbf4bc19ebb0c9b0ea01d94696e78749a7b35f06e5769ead205a5e9d3e61fb"
+  },
+  "focused_tests": {
+    "command": "python -m unittest discover -s tests -p test_fresh_evaluation.py",
+    "environment": "Prepared Windows CPU Python",
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 5.462,
+    "scope": "Synthetic fixtures; included in full suite, not additional unique tests"
+  },
+  "frozen_integrity": {
+    "original_files": 24,
+    "original_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "external_files": 36,
+    "external_lock": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+    "scope_files": 40,
+    "scope_lock": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa"
+  },
+  "read_only_model_contract": {
+    "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+    "files_verified": 33,
+    "numerics": "Round logits and top-two subtraction to IEEE754 binary32; lowest-index ties; margin >= threshold",
+    "model_inference": false
+  },
+  "browser": {
+    "report": "research/results/rehearsal-evaluator-v1/browser-rehearsal.json",
+    "passed_observations": 10,
+    "human_rehearsal": false
+  },
+  "fresh_collection": {
+    "report": "research/results/rehearsal-evaluator-v1/empty-collection-check.json",
+    "submitted": 0,
+    "eligible_supported": 0,
+    "required_minimum": 400,
+    "prepare_exit_code": 2,
+    "new_accuracy_result": false
+  },
+  "remaining": {
+    "reported_physical_laptops": 1,
+    "target_physical_laptops": 3,
+    "human_rehearsal": "pending",
+    "combined_scope_evaluation": "deferred"
+  },
+  "source_hashes": {
+    "README.md": "54f449b452ae27b5110731618dac879379c2c4b3fc63847d0aba07a9201cceee",
+    "docs/fresh-evaluation-runner.md": "625b307cabc3af10ebb9a4f82235c5739a5613d7b7af2a6f138551168c36b5f9",
+    "docs/fresh-evaluation.md": "dfd0efd3ed7c3bd14710f9e4295747fc770ac09e1476af54a3e28cb204d0f2a4",
+    "docs/fresh-query-collection.md": "e6ab45066dc9ed66c318677b8e6db0193ddc8a0d04191c2188b15c78f72df544",
+    "docs/future-plans.md": "bda4255ea9fdf18a79347a5614e395b369cee89798b9125f59cd5071d3627727",
+    "docs/judging-presentation.md": "321ec38fcdec611b9d8db8babb1b4c1c1612c93f86c9b0610ec0f3415af58f08",
+    "research/implementation-status.md": "cb5d778d3dc2e46ec9f81ae436c488e63fd43a1c5d76a6bc6949d18907094ae2",
+    "research/results/README.md": "39012f8bf68f815ef2fdd9c38d03e81e9ac3b4cea8b63884146ee85684de5855",
+    "research/results/rehearsal-evaluator-v1/README.md": "2bbf3ce9b8a921abf6c77b7aea40fbde8a75963550b98b08e2ef6ed331625782",
+    "research/results/rehearsal-evaluator-v1/browser-rehearsal.json": "7fa1d15f4761606d918bccf690128abfbdb269946446d165c3cc45fe3e28ba39",
+    "research/results/rehearsal-evaluator-v1/empty-collection-check.json": "fb3724630fb181c1e836cc046fb9d6604b5764b346f0b0279ed5503f1311e09e",
+    "tests/test_fresh_evaluation.py": "d08e3b2c65330ad262a72af5b98a9baf0caf084ed7f95ea4ac98bc2b0fa133d4",
+    "tools/README.md": "5a8ce32de6f4f9bb77b39d5e3be46096ffc386e56e36659b638b03fd0e0ee076",
+    "tools/evaluate_fresh_bank20.py": "7214fb36e379ef0187d4fdb1ee6c15bd809ac96acb6e1c1628187da1288855cf"
+  }
+}

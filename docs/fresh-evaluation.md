@@ -1,5 +1,11 @@
 # Collect a fresh evaluation set
 
+The [collection kit](fresh-query-collection.md) and
+[separate evaluation runner](fresh-evaluation-runner.md) are implemented. Real
+evaluation is still blocked: there are zero fresh human submissions. The first
+runner supports the unchanged confirmed classifier and frozen clarification
+rule; it does not evaluate the experimental combined scope detector.
+
 The original 500 test queries and the later 300 confirmation queries have already
 been scored. Reusing them can check regressions, but cannot provide a new
 untouched estimate after further model selection. Do not replace the published
@@ -59,8 +65,9 @@ personal information in Git. A JSONL record can use this schema:
 ```
 
 This template is not yet accepted by the existing fixed BANKING77 confirmation
-utility. A new validated importer, dataset identity, and locked evaluation run
-are required; changing a file path alone does not establish independence.
+utility. Use the collection kit's stricter reviewed CSV schema and the separate
+runner to freeze a qualifying collection; a new dataset identity and published
+evaluation lock are still required. Changing a file path does not establish independence.
 
 No contributors have been contacted and no new human evaluation queries have
 been collected by this project yet. The [presentation guide](judging-presentation.md)

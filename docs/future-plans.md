@@ -30,6 +30,11 @@ SmolLM2 LoRA benchmark retain separate identities.
   less estimated raw payload than one step, but final reused-validation accuracy
   fell from 95.5% to 93.5% in every seed. This is a development trade-off, not a
   change to the confirmed model or a physical-network measurement.
+- [Browser rehearsal and fresh evaluator](../research/results/rehearsal-evaluator-v1/README.md)
+  are complete as software checks: ten browser observations passed, and the new
+  evaluator has fixture coverage for frozen inputs, publication and one-time
+  scoring. The actual empty collection was refused before a lock or inference.
+  No independent human data or new accuracy result was produced.
 - [Isolated Flower rehearsals](../research/results/remaining-work-v1/README.md)
   passed three/five-client dropout, deliberate quorum loss and fresh rejoining.
   Fresh offline three-client startup also passed; these are same-host results.
@@ -78,7 +83,12 @@ before selecting a cheaper schedule. The local study excludes encoder preparatio
 ## 3. Confirm future accuracy and scope changes
 
 Use the [fresh evaluation protocol](fresh-evaluation.md) and the executable
-[collection kit](fresh-query-collection.md). The 300-query
+[collection kit](fresh-query-collection.md). The
+[new runner](fresh-evaluation-runner.md) initially evaluates only the unchanged
+confirmed head and fixed clarification rule. A combined scope comparison needs
+its own declared implementation and lock before exposing a fresh collection;
+do not score the baseline first and then tune a combined policy on those results.
+The 300-query
 confirmation, original final test, CLINC set and 2,279-query scope test have all
 been scored. They are evidence, not new model-selection resources.
 

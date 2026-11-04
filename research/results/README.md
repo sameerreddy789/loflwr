@@ -1,5 +1,10 @@
 # Measured results
 
+The [latest rehearsal/evaluator delivery](rehearsal-evaluator-v1/README.md)
+records **260 passing tests with no skips**, ten browser observations and a real
+empty-collection refusal. It prepares future evaluation without generating or
+scoring any new human queries. The confirmed accuracy remains 94%.
+
 The [4 November demo extension](demo-extension-v1/README.md) adds a verified
 preflight, a short narrated backup and **246 passing software tests with no
 skips**. The [nine-run fixed-work study](resource-frontier-v1/README.md) found

@@ -1,0 +1,175 @@
+{
+  "date": "2026-11-04",
+  "run_id": "operator-rehearsal-v1",
+  "baseline_commit": "282751e15a507d185cb86a8e2587559c07882285",
+  "method": "agent-browser0.27.0 on a fresh local Streamlit server, port8512; observed DOM/screenshot interactions, not a human presentation",
+  "checks": [
+    {
+      "check": "live_authored_query",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/01-live-query.txt",
+      "observed": [
+        "selected version 500",
+        "94.0% accuracy",
+        "98.65% accuracy",
+        "74.33% coverage",
+        "Pending card payment",
+        "team-authored support response"
+      ]
+    },
+    {
+      "check": "blank_query_validation",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/02-empty-query.txt",
+      "observed": [
+        "Enter a banking query before classifying it."
+      ]
+    },
+    {
+      "check": "underspecified_query_clarification",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/03-clarification.txt",
+      "observed": [
+        "More detail needed",
+        "no automatic support response"
+      ]
+    },
+    {
+      "check": "recorded_five_missed_quorum",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/04-five-quorum.txt",
+      "observed": [
+        "2/5 contributors",
+        "quorum 3",
+        "Global version: 3 to 3.",
+        "encoder-isolated-five-v8"
+      ]
+    },
+    {
+      "check": "recorded_five_return",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/05-five-return.txt",
+      "observed": [
+        "5/5 contributors",
+        "Global version: 3 to 4.",
+        "Returning clients synchronized"
+      ]
+    },
+    {
+      "check": "recorded_three_return",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/06-three-return.txt",
+      "observed": [
+        "3/3 contributors",
+        "quorum 2",
+        "Global version: 3 to 4.",
+        "encoder-isolated-three-v6"
+      ]
+    },
+    {
+      "check": "recorded_three_missed_quorum",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/07-three-quorum.txt",
+      "observed": [
+        "1/3 contributors",
+        "quorum 2",
+        "Global version: 3 to 3."
+      ]
+    },
+    {
+      "check": "development_comparisons",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/08-comparisons.txt",
+      "observed": [
+        "33 completed runs",
+        "reused 200-query validation",
+        "Experimental unsupported-query detector"
+      ]
+    },
+    {
+      "check": "twenty_supported_intents",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/09-supported-intents.txt",
+      "observed": [
+        "card arrival",
+        "card delivery estimate",
+        "activate my card",
+        "card about to expire",
+        "pending card payment",
+        "declined card payment",
+        "card payment not recognised",
+        "transaction charged twice",
+        "pending transfer",
+        "transfer not received by recipient",
+        "transfer fee charged",
+        "cancel transfer",
+        "pending cash withdrawal",
+        "declined cash withdrawal",
+        "wrong amount of cash received",
+        "cash withdrawal not recognised",
+        "edit personal details",
+        "verify my identity",
+        "unable to verify identity",
+        "why verify identity"
+      ]
+    },
+    {
+      "check": "backup_browser_playback",
+      "status": "pass",
+      "evidence": "runs/operator-rehearsal-v1/10-video-playback.json",
+      "observed": {
+        "duration": 111.25,
+        "currentTime": 102.504655,
+        "width": 1920,
+        "height": 1080,
+        "paused": true,
+        "muted": true,
+        "error": null
+      }
+    }
+  ],
+  "startup": {
+    "fresh_process": true,
+    "launcher": "tools/start_encoder_demo.ps1",
+    "hf_cached_loading_only": true,
+    "os_network_isolation_test": false
+  },
+  "cleanup": {
+    "temporary_browser_closed": true,
+    "temporary_server_pid": 44808,
+    "temporary_server_stopped": true,
+    "existing_demo_port8511_kept": true
+  },
+  "evidence_hashes": {
+    "runs/operator-rehearsal-v1/01-live-query.png": "1165c6a8f1100a85419a209cdcf04531086ec2598f48cdc58abbfc9437618f43",
+    "runs/operator-rehearsal-v1/01-live-query.txt": "037824aaf3ed7148098faa436c4502ac51a7dc3b166e663777cba363d74dba87",
+    "runs/operator-rehearsal-v1/02-empty-query.txt": "71882bd5c4197d2f9bf9423c30d3ba3e003419f50cc4d437324d28008c2ddd52",
+    "runs/operator-rehearsal-v1/03-clarification.png": "d57944ce285b9589c0465cf1d420809f21cd8b0191951be730df04d87a8779b0",
+    "runs/operator-rehearsal-v1/03-clarification.txt": "be72e03a1c188be85c935343efac79e8b86f9d8ab45f2e55e671ed3c6f6f7a40",
+    "runs/operator-rehearsal-v1/04-five-quorum.png": "02ec7708ebc0f59789e6012122bd10d77afc9e7586149664b33b6340c44933e9",
+    "runs/operator-rehearsal-v1/04-five-quorum.txt": "6a1bd2a00a08523100d1affc11500dfca96767476c4440a56d3c71c8e09aa0bb",
+    "runs/operator-rehearsal-v1/05-five-return.txt": "ff0fe4334c97edcc00cf5ab85d69ddbbf47f8c89deaa8d0120f71f6e03f66c69",
+    "runs/operator-rehearsal-v1/06-three-return.txt": "5865ae6c04d1e850a15745c3ddd40a5eaff3c7b49d7171d37fca65693c49225a",
+    "runs/operator-rehearsal-v1/07-three-quorum.txt": "cc414d0c48163827780e28ee1fa3f40122b934995249309b55b7f6b9c61c24b7",
+    "runs/operator-rehearsal-v1/08-comparisons-tree.json": "08ab8d64392d6eb4a12a4fdf4997429a2ffbdad5e4b9a576525aee2749b37805",
+    "runs/operator-rehearsal-v1/08-comparisons.png": "0ce9ca4d627e16346291a094ffefd2cd14722b4e0fe7aa6f3a49a3c339c81746",
+    "runs/operator-rehearsal-v1/08-comparisons.txt": "63a829e7818668fa8667a9855f2428cf76e52a05b04e91fc13afb9c0ed18fb10",
+    "runs/operator-rehearsal-v1/09-supported-intents.txt": "b2019b3d2e373528486c2860ce61c53faa8e5720f488afb20709904ab498ca77",
+    "runs/operator-rehearsal-v1/10-video-playback.json": "51362a1550fad387398e37c7bbda00c3f43a8f13dc38f33e112d220e77666fab",
+    "runs/operator-rehearsal-v1/10-video-playback.png": "3766931eb4670c5d69d076b46042eedf1145cf8b37047b6ae4967b7eb1fd396d"
+  },
+  "source_hashes": {
+    "fedlora_edge/encoder_dashboard.py": "7754627d822466420ea9d89f32e60c81cf18fb8245efa56aa8eb439d2cfdf429",
+    "fedlora_edge/demo_presets.py": "da17caf8a0515986c67a4ced0b307cb2c2f93efb33f2d99cd4dc52f56414ef42",
+    "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "tools/start_encoder_demo.ps1": "fe14d562f6f95c9f79c5b7225f2561404f2d6874b020ffb5316e6ccce6cf357f",
+    "presentation/narrated-demo.mp4": "333c1049d0f604880db5451a3ef7d0a3036bd5d5f89f92f6e6597d2a85860cdb"
+  },
+  "limitations": [
+    "Two authored functional queries and blank validation are not an accuracy benchmark.",
+    "Recovery views replay earlier real same-host Flower runs; no new training/dropout run occurred here.",
+    "Browser playback does not establish that a human has listened or rehearsed.",
+    "Only one laptop and no fresh human evaluation queries are available.",
+    "Agent-browser had initial off-screen/stale-target automation misses; resolved by fresh snapshots/visible controls. No application-code change was required."
+  ]
+}

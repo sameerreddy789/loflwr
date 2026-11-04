@@ -1,0 +1,23 @@
+{
+  "command": "python tools/evaluate_fresh_bank20.py prepare --pack runs/fresh-bank20-v1 --output runs/fresh-evaluation-refusal-20261104-v2 --public research/results/fresh-evaluation-refusal-20261104-v2",
+  "exit_code": 2,
+  "collection_status": "blocked",
+  "counts": {
+    "submitted": 0,
+    "unique_query_ids": 0,
+    "supported": 0,
+    "secondary": 0,
+    "excluded": 0,
+    "pending": 0,
+    "missing_or_invalid_labels": 0,
+    "label_disagreements": 0,
+    "missing_adjudications": 0,
+    "unique_writers": 0
+  },
+  "error": "Blocked: ValueError: Fresh collection is not ready: curator_missing_or_unregistered, human_collection_pending, missing_overlap_source:bank20-confirmation-300, missing_overlap_source:bank20-test-500, missing_overlap_source:development, missing_overlap_source:external-clinc-269, missing_overlap_source:scope-negative-2279, missing_overlap_source:training, overlap_inventory_review_pending, protocol_review_pending, supported_target_not_met, unverified_overlap_category:bank20-confirmation-300, unverified_overlap_category:bank20-test-500, unverified_overlap_category:development, unverified_overlap_category:external-clinc-269, unverified_overlap_category:scope-negative-2279, unverified_overlap_category:training",
+  "private_evaluation_created": false,
+  "public_lock_created": false,
+  "exposure_ledger_created": false,
+  "model_inference_started": false,
+  "limits": "No human queries were added or scored; this checks the real empty-pack refusal path."
+}
