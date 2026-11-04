@@ -2,6 +2,24 @@
 
 Last updated: **4 November 2026**. This is the prototype handoff status. Detailed published measurements belong in the [results register](results/README.md); ignored run files remain on the prepared laptop.
 
+## Efficiency research and experimental preparation
+
+The [ML guidance](ml-engineering-guidelines.md),
+[seven-paper review](efficiency-paper-review.md), and [model card](../MODEL_CARD.md)
+are delivered. The separate [bucketed preparation recipe](../docs/bucketed-feature-preparation.md)
+tokenizes once, groups similar lengths and restores source order. Its
+[six paired timing cells](results/encoder-bucketing-v1/README.md) measured
+39.56% and 12.34% lower median encoding time on reused validation and client-4
+training, respectively; two individual repetitions were slower.
+
+The complete 2,960-row rebuild preserved source IDs, labels and all top-1
+predictions. Actual one-step updates from all five clients and equal aggregation
+passed the numerical comparison. One validation answer/clarify decision changed
+relative to the historical feature cache, so the strict compatibility gate
+**failed**. The recipe remains experimental; confirmed preprocessing, weights,
+thresholds and the 94% confirmation result remain unchanged. Neither the timing
+study nor the compatibility check adds physical-device or new accuracy evidence.
+
 ## Delivered accuracy variant
 
 The selected frozen-MPNet/federated-head model scored **94.0% on independent
@@ -22,8 +40,9 @@ requires a new independently held-out evaluation set. See the
 | Adapter variant | Shared frozen-A MPNet B-plus-head CPU/GPU invariants passed. Further federated/centralized adapter trials did not exceed 95.5% validation; the federated trial selected its initial checkpoint. |
 | Offline query demo | Pinned local MPNet and selected Flower head, published aggregate confirmation, recorded client evidence, and optional frozen clarification rule. CPU inference exactly reproduced the 200 cached validation predictions. |
 
-The WSL suite now passed **273 tests, zero failures and zero skips**. See the
-[latest verification](results/combined-readiness-v1/verification.json). The seven
+The WSL suite now passed **300 tests, zero failures and zero skips** in 67.635 s.
+See the [latest verification](results/encoder-bucketing-v1/verification.json).
+The seven
 dashboard checks are included, not additional tests. These checks do not score
 confirmation queries. Only one physical laptop is available.
 

@@ -1,0 +1,151 @@
+{
+  "kind": "cached_feature_fp32_margin_boundary_diagnostic_v1",
+  "status": "diagnosed_existing_failure",
+  "run_id": "encoder-bucketed-boundary-v1",
+  "created_utc": "2026-11-04T16:34:05.007989+00:00",
+  "plan_hash": "eefb9434447d97b04460bcb50714ff9a29b5723db42f7666086ddacd7eaf5690",
+  "source_integration_lock_hash": "dc2cad90667693548b7a2b1d1c4a8a2a3489a16728e563e950565ee2cf3317b4",
+  "source_integration_result_sha256": "74008f27287952c970aa0e611b81ccc7278436cce574579fc5e6d76eb22ddbf7",
+  "source_integration_status": "failed_compatibility",
+  "count": 200,
+  "source_id_order_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+  "fixed_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "confirmed_head_checkpoint_sha256": "39cfba43aac7784b92cd6fda5217644c2ed56cd57a2c34cc1b46935c2c687c82",
+  "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+  "feature_caches": {
+    "original": {
+      "path": "assets/encoder-bank20-v1/validation.npz",
+      "file_sha256": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92",
+      "matrix_bytes_sha256": "1d6c7fa37f5b1487bbc54102d27349512e6f34eb4f5658c5f9a70e5da776e90d",
+      "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927"
+    },
+    "candidate": {
+      "path": "runs/encoder-bucketed-integration-v1/auditor-dataset/validation.npz",
+      "file_sha256": "623e92b705523d21db4b50ffaea808b7fb6d2dd60faf0dc36cac2f7b83df64ad",
+      "matrix_bytes_sha256": "deaebcea7ac8d5a9a274b253135db7c3c3b1b4a895c55151ef6d5e77fd377502",
+      "manifest_hash": "745b4e529fca8182154da3ace4c48651f95efc5c95cb944e89052183aa981b07",
+      "recipe_hash": "fc98213f9c7fe6ef6ea6f91eb6e7470674142e2c6d6a571d7938c3f7f20b7f63"
+    }
+  },
+  "max_feature_absolute_difference": 1.126900315284729e-07,
+  "max_logit_absolute_difference": 2.86102294921875e-06,
+  "top1_changes": 0,
+  "strict_margin_answer_changes": 1,
+  "changed_rows": [
+    {
+      "source_id_sha256": "36d6376047cf4b3439dd5bd2cbe9173a73a3f96fa3dbaa23b2bb0bd6d61aa9f0",
+      "source_id_hash_scheme": "SHA-256 of UTF-8 source_id; no raw ID, query, or label published",
+      "predicted_label_unchanged": true,
+      "top_two_class_order_unchanged": true,
+      "original_top_two_logits_fp32": [
+        7.751262664794922,
+        5.631061553955078
+      ],
+      "candidate_top_two_logits_fp32": [
+        7.75126314163208,
+        5.631062984466553
+      ],
+      "original_margin_fp32": 2.1202011108398438,
+      "candidate_margin_fp32": 2.1202001571655273,
+      "fixed_threshold_fp32": 2.1202011108398438,
+      "original_answered": true,
+      "candidate_answered": false,
+      "original_margin_exactly_threshold": true,
+      "candidate_minus_original_margin": -9.5367431640625e-07,
+      "candidate_minus_original_margin_ulps": -4,
+      "original_margin_minus_threshold_ulps": 0,
+      "candidate_margin_minus_threshold_ulps": -4,
+      "ulp_size_at_threshold": 2.384185791015625e-07,
+      "max_row_feature_absolute_difference": 6.332993507385254e-08,
+      "original_row_feature_bytes_sha256": "267f26b0be551673f189646e3b8eabbb3e8870815e4ed1ac95360b7c20374e33",
+      "candidate_row_feature_bytes_sha256": "4c3a5cdabf71a014a1a4c5d5f8cc96bd304aa398eda6b4bb6385e4c4c7279199"
+    }
+  ],
+  "computation": {
+    "encoder_forward_calls": 0,
+    "head_forward_calls": 2,
+    "head_rows_per_call": 200,
+    "torch_threads": 1,
+    "dtype": "float32",
+    "threshold": 2.1202011108398438,
+    "acceptance": "FP32 top1 minus top2 >= unchanged threshold",
+    "tie_rule": "Lowest fixed label index",
+    "ground_truth_labels_used": false,
+    "query_text_read": false,
+    "operation": "Load X and source_ids from each NPZ; score each complete 200-row FP32 matrix once through the identical fixed HeadTrainer at one CPU thread; canonical FP32 logits, top-two subtraction and >= threshold; no encoder construction or forward pass."
+  },
+  "batch_provenance": {
+    "original_cache": {
+      "reference_run_id": "accuracy-feasibility-20261103",
+      "reference_config_hash": "a32b8b5423abc9507f8569aa46c02e5d09ef9322cda31bf8a4d4ada60bbd9a1d",
+      "reference_embedding_cache_sha256": "5e51de6d27fb601548ffdd4251e507781e122285542c10e2be2b171e8720e614",
+      "batch_size": 8,
+      "cpu_threads": 1,
+      "encoder_max_length": 384,
+      "batch_grouping": "Insertion order of unique source rows collected across training scenarios and validation; validation rows subsequently gathered by source ID.",
+      "source": "tools/accuracy_feasibility.py:61 and :148; fedlora_edge/encoder_data.py:110",
+      "source_hash_matches_measured_reference_plan": true,
+      "recorded_environment": {
+        "torch": "2.8.0+cpu",
+        "transformers": "4.57.1",
+        "scikit-learn": "1.9.1",
+        "numpy": "2.4.6"
+      }
+    },
+    "candidate_cache": {
+      "batch_size": 8,
+      "cpu_threads": 1,
+      "batch_grouping": "Validation participant only, stable ascending clipped token length; rows scattered back to source order."
+    },
+    "timing_comparison": {
+      "batch_size": 8,
+      "reference": "Fresh original-order encode_batches on each declared cohort versus freshly encoded length buckets, distinct from the historical combined reference cache.",
+      "paired_cells": 6,
+      "strict_margin_answer_changes_per_cell": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_summary_sha256": "35cbde3ff4f144ebf2e35b804b699bc3d20b246bc12945f6fa3d25eaa7600151"
+    }
+  },
+  "interpretation": [
+    "A small feature/logit perturbation crossed the existing FP32 acceptance boundary while every validation top1 prediction stayed unchanged.",
+    "Close features and unchanged argmax do not establish exact policy equivalence. The full integration remains failed_compatibility.",
+    "Stored historical features and the timing study fresh reference use distinct batching provenance. This diagnostic isolates the numeric threshold crossing, not its unique low-level cause.",
+    "The bucketed recipe is not approved as a default or transparent replacement for the confirmed model/cache. No threshold, epsilon, near-threshold exception, labels, or exclusions were changed.",
+    "This is reused-validation diagnosis, not fresh accuracy, recalibration, convergence, or a held-out evaluation."
+  ],
+  "inputs_sha256": {
+    "research/results/encoder-bucketing-v1/integration.json": "74008f27287952c970aa0e611b81ccc7278436cce574579fc5e6d76eb22ddbf7",
+    "runs/encoder-bucketed-integration-v1/result.json": "74008f27287952c970aa0e611b81ccc7278436cce574579fc5e6d76eb22ddbf7",
+    "runs/encoder-bucketed-integration-v1/plan.json": "dd10d10a3c62bf6e27ada290e30d6073c531c11ef0f109c86c3b322e364a205c",
+    "assets/encoder-bank20-v1/manifest.json": "fae1e84940caee8028fae8aa96cd5d945938e80a736bc25ac521c441cb0103e3",
+    "runs/encoder-bucketed-integration-v1/auditor-dataset/manifest.json": "c88835475cb73c6cd5fdf23d7814e6eaaad58600ae48af3cd99ed59c64edab9a",
+    "assets/encoder-bank20-v1/validation.npz": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92",
+    "runs/encoder-bucketed-integration-v1/auditor-dataset/validation.npz": "623e92b705523d21db4b50ffaea808b7fb6d2dd60faf0dc36cac2f7b83df64ad",
+    "runs/encoder-flower-balanced-v2/selected/checkpoint.json": "39cfba43aac7784b92cd6fda5217644c2ed56cd57a2c34cc1b46935c2c687c82",
+    "research/results/encoder-v2/final-policy.json": "ff691c58f0333245017c9d87effd6f2667e0fbd5b57abf120fbc5c35231e033e",
+    "research/results/encoder-bucketing-v1/summary.json": "35cbde3ff4f144ebf2e35b804b699bc3d20b246bc12945f6fa3d25eaa7600151",
+    "tools/accuracy_feasibility.py": "66c1e51c45530b506cc138987172fa0cb4ff2cc699eb26d7eb7e1755c2402f6d",
+    "runs/accuracy-feasibility-20261103/plan.json": "c4b3de622de88678270a72f7fe91c0eaa683d28e83a050e4a2bba8405bb01d08",
+    "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "tools/evaluate_fresh_bank20.py": "7214fb36e379ef0187d4fdb1ee6c15bd809ac96acb6e1c1628187da1288855cf",
+    "tools/check_bucketed_integration.py": "04448faf5cffe009f0ad3257e8970551f9c7a2d978f654612702f71c54889983",
+    "fedlora_edge/encoder_bucketing.py": "e5bcfbc09cf4c946f71407115056114237b9c3b5d583ba01ba94c08992efade7",
+    "tools/benchmark_encoder_bucketing.py": "4d6583676278576a01067923dafc001d473ecaa15374b7c066fccaace435d280"
+  },
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.8.0+cpu",
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26300-SP0"
+  },
+  "result_hash": "af901a24e2b85252c7221433187dba35292a346df81e9c4279c074289730b8e4"
+}

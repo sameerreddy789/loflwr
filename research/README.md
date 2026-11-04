@@ -1,6 +1,15 @@
 # FedLoRA-Edge research dossier
 
-**Initial delivery: 20 October 2026. Implementation update: 3 November 2026.** This dossier records the selected design and primary-source review. See the [results register](results/README.md) for measured CPU/GPU and Flower checks, and [implementation status](implementation-status.md) for remaining acceptance gates. The checkpoint constraint is one solo builder with a working demo due in one week.
+**Initial delivery: 20 October 2026. Latest engineering review: 4 November 2026.** This dossier records the selected design and primary-source review. See the [results register](results/README.md) for measured CPU/GPU and Flower checks, and [implementation status](implementation-status.md) for remaining acceptance gates. The checkpoint constraint is one solo builder with a working demo due in one week.
+
+The new [ML engineering guidelines](ml-engineering-guidelines.md) map primary
+Google, scikit-learn and PyTorch guidance to this repository. The targeted
+[efficiency paper review](efficiency-paper-review.md) connects seven papers and
+the upstream batching implementation to an optional
+[bucketed local preparation path](../docs/bucketed-feature-preparation.md).
+The [model card](../MODEL_CARD.md) collects the confirmed model's intended use,
+identity, domain scores and limitations in one report. These source reviews do
+not themselves establish new speed or accuracy measurements.
 
 The delivered accuracy variant uses frozen MPNet with a federated twenty-class
 head. It reached **94.0% independent confirmation accuracy (282/300)** after

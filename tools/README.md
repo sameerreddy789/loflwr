@@ -22,6 +22,31 @@ All accept `--help`. Linux namespace checks require the tested WSL environment
 and `bubblewrap`; the CPU latency profile also runs in the Windows CPU environment.
 Raw queries, features, model weights and run outputs remain ignored.
 
+### Optional encoding efficiency recipe
+
+[prepare_encoder_bucketed.py](prepare_encoder_bucketed.py) provides a separate
+plan/prepare/assemble workflow. It tokenizes queries once, groups exact token
+lengths, and restores source order before writing local features. Every plan,
+registration and manifest identifies the new recipe; original cached data and
+confirmed inference stay unchanged. See the
+[usage guide](../docs/bucketed-feature-preparation.md).
+The [measured migration](../research/results/encoder-bucketing-v1/README.md)
+changed one validation clarification decision and failed strict compatibility.
+This recipe is experimental; do not substitute its caches into the confirmed demo.
+
+[benchmark_encoder_bucketing.py](benchmark_encoder_bucketing.py) freezes two
+complete development cohorts and three paired repetitions before timing the
+original and bucketed encoders. It records real forward-shape work counters,
+features/logits/decision parity, loading and encoding time, runtime and sampled
+process RSS. Missing cells, changed sources and contradictory parity flags are
+rejected; slower or failed-parity outcomes remain reportable.
+
+[check_bucketed_integration.py](check_bucketed_integration.py) prepares all 2,960
+approved training/validation rows in six serial processes, checks loader and
+fixed-head parity, and performs one matched round of five-client head
+optimization/aggregation. It records an explicit same-host public-data audit;
+it does not repeat independent evaluation or replace the confirmed model.
+
 ## Existing LoRA utilities
 
 `check_offline_start.py` verifies a fresh cached-model query or local TLS

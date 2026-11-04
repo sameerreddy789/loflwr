@@ -7,6 +7,20 @@ SmolLM2 LoRA benchmark retain separate identities.
 
 ## What moved out of the plan
 
+- [Length-bucketed feature preparation](../research/results/encoder-bucketing-v1/README.md)
+  is implemented as a separately identified, opt-in recipe. Three paired timing
+  repetitions per cohort measured 39.56% and 12.34% lower median encoding time
+  on reused validation and client-4 training data, respectively. Two individual
+  repetitions were slower. Predictions and fixed-margin decisions matched in
+  all six timing cells; this does not change confirmed accuracy or update bytes.
+  The separate full migration check preserved all 2,960 top-1 predictions and
+  passed actual one-round head optimization, but changed one validation
+  clarification decision relative to the stored reference caches. It failed
+  strict compatibility and stays experimental; confirmed preprocessing remains.
+- The [ML engineering guide](../research/ml-engineering-guidelines.md),
+  [primary-paper review](../research/efficiency-paper-review.md), and
+  [model card](../MODEL_CARD.md) document the evidence behind efficiency choices,
+  evaluation boundaries, effective runtime settings and deployment limitations.
 - [Client-local preparation](../research/results/encoder-local-v1/README.md)
   passed in five- and three-client layouts with isolated, offline processes,
   matching features and zero changed train/validation predictions. Portable
@@ -87,6 +101,17 @@ establish physical reachability or performance on a weaker machine.
 Use the fixed-work study as a starting point for choosing how often to
 synchronize; verify the actual latency/traffic trade-off on the intended network
 before selecting a cheaper schedule. The local study excludes encoder preparation.
+
+Profile the optional [bucketed preparation](bucketed-feature-preparation.md) on
+each target laptop before adopting it. Repeat with balanced run order and a quiet
+host, measuring preparation including cold model loading, process memory and
+encoding time separately. Preserve both slower and faster repetitions. The
+current padding reductions are work proxies, not energy measurements; the
+observed timing gains do not establish faster live single-query inference.
+The recorded threshold-boundary mismatch also prevents treating the recipe as
+a drop-in replacement for confirmed calibration caches. Any future adoption
+needs separately identified development calibration and fresh evaluation; do
+not adjust the frozen threshold to conceal this failure.
 
 ## 3. Confirm future accuracy and scope changes
 

@@ -1,6 +1,18 @@
 # Measured results
 
-The [latest paired-evaluator delivery](combined-readiness-v1/README.md) records
+The [latest efficiency study](encoder-bucketing-v1/README.md) records six paired
+encoding comparisons: **39.56%** and **12.34%** lower median time for reused
+validation and client-4 training, with two slower individual repetitions. The
+full 2,960-row migration preserved all top-1 predictions and passed actual
+head-update comparisons, but changed one validation clarification decision.
+Its strict compatibility result is **failed**, so the recipe remains
+experimental and confirmed preprocessing stays unchanged. No new accuracy or
+physical-laptop result is claimed.
+The [delivery verification](encoder-bucketing-v1/verification.json) records
+**300 passing tests, zero failures and zero skips**, separately from that failed
+strict migration gate.
+
+The [previous paired-evaluator delivery](combined-readiness-v1/README.md) records
 **273 passing tests with no skips**, bitwise functional parity on eighteen
 authored unlabeled probes, and refusal of the actual empty collection. It adds
 the future baseline-versus-scope comparison workflow and an updated abstract

@@ -1,5 +1,20 @@
 # FedLoRA-Edge
 
+The [new ML engineering guide](research/ml-engineering-guidelines.md),
+[efficiency paper review](research/efficiency-paper-review.md), and
+[model card](MODEL_CARD.md) connect published guidance to the implemented system.
+An opt-in [length-bucketed feature preparation recipe](docs/bucketed-feature-preparation.md)
+reduced median local encoding time by **39.56%** on 200 reused validation queries
+and **12.34%** on 408 weak-client training queries. Each comparison used three
+paired repetitions; two repetitions were slower, so this is not a universal
+speedup. The [complete measurements](research/results/encoder-bucketing-v1/README.md)
+preserve timing variability, work counters and numerical checks. The change
+targets local feature preparation; the confirmed predictor remains unchanged.
+The full 2,960-row migration check preserved every top-1 prediction and passed
+real head-update comparisons, but **one validation clarification decision
+changed**. The strict compatibility gate therefore failed; the new recipe stays
+experimental and does not replace confirmed preprocessing.
+
 **Current measured result, 3 November:** the frozen-MPNet/federated-head variant
 scored **94% on independent confirmation (282/300)** and **95.5% on validation
 (191/200)**. Its actual five-client Flower run completed 500 attempts. Unequal-budget
@@ -85,7 +100,7 @@ Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficie
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 273 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 300 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -94,7 +109,12 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **4 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest delivery verification](research/results/combined-readiness-v1/verification.json)
+The [latest efficiency verification](research/results/encoder-bucketing-v1/verification.json)
+records **300 passing tests with no skips**, the six timing cells, the failed
+strict migration check, and preserved evaluation identities. The actual
+one-round head-update comparison passed; a software-test pass does not override
+the changed clarification decision. The
+[previous delivery verification](research/results/combined-readiness-v1/verification.json)
 records 273 passing tests, bitwise functional parity for the paired scope path,
 the actual empty-collection refusal and unchanged original, CLINC and scope
 evaluation locks. The [previous rehearsal delivery](research/results/rehearsal-evaluator-v1/verification.json)
@@ -112,7 +132,9 @@ records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **273 passed, 0 failed, 0 skipped** in 43.857 s | Includes paired-policy publication, shared query-exposure guards, provenance, domain coverage costs and FP32/FP64 boundary fixtures |
+| Full automated suite, Ubuntu WSL2 | **300 passed, 0 failed, 0 skipped** in 67.635 s | Adds bucketed preparation, benchmark evidence validation, ownership, timeout and immutable-input guards; includes earlier protocol/evaluator/dashboard checks |
+| Experimental encoding comparison | **39.56% / 12.34% lower median time**, two cohorts with three paired repetitions each | Reused validation / client-4 training; two repetitions slower; CPU FP32, one thread, batch eight; excludes loading |
+| Full bucketed-cache compatibility | **0 top-1 changes in 2,960 rows; 1 clarification-decision change** | Strict migration gate failed; actual one-round head-update comparison passed; experimental recipe does not replace confirmed preprocessing |
 | Paired inference functional smoke, Windows CPU | **Eight checks passed on 18 authored unlabeled probes** | Bitwise logits/scope scores and decisions, long-input truncation, one shared encoder pass and frozen identities; no accuracy labels or fresh evaluation |
 | Fresh-server browser rehearsal | **Ten functional observations passed** | Live/blank/ambiguous input, recorded three/five-client recovery, comparisons, supported intents and browser video playback; no human rehearsal or new accuracy score |
 | New evaluation gate | **Empty real collection refused with exit 2** | Zero human queries; no evaluation lock, inference or exposure claims created |
@@ -124,7 +146,7 @@ records three earlier checks for training data boundaries and frozen layers.
 | Trained-model dropout and recovery | **3/3 attempts committed**; 5 → 4 → 5 accepted clients | One laptop; a client process was killed during attempt 2 and rejoined with fresh state in attempt 3 |
 | Client-local preparation | **Five- and three-client layouts passed**; zero changed predictions on 2,960 train/validation rows each | Separate mount/PID/network namespaces, pinned offline encoder, own records only; not physical laptops |
 | Portable setup | **Four role configs and code-only Flower FAB built** | Selected head hash preserved; configuration check uses fixture node IDs |
-| CPU query timing | **152 ms median / 229 ms p95**, 30 warm timing probes | Two CPU threads; 735.03 MiB peak process RSS; authored probes provide no accuracy measurement |
+| CPU query timing | **152 ms median / 229 ms p95**, 30 warm timing probes | Requested two threads; head construction sets effective Torch threads to one. 735.03 MiB peak process RSS; authored probes provide no accuracy measurement |
 | Repeated encoder study | **33/33 runs completed**, 16,500 committed attempts across seeds 42/43/44 | Real head optimization with sequential mathematical aggregation; separate from Flower runtime evidence |
 | New isolated TLS recovery | **3 → 2 → 3 → 1 → 3** and **5 → 4 → 5 → 2 → 5** accepted contributors | Real SuperNode process loss; below-quorum attempts skipped, current state checked on every accepted reply; one physical laptop |
 | Fresh offline encoder deployment | **All 3 clients accepted** in a fresh loopback-only network namespace | External connectivity unavailable, dependencies already installed, runtime downloads disabled; not physical LAN evidence |

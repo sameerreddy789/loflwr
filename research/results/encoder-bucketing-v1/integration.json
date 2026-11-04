@@ -1,0 +1,930 @@
+{
+  "kind": "bucketed_full_local_preparation_compatibility_v1",
+  "status": "failed_compatibility",
+  "run_id": "encoder-bucketed-integration-v1",
+  "created_utc": "2026-11-04T16:29:56.720022+00:00",
+  "lock_hash": "dc2cad90667693548b7a2b1d1c4a8a2a3489a16728e563e950565ee2cf3317b4",
+  "source_manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+  "manifest_hash": "745b4e529fca8182154da3ace4c48651f95efc5c95cb944e89052183aa981b07",
+  "bucketed_plan_hash": "20ca2c15e298d9ef4fd8d7fadedc36408739564eeefebbb28a07cbbc44bd61b2",
+  "recipe_hash": "fc98213f9c7fe6ef6ea6f91eb6e7470674142e2c6d6a571d7938c3f7f20b7f63",
+  "confirmed_head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "rows_checked": 2960,
+  "tokenizer_probes": {
+    "probe_hash": "7dcc6753e948d30bab308fd3ec6d49cba067ef502752cd12cd03917f9880fc36",
+    "count": 4,
+    "raw_token_lengths": [
+      5,
+      410,
+      8,
+      382
+    ],
+    "special_tokens_per_query": 2,
+    "lengths_with_special_tokens": [
+      7,
+      412,
+      10,
+      384
+    ],
+    "prepared_lengths": [
+      7,
+      384,
+      10,
+      384
+    ],
+    "truncated_probe_count": 1,
+    "canonical_ids_and_masks_exact": true,
+    "passed": true,
+    "scope": "Four authored tokenization probes; no expected labels and no encoder forward pass."
+  },
+  "feature_parity": {
+    "0": {
+      "count": 513,
+      "source_ids_and_labels_exact": true,
+      "source_ids_hash": "5aeb0b44e019c68cd09b2279e8ec6c6ce9f0b678f486baa6346304da3175f2a9",
+      "max_feature_absolute_difference": 9.872019290924072e-08,
+      "max_logit_absolute_difference": 2.86102294921875e-06,
+      "top1_changes": 0,
+      "strict_margin_answer_changes": 0,
+      "passed": true
+    },
+    "1": {
+      "count": 615,
+      "source_ids_and_labels_exact": true,
+      "source_ids_hash": "4c2d3e4f654d21d5d4f828c4dfb3169eb354bbcb3d0e228f7385638cc19a6a11",
+      "max_feature_absolute_difference": 9.313225746154785e-08,
+      "max_logit_absolute_difference": 3.337860107421875e-06,
+      "top1_changes": 0,
+      "strict_margin_answer_changes": 0,
+      "passed": true
+    },
+    "2": {
+      "count": 608,
+      "source_ids_and_labels_exact": true,
+      "source_ids_hash": "9652d9b4d43dd6cfaa49d35b32ace64c9d0f19ef32c0d3f98095540f934661cc",
+      "max_feature_absolute_difference": 9.080395102500916e-08,
+      "max_logit_absolute_difference": 2.86102294921875e-06,
+      "top1_changes": 0,
+      "strict_margin_answer_changes": 0,
+      "passed": true
+    },
+    "3": {
+      "count": 616,
+      "source_ids_and_labels_exact": true,
+      "source_ids_hash": "ece0edcbc3c9f0530a03bc258f7df914a3f61e8950271de1f3d087f61fc632f8",
+      "max_feature_absolute_difference": 1.043081283569336e-07,
+      "max_logit_absolute_difference": 2.86102294921875e-06,
+      "top1_changes": 0,
+      "strict_margin_answer_changes": 0,
+      "passed": true
+    },
+    "4": {
+      "count": 408,
+      "source_ids_and_labels_exact": true,
+      "source_ids_hash": "b335b752c8ba743be0a78c04dfc0a0702cb49470df23c6a0205ead0a131ff1eb",
+      "max_feature_absolute_difference": 1.257285475730896e-07,
+      "max_logit_absolute_difference": 4.0531158447265625e-06,
+      "top1_changes": 0,
+      "strict_margin_answer_changes": 0,
+      "passed": true
+    },
+    "server": {
+      "count": 200,
+      "source_ids_and_labels_exact": true,
+      "source_ids_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+      "max_feature_absolute_difference": 1.126900315284729e-07,
+      "max_logit_absolute_difference": 2.86102294921875e-06,
+      "top1_changes": 0,
+      "strict_margin_answer_changes": 1,
+      "passed": false
+    }
+  },
+  "head_smoke": {
+    "kind": "one_round_mathematical_head_compatibility",
+    "initial_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+    "initial_seed": 42,
+    "config": {
+      "learning_rate": 20,
+      "batch_size": 1024,
+      "weight_decay": 3.6231884057971014e-05,
+      "optimizer": "sgd",
+      "gradient_clip": 10.0,
+      "cpu_threads": 1,
+      "class_balance": true
+    },
+    "state_schema": {
+      "head.bias": {
+        "shape": [
+          20
+        ],
+        "dtype": "float32"
+      },
+      "head.weight": {
+        "shape": [
+          20,
+          768
+        ],
+        "dtype": "float32"
+      }
+    },
+    "raw_state_bytes": 61520,
+    "arms": {
+      "original": {
+        "clients": {
+          "0": {
+            "seed": 984182580,
+            "optimizer_steps": 1,
+            "examples_processed": 513,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "8f5d0f115c70895b5a053f71f6004d1720313f639128c04d2a6fbf48744da7fc",
+            "delta_hash": "cbb2c12fa1557fdfd1407e972f9bc2a1fdda649a206f3fd6248e687c1be88543",
+            "raw_delta_bytes": 61520
+          },
+          "1": {
+            "seed": 114255239,
+            "optimizer_steps": 1,
+            "examples_processed": 615,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "c9be00908b2707f118cf6c40ba7dc6b173e9f6a9e0095ac4ac44309e19213383",
+            "delta_hash": "2a1c589f624bee9aa011dc5c73009a7e59a24906ff762c1e2f793777a6856e09",
+            "raw_delta_bytes": 61520
+          },
+          "2": {
+            "seed": 1802542905,
+            "optimizer_steps": 1,
+            "examples_processed": 608,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "9b251fdcc49cb05b4afba748abfcf0cf9f3011af09b90abc14f874881beb55ef",
+            "delta_hash": "6a8572ec55aa0550144c05c7c31e0cc69cc83a368ae1a1abca86819058b40485",
+            "raw_delta_bytes": 61520
+          },
+          "3": {
+            "seed": 2087838701,
+            "optimizer_steps": 1,
+            "examples_processed": 616,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "d94d1819ca318838b4b73f23c4fb08dcca9bf2347383b053347cfe6f2cfcead9",
+            "delta_hash": "9457b2e123440ad267e71dc0999a2cad7c3dbec2685ff68e06ce3ec71fad486e",
+            "raw_delta_bytes": 61520
+          },
+          "4": {
+            "seed": 763674519,
+            "optimizer_steps": 1,
+            "examples_processed": 408,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "9f3e6f56182aebacb50c955d838530b4149b55406d90049e35b2f6ab6d07d105",
+            "delta_hash": "0f19fb6f21891901915f60111757f7073c9b47163dd9a279ec8a0c75e7e76aca",
+            "raw_delta_bytes": 61520
+          }
+        },
+        "aggregate_state_hash": "f55152fd2c76d9b8faab647468525265fc3165216d2dccfbef4e3baef896b530",
+        "aggregate_changed": true,
+        "aggregation": {
+          "strategy": "equal",
+          "coefficients": {
+            "0": 0.2,
+            "1": 0.2,
+            "2": 0.2,
+            "3": 0.2,
+            "4": 0.2
+          },
+          "declared_sample_sizes": {
+            "0": 513,
+            "1": 615,
+            "2": 608,
+            "3": 616,
+            "4": 408
+          },
+          "norms": {
+            "0": 11.589921504986885,
+            "1": 11.51725727042719,
+            "2": 11.271099305199739,
+            "3": 11.292621463049262,
+            "4": 11.339429465630657
+          },
+          "clip_threshold": null,
+          "clip_factors": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0,
+            "4": 1.0
+          },
+          "clipping_fraction": 0.0,
+          "clipped_norms": {
+            "0": 11.589921504986885,
+            "1": 11.51725727042719,
+            "2": 11.271099305199739,
+            "3": 11.292621463049262,
+            "4": 11.339429465630657
+          },
+          "zero_delta_clients": [],
+          "zero_threshold": false,
+          "aggregate_norm": 2.533107417724417,
+          "epsilon": 1e-12
+        }
+      },
+      "bucketed": {
+        "clients": {
+          "0": {
+            "seed": 984182580,
+            "optimizer_steps": 1,
+            "examples_processed": 513,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "2813df302aede65a7fcc6bee2a95b4bcfe224320ffc92aaade67ebe398f005a6",
+            "delta_hash": "54628581adbc4980330391b08bb2819c36aef06dd43ea251a5a4a48e2d71585d",
+            "raw_delta_bytes": 61520
+          },
+          "1": {
+            "seed": 114255239,
+            "optimizer_steps": 1,
+            "examples_processed": 615,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "3abacd1b903045ce3b9e5467b715225ac91d4c7b50395460e754027687a23c11",
+            "delta_hash": "3cfeed34b2c0f9e714b548b5cfb780cacf4c4ecf3fe4091b27b08c16458fd000",
+            "raw_delta_bytes": 61520
+          },
+          "2": {
+            "seed": 1802542905,
+            "optimizer_steps": 1,
+            "examples_processed": 608,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "09032093058363092ba52e56f5eaa4ab94f56c2c42833910ea0365ed6cc9a24b",
+            "delta_hash": "3044b8abf173633446489a3f7ef4c08569277b09ebf17094554b809f023401d8",
+            "raw_delta_bytes": 61520
+          },
+          "3": {
+            "seed": 2087838701,
+            "optimizer_steps": 1,
+            "examples_processed": 616,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "6c72456b7aec86439efa5132dc3b0bb7459f3a8feb4f5798e2b129c00082bae3",
+            "delta_hash": "72ebc80acab00fa80bcbdbbb1829546d5ecae912da8f0f2e4f8cabdcfb797c26",
+            "raw_delta_bytes": 61520
+          },
+          "4": {
+            "seed": 763674519,
+            "optimizer_steps": 1,
+            "examples_processed": 408,
+            "head_changed": true,
+            "incoming_state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa",
+            "updated_state_hash": "943995ceaa7120edf24620be39f1519428053db1c7935616e6aad2486050fecb",
+            "delta_hash": "342edaee9658ecc7ecb4eeefff6df9298810a55ca4b884a944be78e66cce0e1b",
+            "raw_delta_bytes": 61520
+          }
+        },
+        "aggregate_state_hash": "301f5fb2a67dbe76d80e87e065be3063880d402b47faeb5887c810e79120f276",
+        "aggregate_changed": true,
+        "aggregation": {
+          "strategy": "equal",
+          "coefficients": {
+            "0": 0.2,
+            "1": 0.2,
+            "2": 0.2,
+            "3": 0.2,
+            "4": 0.2
+          },
+          "declared_sample_sizes": {
+            "0": 513,
+            "1": 615,
+            "2": 608,
+            "3": 616,
+            "4": 408
+          },
+          "norms": {
+            "0": 11.5899215288473,
+            "1": 11.517257293665743,
+            "2": 11.271099297921815,
+            "3": 11.29262146633641,
+            "4": 11.339429466496794
+          },
+          "clip_threshold": null,
+          "clip_factors": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0,
+            "4": 1.0
+          },
+          "clipping_fraction": 0.0,
+          "clipped_norms": {
+            "0": 11.5899215288473,
+            "1": 11.517257293665743,
+            "2": 11.271099297921815,
+            "3": 11.29262146633641,
+            "4": 11.339429466496794
+          },
+          "zero_delta_clients": [],
+          "zero_threshold": false,
+          "aggregate_norm": 2.533107421115546,
+          "epsilon": 1e-12
+        }
+      }
+    },
+    "max_client_delta_absolute_difference": {
+      "0": 1.1920928955078125e-07,
+      "1": 2.384185791015625e-07,
+      "2": 1.1920928955078125e-07,
+      "3": 8.940696716308594e-08,
+      "4": 1.1920928955078125e-07
+    },
+    "max_aggregate_state_absolute_difference": 4.6566128730773926e-08,
+    "state_absolute_tolerance": 1e-05,
+    "validation_prediction_changes": 0,
+    "common_validation_prediction_changes": 0,
+    "max_validation_logit_absolute_difference": 1.1920928955078125e-07,
+    "passed": true,
+    "scope": "One actual SGD step per client and equal tensor aggregation; no Flower transport, convergence, or new accuracy measured."
+  },
+  "preparation": {
+    "0": {
+      "count": 513,
+      "process_wall_seconds": 131.766884026,
+      "postprocess_verification_seconds": 40.10085935700002,
+      "total_role_wall_seconds": 171.879795371,
+      "process_timing_scope": "Child launch through process.wait completion; includes child imports, asset verification, model load, encoding, and output writes; excludes parent verification hashes.",
+      "registration_hash": "08a04f0e354cd35ffe7bb30bb7c71695be10d8abaa12af97ab8dd4056c872763",
+      "encoding_seconds_including_asset_verification_and_model_loading": 100.51585302900001,
+      "work": {
+        "query_count": 513,
+        "batch_size": 8,
+        "batch_count": 65,
+        "raw_token_count": 6126,
+        "special_tokens_per_query": 2,
+        "original_token_count": 7152,
+        "clipped_token_count": 7152,
+        "baseline_padded_token_slots": 10884,
+        "candidate_padded_token_slots": 7285,
+        "baseline_attention_cells": 244392,
+        "candidate_attention_cells": 116025,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "memory": {
+        "peak_rss_bytes": 1159954432,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    },
+    "1": {
+      "count": 615,
+      "process_wall_seconds": 176.08955716600002,
+      "postprocess_verification_seconds": 35.67310500799999,
+      "total_role_wall_seconds": 211.76834469500005,
+      "process_timing_scope": "Child launch through process.wait completion; includes child imports, asset verification, model load, encoding, and output writes; excludes parent verification hashes.",
+      "registration_hash": "170b4da172e8ab308c6e6668de782d2e1747fa3241280cf56d8cf0e9cedc899c",
+      "encoding_seconds_including_asset_verification_and_model_loading": 137.23077173999997,
+      "work": {
+        "query_count": 615,
+        "batch_size": 8,
+        "batch_count": 77,
+        "raw_token_count": 10327,
+        "special_tokens_per_query": 2,
+        "original_token_count": 11557,
+        "clipped_token_count": 11557,
+        "baseline_padded_token_slots": 23573,
+        "candidate_padded_token_slots": 11816,
+        "baseline_attention_cells": 1031335,
+        "candidate_attention_cells": 330904,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "memory": {
+        "peak_rss_bytes": 1183637504,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    },
+    "2": {
+      "count": 608,
+      "process_wall_seconds": 175.39084653500004,
+      "postprocess_verification_seconds": 43.181324569000026,
+      "total_role_wall_seconds": 218.575548141,
+      "process_timing_scope": "Child launch through process.wait completion; includes child imports, asset verification, model load, encoding, and output writes; excludes parent verification hashes.",
+      "registration_hash": "d57fca9016272261c29a065e956a71a8fd4aa85256f37a682ee5d9c0fd711483",
+      "encoding_seconds_including_asset_verification_and_model_loading": 145.61080063400004,
+      "work": {
+        "query_count": 608,
+        "batch_size": 8,
+        "batch_count": 76,
+        "raw_token_count": 11466,
+        "special_tokens_per_query": 2,
+        "original_token_count": 12682,
+        "clipped_token_count": 12682,
+        "baseline_padded_token_slots": 27480,
+        "candidate_padded_token_slots": 13096,
+        "baseline_attention_cells": 1379800,
+        "candidate_attention_cells": 435112,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "memory": {
+        "peak_rss_bytes": 1195950080,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    },
+    "3": {
+      "count": 616,
+      "process_wall_seconds": 192.88865673299995,
+      "postprocess_verification_seconds": 33.07677319900006,
+      "total_role_wall_seconds": 225.9692462569999,
+      "process_timing_scope": "Child launch through process.wait completion; includes child imports, asset verification, model load, encoding, and output writes; excludes parent verification hashes.",
+      "registration_hash": "f342be239de057e85a1c8e437eae3e1d26721bd0e1b3d86a5555eb7fe71e8bd6",
+      "encoding_seconds_including_asset_verification_and_model_loading": 153.74330427400002,
+      "work": {
+        "query_count": 616,
+        "batch_size": 8,
+        "batch_count": 77,
+        "raw_token_count": 11063,
+        "special_tokens_per_query": 2,
+        "original_token_count": 12295,
+        "clipped_token_count": 12295,
+        "baseline_padded_token_slots": 24880,
+        "candidate_padded_token_slots": 12592,
+        "baseline_attention_cells": 1105200,
+        "candidate_attention_cells": 354576,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "memory": {
+        "peak_rss_bytes": 1183055872,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    },
+    "4": {
+      "count": 408,
+      "process_wall_seconds": 82.29694555700007,
+      "postprocess_verification_seconds": 28.310722458999862,
+      "total_role_wall_seconds": 110.60966215100007,
+      "process_timing_scope": "Child launch through process.wait completion; includes child imports, asset verification, model load, encoding, and output writes; excludes parent verification hashes.",
+      "registration_hash": "7f7b5a14318ac15e0c5e06e8b260ba6bc2b26643697c32b2b5c4f7988241f5ae",
+      "encoding_seconds_including_asset_verification_and_model_loading": 52.16425345300013,
+      "work": {
+        "query_count": 408,
+        "batch_size": 8,
+        "batch_count": 51,
+        "raw_token_count": 4283,
+        "special_tokens_per_query": 2,
+        "original_token_count": 5099,
+        "clipped_token_count": 5099,
+        "baseline_padded_token_slots": 8048,
+        "candidate_padded_token_slots": 5528,
+        "baseline_attention_cells": 238384,
+        "candidate_attention_cells": 129816,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "memory": {
+        "peak_rss_bytes": 1188995072,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    },
+    "server": {
+      "count": 200,
+      "process_wall_seconds": 64.85011848399995,
+      "postprocess_verification_seconds": 31.824792086999878,
+      "total_role_wall_seconds": 96.6784400439999,
+      "process_timing_scope": "Child launch through process.wait completion; includes child imports, asset verification, model load, encoding, and output writes; excludes parent verification hashes.",
+      "registration_hash": "8bdd488c78a8ce4f81594bb0c3fc91f9ec8fe3da8e10fe895730becbd3f31a27",
+      "encoding_seconds_including_asset_verification_and_model_loading": 51.219717906999904,
+      "work": {
+        "query_count": 200,
+        "batch_size": 8,
+        "batch_count": 25,
+        "raw_token_count": 2960,
+        "special_tokens_per_query": 2,
+        "original_token_count": 3360,
+        "clipped_token_count": 3360,
+        "baseline_padded_token_slots": 7168,
+        "candidate_padded_token_slots": 3704,
+        "baseline_attention_cells": 338000,
+        "candidate_attention_cells": 121688,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "memory": {
+        "peak_rss_bytes": 1185718272,
+        "rss_sampling_interval_seconds": 0.02
+      }
+    }
+  },
+  "wall_seconds": 1323.459385962,
+  "source_hashes": {
+    "tools/check_bucketed_integration.py": "04448faf5cffe009f0ad3257e8970551f9c7a2d978f654612702f71c54889983",
+    "tests/test_bucketed_integration.py": "2fdeb4c3214e18601309c0b72e863c4db39208dba6632913b70e1b2b3f4e42a6",
+    "tools/prepare_encoder_bucketed.py": "a9d3610e24ab28e6c7b639f357dd3d59361bffcffd6fe93a8201a9f309d45d03",
+    "fedlora_edge/encoder_bucketing.py": "e5bcfbc09cf4c946f71407115056114237b9c3b5d583ba01ba94c08992efade7",
+    "tools/run_encoder_matrix.py": "e592bde3f22aee6f09678aeed4f70654261b7f4fb48992afd4b65c2a5445abb2",
+    "fedlora_edge/encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+    "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "fedlora_edge/aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+    "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8"
+  },
+  "reproducibility": {
+    "dataset": "assets/encoder-bank20-v1",
+    "model_identity": {
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "config_hash": "8c0c26475a2e8952edc99028b8e330af87f21d4943e50d78429cb51c9d7d6504",
+      "original_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+      "run_id": "encoder-flower-balanced-v2",
+      "version": 500,
+      "asset_dir": "assets/reference-mpnet",
+      "checkpoint_dir": "runs/encoder-flower-balanced-v2/selected",
+      "scoring": "Unchanged EncoderPredictor.scores; masked mean + L2, FP32 CPU, max length384, batch16, threads2",
+      "tie_rule": "Lowest index in the fixed ordered label mapping"
+    },
+    "input_hashes": {
+      "assets/encoder-bank20-v1/manifest.json": "fae1e84940caee8028fae8aa96cd5d945938e80a736bc25ac521c441cb0103e3",
+      "assets/reference-mpnet/1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+      "assets/reference-mpnet/README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+      "assets/reference-mpnet/config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+      "assets/reference-mpnet/model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+      "assets/reference-mpnet/modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "assets/reference-mpnet/sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+      "assets/reference-mpnet/special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+      "assets/reference-mpnet/tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+      "assets/reference-mpnet/tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+      "assets/reference-mpnet/vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada",
+      "fedlora_edge/checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+      "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+      "fedlora_edge/encoder_adapter.py": "1d7215a4a7fe790776775d5cc4d0ff48e61d8aeadfa84e2cad70ff7e291a1752",
+      "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+      "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+      "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+      "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+      "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+      "runs/encoder-final-policy-v2.json": "ff691c58f0333245017c9d87effd6f2667e0fbd5b57abf120fbc5c35231e033e",
+      "runs/encoder-flower-balanced-v2/final_results.json": "98b08066a653b8c11bf9ebd459e22a1025c06ac05c709fac5acf332beda17552",
+      "runs/encoder-flower-balanced-v2/selected/checkpoint.json": "39cfba43aac7784b92cd6fda5217644c2ed56cd57a2c34cc1b46935c2c687c82",
+      "tools/calibrate_encoder_policy.py": "1f7edc96a4fbffc0a5ae53dd6ff0fe202df5786486274aa18755d7e51d7c792f",
+      "tools/confirm_encoder.py": "5c046c927930551d436c40dfbb69add971b3eaac389282fdb0d2a56622e2e641",
+      "tools/evaluate_fresh_bank20.py": "7214fb36e379ef0187d4fdb1ee6c15bd809ac96acb6e1c1628187da1288855cf",
+      "tests/test_fresh_evaluation.py": "d08e3b2c65330ad262a72af5b98a9baf0caf084ed7f95ea4ac98bc2b0fa133d4",
+      "tests/test_fresh_query_collection.py": "8ab56f782a8d93438a83c063fa28a23dd6be8a7f8a6c04392c33d1552e2e23b4",
+      "fedlora_edge/responses.py": "73b270fd34cb97edd61f3480e8f70eef7651c46d67e272aa2092ff303f42b144",
+      "tools/fresh_query_collection.py": "27f8ae3573abacc1cd9bc2e7d681e525535566d2225c12c29b535e71d78defc0",
+      "docs/fresh-query-collection.md": "e6ab45066dc9ed66c318677b8e6db0193ddc8a0d04191c2188b15c78f72df544",
+      "docs/fresh-evaluation-runner.md": "625b307cabc3af10ebb9a4f82235c5739a5613d7b7af2a6f138551168c36b5f9",
+      "research/results/encoder-v2/confirmation-plan.json": "92a12a0532b6880c13ce1364b4a96abe10b2215c203d737cb8a49d6e7a5e7fc3",
+      "research/results/encoder-v2/final-policy.json": "ff691c58f0333245017c9d87effd6f2667e0fbd5b57abf120fbc5c35231e033e",
+      "tools/check_bucketed_integration.py": "04448faf5cffe009f0ad3257e8970551f9c7a2d978f654612702f71c54889983",
+      "tests/test_bucketed_integration.py": "2fdeb4c3214e18601309c0b72e863c4db39208dba6632913b70e1b2b3f4e42a6",
+      "tools/prepare_encoder_bucketed.py": "a9d3610e24ab28e6c7b639f357dd3d59361bffcffd6fe93a8201a9f309d45d03",
+      "fedlora_edge/encoder_bucketing.py": "e5bcfbc09cf4c946f71407115056114237b9c3b5d583ba01ba94c08992efade7",
+      "tools/run_encoder_matrix.py": "e592bde3f22aee6f09678aeed4f70654261b7f4fb48992afd4b65c2a5445abb2",
+      "fedlora_edge/encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+      "fedlora_edge/aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+      "assets/encoder-bank20-v1/clients/client_0.json": "ea4286d8c90cc973727517e9038bbc0ecd52c8b7ef61b4a4c8e6ced1041e5a3a",
+      "assets/encoder-bank20-v1/clients/client_0.npz": "8886b48a8716cd9004bd54db999af012f5dc58374ea73458d066b4c0f6d24edb",
+      "assets/encoder-bank20-v1/clients/client_1.json": "aba730dfe21cb6635dc60e81c278bce5be56b1313ab6c43e54181835d8e5f6a2",
+      "assets/encoder-bank20-v1/clients/client_1.npz": "6441f2c12d0589deb53edf03b2eb05fd04ea35763f02c1ac3bbd7101603dd4ff",
+      "assets/encoder-bank20-v1/clients/client_2.json": "8981e837d00a6cdc46c4f8931ede6b2516020ded09e2ad165f68b659c9646b6d",
+      "assets/encoder-bank20-v1/clients/client_2.npz": "299c580ea7cbe569372a37c4d10c72ae5014cbce54a4196ea83f677263d702f0",
+      "assets/encoder-bank20-v1/clients/client_3.json": "eba4ac3512e0609257f75c9cdd010c713c7b9b99a185e11a2cf80d5edefa3d64",
+      "assets/encoder-bank20-v1/clients/client_3.npz": "4df217147af14faa6b29b69eb55705a88d45af32af877aa36fc638d71eba9e14",
+      "assets/encoder-bank20-v1/clients/client_4.json": "59c4b5b521dba072be158238b1ce1a9d9be8ee6f0119dab5ea751cfe41495fde",
+      "assets/encoder-bank20-v1/clients/client_4.npz": "5f2219155a4ef95b0008fa8204677c24a1017f92bebc8ddf61643d5fb50069af",
+      "assets/encoder-bank20-v1/validation.json": "e9ed0a47f50be3bbdc2f285a8494d33c4aaa809e0c19f6a1de8a3ee083289a80",
+      "assets/encoder-bank20-v1/validation.npz": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92"
+    },
+    "participant_source_commitments": {
+      "0": {
+        "count": 513,
+        "source_ids_hash": "5aeb0b44e019c68cd09b2279e8ec6c6ce9f0b678f486baa6346304da3175f2a9",
+        "records_hash": "6db655c7dfa60fd97367de72c3f74b48ef86214ef2855a81c2c8e31504a32fc7",
+        "records_file": "assets/encoder-bank20-v1/clients/client_0.json",
+        "cache_file": "assets/encoder-bank20-v1/clients/client_0.npz"
+      },
+      "1": {
+        "count": 615,
+        "source_ids_hash": "4c2d3e4f654d21d5d4f828c4dfb3169eb354bbcb3d0e228f7385638cc19a6a11",
+        "records_hash": "5854475e041283af01f4944d83106ee5b5e7f05c1cd35c29fefded6158416bb1",
+        "records_file": "assets/encoder-bank20-v1/clients/client_1.json",
+        "cache_file": "assets/encoder-bank20-v1/clients/client_1.npz"
+      },
+      "2": {
+        "count": 608,
+        "source_ids_hash": "9652d9b4d43dd6cfaa49d35b32ace64c9d0f19ef32c0d3f98095540f934661cc",
+        "records_hash": "24a01990a113ffd6afda07f98fd75192a47732afbbb01581fe00e4f071bb8bba",
+        "records_file": "assets/encoder-bank20-v1/clients/client_2.json",
+        "cache_file": "assets/encoder-bank20-v1/clients/client_2.npz"
+      },
+      "3": {
+        "count": 616,
+        "source_ids_hash": "ece0edcbc3c9f0530a03bc258f7df914a3f61e8950271de1f3d087f61fc632f8",
+        "records_hash": "9fefdc7aac4cfa9762abe5ba8c94a72aa94b308c4b2234b4b79373674723f9a5",
+        "records_file": "assets/encoder-bank20-v1/clients/client_3.json",
+        "cache_file": "assets/encoder-bank20-v1/clients/client_3.npz"
+      },
+      "4": {
+        "count": 408,
+        "source_ids_hash": "b335b752c8ba743be0a78c04dfc0a0702cb49470df23c6a0205ead0a131ff1eb",
+        "records_hash": "d3e22f124d16b627642ac0a7deff3bc93e2cd84a419baa5c067bbf957524bf2b",
+        "records_file": "assets/encoder-bank20-v1/clients/client_4.json",
+        "cache_file": "assets/encoder-bank20-v1/clients/client_4.npz"
+      },
+      "server": {
+        "count": 200,
+        "source_ids_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+        "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+        "records_file": "assets/encoder-bank20-v1/validation.json",
+        "cache_file": "assets/encoder-bank20-v1/validation.npz"
+      }
+    },
+    "bucketed_plan": {
+      "kind": "mpnet_bucketed_local_preparation_v1",
+      "format_version": 1,
+      "layout": "five",
+      "source_plan": {
+        "kind": "mpnet_participant_local_preparation_v1",
+        "format_version": 1,
+        "layout": "five",
+        "source_manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+        "source_manifest_set_hash": "ae4831d655b0f0a0a56039d39b97357e4d25ae35be2236c63fca15899b1465fc",
+        "encoder": {
+          "model_id": "sentence-transformers/all-mpnet-base-v2",
+          "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+          "license": "apache-2.0",
+          "files_sha256": {
+            "1_Pooling/config.json": "a37f83ada23e7887be6b88f4998927dbeac0038af301553c7cd5461413bf1a56",
+            "config.json": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+            "model.safetensors": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+            "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+            "README.md": "89a1a9c3290fe58e76c939b578c48a14331dc7bfcaaf5a53102adb183da6f96a",
+            "sentence_bert_config.json": "cabfacded9272091a06ff595a46ef027a76ddf4ac9e77d0fcf11c605748f1667",
+            "special_tokens_map.json": "9ef40e9c160511bf3f46ceb71f1471dafa1e9473d5120bb816c36b2efa75f8ba",
+            "tokenizer.json": "b8be2c30ba5dd723a6d5ee26d013da103d5408d92ddcb23747622f9e48f1d842",
+            "tokenizer_config.json": "67f2ff7e223518e729869bb3a70f0caf8368fe549383fc11cfe2dfb42fffc268",
+            "vocab.txt": "dbd90cb94e2247bd4d4ccaecbf616d2290e66691d7d5e5bb81f063c2d0649ada"
+          },
+          "pooling": "attention_mask_mean_then_l2_normalize",
+          "max_length": 384,
+          "batch_size": 8,
+          "device": "cpu",
+          "threads": 1
+        },
+        "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+        "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "labels": [
+          "card_arrival",
+          "card_delivery_estimate",
+          "activate_my_card",
+          "card_about_to_expire",
+          "pending_card_payment",
+          "declined_card_payment",
+          "card_payment_not_recognised",
+          "transaction_charged_twice",
+          "pending_transfer",
+          "transfer_not_received_by_recipient",
+          "transfer_fee_charged",
+          "cancel_transfer",
+          "pending_cash_withdrawal",
+          "declined_cash_withdrawal",
+          "wrong_amount_of_cash_received",
+          "cash_withdrawal_not_recognised",
+          "edit_personal_details",
+          "verify_my_identity",
+          "unable_to_verify_identity",
+          "why_verify_identity"
+        ],
+        "feature_dim": 768,
+        "feature_settings": {
+          "dtype": "float32",
+          "device": "cpu",
+          "max_length": 384,
+          "pooling": "attention_mask_mean_then_l2_normalize",
+          "batch_size": 8,
+          "cpu_threads": 1
+        },
+        "participants": {
+          "0": {
+            "role": "client",
+            "parts": [
+              {
+                "original_client": "0",
+                "records_hash": "6db655c7dfa60fd97367de72c3f74b48ef86214ef2855a81c2c8e31504a32fc7",
+                "count": 513,
+                "label_counts": {
+                  "card_arrival": 143,
+                  "card_delivery_estimate": 102,
+                  "activate_my_card": 149,
+                  "card_about_to_expire": 119
+                }
+              }
+            ]
+          },
+          "1": {
+            "role": "client",
+            "parts": [
+              {
+                "original_client": "1",
+                "records_hash": "5854475e041283af01f4944d83106ee5b5e7f05c1cd35c29fefded6158416bb1",
+                "count": 615,
+                "label_counts": {
+                  "card_payment_not_recognised": 158,
+                  "pending_card_payment": 149,
+                  "declined_card_payment": 143,
+                  "transaction_charged_twice": 165
+                }
+              }
+            ]
+          },
+          "2": {
+            "role": "client",
+            "parts": [
+              {
+                "original_client": "2",
+                "records_hash": "24a01990a113ffd6afda07f98fd75192a47732afbbb01581fe00e4f071bb8bba",
+                "count": 608,
+                "label_counts": {
+                  "cancel_transfer": 147,
+                  "transfer_not_received_by_recipient": 161,
+                  "pending_transfer": 138,
+                  "transfer_fee_charged": 162
+                }
+              }
+            ]
+          },
+          "3": {
+            "role": "client",
+            "parts": [
+              {
+                "original_client": "3",
+                "records_hash": "9fefdc7aac4cfa9762abe5ba8c94a72aa94b308c4b2234b4b79373674723f9a5",
+                "count": 616,
+                "label_counts": {
+                  "pending_cash_withdrawal": 133,
+                  "wrong_amount_of_cash_received": 170,
+                  "declined_cash_withdrawal": 163,
+                  "cash_withdrawal_not_recognised": 150
+                }
+              }
+            ]
+          },
+          "4": {
+            "role": "client",
+            "parts": [
+              {
+                "original_client": "4",
+                "records_hash": "d3e22f124d16b627642ac0a7deff3bc93e2cd84a419baa5c067bbf957524bf2b",
+                "count": 408,
+                "label_counts": {
+                  "edit_personal_details": 111,
+                  "why_verify_identity": 111,
+                  "unable_to_verify_identity": 92,
+                  "verify_my_identity": 94
+                }
+              }
+            ]
+          },
+          "server": {
+            "role": "validation",
+            "parts": [
+              {
+                "original_client": null,
+                "records_hash": "93bee22f2479d7dca75eca0b65a8923d4de36305b0c4babcb565842957759a9e",
+                "count": 200,
+                "label_counts": {
+                  "card_arrival": 10,
+                  "card_delivery_estimate": 10,
+                  "activate_my_card": 10,
+                  "card_about_to_expire": 10,
+                  "pending_card_payment": 10,
+                  "declined_card_payment": 10,
+                  "card_payment_not_recognised": 10,
+                  "transaction_charged_twice": 10,
+                  "pending_transfer": 10,
+                  "transfer_not_received_by_recipient": 10,
+                  "transfer_fee_charged": 10,
+                  "cancel_transfer": 10,
+                  "pending_cash_withdrawal": 10,
+                  "declined_cash_withdrawal": 10,
+                  "wrong_amount_of_cash_received": 10,
+                  "cash_withdrawal_not_recognised": 10,
+                  "edit_personal_details": 10,
+                  "verify_my_identity": 10,
+                  "unable_to_verify_identity": 10,
+                  "why_verify_identity": 10
+                }
+              }
+            ]
+          }
+        },
+        "boundary": "Approved public record hashes are fixed upstream. Only each participant's own bundles are encoded locally; registration contains metadata only.",
+        "plan_hash": "815679e6bd2fe3dc8b7dd3ed907b12e18ce8a8a4396b313ba23619243f08be06"
+      },
+      "feature_settings": {
+        "dtype": "float32",
+        "device": "cpu",
+        "max_length": 384,
+        "pooling": "attention_mask_mean_then_l2_normalize",
+        "batch_size": 8,
+        "cpu_threads": 1,
+        "batching": "stable_exact_token_length_ascending",
+        "output_order": "source_record_order",
+        "raw_tokenization": "once_without_special_tokens",
+        "special_token_preparation": "tokenizer_prepare_for_model",
+        "padding_side": "right",
+        "truncation_side": "right"
+      },
+      "recipe_hash": "fc98213f9c7fe6ef6ea6f91eb6e7470674142e2c6d6a571d7938c3f7f20b7f63",
+      "plan_hash": "20ca2c15e298d9ef4fd8d7fadedc36408739564eeefebbb28a07cbbc44bd61b2"
+    },
+    "lock_created_utc": "2026-11-04T16:08:18.429871+00:00",
+    "private_run_relative_path": "runs/encoder-bucketed-integration-v1",
+    "public_summary_relative_path": "research/results/encoder-bucketing-v1/integration.json"
+  },
+  "runtime": {
+    "python": "3.11.15",
+    "platform": "linux",
+    "packages": {
+      "torch": "2.8.0+cu126",
+      "transformers": "4.57.1",
+      "peft": "0.17.1",
+      "tokenizers": "0.22.2",
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0"
+    },
+    "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "executable": "/home/sameer/.venvs/loflwr/bin/python",
+    "psutil": "7.2.2",
+    "participant_environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "TOKENIZERS_PARALLELISM": "false"
+    }
+  },
+  "design": {
+    "participants": {
+      "0": 513,
+      "1": 615,
+      "2": 608,
+      "3": 616,
+      "4": 408,
+      "server": 200
+    },
+    "layout": "five",
+    "total_rows": 2960,
+    "preparation": {
+      "dtype": "float32",
+      "device": "cpu",
+      "max_length": 384,
+      "pooling": "attention_mask_mean_then_l2_normalize",
+      "batch_size": 8,
+      "cpu_threads": 1,
+      "batching": "stable_exact_token_length_ascending",
+      "output_order": "source_record_order",
+      "raw_tokenization": "once_without_special_tokens",
+      "special_token_preparation": "tokenizer_prepare_for_model",
+      "padding_side": "right",
+      "truncation_side": "right"
+    },
+    "participant_timeout_seconds": 900,
+    "feature_absolute_tolerance": 1e-05,
+    "fixed_head_top1_changes_allowed": 0,
+    "fixed_head_strict_margin_changes_allowed": 0,
+    "tokenizer_probes": {
+      "count": 4,
+      "probe_hash": "7dcc6753e948d30bab308fd3ec6d49cba067ef502752cd12cd03917f9880fc36",
+      "scope": "Authored tokenization probes with no expected labels or model inference."
+    },
+    "head_smoke": {
+      "initial_seed": 42,
+      "attempt_id": 1,
+      "optimizer_steps_per_client": 1,
+      "strategy": "equal",
+      "state_absolute_tolerance": 1e-05,
+      "config": {
+        "learning_rate": 20,
+        "batch_size": 1024,
+        "weight_decay": 3.6231884057971014e-05,
+        "optimizer": "sgd",
+        "gradient_clip": 10.0,
+        "cpu_threads": 1,
+        "class_balance": true
+      }
+    },
+    "scope": "Full single-host public-benchmark compatibility audit using existing training and reused validation; no new accuracy or Flower experiment."
+  },
+  "limits": [
+    "Existing public training and reused validation only; no old test, confirmation, CLINC, or scope inference.",
+    "Serial fresh participant processes on one host, without filesystem or network isolation; offline model loading is configured.",
+    "Auditor dataset explicitly contains every participant's public benchmark features and records.",
+    "Fixed-head changes and one-round compatibility are not accuracy, convergence, Flower runtime, privacy, or physical-laptop evidence.",
+    "Token slots and attention cells are arithmetic work proxies; raw state bytes are not network traffic."
+  ],
+  "result_hash": "9ffd7967f230a75080c3e2b317fc0cacb614d6fab4600aa86420734be97cee7d"
+}

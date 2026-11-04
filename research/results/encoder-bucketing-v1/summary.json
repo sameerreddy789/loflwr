@@ -1,0 +1,491 @@
+{
+  "kind": "encoder_bucketing_benchmark_v1",
+  "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+  "status": "completed",
+  "cohorts": {
+    "server": {
+      "count": 200,
+      "seconds": {
+        "original": [
+          58.72185898799998,
+          38.97030848600002,
+          64.08275083799992
+        ],
+        "bucketed": [
+          35.489472147000015,
+          42.03511345100003,
+          26.599912557999914
+        ]
+      },
+      "median_seconds": {
+        "original": 58.72185898799998,
+        "bucketed": 35.489472147000015
+      },
+      "median_time_reduction_fraction": 0.39563438966991127,
+      "ratio_of_median_times": 1.6546275679945226,
+      "paired_speedups": [
+        1.6546275679945226,
+        0.9270894089872596,
+        2.4091338908829254
+      ],
+      "work": {
+        "query_count": 200,
+        "batch_size": 8,
+        "batch_count": 25,
+        "raw_token_count": 2960,
+        "special_tokens_per_query": 2,
+        "original_token_count": 3360,
+        "clipped_token_count": 3360,
+        "baseline_padded_token_slots": 7168,
+        "candidate_padded_token_slots": 3704,
+        "baseline_attention_cells": 338000,
+        "candidate_attention_cells": 121688,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "all_parity_checks_passed": true
+    },
+    "4": {
+      "count": 408,
+      "seconds": {
+        "original": [
+          57.199211469999966,
+          39.68360727000004,
+          64.67627427699995
+        ],
+        "bucketed": [
+          100.12349255599997,
+          39.22258255600002,
+          50.13797509200003
+        ]
+      },
+      "median_seconds": {
+        "original": 57.199211469999966,
+        "bucketed": 50.13797509200003
+      },
+      "median_time_reduction_fraction": 0.12344989024373931,
+      "ratio_of_median_times": 1.140836090110201,
+      "paired_speedups": [
+        0.5712866182530332,
+        1.0117540631941253,
+        1.2899658224793293
+      ],
+      "work": {
+        "query_count": 408,
+        "batch_size": 8,
+        "batch_count": 51,
+        "raw_token_count": 4283,
+        "special_tokens_per_query": 2,
+        "original_token_count": 5099,
+        "clipped_token_count": 5099,
+        "baseline_padded_token_slots": 8048,
+        "candidate_padded_token_slots": 5528,
+        "baseline_attention_cells": 238384,
+        "candidate_attention_cells": 129816,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "all_parity_checks_passed": true
+    }
+  },
+  "cells": [
+    {
+      "cell": {
+        "id": "server-r0",
+        "role": "server",
+        "repeat": 0,
+        "order": [
+          "original",
+          "bucketed"
+        ]
+      },
+      "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+      "count": 200,
+      "source_ids_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "effective_torch_threads": 1,
+      "loading_seconds_including_asset_verification": 54.18366276299999,
+      "observations": {
+        "original": {
+          "seconds": 58.72185898799998,
+          "queries_per_second": 3.4058867250927922,
+          "peak_process_rss_bytes": 1180770304,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 7168,
+          "attention_cells": 338000,
+          "forward_calls": 25
+        },
+        "bucketed": {
+          "seconds": 35.489472147000015,
+          "queries_per_second": 5.635474068805116,
+          "peak_process_rss_bytes": 1185910784,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 3704,
+          "attention_cells": 121688,
+          "forward_calls": 25
+        }
+      },
+      "work": {
+        "query_count": 200,
+        "batch_size": 8,
+        "batch_count": 25,
+        "raw_token_count": 2960,
+        "special_tokens_per_query": 2,
+        "original_token_count": 3360,
+        "clipped_token_count": 3360,
+        "baseline_padded_token_slots": 7168,
+        "candidate_padded_token_slots": 3704,
+        "baseline_attention_cells": 338000,
+        "candidate_attention_cells": 121688,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "parity": {
+        "max_feature_absolute_difference": 8.940696716308594e-08,
+        "max_logit_absolute_difference": 3.337860107421875e-06,
+        "prediction_changes": 0,
+        "strict_margin_answer_changes": 0,
+        "truncations": {
+          "original": 0,
+          "bucketed": 0
+        },
+        "observed_work_matches_arithmetic": true,
+        "passed": true
+      },
+      "memory_limit": "Sampled current-process RSS includes encoder/runtime and retained outputs; warm allocator state makes pairwise RSS comparisons order-dependent"
+    },
+    {
+      "cell": {
+        "id": "4-r0",
+        "role": "4",
+        "repeat": 0,
+        "order": [
+          "bucketed",
+          "original"
+        ]
+      },
+      "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+      "count": 408,
+      "source_ids_hash": "b335b752c8ba743be0a78c04dfc0a0702cb49470df23c6a0205ead0a131ff1eb",
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "effective_torch_threads": 1,
+      "loading_seconds_including_asset_verification": 39.80133769500003,
+      "observations": {
+        "bucketed": {
+          "seconds": 100.12349255599997,
+          "queries_per_second": 4.074967718208611,
+          "peak_process_rss_bytes": 1179779072,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 5528,
+          "attention_cells": 129816,
+          "forward_calls": 51
+        },
+        "original": {
+          "seconds": 57.199211469999966,
+          "queries_per_second": 7.132965464287723,
+          "peak_process_rss_bytes": 1190326272,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 8048,
+          "attention_cells": 238384,
+          "forward_calls": 51
+        }
+      },
+      "work": {
+        "query_count": 408,
+        "batch_size": 8,
+        "batch_count": 51,
+        "raw_token_count": 4283,
+        "special_tokens_per_query": 2,
+        "original_token_count": 5099,
+        "clipped_token_count": 5099,
+        "baseline_padded_token_slots": 8048,
+        "candidate_padded_token_slots": 5528,
+        "baseline_attention_cells": 238384,
+        "candidate_attention_cells": 129816,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "parity": {
+        "max_feature_absolute_difference": 1.2386590242385864e-07,
+        "max_logit_absolute_difference": 3.337860107421875e-06,
+        "prediction_changes": 0,
+        "strict_margin_answer_changes": 0,
+        "truncations": {
+          "bucketed": 0,
+          "original": 0
+        },
+        "observed_work_matches_arithmetic": true,
+        "passed": true
+      },
+      "memory_limit": "Sampled current-process RSS includes encoder/runtime and retained outputs; warm allocator state makes pairwise RSS comparisons order-dependent"
+    },
+    {
+      "cell": {
+        "id": "server-r1",
+        "role": "server",
+        "repeat": 1,
+        "order": [
+          "bucketed",
+          "original"
+        ]
+      },
+      "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+      "count": 200,
+      "source_ids_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "effective_torch_threads": 1,
+      "loading_seconds_including_asset_verification": 49.010312272999954,
+      "observations": {
+        "bucketed": {
+          "seconds": 42.03511345100003,
+          "queries_per_second": 4.757926970582304,
+          "peak_process_rss_bytes": 1183354880,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 3704,
+          "attention_cells": 121688,
+          "forward_calls": 25
+        },
+        "original": {
+          "seconds": 38.97030848600002,
+          "queries_per_second": 5.13211231242497,
+          "peak_process_rss_bytes": 1187745792,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 7168,
+          "attention_cells": 338000,
+          "forward_calls": 25
+        }
+      },
+      "work": {
+        "query_count": 200,
+        "batch_size": 8,
+        "batch_count": 25,
+        "raw_token_count": 2960,
+        "special_tokens_per_query": 2,
+        "original_token_count": 3360,
+        "clipped_token_count": 3360,
+        "baseline_padded_token_slots": 7168,
+        "candidate_padded_token_slots": 3704,
+        "baseline_attention_cells": 338000,
+        "candidate_attention_cells": 121688,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "parity": {
+        "max_feature_absolute_difference": 8.940696716308594e-08,
+        "max_logit_absolute_difference": 3.337860107421875e-06,
+        "prediction_changes": 0,
+        "strict_margin_answer_changes": 0,
+        "truncations": {
+          "bucketed": 0,
+          "original": 0
+        },
+        "observed_work_matches_arithmetic": true,
+        "passed": true
+      },
+      "memory_limit": "Sampled current-process RSS includes encoder/runtime and retained outputs; warm allocator state makes pairwise RSS comparisons order-dependent"
+    },
+    {
+      "cell": {
+        "id": "4-r1",
+        "role": "4",
+        "repeat": 1,
+        "order": [
+          "original",
+          "bucketed"
+        ]
+      },
+      "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+      "count": 408,
+      "source_ids_hash": "b335b752c8ba743be0a78c04dfc0a0702cb49470df23c6a0205ead0a131ff1eb",
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "effective_torch_threads": 1,
+      "loading_seconds_including_asset_verification": 20.599602120999975,
+      "observations": {
+        "original": {
+          "seconds": 39.68360727000004,
+          "queries_per_second": 10.281323399459184,
+          "peak_process_rss_bytes": 1191247872,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 8048,
+          "attention_cells": 238384,
+          "forward_calls": 51
+        },
+        "bucketed": {
+          "seconds": 39.22258255600002,
+          "queries_per_second": 10.402170724415667,
+          "peak_process_rss_bytes": 1183248384,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 5528,
+          "attention_cells": 129816,
+          "forward_calls": 51
+        }
+      },
+      "work": {
+        "query_count": 408,
+        "batch_size": 8,
+        "batch_count": 51,
+        "raw_token_count": 4283,
+        "special_tokens_per_query": 2,
+        "original_token_count": 5099,
+        "clipped_token_count": 5099,
+        "baseline_padded_token_slots": 8048,
+        "candidate_padded_token_slots": 5528,
+        "baseline_attention_cells": 238384,
+        "candidate_attention_cells": 129816,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "parity": {
+        "max_feature_absolute_difference": 1.2386590242385864e-07,
+        "max_logit_absolute_difference": 3.337860107421875e-06,
+        "prediction_changes": 0,
+        "strict_margin_answer_changes": 0,
+        "truncations": {
+          "original": 0,
+          "bucketed": 0
+        },
+        "observed_work_matches_arithmetic": true,
+        "passed": true
+      },
+      "memory_limit": "Sampled current-process RSS includes encoder/runtime and retained outputs; warm allocator state makes pairwise RSS comparisons order-dependent"
+    },
+    {
+      "cell": {
+        "id": "server-r2",
+        "role": "server",
+        "repeat": 2,
+        "order": [
+          "original",
+          "bucketed"
+        ]
+      },
+      "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+      "count": 200,
+      "source_ids_hash": "f6d23f52e334114183e8bafe3d6d3ba51003f5014db9d071a6a5191252504a2d",
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "effective_torch_threads": 1,
+      "loading_seconds_including_asset_verification": 31.89293025500001,
+      "observations": {
+        "original": {
+          "seconds": 64.08275083799992,
+          "queries_per_second": 3.1209646493733785,
+          "peak_process_rss_bytes": 1193181184,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 7168,
+          "attention_cells": 338000,
+          "forward_calls": 25
+        },
+        "bucketed": {
+          "seconds": 26.599912557999914,
+          "queries_per_second": 7.518821709052952,
+          "peak_process_rss_bytes": 1194168320,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 3704,
+          "attention_cells": 121688,
+          "forward_calls": 25
+        }
+      },
+      "work": {
+        "query_count": 200,
+        "batch_size": 8,
+        "batch_count": 25,
+        "raw_token_count": 2960,
+        "special_tokens_per_query": 2,
+        "original_token_count": 3360,
+        "clipped_token_count": 3360,
+        "baseline_padded_token_slots": 7168,
+        "candidate_padded_token_slots": 3704,
+        "baseline_attention_cells": 338000,
+        "candidate_attention_cells": 121688,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "parity": {
+        "max_feature_absolute_difference": 8.940696716308594e-08,
+        "max_logit_absolute_difference": 3.337860107421875e-06,
+        "prediction_changes": 0,
+        "strict_margin_answer_changes": 0,
+        "truncations": {
+          "original": 0,
+          "bucketed": 0
+        },
+        "observed_work_matches_arithmetic": true,
+        "passed": true
+      },
+      "memory_limit": "Sampled current-process RSS includes encoder/runtime and retained outputs; warm allocator state makes pairwise RSS comparisons order-dependent"
+    },
+    {
+      "cell": {
+        "id": "4-r2",
+        "role": "4",
+        "repeat": 2,
+        "order": [
+          "bucketed",
+          "original"
+        ]
+      },
+      "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+      "count": 408,
+      "source_ids_hash": "b335b752c8ba743be0a78c04dfc0a0702cb49470df23c6a0205ead0a131ff1eb",
+      "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+      "effective_torch_threads": 1,
+      "loading_seconds_including_asset_verification": 40.63178878300005,
+      "observations": {
+        "bucketed": {
+          "seconds": 50.13797509200003,
+          "queries_per_second": 8.137544431169102,
+          "peak_process_rss_bytes": 1193881600,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 5528,
+          "attention_cells": 129816,
+          "forward_calls": 51
+        },
+        "original": {
+          "seconds": 64.67627427699995,
+          "queries_per_second": 6.308341112114619,
+          "peak_process_rss_bytes": 1190576128,
+          "rss_sample_interval_seconds": 0.02,
+          "padded_token_slots": 8048,
+          "attention_cells": 238384,
+          "forward_calls": 51
+        }
+      },
+      "work": {
+        "query_count": 408,
+        "batch_size": 8,
+        "batch_count": 51,
+        "raw_token_count": 4283,
+        "special_tokens_per_query": 2,
+        "original_token_count": 5099,
+        "clipped_token_count": 5099,
+        "baseline_padded_token_slots": 8048,
+        "candidate_padded_token_slots": 5528,
+        "baseline_attention_cells": 238384,
+        "candidate_attention_cells": 129816,
+        "truncated": 0,
+        "arithmetic_scope": "Token slots and batch_size times padded_length squared; not measured FLOPs or latency."
+      },
+      "parity": {
+        "max_feature_absolute_difference": 1.2386590242385864e-07,
+        "max_logit_absolute_difference": 3.337860107421875e-06,
+        "prediction_changes": 0,
+        "strict_margin_answer_changes": 0,
+        "truncations": {
+          "bucketed": 0,
+          "original": 0
+        },
+        "observed_work_matches_arithmetic": true,
+        "passed": true
+      },
+      "memory_limit": "Sampled current-process RSS includes encoder/runtime and retained outputs; warm allocator state makes pairwise RSS comparisons order-dependent"
+    }
+  ],
+  "scope": "Single-laptop development parity/timing; reused validation and training only; no new accuracy, energy, wire traffic or physical-laptop claim",
+  "limits": [
+    "Three timing repetitions are not three training seeds or new accuracy tests.",
+    "One laptop with warm operating-system caches; recorded dashboard/background OS processes may remain.",
+    "This optimizes batched preparation, not single-query latency, network bytes, or training steps.",
+    "Attention-cell and token-slot counts are work proxies, not measured energy or FLOPs."
+  ],
+  "result_hash": "5f5fd492824cbd2885edb8a6e55200b75c877d524bdd045184480296c103a8c0"
+}

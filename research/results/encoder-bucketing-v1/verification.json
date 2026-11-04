@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-04",
+  "delivery_id": "encoder-bucketing-v1",
+  "baseline_commit": "ad32d6c3fabee57d9cfed0105c9ea8afeaf683f2",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests",
+    "environment": "Ubuntu WSL2 /home/sameer/.venvs/loflwr/bin/python",
+    "total": 300,
+    "passed": 300,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 67.635,
+    "log": "runs/encoder-bucketing-verification-v1/full-tests.log",
+    "log_sha256": "5516354c3afc207c77c625b27121d808fb43f6435986f6cef78c01050f197635"
+  },
+  "new_fixture_tests": {
+    "preparation": 11,
+    "benchmark_guards": 9,
+    "integration_guards": 7,
+    "scope": "Included in the 300-test suite, not additional tests or accuracy evidence."
+  },
+  "frozen_integrity": {
+    "original_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "original_files": 24,
+    "external_lock": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+    "external_files": 36,
+    "scope_lock": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa",
+    "scope_files": 40,
+    "all_hashes_matched": true,
+    "scope": "Overlapping file sets, byte hashes only; no held-out inference.",
+    "metadata_retry": "The first capture wrapper passed the suite and hash checks but used 'files' instead of 'locked_files' when counting external files. This retry only repeats integrity checks; it does not repeat the passing suite."
+  },
+  "frozen_efficiency_code_files_verified": 25,
+  "benchmark": {
+    "lock_hash": "f8f118d90199c5c1cf07cc0eda3e4324b25f81e23cc1165c58e9b492f6c893b7",
+    "status": "completed",
+    "paired_cells": 6,
+    "repetitions_per_cohort": 3,
+    "slower_candidate_repetitions": 2,
+    "median_time_reduction_fraction": {
+      "server": 0.39563438966991127,
+      "4": 0.12344989024373931
+    },
+    "scope": "Single-laptop development parity/timing; reused validation and training only; no new accuracy, energy, wire traffic or physical-laptop claim"
+  },
+  "integration": {
+    "lock_hash": "dc2cad90667693548b7a2b1d1c4a8a2a3489a16728e563e950565ee2cf3317b4",
+    "status": "failed_compatibility",
+    "rows_checked": 2960,
+    "top1_changes": 0,
+    "strict_margin_answer_changes": 1,
+    "head_one_round_passed": true,
+    "tokenizer_probe_count": 4,
+    "tokenizer_probe_passed": true,
+    "scope": "Historical-cache migration plus real one-round mathematical training; not Flower or new accuracy."
+  },
+  "boundary": {
+    "result_hash": "af901a24e2b85252c7221433187dba35292a346df81e9c4279c074289730b8e4",
+    "status": "diagnosed_existing_failure",
+    "encoder_forward_calls": 0,
+    "changed_decision": "answered to abstained",
+    "margin_change_fp32_ulps": -4,
+    "threshold_changed": false
+  },
+  "confirmed_model_changed": false,
+  "confirmed_overall_accuracy": {
+    "correct": 282,
+    "total": 300
+  },
+  "default_rollout": false,
+  "limitations": [
+    "One shared laptop; large timing variation and two slower repetitions.",
+    "Strict historical-cache compatibility failed; candidate remains experimental.",
+    "Existing training and reused validation only; no new independent accuracy.",
+    "Preparation timing excludes model loading; no energy, wire-byte, live-query speed or physical-laptop gain established."
+  ],
+  "remaining": [
+    "Target-laptop profiling",
+    "Separate development calibration and fresh evaluation before adoption",
+    "Three physical laptops",
+    "Human presentation rehearsal"
+  ],
+  "source_hashes": {
+    "README.md": "453c1bac2f893a3169290a53759e44213ed4b19fca6cdced5b2b88b1e1e1b532",
+    "MODEL_CARD.md": "bae9141a6ef6973fd23f08f394f89d1abc0cbeb31044c77cf7d7785abb329502",
+    "docs/bucketed-feature-preparation.md": "dff1c5c1230de7991bb5c5fa8cb5406f1fa66285a11d8cdb8fb6ac8905263127",
+    "docs/future-plans.md": "23a45f4c5fb6b29f6dae752c494e11425cdbc66403aab666b17eb39b5d590aed",
+    "research/README.md": "35b265338822c6d91935335afa05f425945dd0c8f535582cd57439e9494c24eb",
+    "research/sources.md": "459416dfec3724c554c9eb230ff522b93b8c296ab27c8ef5ade60263261cbd4d",
+    "research/implementation-status.md": "05055c0eabdb0ffe5ce2a85d83c5d089e54be1594711a6b38224acd2ad798226",
+    "research/results/README.md": "35522858cb46924572d9dd1df57a56d5cf6117e495a625d41b2db5fab5811f35",
+    "research/efficiency-paper-review.md": "cd1a4c114633ca2799a30570f7ecf103bb29d1fdcac616901fe6c49186e802a9",
+    "research/ml-engineering-guidelines.md": "4d3350c413b19779a90bddee5cfa1c79ec6976a9e1b6e749046edceb708feb4f",
+    "fedlora_edge/encoder_bucketing.py": "e5bcfbc09cf4c946f71407115056114237b9c3b5d583ba01ba94c08992efade7",
+    "tools/README.md": "734bc19eec39a1a301d1f1c20a1a73c3f72731dc3fd323aa0b2624743a6e16f0",
+    "tools/prepare_encoder_bucketed.py": "a9d3610e24ab28e6c7b639f357dd3d59361bffcffd6fe93a8201a9f309d45d03",
+    "tools/benchmark_encoder_bucketing.py": "4d6583676278576a01067923dafc001d473ecaa15374b7c066fccaace435d280",
+    "tools/check_bucketed_integration.py": "04448faf5cffe009f0ad3257e8970551f9c7a2d978f654612702f71c54889983",
+    "tests/test_encoder_bucketing.py": "9ac34c111103be58caf1c59bb75c6828f690b46509a2fa56e0666c732f5bbf4f",
+    "tests/test_encoder_bucketing_benchmark.py": "c3aad26adc1c4d2fe3dee0a512cb6a840af03e6262aced67db83705f4d51f767",
+    "tests/test_bucketed_integration.py": "2fdeb4c3214e18601309c0b72e863c4db39208dba6632913b70e1b2b3f4e42a6",
+    "research/results/encoder-bucketing-v1/README.md": "3a6e87ef8ff4ab0bce75d9aa9ee9fd2690463eb23902a92d847ae9d8f1961023",
+    "research/results/encoder-bucketing-v1/plan.json": "b6aec01bb4a2b5d8828f3b45651021cb6f293043a84aff428bb2e586ad10e4f3",
+    "research/results/encoder-bucketing-v1/summary.json": "35cbde3ff4f144ebf2e35b804b699bc3d20b246bc12945f6fa3d25eaa7600151",
+    "research/results/encoder-bucketing-v1/integration.json": "74008f27287952c970aa0e611b81ccc7278436cce574579fc5e6d76eb22ddbf7",
+    "research/results/encoder-bucketing-v1/boundary-diagnostic.json": "98c4fc55cb4698fb4970c358d5e6329e13b63aa82faad885824790040ae3e025",
+    "research/results/encoder-bucketing-v1/host-observation.json": "4074f5de69e3920db6f2a6e169336bc6135009544adf5c777f70721b3a54dcbf"
+  },
+  "documentation_checks": {
+    "markdown_files": 67,
+    "project_skills": 4,
+    "local_file_links": "passed",
+    "git_diff_check": "passed before staging",
+    "scope": "Local file existence/frontmatter; remote rendered links verified after push."
+  }
+}

@@ -1,5 +1,13 @@
 # Sources, review depth, and licenses
 
+The separately dated **4 November 2026** reviews add
+[ML engineering guidance](ml-engineering-guidelines.md#primary-source-register-and-review-depth)
+and a [targeted efficiency paper review](efficiency-paper-review.md). They record
+their own primary sources, publication status, exact implementation revision,
+access failures and review depth. The reviewed guidance informs a separately
+identified local encoding experiment; the earlier register below remains a
+historical record and its old compatibility status is not today's run status.
+
 Initial access date: **20 October 2026, Asia/Calcutta**. The separately dated **2 November 2026** addendum below records the checkpoint research and abstract review; it does not imply every older source was re-reviewed. This register separates verified page identity, published claims, engineering reasoning, and pending reproduction.
 
 ## Review method and limits
