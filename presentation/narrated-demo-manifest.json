@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "artifact": "presentation/narrated-demo.mp4",
+  "generated_utc": "2026-11-04T04:01:05.337045+00:00",
+  "generator": "tools/build_narrated_demo.py",
+  "generator_sha256": "c03a5836a01aae8da9cd4a4fcf5abf6822c98d8c1f956a0e0e76b3b8726b026e",
+  "scope": "Edited recorded UI walkthrough and evidence cards; no live training or new evaluation",
+  "duration_seconds": 111.25,
+  "width": 1920,
+  "height": 1080,
+  "frames_per_second": 24,
+  "video_codec": "H.264 (libx264), yuv420p",
+  "audio_codec": "AAC, mono, 48 kHz, nominal 128 kb/s",
+  "full_decode_passed": true,
+  "environment": {
+    "python": "3.11.15 (main, May 10 2026, 19:31:25) [MSC v.1944 64 bit (AMD64)]",
+    "pillow": "13.0.0",
+    "platform": "win32",
+    "ffmpeg": "ffmpeg version 8.1.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1.2-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "qa": {
+    "contact_sheet": "runs/narrated-demo/review-contact-sheet.png",
+    "review_frames": [
+      {
+        "path": "runs/narrated-demo/review-01-intro.png",
+        "at_seconds": 9.869931972789116,
+        "sha256": "8eddba35013332829598e7d98d2b1668ee69ba0b46cd489c9147e2b593763637"
+      },
+      {
+        "path": "runs/narrated-demo/review-02-query.png",
+        "at_seconds": 23.95995464852608,
+        "sha256": "110f86751f4bf3f2716fd9b91b18791ba0b54ab546d03b13bb61a28e7aad9e5c"
+      },
+      {
+        "path": "runs/narrated-demo/review-03-confirmation.png",
+        "at_seconds": 40.9692970521542,
+        "sha256": "0c701e04fecb810eaf87b3eb367b6880891f95890dbea553b37df9fdbd3813f4"
+      },
+      {
+        "path": "runs/narrated-demo/review-04-comparison.png",
+        "at_seconds": 54.832426303854874,
+        "sha256": "89e0aff16b33b1d9c721e620880b1f46ce1eef6164a18077079e4d1e09f0643a"
+      },
+      {
+        "path": "runs/narrated-demo/review-05-weak-client.png",
+        "at_seconds": 75.3248185941043,
+        "sha256": "2328ec552aee250b6b09ffb9821dff2eb38f7f366e44a181fd648a1408ec59ec"
+      },
+      {
+        "path": "runs/narrated-demo/review-06-recovery.png",
+        "at_seconds": 89.2525850340136,
+        "sha256": "68a72b05f399309c8f673e9346e5fcc695039be3f52d9a73a967b65f37427b2f"
+      },
+      {
+        "path": "runs/narrated-demo/review-07-boundaries.png",
+        "at_seconds": 107.66773242630386,
+        "sha256": "371352c4e6adaecf9fbb32dcf5cdf7f18b0d93c9eebe570f7eeef6cecd5cd606"
+      }
+    ],
+    "probe": "runs/narrated-demo/ffprobe.json",
+    "note": "Captioned frames extracted from the fully decoded final video for visual inspection"
+  },
+  "narration": {
+    "type": "synthetic",
+    "engine": "Windows System.Speech / SAPI",
+    "voice": "Microsoft Zira Desktop",
+    "rate": 1,
+    "external_service": false,
+    "voice_clone": false,
+    "normalization": "FFmpeg loudnorm I=-17 LUFS, TP=-2 dBTP, LRA=7"
+  },
+  "screen_capture_provenance": {
+    "raw_recording": "presentation/demo-backup.webm",
+    "raw_recording_sha256": "54f93677bde24da37101ef36c4a3c08cd2d6a666dc67080971d079fadb00c60c",
+    "comparison_capture_original": "runs/demo-desktop-comparisons-restarted.png",
+    "comparison_capture_retained": "presentation/narrated-demo-source-comparisons.png",
+    "source_delivery_receipt": "research/results/demo-delivery-v1/verification.json",
+    "recorded_walkthrough_label": "Burned into every frame, outside captured screen pane",
+    "edits": "Trimmed source intervals at original playback speed, cropped/scaled panes, last-frame holds, captions and evidence cards; source metrics unmodified"
+  },
+  "identities": {
+    "confirmed_run": "encoder-flower-balanced-v2",
+    "selected_version": 500,
+    "kind": "frozen_mpnet_linear_head",
+    "confirmation_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "confirmation_head": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+    "recovery_run": "encoder-isolated-five-v8",
+    "development_study": "encoder-matrix-v1"
+  },
+  "source_sha256": {
+    "presentation/demo-backup.webm": "54f93677bde24da37101ef36c4a3c08cd2d6a666dc67080971d079fadb00c60c",
+    "presentation/narrated-demo-source-comparisons.png": "c434a112364b8eb5e5db42968ec6733ab8d92f96342fc03fcb794c8ad8550641",
+    "research/results/encoder-v2/confirmation-result.json": "88ba8fcb102349794b2b76282f25fb59ae11df0f19854a6ebde4501703e880e3",
+    "research/results/encoder-v2/confirmation-plan.json": "92a12a0532b6880c13ce1364b4a96abe10b2215c203d737cb8a49d6e7a5e7fc3",
+    "research/results/encoder-v2/final-policy.json": "ff691c58f0333245017c9d87effd6f2667e0fbd5b57abf120fbc5c35231e033e",
+    "research/results/encoder-v2/flower-head.json": "09db95da73da53091470679612af1b68c00aba69bb478eeccd1e74074ee64004",
+    "research/results/encoder-matrix-v1/summary.json": "50b7210bd0cc508a37ec1653e8e4d948f4c54256c31d4720fa3507244201b993",
+    "research/results/encoder-matrix-v1/README.md": "7126cf841963674f3109f45a49df54e643f16adf54c557cb16161c0f044d90f5",
+    "research/results/remaining-work-v1/five-recovery.json": "d485084affc621019b6cedd078cf26736cbcc7e28ead88963c7db6f88e4561bd",
+    "research/results/remaining-work-v1/README.md": "5ae757f0ac22f5ded7311be29b20a4b1d23479e0629a278f39db78abf8ac7321",
+    "research/results/demo-delivery-v1/verification.json": "b54b11f3ed5c15b7bdd6b0f409208e5c37464b8412265b8569c6e0148e1351da"
+  },
+  "artifacts_sha256": {
+    "presentation/narrated-demo.mp4": "333c1049d0f604880db5451a3ef7d0a3036bd5d5f89f92f6e6597d2a85860cdb",
+    "presentation/narrated-demo.vtt": "17e6bf151dc5a522859815efab53eca56bf0a568ea6db32fd9578ec1659dd04c",
+    "presentation/narrated-demo-script.md": "23d0893550d8c21d816c653da7123ff95ed9832e45d85ae4cde42b29d169da25",
+    "presentation/narrated-demo-poster.png": "42cd22e82761ca682c4b43dcadc4e4014e120df7e17d089ebea938840cd11447",
+    "presentation/narrated-demo-source-comparisons.png": "c434a112364b8eb5e5db42968ec6733ab8d92f96342fc03fcb794c8ad8550641",
+    "presentation/narrated-demo.md": "5a7ce2692fb4c4b6504a93f7ffa95e3d8094c0b77ac056325231052b09657077"
+  },
+  "scenes": [
+    {
+      "id": "01-intro",
+      "title": "FedLoRA-Edge",
+      "minimum_seconds": 14,
+      "cues": [
+        [
+          "This recorded walkthrough shows banking intent learning across five logical clients on one laptop.",
+          "Banking intent learning across five logical clients on one laptop."
+        ],
+        [
+          "The original frozen A LoRA benchmark is preserved. This confirmed demo uses frozen M P Net and a federated linear classifier head.",
+          "Original frozen-A LoRA preserved. Confirmed demo: frozen MPNet + federated linear head."
+        ]
+      ],
+      "source_note": "Confirmed model: encoder-flower-balanced-v2 · selected version 500",
+      "duration_seconds": 14.75,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 5.643424036281179,
+          "spoken": "This recorded walkthrough shows banking intent learning across five logical clients on one laptop.",
+          "caption": "Banking intent learning across five logical clients on one laptop."
+        },
+        {
+          "start": 5.8034240362811795,
+          "end": 13.936439909297054,
+          "spoken": "The original frozen A LoRA benchmark is preserved. This confirmed demo uses frozen M P Net and a federated linear classifier head.",
+          "caption": "Original frozen-A LoRA preserved. Confirmed demo: frozen MPNet + federated linear head."
+        }
+      ]
+    },
+    {
+      "id": "02-query",
+      "title": "A banking question,\nclassified locally",
+      "minimum_seconds": 15,
+      "cues": [
+        [
+          "Here, recorded local inference maps, my card payment is still pending, to pending card payment.",
+          "Recorded local inference: “My card payment is still pending.” → Pending card payment."
+        ],
+        [
+          "The support response is team authored. Opening this screen does not start training.",
+          "The support response is team authored. Opening this screen does not start training."
+        ]
+      ],
+      "source_note": "Actual browser recording · 14.0–29.0 seconds · functional example, not an accuracy test",
+      "video": {
+        "clips": [
+          [
+            14.0,
+            15.0
+          ]
+        ],
+        "crop": [
+          360,
+          410,
+          1000,
+          580
+        ],
+        "box": [
+          832,
+          260,
+          1012,
+          587
+        ]
+      },
+      "duration_seconds": 15.0,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 6.498253968253969,
+          "spoken": "Here, recorded local inference maps, my card payment is still pending, to pending card payment.",
+          "caption": "Recorded local inference: “My card payment is still pending.” → Pending card payment."
+        },
+        {
+          "start": 6.658253968253969,
+          "end": 11.761655328798186,
+          "spoken": "The support response is team authored. Opening this screen does not start training.",
+          "caption": "The support response is team authored. Opening this screen does not start training."
+        }
+      ]
+    },
+    {
+      "id": "03-confirmation",
+      "title": "A locked, independent confirmation",
+      "minimum_seconds": 16,
+      "cues": [
+        [
+          "On the locked independent confirmation set, the model scored ninety four percent: two hundred eighty two of three hundred.",
+          "Locked independent confirmation: 94% accuracy, 282 / 300 correct."
+        ],
+        [
+          "The fixed clarification rule reached ninety eight point six five percent on answered queries, at seventy four point three three percent coverage.",
+          "Fixed clarification rule: 98.65% accuracy on answered queries at 74.33% coverage."
+        ]
+      ],
+      "source_note": "encoder-flower-balanced-v2 · pre-scoring lock commit 7413e6b · scored 3 November 2026",
+      "duration_seconds": 16.0,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 7.122925170068028,
+          "spoken": "On the locked independent confirmation set, the model scored ninety four percent: two hundred eighty two of three hundred.",
+          "caption": "Locked independent confirmation: 94% accuracy, 282 / 300 correct."
+        },
+        {
+          "start": 7.282925170068028,
+          "end": 15.155668934240364,
+          "spoken": "The fixed clarification rule reached ninety eight point six five percent on answered queries, at seventy four point three three percent coverage.",
+          "caption": "Fixed clarification rule: 98.65% accuracy on answered queries at 74.33% coverage."
+        }
+      ]
+    },
+    {
+      "id": "04-comparison",
+      "title": "When one client owns 90% of the data",
+      "minimum_seconds": 20,
+      "cues": [
+        [
+          "Thirty three numerical federation development runs used reused validation.",
+          "33 numerical-federation development runs · reused validation · seeds 42, 43, 44."
+        ],
+        [
+          "With ninety percent of data on one client, sample weighting scored sixty two point five percent. Equal weights scored seventy six point five.",
+          "90% imbalance: sample weighted 62.50%; equal weights 76.50%."
+        ],
+        [
+          "Adding clipping reached seventy eight point one seven, plus or minus zero point two nine percentage points.",
+          "Equal weights + clipping: 78.17% ± 0.29 percentage points (sample SD)."
+        ]
+      ],
+      "source_note": "encoder-matrix-v1 · 400 training queries · 200 reused validation queries · fixed attempt 500",
+      "duration_seconds": 20.625,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 4.573582766439909,
+          "spoken": "Thirty three numerical federation development runs used reused validation.",
+          "caption": "33 numerical-federation development runs · reused validation · seeds 42, 43, 44."
+        },
+        {
+          "start": 4.733582766439909,
+          "end": 13.431269841269842,
+          "spoken": "With ninety percent of data on one client, sample weighting scored sixty two point five percent. Equal weights scored seventy six point five.",
+          "caption": "90% imbalance: sample weighted 62.50%; equal weights 76.50%."
+        },
+        {
+          "start": 13.591269841269842,
+          "end": 19.794535147392292,
+          "spoken": "Adding clipping reached seventy eight point one seven, plus or minus zero point two nine percentage points.",
+          "caption": "Equal weights + clipping: 78.17% ± 0.29 percentage points (sample SD)."
+        }
+      ]
+    },
+    {
+      "id": "05-weak-client",
+      "title": "A one-step client contributes useful knowledge",
+      "minimum_seconds": 12,
+      "cues": [
+        [
+          "A one step verification client added eighteen percentage points in a matched inclusion comparison.",
+          "One-step verification client: +18 percentage points in the matched inclusion comparison."
+        ],
+        [
+          "That client held four unique intents. This does not show that every weak device gives the same benefit.",
+          "This client held four unique intents; the observed benefit is specific to this comparison."
+        ]
+      ],
+      "source_note": "encoder-matrix-v1 · all clients 95.5% vs omit client 4 at 77.5% · reused validation, three seeds",
+      "duration_seconds": 12.875,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 5.703151927437641,
+          "spoken": "A one step verification client added eighteen percentage points in a matched inclusion comparison.",
+          "caption": "One-step verification client: +18 percentage points in the matched inclusion comparison."
+        },
+        {
+          "start": 5.863151927437642,
+          "end": 12.036485260770974,
+          "spoken": "That client held four unique intents. This does not show that every weak device gives the same benefit.",
+          "caption": "This client held four unique intents; the observed benefit is specific to this comparison."
+        }
+      ]
+    },
+    {
+      "id": "06-recovery",
+      "title": "Dropout, quorum, and fresh rejoin",
+      "minimum_seconds": 20,
+      "cues": [
+        [
+          "The recorded T L S Flower recovery run accepted five, four, five, two, then five clients.",
+          "Recorded TLS Flower recovery: accepted contributors 5 → 4 → 5 → 2 → 5."
+        ],
+        [
+          "On attempt four, quorum three was missed, so version three stayed unchanged.",
+          "Attempt 4 missed quorum 3. The checkpoint remained at version 3."
+        ],
+        [
+          "Returning clients synchronized the current head. These were separate processes on one physical laptop.",
+          "Returning clients synchronized the current head. Separate processes on ONE physical laptop."
+        ]
+      ],
+      "source_note": "encoder-isolated-five-v8 · authenticated Flower Deployment Runtime · recorded recovery evidence",
+      "video": {
+        "clips": [
+          [
+            33.0,
+            2.49442932728647
+          ],
+          [
+            48.0,
+            2.49442932728647
+          ],
+          [
+            284.0,
+            2.49442932728647
+          ],
+          [
+            345.0,
+            5.198594104308389
+          ],
+          [
+            375.0,
+            7.3181179138322
+          ]
+        ],
+        "crop": [
+          350,
+          180,
+          1020,
+          660
+        ],
+        "box": [
+          832,
+          236,
+          1012,
+          655
+        ]
+      },
+      "duration_seconds": 20.0,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 7.32328798185941,
+          "spoken": "The recorded T L S Flower recovery run accepted five, four, five, two, then five clients.",
+          "caption": "Recorded TLS Flower recovery: accepted contributors 5 → 4 → 5 → 2 → 5."
+        },
+        {
+          "start": 7.4832879818594105,
+          "end": 12.5218820861678,
+          "spoken": "On attempt four, quorum three was missed, so version three stayed unchanged.",
+          "caption": "Attempt 4 missed quorum 3. The checkpoint remained at version 3."
+        },
+        {
+          "start": 12.6818820861678,
+          "end": 18.83517006802721,
+          "spoken": "Returning clients synchronized the current head. These were separate processes on one physical laptop.",
+          "caption": "Returning clients synchronized the current head. Separate processes on ONE physical laptop."
+        }
+      ]
+    },
+    {
+      "id": "07-boundaries",
+      "title": "A compact update. Clear next gates.",
+      "minimum_seconds": 12,
+      "cues": [
+        [
+          "The head has sixty one thousand five hundred twenty raw F P thirty two bytes per client, per direction.",
+          "61,520 raw FP32 bytes per client, per direction; protocol and transport overhead are additional."
+        ],
+        [
+          "Physical laptop recovery and fresh human queries remain pending.",
+          "Pending: physical multi-laptop recovery and fresh independent human queries."
+        ]
+      ],
+      "source_note": "15,380 trained head parameters · no model, label, or threshold changed for this walkthrough",
+      "duration_seconds": 12.0,
+      "timed_cues": [
+        {
+          "start": 0.25,
+          "end": 6.293310657596372,
+          "spoken": "The head has sixty one thousand five hundred twenty raw F P thirty two bytes per client, per direction.",
+          "caption": "61,520 raw FP32 bytes per client, per direction; protocol and transport overhead are additional."
+        },
+        {
+          "start": 6.453310657596372,
+          "end": 10.382154195011339,
+          "spoken": "Physical laptop recovery and fresh human queries remain pending.",
+          "caption": "Pending: physical multi-laptop recovery and fresh independent human queries."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Five logical clients on one physical laptop.",
+    "The confirmed frozen-MPNet head is not LoRA; original LoRA evidence is preserved separately.",
+    "33 development runs use numerical federation and reused validation, not Flower runtime or new confirmation.",
+    "98.65% is selective accuracy at 74.33% coverage, not all-query accuracy.",
+    "The one-step client's 18-point inclusion benefit concerns four intents unique to that client.",
+    "61,520 bytes is the raw FP32 head per client per direction, not total wire traffic.",
+    "Physical multi-laptop recovery and fresh independent human queries remain pending."
+  ]
+}

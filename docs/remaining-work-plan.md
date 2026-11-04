@@ -10,6 +10,8 @@ LoRA experiments keep separate identities and results.
 
 | Work | Current evidence or implementation | Gate |
 | --- | --- | --- |
+| Demo readiness | [Read-only preflight](demo-preflight.md) implemented and run on 4 November; five checks passed | Python/dependencies, evidence, local port and cached functional inference; separate from OS-level offline or human rehearsal |
+| Fixed-work resource comparison | [Nine serial CPU cells](../research/results/resource-frontier-v1/README.md), seeds 42/43/44, 500 optimizer steps per client in every cell | Four local steps per average cut estimated raw payload by 75%; final reused-validation accuracy fell 2 points in each seed |
 | Participant-local feature preparation | `encoder-local-five-v1` and `encoder-local-three-v1` completed in isolated processes; own records only, no external network | Passed same-host parity: maximum feature difference below `1.05e-7`, zero changed predictions on 2,960 train/validation rows per layout |
 | Metadata-only registration | Common plan, participant registration validation, metadata assembly, role-specific feature loaders implemented | Invalid identities/ownership/duplicates rejected; no client query or feature is needed to assemble metadata |
 | Portable role configuration and app bundle | `configure_encoder_laptop.py`, `build_encoder_app.py`, and [laptop guide](encoder-laptop-rehearsal.md) | `encoder-portable-smoke-v1` configured four real prepared roles, preserved selected head hash, and built an encoder Flower FAB; fixture node IDs do not prove transport |

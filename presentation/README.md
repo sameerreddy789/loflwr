@@ -22,6 +22,13 @@ as recorded evidence. Do not infer model accuracy from a few stage queries.
 
 ## Backup recording
 
+Use the [short narrated walkthrough](narrated-demo.md) as the prepared fallback.
+It has offline synthetic narration, burned captions, editable script and WebVTT
+subtitles. Actual browser clips and evidence cards remain explicitly recorded.
+Run the [preflight](../docs/demo-preflight.md) before the human rehearsal.
+The original deck and recording below retain their 3 November provenance;
+the [new delivery](../research/results/demo-extension-v1/README.md) records later checks.
+
 [demo-backup.webm](demo-backup.webm) is an untrimmed, silent browser recording
 (6 minutes 56 seconds), with idle time. It includes actual local query inference,
 then the explicitly recorded five-client dropout/rejoin and missed-quorum views,

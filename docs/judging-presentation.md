@@ -9,19 +9,24 @@ classifier head; head-only training is distinct from the original LoRA experimen
 
 ```powershell
 Set-Location D:\Hackathons\loflwr
+.\tools\check_demo.ps1
 .\tools\start_encoder_demo.ps1
 ```
 
+If the preflight says `open_existing`, open its URL and skip the launch command.
+See the [preflight guide](demo-preflight.md) for failures or an alternate port.
 Open <http://127.0.0.1:8511>. **Live banking query** is the default, with the
 fixed clarification rule enabled. Confirm version 500 and independent accuracy
 94.0% (282/300). Warm one query before judging: this is preparation, not evaluation.
 The sidebar now also offers **Recorded recovery** and **Experiment comparisons**;
 no run paths need editing. **Custom run** is for technical inspection.
 
-Keep the [recorded backup demo](../presentation/demo-backup.webm) locally.
-It shows actual query inference followed by clearly labeled completed evidence.
-It is an untrimmed 6:56 recording with idle time and no narration; scrub to the
-needed event and use this script. It is separate from the three-minute pitch. The complete TLS rehearsals take 236 seconds
+Keep the [short narrated backup](../presentation/narrated-demo.md) locally.
+It combines actual query/recovery clips with evidence cards and burned captions,
+and stays labeled **Recorded walkthrough**. Its voice is generated offline.
+The original [silent 6:56 recording](../presentation/demo-backup.webm) remains
+available for longer inspection. These recordings are separate from a live run
+and from the three-minute pitch. The complete TLS rehearsals take 236 seconds
 for three clients and 303 seconds for five, so neither fits this whole pitch.
 The 60-second collection bound excludes startup and rejoin readiness.
 
@@ -69,7 +74,8 @@ query classifier. Select **Live banking query** to return to the confirmed model
 | Are these five physical devices? | No. They are five logical clients on one laptop. The process kill and rejoin are real; the three-laptop experiment remains to be run. |
 | Is this private or secure against malicious clients? | Local preparation and TLS are exercised, and training replies carry head updates. Model updates and metadata can still leak information. Differential privacy, secure aggregation and malicious-client robustness are not established. |
 | How cheap is the system? | The selected head transmits 61,520 raw FP32 bytes per direction, before transport overhead. That is not total memory or end-to-end traffic. The frozen encoder still costs storage, RAM and feature-computation time. |
-| Do 225 tests mean 100% model accuracy? | No. The 225 software checks passed with zero skips in the prepared environment. They test behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
+| Do 246 tests mean 100% model accuracy? | No. The 246 software checks passed with zero skips in the prepared environment. They test behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
+| Can clients communicate less often? | In nine fixed-work development runs, averaging every four local steps cut estimated raw payload by 75%, but validation accuracy fell from 95.5% to 93.5% in every seed. These are cached-feature CPU experiments; physical network costs remain unmeasured. |
 | Can it reject unsupported banking requests? | The fixed margin alone falsely accepted 311/2,279 new unsupported BANKING77 queries. Adding a separately trained, pre-locked scope detector reduced this to 57/2,279. The detector is experimental: fresh supported-query coverage is untested, so this is not 97.5% overall accuracy or a replacement for the confirmed demo. |
 | How will you improve accuracy now? | Use training-only data and validation to test a small, declared next experiment, preserving adverse results. Freeze the next model and any clarification policy before scoring a new independently held-out set. The current 300 queries are now evaluation evidence; 99–100% is a target, not a promise. |
 | Did the subsequent larger-model experiment solve the accuracy problem? | No. Four transformer-layer adaptation configurations peaked at 96% reused-validation accuracy. The twelve-layer ten-epoch run finished at 94.5% and has a much larger trainable state. These centralized diagnostics did not replace the confirmed Flower model. |

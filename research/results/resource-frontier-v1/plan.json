@@ -1,0 +1,161 @@
+{
+  "kind": "resource_frontier_v1",
+  "run_id": "resource-frontier-v1",
+  "created_utc": "2026-11-04T03:48:18.232221+00:00",
+  "baseline_commit": "9a8be35386d9423ee75ae73e8e4b94aa80604781",
+  "cells": [
+    {
+      "id": "s42-local1",
+      "seed": 42,
+      "local_steps": 1,
+      "rounds": 500
+    },
+    {
+      "id": "s42-local2",
+      "seed": 42,
+      "local_steps": 2,
+      "rounds": 250
+    },
+    {
+      "id": "s42-local4",
+      "seed": 42,
+      "local_steps": 4,
+      "rounds": 125
+    },
+    {
+      "id": "s43-local2",
+      "seed": 43,
+      "local_steps": 2,
+      "rounds": 250
+    },
+    {
+      "id": "s43-local4",
+      "seed": 43,
+      "local_steps": 4,
+      "rounds": 125
+    },
+    {
+      "id": "s43-local1",
+      "seed": 43,
+      "local_steps": 1,
+      "rounds": 500
+    },
+    {
+      "id": "s44-local4",
+      "seed": 44,
+      "local_steps": 4,
+      "rounds": 125
+    },
+    {
+      "id": "s44-local1",
+      "seed": 44,
+      "local_steps": 1,
+      "rounds": 500
+    },
+    {
+      "id": "s44-local2",
+      "seed": 44,
+      "local_steps": 2,
+      "rounds": 250
+    }
+  ],
+  "head_config": {
+    "learning_rate": 20,
+    "batch_size": 1024,
+    "weight_decay": 3.6231884057971014e-05,
+    "optimizer": "sgd",
+    "gradient_clip": 10.0,
+    "cpu_threads": 1,
+    "class_balance": true
+  },
+  "strategy": "equal",
+  "workers": 1,
+  "dataset": "assets/encoder-bank20-v1",
+  "manifest_hash": "adfccc13fa4898e88f7b2fba07765694d2ef9dfa01f13768e9e3ad02389d9927",
+  "encoder_identity_hash": "6135b7f45d34cbcb9271c44f446662ba0bfdbe9d735a3a9b890b8f58b3da03fb",
+  "model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "client_counts": {
+    "0": 513,
+    "1": 615,
+    "2": 608,
+    "3": 616,
+    "4": 408
+  },
+  "validation_count": 200,
+  "split": "reused_validation",
+  "steps_per_client": 500,
+  "checkpoints_steps_per_client": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500
+  ],
+  "initial": {
+    "42": {
+      "file": "initial-42.json",
+      "sha256": "41f879729a40ff9cb6def63f9fd16cdc740f7b606043c744e83ecb54ea65549b",
+      "state_hash": "b562fa08307f95571e47feeccd7e996143e4356de3c8291ac5556bb2dec928fa"
+    },
+    "43": {
+      "file": "initial-43.json",
+      "sha256": "b25a6e00b5b53bdb8c0fb1deda18ffb5662492de9d83eb1ae156dfb14c87495b",
+      "state_hash": "68f3624600fcc50a6a496ae216cc760abba5fdd93a374bd527059ed809c37205"
+    },
+    "44": {
+      "file": "initial-44.json",
+      "sha256": "9ef78b2854172d50a53a5190efd3367312ae1e2b08d85303ec884b6ccc8e92f8",
+      "state_hash": "a04a6aa1e273e7016c3647bc74e03f65fe7095a582169fcc88b329b06039a46f"
+    }
+  },
+  "files_sha256": {
+    "tools/run_resource_frontier.py": "0103ebe4a4fd33904b89253a9cf6fbbb004f07c51bb931cf261ff041aa53fe91",
+    "tests/test_resource_frontier.py": "677a834b219ccf5d87ba65d0819c54cfdb047422e733b93e3424491a6583ba14",
+    "tools/run_encoder_matrix.py": "e592bde3f22aee6f09678aeed4f70654261b7f4fb48992afd4b65c2a5445abb2",
+    "tools/run_encoder_study.py": "2db625bcc586178e861c811b96cd317abb2e21ccd0b39deb7749358cf73d78bf",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b",
+    "fedlora_edge/encoder_data.py": "ab8fc50e30369ac7b6796e4d48f8d7a9a10122da0afaab188dbfc0aaa6c6da8f",
+    "fedlora_edge/aggregation.py": "201a3048428da5d8fb45ede4a3802c9a64b65ab5d0e2556a14cab9cb482216b9",
+    "fedlora_edge/state.py": "786ccc899c04f46aa2e314669e1d4277c498e6a35197a4970305089c67cc12ed",
+    "fedlora_edge/training.py": "92e07a87beb0fe06bc7862d1518d00c9c771072227bdb8404a6ce208662e40b8",
+    "fedlora_edge/data.py": "e669eacba2802574a678c84888d1b77cae01e3108194ccdc897e7bcd63bd0b8c",
+    "fedlora_edge/checkpoint.py": "140af9dd2ee8f70722569539cb6c6fe3a5972148381b1ec5f4da8f16b64fed17",
+    "fedlora_edge/protocol.py": "82e63641c5d5f0eac9a0c2c9c01442e2c2bfd8cd2456745f10a98478dfa64a1b",
+    "assets/encoder-bank20-v1/manifest.json": "fae1e84940caee8028fae8aa96cd5d945938e80a736bc25ac521c441cb0103e3",
+    "assets/encoder-bank20-v1/clients/client_0.npz": "8886b48a8716cd9004bd54db999af012f5dc58374ea73458d066b4c0f6d24edb",
+    "assets/encoder-bank20-v1/clients/client_1.npz": "6441f2c12d0589deb53edf03b2eb05fd04ea35763f02c1ac3bbd7101603dd4ff",
+    "assets/encoder-bank20-v1/clients/client_2.npz": "299c580ea7cbe569372a37c4d10c72ae5014cbce54a4196ea83f677263d702f0",
+    "assets/encoder-bank20-v1/clients/client_3.npz": "4df217147af14faa6b29b69eb55705a88d45af32af877aa36fc638d71eba9e14",
+    "assets/encoder-bank20-v1/clients/client_4.npz": "5f2219155a4ef95b0008fa8204677c24a1017f92bebc8ddf61643d5fb50069af",
+    "assets/encoder-bank20-v1/validation.npz": "0b88d2f65cbd8e87af45a38e7297801b49d72929bcd70e8b97fac067a0b58b92"
+  },
+  "runtime": {
+    "python": "3.11.15 (main, May  8 2026, 18:33:10) [Clang 22.1.3 ]",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "cpu": "AMD Ryzen 5 6600H with Radeon Graphics",
+    "logical_cpus": 12,
+    "packages": {
+      "torch": "2.8.0+cu126",
+      "numpy": "2.4.6",
+      "psutil": "7.2.2"
+    }
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "scope": "Real CPU optimization of a linear classifier on cached frozen MPNet features; five sequential numerical clients on one host. Reused 200-query validation only. No LoRA, Flower runtime, physical-device, fresh test, or wire-traffic claim.",
+  "selection_rule": "Report all six checkpoints and final cells. No selected checkpoint or deployment change.",
+  "randomness": "Saved initial tensors by seed; derive_client_seed(seed, round, client). Full batches do not sample rows.",
+  "optimizer_reset": "Existing HeadTrainer resets SGD at every local call; no momentum. Local epochs between averages vary.",
+  "timing": "Fresh serial subprocesses, CPU threads 1. Process wall includes startup and exit. Cell wall includes source/data verification, loading, optimization, aggregation, evaluation and artifact writing before result serialization. Local train and optimization times are summed trainer telemetry; aggregation/evaluation timed separately. No encoder inference or feature preparation.",
+  "memory": "Linux os.wait4 child rusage.ru_maxrss * 1024, complete child-process lifetime high-water RSS collected by the serial supervisor after exit. Child also records an intermediate getrusage high-water before result serialization. Includes imports and all five feature caches; excludes parent, other processes, encoder preparation and physical devices.",
+  "communication": "Calculated raw FP32 payload only: 2 * 5 * rounds * head_bytes. One full head download and delta upload per client/round. Includes initial round head distribution; excludes encoder/data transfer, metadata, transport overhead, retries and any final deployment. No actual serialized/wire traffic.",
+  "dominance": "Strict Pareto: accuracy >= and payload <=, at least one strict. Also show observed accuracy/payload/process-wall/RSS frontier; timing/memory are single measurements per seed, not causal hardware claims.",
+  "interpretation": "Three development seeds and reused validation cannot establish fresh test accuracy or statistical significance. Equal optimizer steps do not equal arithmetic/communication work: aggregation and trainer-call overhead vary.",
+  "plan_hash": "26acc3bc1ae1e58d25a03441971e0186abf78c6d2729d648b8c6748e3921e03a"
+}

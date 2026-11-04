@@ -1,0 +1,49 @@
+WEBVTT
+
+00:00:00.250 --> 00:00:05.643
+Banking intent learning across five logical clients on one laptop.
+
+00:00:05.803 --> 00:00:13.936
+Original frozen-A LoRA preserved. Confirmed demo: frozen MPNet + federated linear head.
+
+00:00:15.000 --> 00:00:21.248
+Recorded local inference: “My card payment is still pending.” → Pending card payment.
+
+00:00:21.408 --> 00:00:26.512
+The support response is team authored. Opening this screen does not start training.
+
+00:00:30.000 --> 00:00:36.873
+Locked independent confirmation: 94% accuracy, 282 / 300 correct.
+
+00:00:37.033 --> 00:00:44.906
+Fixed clarification rule: 98.65% accuracy on answered queries at 74.33% coverage.
+
+00:00:46.000 --> 00:00:50.324
+33 numerical-federation development runs · reused validation · seeds 42, 43, 44.
+
+00:00:50.484 --> 00:00:59.181
+90% imbalance: sample weighted 62.50%; equal weights 76.50%.
+
+00:00:59.341 --> 00:01:05.545
+Equal weights + clipping: 78.17% ± 0.29 percentage points (sample SD).
+
+00:01:06.625 --> 00:01:12.078
+One-step verification client: +18 percentage points in the matched inclusion comparison.
+
+00:01:12.238 --> 00:01:18.411
+This client held four unique intents; the observed benefit is specific to this comparison.
+
+00:01:19.500 --> 00:01:26.573
+Recorded TLS Flower recovery: accepted contributors 5 → 4 → 5 → 2 → 5.
+
+00:01:26.733 --> 00:01:31.772
+Attempt 4 missed quorum 3. The checkpoint remained at version 3.
+
+00:01:31.932 --> 00:01:38.085
+Returning clients synchronized the current head. Separate processes on ONE physical laptop.
+
+00:01:39.500 --> 00:01:45.543
+61,520 raw FP32 bytes per client, per direction; protocol and transport overhead are additional.
+
+00:01:45.703 --> 00:01:49.632
+Pending: physical multi-laptop recovery and fresh independent human queries.

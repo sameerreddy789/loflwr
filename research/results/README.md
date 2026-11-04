@@ -1,5 +1,12 @@
 # Measured results
 
+The [4 November demo extension](demo-extension-v1/README.md) adds a verified
+preflight, a short narrated backup and **246 passing software tests with no
+skips**. The [nine-run fixed-work study](resource-frontier-v1/README.md) found
+75% less estimated raw payload when averaging every four local steps, at a
+2-point validation cost in each seed. It adds no new confirmation accuracy or
+physical-device evidence. The confirmed model remains unchanged.
+
 The [demo delivery record](demo-delivery-v1/README.md) adds 225 passing software
 checks, unchanged evaluation locks, dashboard preset verification, a six-slide
 deck, a recorded fallback and the empty fresh-query collection handoff.
@@ -41,7 +48,7 @@ The [encoder recovery report](encoder-v1/README.md) preserves the earlier 92.5%
 validation result from actual five-client Flower head training, centralized
 references, local process recovery, and the adapter trial with no accuracy gain.
 
-Updated 3 November 2026. These measurements come from actual local runs on one
+Updated 4 November 2026. These measurements come from actual local runs on one
 laptop. JSON exports retain run/configuration/model/data identities and hashes
 of original evidence. Model weights, data queries and private node keys remain
 outside source control. The encoder three-seed study is complete. The original

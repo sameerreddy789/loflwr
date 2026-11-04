@@ -139,16 +139,52 @@ python tools/check_docs.py
 
 The unit suite covers tensor state, aggregation, protocol/checkpoint contracts, data manifests, trainer fixtures, result readers, and frozen study plans. Optional Torch/Flower/Streamlit tests skip when dependencies are absent. Run the complete suite in the tested WSL2 environment and read the skip count; the dependency-free subset is useful but narrower.
 
-[check_docs.py](check_docs.py) checks required dossier files, local file links in its configured root/research/skills/tools folders, and the four project skills' names/descriptions. It does not check external URLs, anchors, rendering, or every file under `docs/`; review new guide links separately.
+[check_docs.py](check_docs.py) checks required dossier files, local file links in
+the configured root, research, skills, tools, docs, configurations and requirements
+folders, and the four project skills' names/descriptions. It does not check
+external URLs, anchors, rendering or the presentation folder; review those separately.
 
 ## Presentation and fresh collection
 
+- [check_demo.ps1](check_demo.ps1) runs the read-only
+  [demo preflight](../docs/demo-preflight.md): dependencies, evidence identities,
+  dashboard port and an isolated offline query against the confirmed model.
+  [demo_preflight.py](demo_preflight.py) saves a new report under ignored `runs/`
+  and exits 0 when ready or 2 when blocked. It does not install dependencies,
+  stop listeners or score evaluation queries.
 - [build_judging_deck.mjs](build_judging_deck.mjs) creates the six editable slides
   from published evidence. The [deck guide](../presentation/README.md) documents
   the bundled runtime, source hashes and backup recording.
+- [build_narrated_demo.py](build_narrated_demo.py) builds the 111.25-second
+  [narrated backup](../presentation/narrated-demo.md) from recorded browser clips
+  and published evidence, with offline Windows speech, burned captions, subtitles
+  and a hash manifest. Pillow and FFmpeg are required; it performs no inference
+  or training. Keep encoding separate from timing experiments.
 - [fresh_query_collection.py](fresh_query_collection.py) creates empty blinded
   collection packets and checks readiness for a future evaluation lock. It has
   no inference/scoring command. Follow the [collection guide](../docs/fresh-query-collection.md).
+
+## Fixed-work communication study
+
+[run_resource_frontier.py](run_resource_frontier.py) compares one, two and four
+local steps between equal-weight averages, with the same 500 steps per client.
+It freezes source/data/initialization identities before nine serial, fresh CPU
+processes. The [study report](../research/results/resource-frontier-v1/README.md)
+contains all three seeds, fixed-step validation trajectories, process time and
+RSS, and an arithmetic raw-payload estimate. This is head optimization on cached
+MPNet features; it excludes encoding, Flower transport and fresh test scoring.
+
+Use the pinned WSL environment and fresh paths for another development run:
+
+```sh
+python tools/run_resource_frontier.py prepare --output runs/resource-repro --public runs/resource-repro-export
+python tools/run_resource_frontier.py run --output runs/resource-repro --public runs/resource-repro-export
+```
+
+Keep other heavy workloads stopped while timing. A changed source, environment,
+initialization or data hash invalidates the prepared plan. Keep incomplete and
+unfavorable results; rerunning selected cells for a faster timing is not a matched
+comparison. Existing results and the confirmed query checkpoint are preserved.
 
 ## Source review
 

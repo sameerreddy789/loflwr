@@ -1,6 +1,6 @@
 # Future plans after the completed local studies
 
-Updated **3 November 2026**. The stable frozen-MPNet/federated-head model remains
+Updated **4 November 2026**. The stable frozen-MPNet/federated-head model remains
 **94% accurate on independent confirmation (282/300)**. New development and
 scope results do not replace that score. Head-only training and the original
 SmolLM2 LoRA benchmark retain separate identities.
@@ -22,6 +22,14 @@ SmolLM2 LoRA benchmark retain separate identities.
 - [CPU profiling](../research/results/encoder-local-v1/demo-profile.json)
   measured 152 ms median and 229 ms p95 warm query latency in this observed run.
   Timing probes contain no accuracy labels.
+- [Automated demo preflight](demo-preflight.md) passed all five checks on the
+  prepared laptop: dependencies, evidence, local port, Python and cached model
+  inference. It produces a new readiness report without changing the model.
+- [Nine fixed-work runs](../research/results/resource-frontier-v1/README.md)
+  measured synchronization frequency. Four local steps per average used 75%
+  less estimated raw payload than one step, but final reused-validation accuracy
+  fell from 95.5% to 93.5% in every seed. This is a development trade-off, not a
+  change to the confirmed model or a physical-network measurement.
 - [Isolated Flower rehearsals](../research/results/remaining-work-v1/README.md)
   passed three/five-client dropout, deliberate quorum loss and fresh rejoining.
   Fresh offline three-client startup also passed; these are same-host results.
@@ -30,13 +38,15 @@ The [remaining-work checklist](remaining-work-plan.md) records the current
 runtime gates. Keep the selected head, original confirmation, CLINC test and
 new scope-test locks unchanged. Use fresh run IDs for further experiments.
 
-The [preset dashboard](encoder-demo.md), [six-slide deck and backup recording](../presentation/README.md),
+The [preset dashboard](encoder-demo.md), [six-slide deck](../presentation/README.md),
+[short narrated backup](../presentation/narrated-demo.md),
 and [blinded collection kit](fresh-query-collection.md) are implemented. The empty
 pack deliberately reports zero submissions and cannot authorize scoring.
 
 ## 1. Rehearse with the actual presenter
 
-Follow the [judging script](judging-presentation.md) and [encoder demo guide](encoder-demo.md).
+Run the [preflight](demo-preflight.md), then follow the
+[judging script](judging-presentation.md) and [encoder demo guide](encoder-demo.md).
 Launch from a fresh process without internet, enter live queries, explain
 recorded versus live training, show a skipped quorum and a fresh rejoin, and
 keep a clearly labeled recording as a fallback. Say 94% overall confirmation
@@ -61,6 +71,9 @@ Measure whole-process memory, per-machine CPU timings, network wire bytes and
 completed work. Serialized payload bytes omit TLS framing and retransmissions;
 summed RSS can count shared memory twice. A same-host namespace test does not
 establish physical reachability or performance on a weaker machine.
+Use the fixed-work study as a starting point for choosing how often to
+synchronize; verify the actual latency/traffic trade-off on the intended network
+before selecting a cheaper schedule. The local study excludes encoder preparation.
 
 ## 3. Confirm future accuracy and scope changes
 

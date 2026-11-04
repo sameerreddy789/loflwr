@@ -1,6 +1,6 @@
 # Implementation status
 
-Last updated: **3 November 2026**. This is the prototype handoff status. Detailed published measurements belong in the [results register](results/README.md); ignored run files remain on the prepared laptop.
+Last updated: **4 November 2026**. This is the prototype handoff status. Detailed published measurements belong in the [results register](results/README.md); ignored run files remain on the prepared laptop.
 
 ## Delivered accuracy variant
 
@@ -22,10 +22,18 @@ requires a new independently held-out evaluation set. See the
 | Adapter variant | Shared frozen-A MPNet B-plus-head CPU/GPU invariants passed. Further federated/centralized adapter trials did not exceed 95.5% validation; the federated trial selected its initial checkpoint. |
 | Offline query demo | Pinned local MPNet and selected Flower head, published aggregate confirmation, recorded client evidence, and optional frozen clarification rule. CPU inference exactly reproduced the 200 cached validation predictions. |
 
-The WSL suite now passed **203 tests, zero failures and zero skips**. See the
-[latest verification](results/remaining-work-v1/verification.json). The seven
+The WSL suite now passed **246 tests, zero failures and zero skips**. See the
+[latest verification](results/demo-extension-v1/verification.json). The seven
 dashboard checks are included, not additional tests. These checks do not score
 confirmation queries. Only one physical laptop is available.
+
+The [automated preflight](../docs/demo-preflight.md) passed against the confirmed
+offline model and the existing matching dashboard. A
+[short narrated recording](../presentation/narrated-demo.md) now supplements the
+original deck and silent backup. The [nine-run resource study](results/resource-frontier-v1/README.md)
+held total optimizer work fixed: four local steps between averages saved 75%
+estimated raw payload but reduced validation accuracy by 2 points in every seed.
+It is a cached-feature development comparison, not a new test-set result.
 
 The original experiment used a central public feature cache. The new
 [local preparation](results/encoder-local-v1/README.md) runs independently encode

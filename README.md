@@ -11,7 +11,7 @@ and rejoin preserved that validation score. See the
 The model and clarification thresholds were locked in commit `7413e6b` before
 confirmation. The strictest frozen rule answered 223/300 queries and got 220
 correct: **98.65% accuracy on answered queries at 74.33% coverage**. It declined
-the other 77. Neither full-set nor selective 99â€“100% accuracy was achieved.
+the other 77. Neither full-set nor selective 99–100% accuracy was achieved.
 
 A separate [external CLINC150 check](research/results/external-clinc-v1/README.md)
 now scores **28/29 (96.55%) on one compatible intent**, with all twenty labels
@@ -32,7 +32,16 @@ The new [isolated Flower rehearsals](research/results/remaining-work-v1/README.m
 also pass three- and five-client dropout, below-quorum retention, fresh rejoining,
 and fresh three-client startup in a loopback-only network namespace.
 
-To open the upgraded query demo on the prepared laptop:
+Before presenting, run the [demo preflight](docs/demo-preflight.md) on the
+prepared laptop:
+
+```powershell
+.\tools\check_demo.ps1
+```
+
+It checks dependencies, published evidence, the dashboard port, the confirmed
+checkpoint and actual offline inference. If it says `open_existing`, open the
+reported URL. If it says `launch`, start the query demo:
 
 ```powershell
 .\tools\start_encoder_demo.ps1
@@ -45,7 +54,9 @@ spoken presentation, exact demo sequence, and answers to likely judge questions.
 The [updated presentation figure](research/results/remaining-work-v1/comparison.png)
 visualizes the three-seed imbalance/omission comparisons and separate scope test.
 
-The [six-slide PowerPoint and recorded backup](presentation/README.md) are ready.
+The [six-slide PowerPoint](presentation/README.md),
+[short narrated backup](presentation/narrated-demo.md), and
+[automated preflight](docs/demo-preflight.md) are ready.
 The sidebar now has **Live banking query**, **Recorded recovery**, **Experiment
 comparisons**, and **Custom run**. Live mode enables the fixed clarification rule
 by default. The [fresh-query kit](docs/fresh-query-collection.md) creates empty
@@ -56,17 +67,20 @@ Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficie
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 225 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 246 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
 ## Test statistics and measured results
 
-Verified on **3 November 2026** using the [tested environments](requirements/README.md).
+Verified on **4 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest delivery verification](research/results/demo-delivery-v1/verification.json)
-records 225 passing tests plus unchanged original, CLINC and scope evaluation locks.
+The [latest delivery verification](research/results/demo-extension-v1/verification.json)
+records 246 passing tests, the new preflight and narrated backup, and unchanged
+original, CLINC and scope evaluation locks. The
+[previous demo delivery](research/results/demo-delivery-v1/verification.json)
+preserves the 225-test result and original slide/recording hashes.
 The [previous runtime verification](research/results/remaining-work-v1/verification.json)
 preserves the 203-test baseline.
 It covers local ownership, portable configuration, rejoin readiness, bounded
@@ -76,17 +90,18 @@ records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **225 passed, 0 failed, 0 skipped** in 30.891 s | State, aggregation, protocol, manifests, trainers, Flower integration fixtures, dashboards/presets, blinded collection, local preparation, deployment lifecycle and evaluation locks |
+| Full automated suite, Ubuntu WSL2 | **246 passed, 0 failed, 0 skipped** in 29.359 s | Existing state/training/runtime/evaluation checks plus demo preflight and fixed-work study boundaries |
+| Automated demo preflight | **All five checks passed** | Dependencies, published evidence, matching dashboard configuration, confirmed checkpoint and actual offline functional inference |
 | Encoder dashboard checks, Windows CPU | **7 passed, 0 failed, 0 skipped** in 8.033 s | A separately run subset of the full suite, not 7 additional unique tests |
 | Locked artifact integrity | **24/24 original, 36/36 external, 40/40 scope file hashes matched** | Overlapping locks, not 100 unique files; assets, checkpoints, sources and evaluation configurations |
 | Live CPU query check | Passed; a fresh pending-card-payment query returned `pending_card_payment` | Functional inference check, not an accuracy benchmark |
 | Actual five-client Flower training | **500/500 attempts committed** with all five contributors | `encoder-flower-balanced-v2`, selected version 500 |
-| Trained-model dropout and recovery | **3/3 attempts committed**; 5 â†’ 4 â†’ 5 accepted clients | One laptop; a client process was killed during attempt 2 and rejoined with fresh state in attempt 3 |
+| Trained-model dropout and recovery | **3/3 attempts committed**; 5 → 4 → 5 accepted clients | One laptop; a client process was killed during attempt 2 and rejoined with fresh state in attempt 3 |
 | Client-local preparation | **Five- and three-client layouts passed**; zero changed predictions on 2,960 train/validation rows each | Separate mount/PID/network namespaces, pinned offline encoder, own records only; not physical laptops |
 | Portable setup | **Four role configs and code-only Flower FAB built** | Selected head hash preserved; configuration check uses fixture node IDs |
 | CPU query timing | **152 ms median / 229 ms p95**, 30 warm timing probes | Two CPU threads; 735.03 MiB peak process RSS; authored probes provide no accuracy measurement |
 | Repeated encoder study | **33/33 runs completed**, 16,500 committed attempts across seeds 42/43/44 | Real head optimization with sequential mathematical aggregation; separate from Flower runtime evidence |
-| New isolated TLS recovery | **3 â†’ 2 â†’ 3 â†’ 1 â†’ 3** and **5 â†’ 4 â†’ 5 â†’ 2 â†’ 5** accepted contributors | Real SuperNode process loss; below-quorum attempts skipped, current state checked on every accepted reply; one physical laptop |
+| New isolated TLS recovery | **3 → 2 → 3 → 1 → 3** and **5 → 4 → 5 → 2 → 5** accepted contributors | Real SuperNode process loss; below-quorum attempts skipped, current state checked on every accepted reply; one physical laptop |
 | Fresh offline encoder deployment | **All 3 clients accepted** in a fresh loopback-only network namespace | External connectivity unavailable, dependencies already installed, runtime downloads disabled; not physical LAN evidence |
 
 Timings are observations from this laptop, not controlled performance comparisons.
@@ -95,11 +110,11 @@ produce skips elsewhere; a smaller passing suite does not reproduce this result.
 
 | Model-quality measure | Result | Evaluation boundary |
 | --- | --- | --- |
-| Independent confirmation top-1 accuracy | **94.0% â€” 282/300 correct** | All 300 queries; checkpoint and scoring frozen before access |
+| Independent confirmation top-1 accuracy | **94.0% — 282/300 correct** | All 300 queries; checkpoint and scoring frozen before access |
 | Confirmation macro F1 / worst-domain accuracy | **0.93914 / 88.33%** | Transfers was the weakest domain |
-| Validation accuracy | **95.5% â€” 191/200 correct** | Reused development set that guided model selection |
-| Strictest frozen clarification policy | **98.65% â€” 220/223 answered correctly** | **74.33% coverage**; 77/300 queries declined |
-| External CLINC150 mapped-class top-1 | **96.55% â€” 28/29 correct** | One compatible intent only; not another twenty-intent score |
+| Validation accuracy | **95.5% — 191/200 correct** | Reused development set that guided model selection |
+| Strictest frozen clarification policy | **98.65% — 220/223 answered correctly** | **74.33% coverage**; 77/300 queries declined |
+| External CLINC150 mapped-class top-1 | **96.55% — 28/29 correct** | One compatible intent only; not another twenty-intent score |
 | External unsupported banking, strictest frozen margin | **5/120 false accepts (4.17%)** | 115 declined; unrelated-topic group separately had 0/120 false accepts |
 | New unsupported BANKING77 scope test | **57/2,279 false accepts (2.50%)**, versus **311/2,279 (13.65%)** without scope | 57 unsupported intents; separate experimental detector; scope-only positive validation coverage 190/200, not fresh combined-system coverage |
 
@@ -112,9 +127,26 @@ The [three-seed study](research/results/encoder-matrix-v1/README.md) gives an
 **18-point paired validation benefit** from including the one-step verification
 client in every seed: 95.5% versus 77.5%. It owns the only examples of four
 intents. Under the separate 400-query 90%-imbalance condition, final accuracy
-averaged **62.5% sample-weighted, 76.5% equal, and 78.17% Â± 0.29 points clipped**.
+averaged **62.5% sample-weighted, 76.5% equal, and 78.17% ± 0.29 points clipped**.
 All expanded-data methods finished at 95.5%. These are development results;
 all selected/final outcomes, including regressions, are published.
+
+The new [fixed-work study](research/results/resource-frontier-v1/README.md)
+completed **nine runs across three seeds**. Each used 500 optimizer steps per
+client on the same cached MPNet features and reused validation. Synchronizing
+every four local steps reduced estimated raw payload by **75%**, with a
+**2 percentage-point validation cost** in every seed:
+
+| Local steps between averages | Rounds | Final validation accuracy | Estimated total raw payload | Observed process wall time, mean ± sample SD |
+| --- | --- | --- | --- | --- |
+| 1 | 500 | 95.5% | 307.6 MB | 85.50 ± 11.01 s |
+| 2 | 250 | 93.5% | 153.8 MB | 48.48 ± 3.98 s |
+| 4 | 125 | 93.5% | 76.9 MB | 28.37 ± 2.32 s |
+
+MB is decimal. Payload is calculated across five clients, upload plus download;
+it is not measured network traffic. Timings cover fresh serial CPU processes
+optimizing the head, excluding feature preparation and Flower transport. This
+study does not change the confirmed query model or its **94%** independent score.
 
 ## Future plans
 
@@ -136,7 +168,7 @@ and [physical laptop guide](docs/encoder-laptop-rehearsal.md) identify the next 
 The [detailed future plan](docs/future-plans.md) gives dependencies and acceptance
 criteria. The current 300-query confirmation set is now evaluation evidence;
 it cannot serve as an untouched test for the next model-selection cycle.
-**99â€“100% remains an unachieved target, not a promised milestone.**
+**99–100% remains an unachieved target, not a promised milestone.**
 
 ## Accuracy research and original results
 
@@ -145,7 +177,7 @@ tests transformer-layer adaptation on training data and reused validation only.
 Both three-epoch and ten-epoch comparisons peaked at **96% validation (192/200)**;
 the twelve-layer ten-epoch run ended at 94.5%. These are centralized development
 references with much larger trainable states; they do
-not replace the independently confirmed Flower head or establish 99â€“100% accuracy.
+not replace the independently confirmed Flower head or establish 99–100% accuracy.
 The [fresh-evaluation guide](docs/fresh-evaluation.md) describes the new data
 needed to verify a subsequent model without reusing a spent test set.
 

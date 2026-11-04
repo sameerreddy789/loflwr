@@ -1,0 +1,91 @@
+{
+  "kind": "local_demo_preflight_v1",
+  "created_utc": "2026-11-04T03:58:50.336441+00:00",
+  "status": "ready",
+  "ready": true,
+  "checks": [
+    {
+      "check": "python",
+      "status": "pass",
+      "detail": {
+        "version": "3.11.15"
+      },
+      "fix": null
+    },
+    {
+      "check": "dependencies",
+      "status": "pass",
+      "detail": {
+        "versions": {
+          "torch": "2.8.0+cpu",
+          "transformers": "4.57.1",
+          "peft": "0.17.1",
+          "tokenizers": "0.22.2",
+          "safetensors": "0.8.0",
+          "numpy": "2.4.6",
+          "streamlit": "1.66.1",
+          "pandas": "3.1.0",
+          "altair": "6.3.0",
+          "psutil": "7.2.2"
+        },
+        "missing": [],
+        "drift": {},
+        "pins": "cpu-windows-py311.txt"
+      },
+      "fix": null
+    },
+    {
+      "check": "published_evidence",
+      "status": "pass",
+      "detail": {
+        "confirmation_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+        "recovery_runs": [
+          "encoder-isolated-five-v8",
+          "encoder-isolated-three-v6"
+        ],
+        "matrix_cells": 33,
+        "scope_queries": 2279,
+        "presentation_files_verified": 2
+      },
+      "fix": null
+    },
+    {
+      "check": "local_port",
+      "status": "pass",
+      "detail": {
+        "state": "this_demo_running",
+        "ok": true,
+        "action": "open_existing"
+      },
+      "fix": null
+    },
+    {
+      "check": "offline_model_and_inference",
+      "status": "pass",
+      "detail": {
+        "ok": true,
+        "measurement": {
+          "run_id": "encoder-flower-balanced-v2",
+          "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+          "version": 500,
+          "threshold": 2.1202011108398438,
+          "predicted_intent": "pending_card_payment",
+          "model_load_seconds": 28.04611660000228,
+          "query_seconds": 0.2864218000031542,
+          "sampled_process_rss_bytes": 773459968,
+          "asset_hash": "949e5f7ab1ebac4b8b23a21fa7748fc2f0bdbdc7694213ba700a6e4cd71ed5f4",
+          "probe_purpose": "Authored functional input; not a new accuracy or coverage evaluation"
+        }
+      },
+      "fix": null
+    }
+  ],
+  "url": "http://127.0.0.1:8511/",
+  "next_action": "open_existing",
+  "limits": [
+    "Readiness is a point-in-time check; port or files can change after it returns.",
+    "No physical-laptop, fresh-query evaluation, network isolation or live TLS test occurs here.",
+    "The inference probe forces local cached loading. OS-level internet disconnection is a separate rehearsal.",
+    "Observed probe time and sampled RSS are not an isolated performance benchmark."
+  ]
+}

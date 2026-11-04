@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-04",
+  "delivery_id": "demo-extension-v1",
+  "baseline_commit": "9a8be35386d9423ee75ae73e8e4b94aa80604781",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests",
+    "environment": "Ubuntu WSL2 /home/sameer/.venvs/loflwr/bin/python",
+    "passed": 246,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 29.359,
+    "log": "runs/demo-extension-tests-20261104.log",
+    "log_sha256": "f74929a320c5ecd7b06b616af5d4f7bd32f461eb55b42233e4fe54fc66faa988"
+  },
+  "preflight": {
+    "run_id": "demo-preflight-20261104-v2",
+    "status": "ready",
+    "checks_passed": 5,
+    "export": "research/results/demo-extension-v1/preflight.json",
+    "sha256": "c32221551400c909ab29d790058277259609b28f0fe2ea4a89163e5dde9b19bf",
+    "source": "tools/demo_preflight.py",
+    "source_sha256": "8d317aeadeb8495b5b3577f49edc36a007ce79392aa4c3946eeed467b7e79811",
+    "previous_passed_run": "demo-preflight-20261104-v1"
+  },
+  "frozen_integrity": {
+    "original_confirmation_files_matched": 24,
+    "original_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "external_clinc_files_matched": 36,
+    "external_lock": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+    "scope_files_matched": 40,
+    "scope_lock": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa"
+  },
+  "narrated_video": {
+    "artifact": "presentation/narrated-demo.mp4",
+    "duration_seconds": 111.25,
+    "bytes": 3069098,
+    "sha256": "333c1049d0f604880db5451a3ef7d0a3036bd5d5f89f92f6e6597d2a85860cdb",
+    "video": "H.264, 1920x1080, 24 fps, yuv420p",
+    "audio": "AAC mono, 48000 Hz",
+    "full_decode_passed": true,
+    "audio_levels_db": {
+      "mean": -17.6,
+      "max": -1.9
+    },
+    "audio_level_log": "runs/narrated-demo/audio-levels.txt",
+    "visual_review": "All seven captioned final scene frames inspected; revised scene 5 title re-inspected. Figures, captions, persistent recorded label and captured screen panes are legible.",
+    "contact_sheet": "runs/narrated-demo/review-contact-sheet.png",
+    "source_and_artifact_hashes_match": {
+      "presentation/demo-backup.webm": true,
+      "presentation/narrated-demo-source-comparisons.png": true,
+      "research/results/encoder-v2/confirmation-result.json": true,
+      "research/results/encoder-v2/confirmation-plan.json": true,
+      "research/results/encoder-v2/final-policy.json": true,
+      "research/results/encoder-v2/flower-head.json": true,
+      "research/results/encoder-matrix-v1/summary.json": true,
+      "research/results/encoder-matrix-v1/README.md": true,
+      "research/results/remaining-work-v1/five-recovery.json": true,
+      "research/results/remaining-work-v1/README.md": true,
+      "research/results/demo-delivery-v1/verification.json": true,
+      "presentation/narrated-demo.mp4": true,
+      "presentation/narrated-demo.vtt": true,
+      "presentation/narrated-demo-script.md": true,
+      "presentation/narrated-demo-poster.png": true,
+      "presentation/narrated-demo.md": true
+    },
+    "preserved_artifacts_sha256": {
+      "presentation/fedlora-edge-demo.pptx": "73f4d71a76272e381b1a137e7582f8488f572eb008f14f6406365fe2920d5ddb",
+      "presentation/source-manifest.json": "ae988acf5191185275ec7ada509045aab63ef907095cfcefc02488f9a06cc90e",
+      "presentation/demo-backup.webm": "54f93677bde24da37101ef36c4a3c08cd2d6a666dc67080971d079fadb00c60c"
+    },
+    "generator_hash_matches": true,
+    "generator_sha256": "c03a5836a01aae8da9cd4a4fcf5abf6822c98d8c1f956a0e0e76b3b8726b026e",
+    "manifest_sha256": "14cc583a7a2c0056db2aecdb6af37a4a608bb0e06f1890e92a682102d8621cdf",
+    "packaging_checks": {
+      "checked_utc": "2026-11-04T04:05:27.529725+00:00",
+      "published_text_newlines": "LF",
+      "text_sha256": {
+        "tools/build_narrated_demo.py": "c03a5836a01aae8da9cd4a4fcf5abf6822c98d8c1f956a0e0e76b3b8726b026e",
+        "presentation/narrated-demo-manifest.json": "14cc583a7a2c0056db2aecdb6af37a4a608bb0e06f1890e92a682102d8621cdf",
+        "presentation/narrated-demo-script.md": "23d0893550d8c21d816c653da7123ff95ed9832e45d85ae4cde42b29d169da25",
+        "presentation/narrated-demo.vtt": "17e6bf151dc5a522859815efab53eca56bf0a568ea6db32fd9578ec1659dd04c",
+        "presentation/narrated-demo.md": "5a7ce2692fb4c4b6504a93f7ffa95e3d8094c0b77ac056325231052b09657077"
+      },
+      "video_reencoded": false,
+      "video_sha256_unchanged": true,
+      "git_clean_filters_preserve_bytes": true
+    }
+  },
+  "resource_study": {
+    "run_id": "resource-frontier-v1",
+    "plan_hash": "26acc3bc1ae1e58d25a03441971e0186abf78c6d2729d648b8c6748e3921e03a",
+    "completed_cells": 9,
+    "source": "research/results/resource-frontier-v1/summary.json",
+    "sha256": "a0b212b83dadea5bcce5d78366d659761c9d7a3f3634f9a7adc19d38df650537",
+    "scope": "Real CPU optimization of a linear classifier on cached frozen MPNet features; five sequential numerical clients on one host. Reused 200-query validation only. No LoRA, Flower runtime, physical-device, fresh test, or wire-traffic claim.",
+    "figure_review": "Both panels inspected: labels, costs and reused-validation boundary readable; zero-step observations retained in table."
+  },
+  "source_hashes": {
+    "docs/demo-preflight.md": "a8f0af62fae3efe96d60218a4e1e5e4f00544ecebca0dc24629de06dbff24d3a",
+    "docs/future-plans.md": "09da9078746d70d47abe393e668d932957329d96e8060ae45a1c2e9b1278a420",
+    "docs/judging-presentation.md": "210c2f615b58bba52651f1df514d4b8b2eb6f9a59a873ba1930f6d1f58f8902e",
+    "docs/remaining-work-plan.md": "e83d32c3e30df2ea9496a02832e3bab92382f32c4b43599f79ac848c5affd624",
+    "presentation/narrated-demo-manifest.json": "14cc583a7a2c0056db2aecdb6af37a4a608bb0e06f1890e92a682102d8621cdf",
+    "presentation/narrated-demo-poster.png": "42cd22e82761ca682c4b43dcadc4e4014e120df7e17d089ebea938840cd11447",
+    "presentation/narrated-demo-script.md": "23d0893550d8c21d816c653da7123ff95ed9832e45d85ae4cde42b29d169da25",
+    "presentation/narrated-demo-source-comparisons.png": "c434a112364b8eb5e5db42968ec6733ab8d92f96342fc03fcb794c8ad8550641",
+    "presentation/narrated-demo.md": "5a7ce2692fb4c4b6504a93f7ffa95e3d8094c0b77ac056325231052b09657077",
+    "presentation/narrated-demo.mp4": "333c1049d0f604880db5451a3ef7d0a3036bd5d5f89f92f6e6597d2a85860cdb",
+    "presentation/narrated-demo.vtt": "17e6bf151dc5a522859815efab53eca56bf0a568ea6db32fd9578ec1659dd04c",
+    "presentation/README.md": "9a5744dc4a3ca15fb42133f93351cddba01658a558cacb1fce167b085ad3709d",
+    "README.md": "8fe7cdc820c1a3fcf083e9bb3c09d296f03d83aa4cb347b4f7affecd93be74b8",
+    "research/implementation-status.md": "75349ff08270932d12dcd8992dea7d651bbc86939ce8da4eb2839ca116fdbbf4",
+    "research/results/demo-extension-v1/preflight.json": "c32221551400c909ab29d790058277259609b28f0fe2ea4a89163e5dde9b19bf",
+    "research/results/demo-extension-v1/README.md": "12270ccba01810d81153a4b063e40033f68c0ea9660de3a7cadda51efabb1edb",
+    "research/results/README.md": "6499a1c7e0de94b66c463833f2b4b73736907ebbbddfa6f8a59679ed1b472e2f",
+    "research/results/resource-frontier-v1/plan.json": "fb48d45c51069d247f4383d26aef38ea2a653d87822f657d7195d6328d6a7f9f",
+    "research/results/resource-frontier-v1/plan.md": "d41a898d7dee1a3c76f2118cb02a254794fb70a7229bb16301e43b401f66272b",
+    "research/results/resource-frontier-v1/plot.py": "c30fdf7b563b25e54b13b93d77287c4bdcbb7f1e22817b53320c3ff2a77bd299",
+    "research/results/resource-frontier-v1/README.md": "baae878ad666f99ea4dc7761daefd24c16a4856c7c4a9042751e851be269b8a0",
+    "research/results/resource-frontier-v1/render_report.py": "1208e270067d29933881a64741928fe21523e3726235f16b4137e30df7d0998f",
+    "research/results/resource-frontier-v1/resource-frontier.png": "271016fc2a1715b8525ed872c326e69676295e9c613855d62c8b69b90dcdcb22",
+    "research/results/resource-frontier-v1/resource-frontier.svg": "80c6286fd2a79c4b7a8bb92a012b51588aa374e4e1de39fa95166a83eb35ae97",
+    "research/results/resource-frontier-v1/summary.json": "a0b212b83dadea5bcce5d78366d659761c9d7a3f3634f9a7adc19d38df650537",
+    "tests/test_demo_preflight.py": "6265dfa24733e4de590b3d5bab977d982ce08c5e0e4f1b17561dea8aa2e15f89",
+    "tests/test_resource_frontier.py": "677a834b219ccf5d87ba65d0819c54cfdb047422e733b93e3424491a6583ba14",
+    "tools/build_narrated_demo.py": "c03a5836a01aae8da9cd4a4fcf5abf6822c98d8c1f956a0e0e76b3b8726b026e",
+    "tools/check_demo.ps1": "acc6257a7a0a2a2cb73eda85dbcbd8d61786487a7772bb52f82fc8a705d0148c",
+    "tools/demo_preflight.py": "8d317aeadeb8495b5b3577f49edc36a007ce79392aa4c3946eeed467b7e79811",
+    "tools/README.md": "79e10a6383688b6fa96d664f8c939ecd3db9fb5ffced475ce027d0560a17dca3",
+    "tools/run_resource_frontier.py": "0103ebe4a4fd33904b89253a9cf6fbbb004f07c51bb931cf261ff041aa53fe91"
+  },
+  "limits": [
+    "No new independent accuracy evaluation; confirmed 94% (282/300) unchanged.",
+    "No physical multi-laptop test or human presenter rehearsal completed.",
+    "Preflight cached inference is not OS-level network isolation; resource study excludes encoding and actual wire transport.",
+    "Narration is offline synthetic speech; technical audio checks and visual review do not replace human playback rehearsal."
+  ],
+  "packaging": "Committed text normalized to LF; Git-staged blobs compared byte-for-byte with local files before commit."
+}
