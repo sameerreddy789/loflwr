@@ -74,7 +74,7 @@ query classifier. Select **Live banking query** to return to the confirmed model
 | Are these five physical devices? | No. They are five logical clients on one laptop. The process kill and rejoin are real; the three-laptop experiment remains to be run. |
 | Is this private or secure against malicious clients? | Local preparation and TLS are exercised, and training replies carry head updates. Model updates and metadata can still leak information. Differential privacy, secure aggregation and malicious-client robustness are not established. |
 | How cheap is the system? | The selected head transmits 61,520 raw FP32 bytes per direction, before transport overhead. That is not total memory or end-to-end traffic. The frozen encoder still costs storage, RAM and feature-computation time. |
-| Do 260 tests mean 100% model accuracy? | No. The 260 software checks passed with zero skips in the prepared environment. They test behavior and contracts. Intent accuracy comes from the separate 300-query confirmation evaluation. |
+| Do passing software tests mean 100% model accuracy? | No. Software checks test behavior and contracts; see the README for the latest count and skip count. Intent accuracy comes from the separate 300-query confirmation evaluation. |
 | Can clients communicate less often? | In nine fixed-work development runs, averaging every four local steps cut estimated raw payload by 75%, but validation accuracy fell from 95.5% to 93.5% in every seed. These are cached-feature CPU experiments; physical network costs remain unmeasured. |
 | Can it reject unsupported banking requests? | The fixed margin alone falsely accepted 311/2,279 new unsupported BANKING77 queries. Adding a separately trained, pre-locked scope detector reduced this to 57/2,279. The detector is experimental: fresh supported-query coverage is untested, so this is not 97.5% overall accuracy or a replacement for the confirmed demo. |
 | How will you improve accuracy now? | Use training-only data and validation to test a small, declared next experiment, preserving adverse results. Freeze the next model and any clarification policy before scoring a new independently held-out set. The current 300 queries are now evaluation evidence; 99–100% is a target, not a promise. |
@@ -97,7 +97,7 @@ query classifier. Select **Live banking query** to return to the confirmed model
 | Participant-local encoding, preparation costs, CPU latency | [Local preparation](../research/results/encoder-local-v1/README.md) |
 | Fixed unsupported-query evaluation | [Scope test](../research/results/scope-v1/README.md), pre-inference commit `8e3f241` |
 | Negative adapter result | [Federated adapter](../research/results/encoder-v2/federated-adapter.json), [centralized adapter reference](../research/results/encoder-v2/centralized-adapter.json) |
-| Software tests, live query, locked-file checks | [Original handoff verification](../research/results/encoder-v2/handoff-verification.json), [latest 203-test verification](../research/results/remaining-work-v1/verification.json) |
+| Software tests, live query, locked-file checks | [Original handoff verification](../research/results/encoder-v2/handoff-verification.json), [current verification index](../README.md#test-statistics-and-measured-results) |
 | Original LoRA results and proposal history | [Original pilot](../research/results/pilot-r2-20261103/README.md), [abstract alignment](../research/abstract-alignment.md) |
 
 Before presenting, confirm both demo tabs display the intended run, the model is

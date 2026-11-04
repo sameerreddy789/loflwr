@@ -1,0 +1,13 @@
+{
+  "kind": "actual_empty_collection_refusal_v1",
+  "exit_code": 2,
+  "submitted": 0,
+  "required_human_supported": 400,
+  "required_human_unsupported": 200,
+  "private_evaluation_created": false,
+  "public_plan_created": false,
+  "exposure_ledger_unchanged": true,
+  "error": "Blocked: ValueError: Fresh collection is not ready: curator_missing_or_unregistered, human_collection_pending, missing_overlap_source:bank20-confirmation-300, missing_overlap_source:bank20-test-500, missing_overlap_source:development, missing_overlap_source:external-clinc-269, missing_overlap_source:scope-negative-2279, missing_overlap_source:training, overlap_inventory_review_pending, protocol_review_pending, supported_target_not_met, unverified_overlap_category:bank20-confirmation-300, unverified_overlap_category:bank20-test-500, unverified_overlap_category:development, unverified_overlap_category:external-clinc-269, unverified_overlap_category:scope-negative-2279, unverified_overlap_category:training",
+  "new_accuracy_result": false,
+  "model_inference": false
+}

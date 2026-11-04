@@ -1,6 +1,12 @@
 # Measured results
 
-The [latest rehearsal/evaluator delivery](rehearsal-evaluator-v1/README.md)
+The [latest paired-evaluator delivery](combined-readiness-v1/README.md) records
+**273 passing tests with no skips**, bitwise functional parity on eighteen
+authored unlabeled probes, and refusal of the actual empty collection. It adds
+the future baseline-versus-scope comparison workflow and an updated abstract
+alignment. It adds no new accuracy result or physical-laptop evidence.
+
+The [previous rehearsal/evaluator delivery](rehearsal-evaluator-v1/README.md)
 records **260 passing tests with no skips**, ten browser observations and a real
 empty-collection refusal. It prepares future evaluation without generating or
 scoring any new human queries. The confirmed accuracy remains 94%.

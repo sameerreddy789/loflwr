@@ -170,6 +170,28 @@ external URLs, anchors, rendering or the presentation folder; review those separ
   The current empty collection is blocked. Follow the
   [runner guide](../docs/fresh-evaluation-runner.md) before any new scoring.
 
+## Paired scope evaluation
+
+For a future paired comparison, use
+[evaluate_fresh_scope.py](evaluate_fresh_scope.py) and its
+[guide](../docs/fresh-scope-evaluation.md). It freezes the existing head/margin
+and existing scope detector before one shared feature pass. Both policies use
+the same locked records, publication check and query-exposure ledger as the
+head-only evaluation. It reports false accepts and supported-coverage costs
+separately; the empty collection cannot start inference. The historical scope
+test, head-only evaluator and confirmed dashboard remain unchanged.
+
+[check_fresh_scope_parity.py](check_fresh_scope_parity.py) runs eighteen authored,
+unlabeled functional probes through the frozen and paired inference paths. It
+checks bitwise logits/scope scores, threshold decisions, truncation, the shared
+encoder pass and model hashes. Use a new ignored output path:
+
+```sh
+python tools/check_fresh_scope_parity.py --output runs/my-scope-parity/report.json
+```
+
+This is offline functional verification, not a new accuracy evaluation.
+
 ## Fixed-work communication study
 
 [run_resource_frontier.py](run_resource_frontier.py) compares one, two and four

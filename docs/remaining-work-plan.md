@@ -19,6 +19,8 @@ LoRA experiments keep separate identities and results.
 | Offline runtime | **Passed**: fresh three-client startup with cached dependencies and runtime downloads disabled | All three contributed in a loopback-only network namespace; external connection failed. This remains separate from a physical LAN run |
 | Matched repeated studies | `encoder-matrix-v1`: **33/33 completed cells**, seeds 42/43/44, 500 attempts | [All results](../research/results/encoder-matrix-v1/README.md) include selected/final metrics, variability, omission benefit of 18 points per seed, and unavailability costs of 0/0.5/0 points |
 | Unsupported-topic detection | `scope-v1`, locked and pushed in `8e3f241` before scoring 2,279 new negative queries | [Completed test](../research/results/scope-v1/README.md): strictest margin false accepts 311 without scope versus 57 with scope; positive scope-only coverage remains reused validation 190/200 |
+| Paired scope evaluation preparation | [Separate combined runner](fresh-scope-evaluation.md) with fixed model/thresholds, publication checks and shared query-exposure ledger | Software can prepare one paired evaluation; needs 400 reviewed human supported and 200 reviewed human unsupported queries before a real plan or inference |
+| Proposal continuity | [Current alignment addendum](../research/abstract-alignment.md#current-alignment-addendum--4-november-2026) preserves the original review and discloses the MPNet/head change | Team leader can submit the prepared portal question; organizer acceptance and actual submission status remain unverified |
 | Final checks and delivery | Tests, frozen evaluation hashes, Markdown links, result summaries, README, commit/push | State exact test count/skip count, verified remote commit, measured run/config identities, and unresolved gates |
 
 The matrix performs sequential mathematical federation on cached features. It
@@ -56,8 +58,9 @@ The dashboard now has live query, recorded recovery, experiment comparison and
 custom-run presets. The [six-slide deck and recorded fallback](../presentation/README.md)
 are ready. The [collection kit](fresh-query-collection.md) creates empty blinded
 packets and checks provenance, duplicate overlap and independent adjudication.
-Its 400-query human gate remains unmet; no fresh queries or new accuracy result
-are implied by having software ready.
+Its 400-query human gate remains unmet. The separate paired scope comparison
+also requires 200 reviewed human unsupported queries. No fresh queries or new
+accuracy result are implied by having software ready.
 
 ## Complete the human rehearsal and evaluation
 

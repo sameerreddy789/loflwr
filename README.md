@@ -72,11 +72,20 @@ also passed ten functional observations, including clarification, recorded quoru
 retention/rejoining and backup-video playback. The human presentation remains to
 be rehearsed.
 
+The separate [paired scope evaluator](docs/fresh-scope-evaluation.md) now compares
+the unchanged head/margin rule with the fixed scope detector in one locked run.
+It requires 400 reviewed human supported and 200 reviewed human unsupported
+queries, and reports prevented errors alongside lost correct answers by domain.
+The collection is still empty; this is software readiness, not new accuracy.
+The [current abstract alignment](research/abstract-alignment.md#current-alignment-addendum--4-november-2026)
+discloses the head-only architecture change and includes an unsent organizer
+question and presenter checklist.
+
 Federated adapter fine-tuning across ordinary laptops for IIT Bombay's **Efficient AI at Scale** hackathon problem.
 
 The original SmolLM2 experiment trains B-only LoRA adapters. The accuracy-recovery variant trains a small classifier head on frozen MPNet features; a separate MPNet B-plus-head trial is also implemented. The server validates updates, exposes contribution weights and commits only when enough valid replies arrive before the deadline. Head-only training is not called LoRA.
 
-**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 260 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
+**Current delivery: a runnable one-laptop prototype.** Deterministic BANKING77 preparation, real CPU/GPU frozen-A training, Flower applications, checkpointed rounds, a frozen-study launcher, and a dashboard are implemented. Actual process interruption, below-quorum retention, rejoining, and fresh offline deployment have been exercised. The full WSL environment passes 273 tests with no skips. See the measured results for learning comparisons; successful execution alone does not establish convergence or deployment across three physical laptops.
 
 Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop. The [implementation status](research/implementation-status.md) distinguishes tested behavior from remaining gates. Measured evidence and its limits belong in the [results register](research/results/README.md).
 
@@ -85,9 +94,11 @@ Start with the [morning demo guide](docs/morning-demo.md) on the prepared laptop
 Verified on **4 November 2026** using the [tested environments](requirements/README.md).
 The [handoff record](research/results/encoder-v2/handoff-verification.json)
 contains the run/checkpoint identities and hashes of the original check logs.
-The [latest delivery verification](research/results/rehearsal-evaluator-v1/verification.json)
-records 260 passing tests, a browser rehearsal, the empty-collection refusal and
-unchanged original, CLINC and scope evaluation locks. The
+The [latest delivery verification](research/results/combined-readiness-v1/verification.json)
+records 273 passing tests, bitwise functional parity for the paired scope path,
+the actual empty-collection refusal and unchanged original, CLINC and scope
+evaluation locks. The [previous rehearsal delivery](research/results/rehearsal-evaluator-v1/verification.json)
+preserves 260 passing tests and the ten-observation browser rehearsal. The
 [previous extension](research/results/demo-extension-v1/verification.json)
 records 246 passing tests, the preflight, narrated backup and resource study. The
 [previous demo delivery](research/results/demo-delivery-v1/verification.json)
@@ -101,7 +112,8 @@ records three earlier checks for training data boundaries and frozen layers.
 
 | Verification | Observed result | Scope |
 | --- | --- | --- |
-| Full automated suite, Ubuntu WSL2 | **260 passed, 0 failed, 0 skipped** in 26.109 s | Existing checks plus fresh-evaluation publication, record integrity, once-only inference, metrics and FP32 boundary fixtures |
+| Full automated suite, Ubuntu WSL2 | **273 passed, 0 failed, 0 skipped** in 43.857 s | Includes paired-policy publication, shared query-exposure guards, provenance, domain coverage costs and FP32/FP64 boundary fixtures |
+| Paired inference functional smoke, Windows CPU | **Eight checks passed on 18 authored unlabeled probes** | Bitwise logits/scope scores and decisions, long-input truncation, one shared encoder pass and frozen identities; no accuracy labels or fresh evaluation |
 | Fresh-server browser rehearsal | **Ten functional observations passed** | Live/blank/ambiguous input, recorded three/five-client recovery, comparisons, supported intents and browser video playback; no human rehearsal or new accuracy score |
 | New evaluation gate | **Empty real collection refused with exit 2** | Zero human queries; no evaluation lock, inference or exposure claims created |
 | Automated demo preflight | **All five checks passed** | Dependencies, published evidence, matching dashboard configuration, confirmed checkpoint and actual offline functional inference |

@@ -35,6 +35,11 @@ SmolLM2 LoRA benchmark retain separate identities.
   evaluator has fixture coverage for frozen inputs, publication and one-time
   scoring. The actual empty collection was refused before a lock or inference.
   No independent human data or new accuracy result was produced.
+- A separate [combined evaluation runner](fresh-scope-evaluation.md) prepares
+  a single locked comparison of the fixed margin alone and the same margin plus
+  the fixed scope detector. It records prevented errors and lost correct answers,
+  with shared one-time query claims. Software readiness is separate from the
+  still-pending fresh comparison; the confirmed demo remains unchanged.
 - [Isolated Flower rehearsals](../research/results/remaining-work-v1/README.md)
   passed three/five-client dropout, deliberate quorum loss and fresh rejoining.
   Fresh offline three-client startup also passed; these are same-host results.
@@ -61,7 +66,10 @@ Done when the presenter can complete the sequence, recover the launch if it
 fails, and answer why a head-only variant differs from LoRA. Code checks do not
 replace this human rehearsal. Verify scope continuity with the organizers if
 required by the submitted abstract; do not assume approval of an architecture
-change or that the Round 1 scoring weights apply to finals.
+change or that the Round 1 scoring weights apply to finals. The
+[4 November alignment addendum](../research/abstract-alignment.md#current-alignment-addendum--4-november-2026)
+maps the working prototype to the uploaded abstract and provides a portal
+question the team leader can submit. No organizer approval is recorded.
 
 ## 2. Use three physical laptops
 
@@ -84,10 +92,15 @@ before selecting a cheaper schedule. The local study excludes encoder preparatio
 
 Use the [fresh evaluation protocol](fresh-evaluation.md) and the executable
 [collection kit](fresh-query-collection.md). The
-[new runner](fresh-evaluation-runner.md) initially evaluates only the unchanged
-confirmed head and fixed clarification rule. A combined scope comparison needs
-its own declared implementation and lock before exposing a fresh collection;
-do not score the baseline first and then tune a combined policy on those results.
+[head-only runner](fresh-evaluation-runner.md) evaluates only the unchanged
+confirmed head and fixed clarification rule. Use the separate
+[combined runner](fresh-scope-evaluation.md) to compare that rule with the frozen
+scope detector in one inference pass, after locking and publishing both policies.
+Its protocol requires at least 400 reviewed human supported queries (20 per
+intent) and 200 reviewed human unsupported queries. This is an exploratory
+collection quota, not a power calculation or a representative traffic mix.
+Neither runner may reuse queries already claimed by the other. Do not score the
+baseline first and then tune a combined policy on those results.
 The 300-query
 confirmation, original final test, CLINC set and 2,279-query scope test have all
 been scored. They are evidence, not new model-selection resources.

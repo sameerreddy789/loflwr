@@ -1,0 +1,56 @@
+{
+  "kind": "authored_unlabeled_scope_parity_v1",
+  "status": "passed",
+  "probes": 18,
+  "probe_hash": "9ab9999c0b47a22983e0ade926373cb538d0e131ea0557bc1955b433de646091",
+  "checks": {
+    "head_logits_bitwise_equal": true,
+    "scope_scores_bitwise_equal": true,
+    "head_decisions_equal": true,
+    "scope_decisions_equal": true,
+    "truncation_count_equal": true,
+    "one_shared_encoder_pass": true,
+    "head_identity_unchanged": true,
+    "frozen_contract_unchanged": true
+  },
+  "scope": "Functional parity only; no labels, no independent accuracy and no old test-query inference",
+  "encoder_forward_calls_in_paired_path": 2,
+  "batch_size": 16,
+  "head_max_absolute_difference": 0.0,
+  "scope_max_absolute_difference": 0.0,
+  "truncated_probes": 1,
+  "head_hash": "d85f8e14a62ebaa092c7a1e173e74e5c35a3c6dd59258c08252626f7d6cd7312",
+  "scope_model_sha256": "c9517050df871bd5abc29eec9bdb5f12ed0299f6feca86f0ac0412a4827e9bbc",
+  "scope_lock": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa",
+  "requested_torch_threads": 2,
+  "effective_torch_threads": 1,
+  "runtime": {
+    "python": "3.11.15",
+    "platform": "win32",
+    "packages": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1",
+      "peft": "0.17.1",
+      "tokenizers": "0.22.2",
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0"
+    },
+    "numpy_build": "Build Dependencies:\n  blas:\n    detection method: pkgconfig\n    found: true\n    include directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-6ukx7exl/cp311-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\n    lib directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-6ukx7exl/cp311-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\n    name: scipy-openblas\n    openblas configuration: OpenBLAS 0.3.31.188.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n      SkylakeX MAX_THREADS=24\n    pc file directory: D:/a/numpy-release/numpy-release/.openblas\n    version: 0.3.31.188.0\n  lapack:\n    detection method: pkgconfig\n    found: true\n    include directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-6ukx7exl/cp311-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\n    lib directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-6ukx7exl/cp311-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\n    name: scipy-openblas\n    openblas configuration: OpenBLAS 0.3.31.188.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY\n      SkylakeX MAX_THREADS=24\n    pc file directory: D:/a/numpy-release/numpy-release/.openblas\n    version: 0.3.31.188.0\nCompilers:\n  c:\n    commands: cl\n    linker: link\n    name: msvc\n    version: 19.44.35226\n  c++:\n    commands: cl\n    linker: link\n    name: msvc\n    version: 19.44.35226\n  cython:\n    commands: cython\n    linker: cython\n    name: cython\n    version: 3.2.4\nMachine Information:\n  build:\n    cpu: x86_64\n    endian: little\n    family: x86_64\n    system: windows\n  host:\n    cpu: x86_64\n    endian: little\n    family: x86_64\n    system: windows\nPython Information:\n  path: C:\\Users\\runneradmin\\AppData\\Local\\Temp\\build-env-jxn7bo0g\\Scripts\\python.exe\n  version: '3.11'\nSIMD Extensions:\n  baseline:\n  - X86_V2\n  found:\n  - X86_V3\n\n",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    }
+  },
+  "seconds": 38.427410199990845,
+  "source_hashes": {
+    "tools/check_fresh_scope_parity.py": "b742a0d64c609be0e84c5895732505c23e8756f6f76c32a7699669f6ef7054ea",
+    "tools/evaluate_fresh_scope.py": "932e9bad7efff2d5dac8a0eb7dae7361bef45017ab27241ccba01cbe1eaff7ea",
+    "fedlora_edge/encoder_inference.py": "6922a427f637e61611dc06c3107f8cb80907ac5c9076012817263c5fc40914df",
+    "fedlora_edge/encoder_local_data.py": "ae1c13373715463ef39d26fde29c472a301cd8e6db04ef906f521354f52dd08c",
+    "fedlora_edge/encoder_head.py": "17480b5a436b6b39f3a9c71e1c247d924cc730f7fac0dffeb1da7be703e4748b"
+  }
+}

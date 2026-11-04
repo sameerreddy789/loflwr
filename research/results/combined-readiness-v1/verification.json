@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-04",
+  "delivery_id": "combined-readiness-v1",
+  "baseline_commit": "d84886bdb1b87519f2204f8b85fa93ccc30d3e57",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests",
+    "environment": "Ubuntu WSL2 /home/sameer/.venvs/loflwr/bin/python",
+    "passed": 273,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 43.857,
+    "log": "runs/combined-evaluator-readiness-v1/full-tests.log",
+    "log_sha256": "c44d9591e69502c2667108dd9648b47ba1dab98a6cf1c12ebd9cc0bf5c4d66fa"
+  },
+  "focused_tests": {
+    "command": "python -m unittest discover -s tests -p test_fresh_scope_evaluation.py",
+    "environment": "Prepared Windows CPU Python",
+    "passed": 13,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 18.933,
+    "scope": "Synthetic fixtures; subset of the full suite, not additional unique tests"
+  },
+  "frozen_integrity": {
+    "original_lock": "81fedc0777a0c98f02d071b9dd3adaef862c52c538a165ccc75d2b4f01187681",
+    "original_files": 24,
+    "external_lock": "68b9f588375d58d30148eb61d799e50ab6cb446be1f4b140fb853bc72fddee46",
+    "external_files": 36,
+    "scope_lock": "d5944ea9ec76a14c67870421ba782425d65245e3ed35207ff83660ba3ac0c7aa",
+    "scope_files": 40,
+    "combined_model_contract_files_verified": 53
+  },
+  "functional_parity": {
+    "report": "research/results/combined-readiness-v1/parity.json",
+    "sha256": "9fad74be2bf30c613d598f74bd4aa4e196038766d6b20d545550be0f995e6242",
+    "authored_unlabeled_probes": 18,
+    "checks_passed": 8,
+    "runtime_after_model_matches_new_process": true,
+    "new_accuracy_result": false
+  },
+  "fresh_collection": {
+    "report": "research/results/combined-readiness-v1/empty-collection-check.json",
+    "sha256": "185b5fab0d8b66cd3adddd2cf4f2ccc948d86ca153cd3362f93d4fe8846317ca",
+    "submitted": 0,
+    "required_human_supported": 400,
+    "required_human_unsupported": 200,
+    "prepare_exit_code": 2,
+    "claims_created": false,
+    "inference": false
+  },
+  "remaining": {
+    "physical_laptops_available": 1,
+    "physical_laptops_required": 3,
+    "human_presentation_rehearsal": "pending",
+    "fresh_paired_evaluation": "pending human collection",
+    "organizer_scope_acceptance": "unverified; unsent portal draft prepared"
+  },
+  "source_hashes": {
+    "README.md": "621108d57b629cfe08e057cc2cb98f9dd5b0a8103454953450c605eca836fef4",
+    "docs/fresh-scope-evaluation.md": "36e51c1f91884bb4b52e5491644250a6a01c4d5868e2452034a24c24a619b454",
+    "docs/future-plans.md": "649ac20a21a7ddf8a4d6ba6b3be449671197ddc1d6a7d38cd8ef4e4f23a64cc0",
+    "docs/remaining-work-plan.md": "2df32773e14c995773439f6050ab279c7b394f1bb89f9b51d3f71ea7828bc416",
+    "docs/judging-presentation.md": "a896ea25967c2d807e1db04cacba7e79eec63510ce931c2d1a205d8022b9a227",
+    "research/abstract-alignment.md": "f69dd7a48b3fc250f741eb4ab2c43f23720b64a3b4ad93104b3fd5f884634e4f",
+    "research/implementation-status.md": "50ca9e735fa2900ed6e46c12880c3e6454763a97a10621804f67689022edc31e",
+    "research/results/README.md": "cf181a03fc199743639cbaf162bedf5c82b53067e8f42170e93fb5e0e041ef82",
+    "research/results/combined-readiness-v1/README.md": "3c9694215f8aea11a7154972f3224a28e4a789b1a310f57bc551b6b33ee29b01",
+    "tools/README.md": "d661d573615da524a4f80b420c09bc9d02d740830fb2c529917dbb48c276bde8",
+    "tools/evaluate_fresh_scope.py": "932e9bad7efff2d5dac8a0eb7dae7361bef45017ab27241ccba01cbe1eaff7ea",
+    "tools/check_fresh_scope_parity.py": "b742a0d64c609be0e84c5895732505c23e8756f6f76c32a7699669f6ef7054ea",
+    "tests/test_fresh_scope_evaluation.py": "cd03ec62d509cc52b2c5d930b137477744c5957c6acf8148db722233d59742c5"
+  }
+}
